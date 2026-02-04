@@ -3991,15 +3991,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <textarea id="productDescription" class="form-textarea" placeholder="Describe el producto..." required></textarea>
                     </div>
                     
-                    <!-- Tallas o Variantes (para ropa y accesorios) -->
-                    <div class="form-group-admin" id="tallasContainer" style="display: none;">
-                        <label class="form-label-admin">
-                            <i class="fas fa-ruler"></i> Tallas o Variantes (separadas por comas):
-                        </label>
-                        <input type="text" id="productTallas" class="form-input-admin" placeholder="Ej: S, M, L, XL | Pequeño, Mediano, Grande">
-                    </div>
-                    
-                    <!-- Variantes (para juguetes y hogar) -->
+                    <!-- Campo dinámico para variantes - SOLO UNO VISIBLE -->
                     <div class="form-group-admin" id="variantesContainer" style="display: none;">
                         <label class="form-label-admin">
                             <i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):
@@ -5614,7 +5606,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
             // ==================== FIN GESTIÓN DE CATEGORÍAS ====================
             
             actualizarCamposPorCategoria(categoriaId) {
-                const tallasContainer = document.getElementById('tallasContainer');
                 const variantesContainer = document.getElementById('variantesContainer');
                 
                 // Buscar la categoría
@@ -5622,21 +5613,72 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 
                 if (!categoria) return;
                 
-                // Para categorías existentes, mantener el comportamiento original
-                if (categoriaId === 'ropa' || categoriaId === 'hombre') {
-                    tallasContainer.style.display = 'block';
-                    variantesContainer.style.display = 'none';
-                } else if (categoriaId === 'accesorios') {
-                    // Accesorios también pueden tener variantes
-                    tallasContainer.style.display = 'block';
-                    variantesContainer.style.display = 'none';
-                } else if (categoriaId === 'juguetes' || categoriaId === 'hogar') {
-                    tallasContainer.style.display = 'none';
+                // Determinar qué campos mostrar según la categoría
+                const esRopa = categoriaId === 'ropa' || categoriaId === 'hombre';
+                const esAccesorio = categoriaId === 'accesorios';
+                const esJuguete = categoriaId === 'juguetes';
+                const esHogar = categoriaId === 'hogar';
+                const esPredefinida = esRopa || esAccesorio || esJuguete || esHogar;
+                
+                if (esRopa) {
+                    // Ropa y Hombre: usar "Tallas o Variantes"
                     variantesContainer.style.display = 'block';
+                    
+                    // Actualizar etiqueta según categoría
+                    const label = variantesContainer.querySelector('.form-label-admin');
+                    if (label) {
+                        label.innerHTML = '<i class="fas fa-ruler"></i> Tallas (separadas por comas):';
+                    }
+                    
+                    // Actualizar placeholder según categoría
+                    const input = variantesContainer.querySelector('.form-input-admin');
+                    if (input) {
+                        input.placeholder = 'Ej: S, M, L, XL';
+                        input.id = 'productVariantes';
+                    }
+                } else if (esAccesorio) {
+                    // Accesorios: usar "Variantes/Tamaños"
+                    variantesContainer.style.display = 'block';
+                    
+                    const label = variantesContainer.querySelector('.form-label-admin');
+                    if (label) {
+                        label.innerHTML = '<i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):';
+                    }
+                    
+                    const input = variantesContainer.querySelector('.form-input-admin');
+                    if (input) {
+                        input.placeholder = 'Ej: Pequeño, Mediano, Grande | 10cm, 20cm, 30cm';
+                        input.id = 'productVariantes';
+                    }
+                } else if (esJuguete || esHogar) {
+                    // Juguetes y Hogar: usar "Variantes/Tamaños"
+                    variantesContainer.style.display = 'block';
+                    
+                    const label = variantesContainer.querySelector('.form-label-admin');
+                    if (label) {
+                        label.innerHTML = '<i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):';
+                    }
+                    
+                    const input = variantesContainer.querySelector('.form-input-admin');
+                    if (input) {
+                        input.placeholder = 'Ej: Pequeño, Mediano, Grande | Individual, Matrimonial';
+                        input.id = 'productVariantes';
+                    }
                 } else {
-                    // Para nuevas categorías, mostrar ambos campos y dejar que el administrador decida
-                    tallasContainer.style.display = 'block';
+                    // CATEGORÍAS DINÁMICAS: Mostrar solo UN campo
                     variantesContainer.style.display = 'block';
+                    
+                    // Por defecto para categorías dinámicas, usar "Variantes/Tamaños"
+                    const label = variantesContainer.querySelector('.form-label-admin');
+                    if (label) {
+                        label.innerHTML = '<i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):';
+                    }
+                    
+                    const input = variantesContainer.querySelector('.form-input-admin');
+                    if (input) {
+                        input.placeholder = 'Ej: Tamaño Único, Pequeño/Mediano/Grande, 10cm/20cm/30cm';
+                        input.id = 'productVariantes';
+                    }
                 }
             }
             
@@ -5708,7 +5750,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 this.renderStock();
                 
                 // Ocultar campos específicos
-                document.getElementById('tallasContainer').style.display = 'none';
                 document.getElementById('variantesContainer').style.display = 'none';
                 
                 // Cambiar texto del botón
@@ -5740,17 +5781,14 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 // Actualizar campos según categoría
                 this.actualizarCamposPorCategoria(producto.categoria);
                 
-                if ((producto.categoria === 'ropa' && producto.tallas) || 
-                    (producto.categoria === 'accesorios' && producto.variantes) ||
-                    (producto.categoria === 'hombre' && producto.tallas)) {
-                    document.getElementById('productTallas').value = producto.tallas ? producto.tallas.join(', ') : 
-                                                                    producto.variantes ? producto.variantes.join(', ') : '';
-                }
-                
-                if ((producto.categoria === 'juguetes' || producto.categoria === 'hogar') && producto.variantes) {
+                // Cargar variantes/tallas
+                if (producto.variantes) {
                     document.getElementById('productVariantes').value = producto.variantes.join(', ');
+                } else if (producto.tallas) {
+                    document.getElementById('productVariantes').value = producto.tallas.join(', ');
                 }
                 
+                // Colores
                 if (producto.colores) {
                     document.getElementById('productColores').value = producto.colores.join(', ');
                 }
@@ -5844,24 +5882,18 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     });
                 }
                 
-                // Procesar tallas o variantes para ropa, hombre y accesorios
-                let tallas = [];
+                // Procesar variantes/tallas
                 let variantes = [];
+                const esRopa = categoria === 'ropa' || categoria === 'hombre';
                 
-                if (categoria === 'ropa' || categoria === 'accesorios' || categoria === 'hombre') {
-                    const tallasText = document.getElementById('productTallas').value.trim();
-                    if (tallasText) {
-                        if (categoria === 'ropa' || categoria === 'hombre') {
-                            tallas = tallasText.split(',').map(t => t.trim()).filter(t => t);
-                        } else {
-                            // Para accesorios, usar variantes
-                            variantes = tallasText.split(',').map(v => v.trim()).filter(v => v);
-                        }
+                if (esRopa) {
+                    // Para ropa y hombre, llamamos "tallas"
+                    const variantesText = document.getElementById('productVariantes').value.trim();
+                    if (variantesText) {
+                        variantes = variantesText.split(',').map(v => v.trim()).filter(v => v);
                     }
-                }
-                
-                // Procesar variantes para juguetes y hogar
-                if (categoria === 'juguetes' || categoria === 'hogar') {
+                } else {
+                    // Para todas las demás categorías (accesorios, juguetes, hogar, dinámicas)
                     const variantesText = document.getElementById('productVariantes').value.trim();
                     if (variantesText) {
                         variantes = variantesText.split(',').map(v => v.trim()).filter(v => v);
@@ -5878,9 +5910,9 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 // Procesar stock
                 const stock = {};
                 
-                if (categoria === 'ropa' || categoria === 'hombre') {
+                if (esRopa) {
                     // Stock para ropa y hombre: talla -> color -> cantidad
-                    tallas.forEach(talla => {
+                    variantes.forEach(talla => {
                         stock[talla] = {};
                         colores.forEach(color => {
                             // Buscar en stockItems
@@ -5969,8 +6001,8 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         });
                     });
                 } else {
-                    // Stock simple: variante -> cantidad
-                    const items = variantes.length > 0 ? variantes : (categoria === 'accesorios' ? ['Único'] : ['Estándar']);
+                    // Stock simple: variante -> cantidad (para categorías dinámicas)
+                    const items = variantes.length > 0 ? variantes : ['Estándar'];
                     
                     items.forEach(item => {
                         const stockItem = this.stockItems.find(si => {
@@ -6004,11 +6036,9 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 };
                 
                 // Agregar campos específicos por categoría
-                if ((categoria === 'ropa' || categoria === 'hombre') && tallas.length > 0) {
-                    nuevoProducto.tallas = tallas;
-                }
-                
-                if ((categoria === 'accesorios' || categoria === 'juguetes' || categoria === 'hogar') && variantes.length > 0) {
+                if (esRopa) {
+                    nuevoProducto.tallas = variantes;
+                } else {
                     nuevoProducto.variantes = variantes;
                 }
                 
@@ -7329,25 +7359,15 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     
                     // Generar opciones de tallas/variantes
                     let variantOptions = '';
-                    if (product.tallas && product.tallas.length > 0) {
+                    const variantes = product.tallas || product.variantes || [];
+                    
+                    if (variantes.length > 0) {
+                        const labelText = product.categoria === 'ropa' || product.categoria === 'hombre' ? 'Selecciona talla:' : 'Selecciona tamaño:';
                         variantOptions = `
                             <div class="variant-selector">
-                                <div class="variant-label">Selecciona talla:</div>
+                                <div class="variant-label">${labelText}</div>
                                 <div class="variant-options">
-                                    ${product.tallas.map(talla => `
-                                        <button class="variant-btn" data-variant="${talla}" style="border-color: ${categoriaColor}">
-                                            ${talla}
-                                        </button>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `;
-                    } else if (product.variantes && product.variantes.length > 0) {
-                        variantOptions = `
-                            <div class="variant-selector">
-                                <div class="variant-label">Selecciona tamaño:</div>
-                                <div class="variant-options">
-                                    ${product.variantes.map(variant => `
+                                    ${variantes.map(variant => `
                                         <button class="variant-btn" data-variant="${variant}" style="border-color: ${categoriaColor}">
                                             ${variant}
                                         </button>
@@ -7453,10 +7473,9 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         let selectedColor = 'N/A';
                         
                         // Si no hay selección de variante, usar la primera disponible
-                        if (!variantBtn && product.tallas && product.tallas.length > 0) {
-                            selectedVariant = product.tallas[0];
-                        } else if (!variantBtn && product.variantes && product.variantes.length > 0) {
-                            selectedVariant = product.variantes[0];
+                        const variantes = product.tallas || product.variantes || [];
+                        if (!variantBtn && variantes.length > 0) {
+                            selectedVariant = variantes[0];
                         } else if (variantBtn) {
                             selectedVariant = variantBtn.dataset.variant;
                         }
