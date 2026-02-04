@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaStyle - Tienda de Ropa, Accesorios y Hogar</title>
@@ -3219,6 +3217,75 @@
             transform: scale(1.1);
         }
 
+        /* Nuevos estilos para el sistema flexible de variantes */
+        .format-guide {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .format-guide small {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .format-example {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 4px;
+            color: var(--admin);
+            font-family: 'Consolas', monospace;
+            display: none;
+        }
+
+        .format-example.active {
+            display: block;
+        }
+
+        .stock-input-help {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .stock-input-help i {
+            color: var(--admin);
+        }
+
+        .variant-type-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .variant-type-simple {
+            background: rgba(46, 139, 87, 0.1);
+            color: var(--success);
+        }
+
+        .variant-type-color {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+        }
+
+        .variant-type-custom {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--admin);
+        }
+
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -3392,7 +3459,7 @@
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
-                    transition: var(--transition);
+                transition: var(--transition);
                 z-index: 999;
             }
             
@@ -3754,7 +3821,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="overflow: hidden;">
     <!-- Modal de Imagen Ampliada -->
     <div class="image-modal-overlay" id="imageModal">
         <div class="image-modal">
@@ -3785,7 +3852,7 @@
                     <label class="form-label-admin">
                         <i class="fas fa-key"></i> PIN de Acceso:
                     </label>
-                    <input type="password" id="pinInput" class="form-input-admin" maxlength="6" placeholder="Ingresa el PIN de 6 dígitos" required>
+                    <input type="password" id="pinInput" class="form-input-admin" maxlength="6" placeholder="Ingresa el PIN de 6 dígitos" required="">
                 </div>
                 
                 <div class="status-message status-success" id="authMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>PIN correcto. Accediendo al panel...</span></div>
@@ -3805,7 +3872,7 @@
     </div>
 
     <!-- Panel de Administración -->
-    <div class="admin-panel" id="adminPanel">
+    <div class="admin-panel open" id="adminPanel">
         <div class="admin-header">
             <h2 class="admin-title">
                 <i class="fas fa-cogs"></i>
@@ -3818,7 +3885,7 @@
         
         <div class="admin-content">
             <div class="admin-tabs">
-                <button class="admin-tab active" data-tab="products">
+                <button class="admin-tab" data-tab="products">
                     <i class="fas fa-box"></i> Productos
                 </button>
                 <button class="admin-tab" data-tab="add">
@@ -3830,7 +3897,7 @@
                 <button class="admin-tab" data-tab="stats">
                     <i class="fas fa-chart-bar"></i> Estadísticas
                 </button>
-                <button class="admin-tab" data-tab="export">
+                <button class="admin-tab active" data-tab="export">
                     <i class="fas fa-download"></i> Exportar
                 </button>
             </div>
@@ -3847,7 +3914,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-boxes"></i>
                         </div>
-                        <div class="stat-value" id="totalProducts">8</div>
+                        <div class="stat-value" id="totalProducts">6</div>
                         <div class="stat-label">Productos Totales</div>
                     </div>
                     
@@ -3855,7 +3922,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-tshirt"></i>
                         </div>
-                        <div class="stat-value" id="ropaProducts">2</div>
+                        <div class="stat-value" id="ropaProducts">0</div>
                         <div class="stat-label">Productos de Ropa</div>
                     </div>
                     
@@ -3863,7 +3930,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-briefcase"></i>
                         </div>
-                        <div class="stat-value" id="accesoriosProducts">1</div>
+                        <div class="stat-value" id="accesoriosProducts">0</div>
                         <div class="stat-label">Accesorios</div>
                     </div>
                     
@@ -3871,7 +3938,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-gamepad"></i>
                         </div>
-                        <div class="stat-value" id="juguetesProducts">3</div>
+                        <div class="stat-value" id="juguetesProducts">2</div>
                         <div class="stat-label">Juguetes</div>
                     </div>
 
@@ -3879,7 +3946,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-home"></i>
                         </div>
-                        <div class="stat-value" id="hogarProducts">1</div>
+                        <div class="stat-value" id="hogarProducts">0</div>
                         <div class="stat-label">Hogar</div>
                     </div>
 
@@ -3887,7 +3954,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <div class="stat-value" id="hombreProducts">1</div>
+                        <div class="stat-value" id="hombreProducts">0</div>
                         <div class="stat-label">Hombre</div>
                     </div>
                 </div>
@@ -3899,7 +3966,7 @@
             </div>
             
             <!-- Sección de Lista de Productos -->
-            <div class="admin-section active" id="productsSection">
+            <div class="admin-section" id="productsSection">
                 <h3 class="section-title-admin">
                     <i class="fas fa-list"></i>
                     Lista de Productos
@@ -3911,11 +3978,129 @@
                 </div>
                 
                 <div class="products-list-admin" id="productsListAdmin">
-                    <!-- Los productos se cargarán dinámicamente aquí -->
-                </div>
+                        <div class="product-item-admin" data-product-id="1" draggable="true">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp" alt="SUDADERA" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">SUDADERA <span class="variant-type-badge variant-type-simple">SIMPLE</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    SUDADERA | Hombre 2
+                                </div>
+                                <div class="product-price-admin">$200</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(1)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(1)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="product-item-admin" data-product-id="2" draggable="true">
+                            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Jeans Slim Fit Elite" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">Jeans Slim Fit Elite <span class="variant-type-badge variant-type-color">COLOR</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    Pantalones | Hombre 2
+                                </div>
+                                <div class="product-price-admin">$350</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(2)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(2)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="product-item-admin" data-product-id="7" draggable="true">
+                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Peluche Oso Teddy Premium" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">Peluche Oso Teddy Premium <span class="variant-type-badge variant-type-color">COLOR</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    Peluches | Juguetes
+                                </div>
+                                <div class="product-price-admin">$150</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(7)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(7)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="product-item-admin" data-product-id="9" draggable="true">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_798871-MLM94977048253_102025-F-peluche-grande-de-conejo-suave-con-zanahoria-50-cm.webp" alt="Peluche Conejito Suave" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">Peluche Conejito Suave <span class="variant-type-badge variant-type-color">COLOR</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    Peluches | Juguetes
+                                </div>
+                                <div class="product-price-admin">$100</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(9)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(9)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="product-item-admin" data-product-id="11" draggable="true">
+                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Camisa de Vestir para Hombre" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">Camisa de Vestir para Hombre <span class="variant-type-badge variant-type-color">COLOR</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    Camisas | Hombre 2
+                                </div>
+                                <div class="product-price-admin">$380</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(11)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(11)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="product-item-admin" data-product-id="12" draggable="true">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="playera" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">playera <span class="variant-type-badge variant-type-color">COLOR</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    playera casual | Hombre 2
+                                </div>
+                                <div class="product-price-admin">200</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(12)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(12)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
             </div>
             
-            <!-- Sección de Agregar Producto -->
+            <!-- Sección de Agregar Producto - CON SISTEMA FLEXIBLE DE VARIANTES -->
             <div class="admin-section" id="addSection">
                 <h3 class="section-title-admin">
                     <i class="fas fa-plus-circle"></i>
@@ -3930,17 +4115,14 @@
                             <label class="form-label-admin">
                                 <i class="fas fa-tag"></i> Nombre:
                             </label>
-                            <input type="text" id="productName" class="form-input-admin" placeholder="Nombre del producto" required>
+                            <input type="text" id="productName" class="form-input-admin" placeholder="Nombre del producto" required="">
                         </div>
                         
                         <div class="form-group-admin">
                             <label class="form-label-admin">
                                 <i class="fas fa-box"></i> Categoría:
                             </label>
-                            <select id="productCategory" class="form-select" required>
-                                <option value="">Selecciona categoría</option>
-                                <!-- Las categorías se cargarán dinámicamente -->
-                            </select>
+                            <select id="productCategory" class="form-select" required=""><option value="">Selecciona categoría</option><option value="hombre-2">Hombre 2</option><option value="juguetes">Juguetes</option></select>
                         </div>
                     </div>
                     
@@ -3949,14 +4131,14 @@
                             <label class="form-label-admin">
                                 <i class="fas fa-list"></i> Subcategoría:
                             </label>
-                            <input type="text" id="productSubcategory" class="form-input-admin" placeholder="Ej: Sudaderas, Mochilas, Peluches, Camas" required>
+                            <input type="text" id="productSubcategory" class="form-input-admin" placeholder="Ej: Sudaderas, Mochilas, Peluches, Camas" required="">
                         </div>
                         
                         <div class="form-group-admin">
                             <label class="form-label-admin">
                                 <i class="fas fa-dollar-sign"></i> Precio Regular:
                             </label>
-                            <input type="text" id="productPrice" class="form-input-admin" placeholder="Ej: $250" required>
+                            <input type="text" id="productPrice" class="form-input-admin" placeholder="Ej: $250" required="">
                         </div>
                     </div>
                     
@@ -3971,7 +4153,7 @@
                         <label class="form-label-admin">
                             <i class="fas fa-image"></i> URL de Imagen Principal:
                         </label>
-                        <input type="url" id="productImage" class="form-input-admin" placeholder="https://ejemplo.com/imagen.jpg" required>
+                        <input type="url" id="productImage" class="form-input-admin" placeholder="https://ejemplo.com/imagen.jpg" required="">
                     </div>
                     
                     <div class="form-group-admin">
@@ -3988,15 +4170,35 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <label class="form-label-admin">
                             <i class="fas fa-align-left"></i> Descripción:
                         </label>
-                        <textarea id="productDescription" class="form-textarea" placeholder="Describe el producto..." required></textarea>
+                        <textarea id="productDescription" class="form-textarea" placeholder="Describe el producto..." required=""></textarea>
                     </div>
                     
-                    <!-- Campo dinámico para variantes - SOLO UNO VISIBLE -->
-                    <div class="form-group-admin" id="variantesContainer" style="display: none;">
+                    <!-- Campo dinámico para variantes - VISIBLE PARA TODAS LAS CATEGORÍAS -->
+                    <div class="form-group-admin" id="variantesContainer" style="display: block;">
                         <label class="form-label-admin">
                             <i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):
                         </label>
-                        <input type="text" id="productVariantes" class="form-input-admin" placeholder="Ej: Pequeño, Mediano, Grande | Individual, Matrimonial">
+                        <input type="text" id="productVariantes" class="form-input-admin" placeholder="Ej: S, M, L, XL | Pequeño, Mediano, Grande">
+                    </div>
+                    
+                    <!-- SISTEMA FLEXIBLE DE TIPO DE VARIANTE -->
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">
+                            <i class="fas fa-cogs"></i> Tipo de Sistema de Variantes:
+                        </label>
+                        <select id="variantType" class="form-select" required="">
+                            <option value="simple">Simple (variante|cantidad)</option>
+                            <option value="color">Con Color (variante|color|cantidad)</option>
+                            <option value="custom">Personalizado (ej: tamaño|color|material|cantidad)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Guía de formato dinámica -->
+                    <div class="format-guide" id="formatGuide">
+                        <small>Guía de formato para cada tipo:</small>
+                        <div class="format-example active" data-type="simple">Ejemplo simple: S|2, M|3, L|4</div>
+                        <div class="format-example" data-type="color">Ejemplo con color: S|Negro|2, S|Azul|3, M|Negro|4</div>
+                        <div class="format-example" data-type="custom">Ejemplo personalizado: Pequeño|Rojo|Algodón|5, Grande|Azul|Lino|3</div>
                     </div>
                     
                     <!-- Colores -->
@@ -4027,7 +4229,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <label class="form-label-admin">
                             <i class="fas fa-star"></i> Estado:
                         </label>
-                        <select id="productEstado" class="form-select" required>
+                        <select id="productEstado" class="form-select" required="">
                             <option value="nuevo">Nuevo</option>
                             <option value="oferta">Oferta</option>
                             <option value="normal">Normal</option>
@@ -4035,21 +4237,22 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         </select>
                     </div>
                     
-                    <!-- Stock -->
+                    <!-- Stock CON SISTEMA FLEXIBLE -->
                     <div class="form-group-admin">
                         <label class="form-label-admin">
-                            <i class="fas fa-boxes"></i> Stock por variante/color:
+                            <i class="fas fa-boxes"></i> Stock (formato según tipo seleccionado):
                         </label>
                         <div class="multi-input-container">
-                            <input type="text" id="stockInput" class="multi-input" placeholder="Ej: S|Negro|2">
+                            <textarea id="stockInput" class="multi-input" placeholder="Ej: S|2, M|3, L|4" rows="3"></textarea>
                             <button type="button" class="add-btn" id="addStockBtn">
                                 <i class="fas fa-plus"></i>
                                 Agregar
                             </button>
                         </div>
-                        <small style="color: var(--text-light); font-size: 0.75rem;">
-                            Formato: Variante|Color|Cantidad. Para productos sin colores: Variante|Cantidad
-                        </small>
+                        <div class="stock-input-help" id="stockHelp">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Formato: variante|cantidad, separa con comas</span>
+                        </div>
                         <div class="tags-container" id="stockContainer"></div>
                     </div>
                     
@@ -4087,7 +4290,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                 <label class="form-label-admin">
                                     <i class="fas fa-tag"></i> Nombre de Categoría:
                                 </label>
-                                <input type="text" id="newCategoryName" class="form-input-admin" placeholder="Ej: Electrónica, Hogar, Deportes" required>
+                                <input type="text" id="newCategoryName" class="form-input-admin" placeholder="Ej: Electrónica, Hogar, Deportes" required="">
                             </div>
                             
                             <div class="form-group-admin">
@@ -4118,12 +4321,56 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 </h4>
                 
                 <div class="categories-list-admin" id="categoriesListAdmin">
-                    <!-- Las categorías se cargarán dinámicamente aquí -->
-                </div>
+                        <div class="category-item-admin" data-category-id="hombre-2" draggable="true">
+                            <div class="category-info-admin">
+                                <div class="category-icon-admin" style="background: #4d82ff;">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="category-details-admin">
+                                    <div class="category-name-admin">Hombre 2</div>
+                                    <div class="category-stats-admin">
+                                        <span class="category-product-count">4 productos</span>
+                                        <span class="category-color" style="background: #4d82ff;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-actions-admin">
+                                <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('hombre-2')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('hombre-2')" disabled="">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="category-item-admin" data-category-id="juguetes" draggable="true">
+                            <div class="category-info-admin">
+                                <div class="category-icon-admin" style="background: #FF6B8B;">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="category-details-admin">
+                                    <div class="category-name-admin">Juguetes</div>
+                                    <div class="category-stats-admin">
+                                        <span class="category-product-count">2 productos</span>
+                                        <span class="category-color" style="background: #FF6B8B;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-actions-admin">
+                                <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('juguetes')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('juguetes')" disabled="">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
             </div>
 
             <!-- Sección de Exportación -->
-            <div class="admin-section" id="exportSection">
+            <div class="admin-section active" id="exportSection">
                 <h3 class="section-title-admin">
                     <i class="fas fa-download"></i>
                     Exportar HTML Actualizado
@@ -4141,15 +4388,15 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         </label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="exportClean" checked>
+                                <input type="checkbox" id="exportClean" checked="">
                                 <span>Limpiar HTML (remover panel de administración)</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" id="exportMinify" checked>
+                                <input type="checkbox" id="exportMinify" checked="">
                                 <span>Minificar código (reducir tamaño)</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" id="exportIncludeData" checked>
+                                <input type="checkbox" id="exportIncludeData" checked="">
                                 <span>Incluir datos de productos</span>
                             </label>
                         </div>
@@ -4162,9 +4409,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                 <i class="fas fa-chevron-down"></i>
                             </button>
                         </div>
-                        <div class="code-preview" id="codePreview">
-                            <code>Vista previa del código generado...</code>
-                        </div>
+                        <div class="code-preview" id="codePreview"><code>&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;html lang="es"&gt;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;head&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;meta charset="UTF-8"&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;meta <span class="html-attr">name</span>="viewport" content="width=device-width, initial-scale=1.0"&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;title&gt;ModaStyle - Tienda de Ropa, Accesorios y Hogar&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;/title&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;style&gt;<br> &nbsp; &nbsp; &nbsp; &nbsp;:root {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* Paleta de colores elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--primary: #1a1a1a;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--secondary: #333333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent: #D4AF37; /* Oro elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent2: #4A90E2; /* Azul para accesorios */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent3: #FF6B8B; /* Rosa para juguetes */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent4: #2E8B57; /* Verde para hogar */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent5: #8A2BE2; /* Violeta para HOMBRE */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--light: #f8f8f8;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--medium: #e0e0e0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--dark: #0a0a0a;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--text: #333333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--text-light: #666666;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--success: #2e8b57;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--warning: #ffa500;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--error: #cc3333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--admin: #8B5CF6; /* Color para admin */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* Variables de diseño */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--border-radius: 8px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--border-radius-sm: 4px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--shadow: 0 2px 8px rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--container-width: 1200px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--header-height: 60px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Reset y estilos base */<br> &nbsp; &nbsp; &nbsp; &nbsp;* {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-sizing: border-box;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;html {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;scroll-behavior: smooth;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 14px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;body {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: var(--light);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: var(--text);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;line-height: 1.4;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;overflow-x: hidden;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.container {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;max-width: var(--container-width);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin: 0 auto;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 0 15px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Header elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp;.main-header {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: fixed;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;top: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;left: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;right: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: rgba(255, 255, 255, 0.98);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;backdrop-filter: blur(10px);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: var(--header-height);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z-index: 1000;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-bottom: 1px solid rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.header-content {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;justify-content: space-between;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 100%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 15px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 8px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text-decoration: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: var(--primary);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;flex-shrink: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo-icon {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 30px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 30px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--primary), var(--accent));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: 50%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;justify-content: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: white;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: bold;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.8rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 4px rgba(212, 175, 55, 0.3);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo-text {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 1.1rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: 700;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;letter-spacing: -0.5px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--primary), var(--accent));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-webkit-background-clip: text;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-clip: text;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: transparent;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Botón de Administración */<br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--admin), #7C3AED);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: white;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: var(--border-radius-sm);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 8px 16px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: 600;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cursor: pointer;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: var(--transition);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.85rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 6px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 4px rgba(139, 92, 246, 0.3);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-left: auto;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-right: 10px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn:hover {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, #7C3AED, var(--admin));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transform: translateY(-1px);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 3px 8px rgba(139, 92, 246, 0.4);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn i {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.9rem;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* BARRA DE BÚSQUEDA */<br> &nbsp; &nbsp; &nbsp; &nbsp;.search-container {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;flex: 1;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;max-width: 300px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: relative;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.search-box {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 100%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 8px 12px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding-left: 35px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: 1px solid var(--medium);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: var(--border-radius);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: var(--light);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-family: inherit;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.85rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: var(--transition);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.search-box:focus {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;outline: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br><br>... (HTML truncado para vista previa) ...</code></div>
                     </div>
                     
                     <div class="form-actions">
@@ -4317,7 +4562,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 </div>
 
                 <div class="category-card" onclick="filterProducts('hombre')">
-                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hombre" class="category-image">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Hombre" class="category-image">
                     <div class="category-overlay">
                         <h3 class="category-title">Hombre</h3>
                         <p class="category-description">Ropa y accesorios exclusivos para hombre</p>
@@ -4339,13 +4584,360 @@ Dejar vacío si no hay imágenes por color"></textarea>
             </div>
             
             <!-- Filtros de categoría -->
-            <div class="category-filters" id="categoryFilters">
-                <!-- Los filtros se cargarán dinámicamente aquí -->
-            </div>
+            <div class="category-filters" id="categoryFilters"><button class="category-filter" onclick="filterProducts('todos')" style="background: var(--accent); color: white; border-color: var(--accent);">Todos</button>
+                        <button class="category-filter dinamica active" onclick="filterProducts('hombre-2')" data-color="#4d82ff" style="background: rgb(77, 130, 255); color: white; border-color: rgb(77, 130, 255);">
+                            Hombre 2
+                        </button>
+                    
+                        <button class="category-filter juguetes" onclick="filterProducts('juguetes')" data-color="#FF6B8B">
+                            Juguetes
+                        </button>
+                    </div>
             
             <div class="products-grid" id="productsGrid">
-                <!-- Los productos se cargarán dinámicamente aquí -->
-            </div>
+                        <div class="product-card hombre-2" style="animation-delay: 0s" data-product-id="1">
+                            <div class="product-image-container">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp" alt="SUDADERA" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp', 'SUDADERA', 'hombre-2')">
+                                <div class="product-badge oferta hombre-2">OFERTA</div>
+                            </div>
+                            
+                            <div class="product-info">
+                                <div class="product-category hombre-2" style="color: #4d82ff">
+                                    <i class="fas fa-tag"></i>
+                                    SUDADERA
+                                </div>
+                                
+                                <h3 class="product-title">SUDADERA</h3>
+                                
+                                <div class="product-price-container">
+                                    
+                                        <div class="sale-price-container">
+                                            <div class="original-price">$250</div>
+                                            <div class="sale-price" style="color: #4d82ff">$200</div>
+                                            <div class="discount-badge">OFERTA</div>
+                                        </div>
+                                    
+                                </div>
+                                
+                                <p class="product-description">
+                                    La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.
+                                </p>
+                                
+                                
+                                    <div class="product-features">
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>100% algodón egipcio</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Corte regular</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Cuello redondo reforzado</span>
+                                            </div>
+                                        
+                                    </div>
+                                
+                                
+                                
+                            <div class="variant-selector">
+                                <div class="variant-label">Selecciona variante:</div>
+                                <div class="variant-options">
+                                    
+                                        <button class="variant-btn selected" data-variant="S" style="border-color: #4d82ff">
+                                            S
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-variant="M" style="border-color: #4d82ff">
+                                            M
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-variant="L" style="border-color: #4d82ff">
+                                            L
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                                
+                                
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" data-product-id="1" data-variant-type="simple" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        AGREGAR AL CARRITO
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="product-card hombre-2" style="animation-delay: 0.05s" data-product-id="2">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Jeans Slim Fit Elite" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80', 'Jeans Slim Fit Elite', 'hombre-2')">
+                                <div class="product-badge nuevo hombre-2">NUEVO</div>
+                            </div>
+                            
+                            <div class="product-info">
+                                <div class="product-category hombre-2" style="color: #4d82ff">
+                                    <i class="fas fa-tag"></i>
+                                    Pantalones
+                                </div>
+                                
+                                <h3 class="product-title">Jeans Slim Fit Elite</h3>
+                                
+                                <div class="product-price-container">
+                                    
+                                        <div class="regular-price">$350</div>
+                                    
+                                </div>
+                                
+                                <p class="product-description">
+                                    Jeans de corte slim que se ajustan perfectamente a tu figura sin sacrificar la comodidad.
+                                </p>
+                                
+                                
+                                    <div class="product-features">
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Denim elastano premium</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Corte slim fit</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Lavado especial</span>
+                                            </div>
+                                        
+                                    </div>
+                                
+                                
+                                
+                            <div class="variant-selector">
+                                <div class="variant-label">Selecciona tamaño:</div>
+                                <div class="variant-options">
+                                    
+                                        <button class="variant-btn selected" data-variant="Corto" style="border-color: #4d82ff">
+                                            Corto
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-variant="Grande" style="border-color: #4d82ff">
+                                            Grande
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                            <div class="color-selector">
+                                <div class="variant-label">Selecciona color:</div>
+                                <div class="color-options">
+                                    
+                                        <button class="color-btn selected" data-color="Negro" style="border-color: #4d82ff">
+                                            Negro
+                                        </button>
+                                    
+                                        <button class="color-btn" data-color="Rojo" style="border-color: #4d82ff">
+                                            Rojo
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                                
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" data-product-id="2" data-variant-type="color" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        AGREGAR AL CARRITO
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="product-card hombre-2" style="animation-delay: 0.1s" data-product-id="11">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Camisa de Vestir para Hombre" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80', 'Camisa de Vestir para Hombre', 'hombre-2')">
+                                <div class="product-badge nuevo hombre-2">NUEVO</div>
+                            </div>
+                            
+                            <div class="product-info">
+                                <div class="product-category hombre-2" style="color: #4d82ff">
+                                    <i class="fas fa-tag"></i>
+                                    Camisas
+                                </div>
+                                
+                                <h3 class="product-title">Camisa de Vestir para Hombre</h3>
+                                
+                                <div class="product-price-container">
+                                    
+                                        <div class="sale-price-container">
+                                            <div class="original-price">$450</div>
+                                            <div class="sale-price" style="color: #4d82ff">$380</div>
+                                            <div class="discount-badge">OFERTA</div>
+                                        </div>
+                                    
+                                </div>
+                                
+                                <p class="product-description">
+                                    Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.
+                                </p>
+                                
+                                
+                                    <div class="product-features">
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Corte slim fit moderno</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Cuello italiano reforzado</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>Botones de nácar genuino</span>
+                                            </div>
+                                        
+                                    </div>
+                                
+                                
+                                
+                            <div class="variant-selector">
+                                <div class="variant-label">Selecciona tamaño:</div>
+                                <div class="variant-options">
+                                    
+                                        <button class="variant-btn selected" data-variant="S" style="border-color: #4d82ff">
+                                            S
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-variant="M" style="border-color: #4d82ff">
+                                            M
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                            <div class="color-selector">
+                                <div class="variant-label">Selecciona color:</div>
+                                <div class="color-options">
+                                    
+                                        <button class="color-btn selected" data-color="Negro" style="border-color: #4d82ff">
+                                            Negro
+                                        </button>
+                                    
+                                        <button class="color-btn" data-color="Rosa" style="border-color: #4d82ff">
+                                            Rosa
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                                
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" data-product-id="11" data-variant-type="color" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        AGREGAR AL CARRITO
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="product-card hombre-2" style="animation-delay: 0.15000000000000002s" data-product-id="12">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="playera" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80', 'playera', 'hombre-2')">
+                                <div class="product-badge nuevo hombre-2">NUEVO</div>
+                            </div>
+                            
+                            <div class="product-info">
+                                <div class="product-category hombre-2" style="color: #4d82ff">
+                                    <i class="fas fa-tag"></i>
+                                    playera casual
+                                </div>
+                                
+                                <h3 class="product-title">playera</h3>
+                                
+                                <div class="product-price-container">
+                                    
+                                        <div class="regular-price">200</div>
+                                    
+                                </div>
+                                
+                                <p class="product-description">
+                                    Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.
+                                </p>
+                                
+                                
+                                    <div class="product-features">
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #4d82ff"></i>
+                                                <span>jhgfuyx</span>
+                                            </div>
+                                        
+                                    </div>
+                                
+                                
+                                
+                            <div class="variant-selector">
+                                <div class="variant-label">Selecciona tamaño:</div>
+                                <div class="variant-options">
+                                    
+                                        <button class="variant-btn selected" data-variant="28" style="border-color: #4d82ff">
+                                            28
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-variant="30" style="border-color: #4d82ff">
+                                            30
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-variant="32" style="border-color: #4d82ff">
+                                            32
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                            <div class="color-selector">
+                                <div class="variant-label">Selecciona color:</div>
+                                <div class="color-options">
+                                    
+                                        <button class="color-btn selected" data-color="Negro" style="border-color: #4d82ff">
+                                            Negro
+                                        </button>
+                                    
+                                        <button class="color-btn" data-color="Rosa" style="border-color: #4d82ff">
+                                            Rosa
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                                
+                                
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" data-product-id="12" data-variant-type="color" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        AGREGAR AL CARRITO
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </div>
     </section>
 
@@ -4367,14 +4959,14 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     <label class="form-label">
                         <i class="fas fa-user"></i> Nombre completo:
                     </label>
-                    <input type="text" id="customerName" class="form-input" required placeholder="Ingresa tu nombre completo">
+                    <input type="text" id="customerName" class="form-input" required="" placeholder="Ingresa tu nombre completo">
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-phone"></i> Teléfono:
                     </label>
-                    <input type="tel" id="customerPhone" class="form-input" required placeholder="Ingresa tu número de teléfono">
+                    <input type="tel" id="customerPhone" class="form-input" required="" placeholder="Ingresa tu número de teléfono">
                 </div>
                 
                 <div class="form-group">
@@ -4468,10 +5060,10 @@ Dejar vacío si no hay imágenes por color"></textarea>
     </div>
 
     <!-- Carrito Mejorado y Compacto -->
-    <div class="cart-icon" id="cartIcon">
+    <div class="cart-icon" id="cartIcon" style="animation: 3s ease-in-out 0s infinite normal none running float;">
         <i class="fas fa-shopping-bag"></i>
         <div class="cart-icon-text">Carrito</div>
-        <div class="cart-count" id="cartCount">0</div>
+        <div class="cart-count" id="cartCount" style="transform: scale(1); background: linear-gradient(135deg, rgb(255, 107, 107), rgb(255, 82, 82));">0</div>
     </div>
 
     <div class="cart-overlay" id="cartOverlay"></div>
@@ -4492,9 +5084,9 @@ Dejar vacío si no hay imágenes por color"></textarea>
             <div class="free-shipping-promo" id="freeShippingPromo" style="display: none;">
                 <i class="fas fa-shipping-fast"></i>
                 <div class="promo-text">¡Falta poco para envío gratis!</div>
-                <div class="promo-subtext">Agrega <span id="remainingAmount">$150.00</span> más a tu carrito</div>
+                <div class="promo-subtext">Agrega <span id="remainingAmount">$100.00</span> más a tu carrito</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" id="shippingProgress" style="width: 50%;"></div>
+                    <div class="progress-fill" id="shippingProgress" style="width: 66.6667%;"></div>
                 </div>
             </div>
             
@@ -4513,7 +5105,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
             </div>
             
             <!-- Resumen del carrito -->
-            <div class="cart-summary" id="cartSummary" style="display: none;">
+            <div class="cart-summary show" id="cartSummary" style="display: none;">
                 <div class="summary-title">
                     <i class="fas fa-receipt"></i>
                     Resumen del Pedido
@@ -4523,7 +5115,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <i class="fas fa-box"></i>
                         Subtotal
                     </span>
-                    <span class="summary-value" id="subtotal">$0.00</span>
+                    <span class="summary-value" id="subtotal">$400.00</span>
                 </div>
                 <div class="summary-row">
                     <span class="summary-label">
@@ -4537,18 +5129,18 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <i class="fas fa-calculator"></i>
                         Total
                     </span>
-                    <span class="total-amount" id="total">$0.00</span>
+                    <span class="total-amount" id="total">$400.00</span>
                 </div>
             </div>
         </div>
         
         <!-- Acciones del carrito - AHORA SIEMPRE VISIBLES -->
         <div class="cart-actions disabled" id="cartActions">
-            <button class="checkout-btn" id="checkoutBtn" disabled>
+            <button class="checkout-btn" id="checkoutBtn" disabled="">
                 <i class="fab fa-whatsapp"></i>
                 Finalizar Compra
             </button>
-            <button class="clear-cart-btn" id="clearCartBtn" disabled>
+            <button class="clear-cart-btn" id="clearCartBtn" disabled="">
                 <i class="fas fa-trash"></i>
                 Vaciar Carrito
             </button>
@@ -4599,435 +5191,252 @@ Dejar vacío si no hay imágenes por color"></textarea>
     <script>
         // Datos de productos CON CONTROL DE STOCK - ACTUALIZADO CON CATEGORÍA HOMBRE
         let productos = [
-            {
-                "id": 1,
-                "nombre": "SUDADERA",
-                "precioRegular": "$250",
-                "precioDescuento": "$200",
-                "imagenes": {
-                    "Único": "https://i.postimg.cc/pTFXk04B/Diseno-sin-titulo-20260127-141225-0000.jpg",
-                    "Negro": "https://i.postimg.cc/MHQpGsq4/Diseno-sin-titulo-20260127-152935-0000.jpg",
-                    "Azul Marino": "https://i.postimg.cc/QCWjL0pM/Diseno-sin-titulo-20260129-195912-0000.jpg",
-                    "Gris": "https://i.postimg.cc/3JTjh5Bp/Diseno-sin-titulo-20260129-200155-0000.jpg",
-                    "Blanco": "https://i.postimg.cc/D0Nsk6M8/Diseno-sin-titulo-20260129-200400-0000.jpg",
-                    "Rosa": "https://i.postimg.cc/SNCBx0bM/Diseno-sin-titulo-20260127-150048-0000.jpg"
-                },
-                "imagen": "https://i.postimg.cc/pTFXk04B/Diseno-sin-titulo-20260127-141225-0000.jpg",
-                "categoria": "ropa",
-                "subcategoria": "SUDADERA",
-                "tallas": [
-                    "S",
-                    "M",
-                    "L",
-                    "XL"
-                ],
-                "colores": [
-                    "Único",
-                    "Negro",
-                    "Azul Marino",
-                    "Gris",
-                    "Blanco",
-                    "Rosa"
-                ],
-                "especificaciones": [
-                    "100% algodón egipcio",
-                    "Corte regular",
-                    "Cuello redondo reforzado"
-                ],
-                "descripcion": "La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.",
-                "estado": "oferta",
-                "stock": {
-                    "S": {
-                        "Único": 2,
-                        "Negro": 2,
-                        "Azul Marino": 2,
-                        "Gris": 2,
-                        "Blanco": 2,
-                        "Rosa": 2
-                    },
-                    "M": {
-                        "Único": 2,
-                        "Negro": 2,
-                        "Azul Marino": 2,
-                        "Gris": 2,
-                        "Blanco": 2,
-                        "Rosa": 2
-                    },
-                    "L": {
-                        "Único": 2,
-                        "Negro": 2,
-                        "Azul Marino": 2,
-                        "Gris": 2,
-                        "Blanco": 2,
-                        "Rosa": 2
-                    },
-                    "XL": {
-                        "Único": 2,
-                        "Negro": 2,
-                        "Azul Marino": 2,
-                        "Gris": 2,
-                        "Blanco": 2,
-                        "Rosa": 2
-                    }
-                }
+    {
+        "id": 1,
+        "nombre": "SUDADERA",
+        "precioRegular": "$250",
+        "precioDescuento": "$200",
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp",
+        "imagenes": {
+            "Único": "https://i.postimg.cc/pTFXk04B/Diseno-sin-titulo-20260127-141225-0000.jpg",
+            "Negro": "https://i.postimg.cc/MHQpGsq4/Diseno-sin-titulo-20260127-152935-0000.jpg",
+            "Azul Marino": "https://i.postimg.cc/QCWjL0pM/Diseno-sin-titulo-20260129-195912-0000.jpg",
+            "Gris": "https://i.postimg.cc/3JTjh5Bp/Diseno-sin-titulo-20260129-200155-0000.jpg",
+            "Blanco": "https://i.postimg.cc/D0Nsk6M8/Diseno-sin-titulo-20260129-200400-0000.jpg",
+            "Rosa": "https://i.postimg.cc/SNCBx0bM/Diseno-sin-titulo-20260127-150048-0000.jpg"
+        },
+        "categoria": "hombre-2",
+        "subcategoria": "SUDADERA",
+        "descripcion": "La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.",
+        "estado": "oferta",
+        "especificaciones": [
+            "100% algodón egipcio",
+            "Corte regular",
+            "Cuello redondo reforzado"
+        ],
+        "variantType": "simple",
+        "stock": {
+            "S": 2,
+            "M": 2,
+            "L": 2
+        },
+        "variantes": [
+            "S",
+            "M",
+            "L"
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Jeans Slim Fit Elite",
+        "precioRegular": "$350",
+        "imagen": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "imagenes": {
+            "Azul Oscuro": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Azul Claro": "https://i.postimg.cc/HnRpzr97/Diseno-sin-titulo-20260129-200739-0000.jpg",
+            "Negro": "https://i.postimg.cc/B6RXX6KL/Diseno-sin-titulo-20260129-201128-0000.jpg",
+            "Gris": "https://i.postimg.cc/mgLwNJVh/Diseno-sin-titulo-20260129-201329-0000.jpg"
+        },
+        "categoria": "hombre-2",
+        "subcategoria": "Pantalones",
+        "descripcion": "Jeans de corte slim que se ajustan perfectamente a tu figura sin sacrificar la comodidad.",
+        "estado": "nuevo",
+        "especificaciones": [
+            "Denim elastano premium",
+            "Corte slim fit",
+            "Lavado especial"
+        ],
+        "variantType": "color",
+        "stock": {
+            "Corto": {
+                "Negro": 2,
+                "Rojo": 2
             },
-            {
-                "id": 2,
-                "nombre": "Jeans Slim Fit Elite",
-                "precioRegular": "$350",
-                "imagen": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                "imagenes": {
-                    "Azul Oscuro": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "Azul Claro": "https://i.postimg.cc/HnRpzr97/Diseno-sin-titulo-20260129-200739-0000.jpg",
-                    "Negro": "https://i.postimg.cc/B6RXX6KL/Diseno-sin-titulo-20260129-201128-0000.jpg",
-                    "Gris": "https://i.postimg.cc/mgLwNJVh/Diseno-sin-titulo-20260129-201329-0000.jpg"
-                },
-                "categoria": "ropa",
-                "subcategoria": "Pantalones",
-                "descripcion": "Jeans de corte slim que se ajustan perfectamente a tu figura sin sacrificar la comodidad.",
-                "estado": "nuevo",
-                "especificaciones": [
-                    "Denim elastano premium",
-                    "Corte slim fit",
-                    "Lavado especial"
-                ],
-                "stock": {
-                    "28": {
-                        "Azul Oscuro": 2,
-                        "Azul Claro": 2,
-                        "Negro": 2,
-                        "Gris": 2
-                    },
-                    "30": {
-                        "Azul Oscuro": 2,
-                        "Azul Claro": 2,
-                        "Negro": 2,
-                        "Gris": 2
-                    },
-                    "32": {
-                        "Azul Oscuro": 2,
-                        "Azul Claro": 2,
-                        "Negro": 2,
-                        "Gris": 2
-                    },
-                    "34": {
-                        "Azul Oscuro": 2,
-                        "Azul Claro": 2,
-                        "Negro": 2,
-                        "Gris": 2
-                    },
-                    "36": {
-                        "Azul Oscuro": 2,
-                        "Azul Claro": 2,
-                        "Negro": 2,
-                        "Gris": 2
-                    }
-                },
-                "tallas": [
-                    "28",
-                    "30",
-                    "32",
-                    "34",
-                    "36"
-                ],
-                "colores": [
-                    "Azul Oscuro",
-                    "Azul Claro",
-                    "Negro",
-                    "Gris"
-                ]
-            },
-            {
-                "id": 4,
-                "nombre": "Mochila Urbana Premium",
-                "precioRegular": "$200",
-                "precioDescuento": "$150",
-                "imagenes": {
-                    "Único": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "Negro": "https://i.postimg.cc/VNd5X8Xj/Diseno-sin-titulo-20260129-203014-0000.jpg",
-                    "Azul Marino": "https://i.postimg.cc/90q3KNpX/Diseno-sin-titulo-20260129-203232-0000.jpg"
-                },
-                "imagen": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                "categoria": "accesorios",
-                "subcategoria": "Mochilas",
-                "colores": [
-                    "Único",
-                    "Negro",
-                    "Azul Marino"
-                ],
-                "especificaciones": [
-                    "Material resistente al agua",
-                    "Compartimentos múltiples",
-                    "Correas acolchadas"
-                ],
-                "descripcion": "Mochila urbana diseñada para el estilo y la funcionalidad. Perfecta para el día a día.",
-                "estado": "oferta",
-                "stock": {
-                    "Único": 2,
-                    "Negro": 2,
-                    "Azul Marino": 2
-                }
-            },
-            {
-                "id": 7,
-                "nombre": "Peluche Oso Teddy Premium",
-                "precioRegular": "$150",
-                "imagen": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                "imagenes": {
-                    "Marrón": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "Blanco": "https://i.postimg.cc/KjSdHSpk/Diseno-sin-titulo-20260129-205450-0000.jpg",
-                    "Beige": "https://i.postimg.cc/sX2SfzNR/Diseno-sin-titulo-20260129-205719-0000.jpg"
-                },
-                "categoria": "juguetes",
-                "subcategoria": "Peluches",
-                "descripcion": "Peluche oso Teddy de alta calidad, perfecto para regalo o decoración.",
-                "estado": "oferta",
-                "especificaciones": [
-                    "Material hipoalergénico",
-                    "Relleno premium",
-                    "Costuras reforzadas"
-                ],
-                "stock": {
-                    "GRANDE": {
-                        "Marrón": 2,
-                        "Blanco": 0,
-                        "Beige": 0
-                    }
-                },
-                "variantes": [
-                    "GRANDE"
-                ],
-                "colores": [
-                    "Marrón",
-                    "Blanco",
-                    "Beige"
-                ]
-            },
-            {
-                "id": 8,
-                "nombre": "Juguete Educativo Bloques",
-                "precioRegular": "$200",
-                "precioDescuento": "$150",
-                "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_773538-MLA101905263927_122025-F.webp",
-                "categoria": "juguetes",
-                "subcategoria": "Juguetes Educativos",
-                "descripcion": "Set de bloques educativos que estimulan la creatividad y el desarrollo cognitivo.",
-                "estado": "nuevo",
-                "especificaciones": [
-                    "Material plástico no tóxico",
-                    "Colores vibrantes",
-                    "Diseño educativo"
-                ],
-                "stock": {
-                    "Básico (50 piezas)": 2,
-                    "Avanzado (100 piezas)": 2,
-                    "Completo (200 piezas)": 2
-                },
-                "variantes": [
-                    "Básico (50 piezas)",
-                    "Avanzado (100 piezas)",
-                    "Completo (200 piezas)"
-                ]
-            },
-            {
-                "id": 9,
-                "nombre": "Peluche Conejito Suave",
-                "precioRegular": "$100",
-                "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_798871-MLM94977048253_102025-F-peluche-grande-de-conejo-suave-con-zanahoria-50-cm.webp",
-                "imagenes": {
-                    "Blanco": "https://images.unsplash.com/photo-1594787318287-3d70b6d7a1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "Gris": "https://i.postimg.cc/T1m14sN1/Diseno-sin-titulo-20260129-210422-0000.jpg",
-                    "Beige": "https://i.postimg.cc/fTN2s9Yn/Diseno-sin-titulo-20260129-210652-0000.jpg"
-                },
-                "categoria": "juguetes",
-                "subcategoria": "Peluches",
-                "descripcion": "Adorable peluche conejito con pelo extra suave. Perfecto compañero para niños.",
-                "estado": "oferta",
-                "especificaciones": [
-                    "Pelo suave y sedoso",
-                    "Ojos de seguridad",
-                    "Lavable"
-                ],
-                "stock": {
-                    "Pequeño (25cm)": {
-                        "Blanco": 2,
-                        "Gris": 2,
-                        "Beige": 2
-                    },
-                    "Mediano (40cm)": {
-                        "Blanco": 2,
-                        "Gris": 2,
-                        "Beige": 2
-                    },
-                    "Grande (60cm)": {
-                        "Blanco": 2,
-                        "Gris": 2,
-                        "Beige": 2
-                    }
-                },
-                "variantes": [
-                    "Pequeño (25cm)",
-                    "Mediano (40cm)",
-                    "Grande (60cm)"
-                ],
-                "colores": [
-                    "Blanco",
-                    "Gris",
-                    "Beige"
-                ]
-            },
-            {
-                "id": 10,
-                "nombre": "Cama Matrimonial Premium",
-                "precioRegular": "$1200",
-                "precioDescuento": "$999",
-                "imagen": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                "imagenes": {
-                    "Marrón": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "Blanco": "https://i.postimg.cc/7Zv90qJ8/cama-blanca.jpg",
-                    "Negro": "https://i.postimg.cc/BvH3s8X5/cama-negra.jpg"
-                },
-                "categoria": "hogar",
-                "subcategoria": "Camas",
-                "descripcion": "Cama matrimonial premium fabricada con madera de roble sólido. Diseño elegante y duradero para máximo confort.",
-                "estado": "oferta",
-                "especificaciones": [
-                    "Madera de roble sólido",
-                    "Cabecera acolchada",
-                    "Estructura reforzada",
-                    "Incluye base para colchón"
-                ],
-                "stock": {
-                    "Individual": {
-                        "Marrón": 2,
-                        "Blanco": 2,
-                        "Negro": 2
-                    },
-                    "Matrimonial": {
-                        "Marrón": 2,
-                        "Blanco": 2,
-                        "Negro": 2
-                    },
-                    "King Size": {
-                        "Marrón": 2,
-                        "Blanco": 2,
-                        "Negro": 0
-                    }
-                },
-                "variantes": [
-                    "Individual",
-                    "Matrimonial",
-                    "King Size"
-                ],
-                "colores": [
-                    "Marrón",
-                    "Blanco",
-                    "Negro"
-                ]
-            },
-            {
-                "id": 11,
-                "nombre": "Camisa de Vestir para Hombre",
-                "precioRegular": "$450",
-                "precioDescuento": "$380",
-                "imagen": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                "imagenes": {
-                    "Blanco": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                    "Azul Claro": "https://i.postimg.cc/8CJY8rq9/camisa-azul.jpg",
-                    "Negro": "https://i.postimg.cc/0yVd8Jp3/camisa-negra.jpg",
-                    "Gris": "https://i.postimg.cc/G2rVnq0P/camisa-gris.jpg"
-                },
-                "categoria": "hombre",
-                "subcategoria": "Camisas",
-                "descripcion": "Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.",
-                "estado": "nuevo",
-                "especificaciones": [
-                    "Tela 100% algodón premium",
-                    "Corte slim fit moderno",
-                    "Cuello italiano reforzado",
-                    "Botones de nácar genuino"
-                ],
-                "stock": {
-                    "S": {
-                        "Blanco": 3,
-                        "Azul Claro": 2,
-                        "Negro": 2,
-                        "Gris": 3
-                    },
-                    "M": {
-                        "Blanco": 3,
-                        "Azul Claro": 3,
-                        "Negro": 2,
-                        "Gris": 3
-                    },
-                    "L": {
-                        "Blanco": 2,
-                        "Azul Claro": 2,
-                        "Negro": 1,
-                        "Gris": 2
-                    },
-                    "XL": {
-                        "Blanco": 1,
-                        "Azul Claro": 1,
-                        "Negro": 0,
-                        "Gris": 1
-                    }
-                },
-                "tallas": [
-                    "S",
-                    "M",
-                    "L",
-                    "XL"
-                ],
-                "colores": [
-                    "Blanco",
-                    "Azul Claro",
-                    "Negro",
-                    "Gris"
-                ]
+            "Grande": {
+                "Negro": 2,
+                "Rojo": 2
             }
-        ];
+        },
+        "variantes": [
+            "Corto",
+            "Grande"
+        ],
+        "colores": [
+            "Negro",
+            "Rojo"
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Peluche Oso Teddy Premium",
+        "precioRegular": "$150",
+        "imagen": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "imagenes": {
+            "Marrón": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Blanco": "https://i.postimg.cc/KjSdHSpk/Diseno-sin-titulo-20260129-205450-0000.jpg",
+            "Beige": "https://i.postimg.cc/sX2SfzNR/Diseno-sin-titulo-20260129-205719-0000.jpg"
+        },
+        "categoria": "juguetes",
+        "subcategoria": "Peluches",
+        "descripcion": "Peluche oso Teddy de alta calidad, perfecto para regalo o decoración.",
+        "estado": "oferta",
+        "especificaciones": [
+            "Material hipoalergénico",
+            "Relleno premium",
+            "Costuras reforzadas"
+        ],
+        "variantType": "color",
+        "stock": {
+            "Grande": {
+                "Blanco": 2,
+                "Marrón": 2
+            },
+            "Corto": {
+                "Marrón": 2,
+                "Blanco": 2
+            }
+        },
+        "variantes": [
+            "Corto",
+            "Grande"
+        ],
+        "colores": [
+            "Marrón",
+            "Blanco"
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Peluche Conejito Suave",
+        "precioRegular": "$100",
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_798871-MLM94977048253_102025-F-peluche-grande-de-conejo-suave-con-zanahoria-50-cm.webp",
+        "imagenes": {
+            "Blanco": "https://images.unsplash.com/photo-1594787318287-3d70b6d7a1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Gris": "https://i.postimg.cc/T1m14sN1/Diseno-sin-titulo-20260129-210422-0000.jpg",
+            "Beige": "https://i.postimg.cc/fTN2s9Yn/Diseno-sin-titulo-20260129-210652-0000.jpg"
+        },
+        "categoria": "juguetes",
+        "subcategoria": "Peluches",
+        "descripcion": "Adorable peluche conejito con pelo extra suave. Perfecto compañero para niños.",
+        "estado": "oferta",
+        "especificaciones": [
+            "Pelo suave y sedoso",
+            "Ojos de seguridad",
+            "Lavable"
+        ],
+        "variantType": "color",
+        "stock": {},
+        "variantes": [
+            "Pequeño",
+            "Mediano",
+            "Grande"
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "Camisa de Vestir para Hombre",
+        "precioRegular": "$450",
+        "precioDescuento": "$380",
+        "imagen": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "imagenes": {
+            "Blanco": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Azul Claro": "https://i.postimg.cc/8CJY8rq9/camisa-azul.jpg",
+            "Negro": "https://i.postimg.cc/0yVd8Jp3/camisa-negra.jpg",
+            "Gris": "https://i.postimg.cc/G2rVnq0P/camisa-gris.jpg"
+        },
+        "categoria": "hombre-2",
+        "subcategoria": "Camisas",
+        "descripcion": "Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.",
+        "estado": "nuevo",
+        "especificaciones": [
+            "Corte slim fit moderno",
+            "Cuello italiano reforzado",
+            "Botones de nácar genuino"
+        ],
+        "variantType": "color",
+        "stock": {
+            "S": {
+                "Negro": 2,
+                "Rosa": 2
+            },
+            "M": {
+                "Negro": 2,
+                "Rosa": 2
+            }
+        },
+        "variantes": [
+            "S",
+            "M"
+        ],
+        "colores": [
+            "Negro",
+            "Rosa"
+        ]
+    },
+    {
+        "id": 12,
+        "nombre": "playera",
+        "precioRegular": "200",
+        "imagen": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        "imagenes": {
+            "Blanco": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Azul Claro": "https://i.postimg.cc/8CJY8rq9/camisa-azul.jpg",
+            "Negro": "https://i.postimg.cc/0yVd8Jp3/camisa-negra.jpg",
+            "Gris": "https://i.postimg.cc/G2rVnq0P/camisa-gris.jpg"
+        },
+        "categoria": "hombre-2",
+        "subcategoria": "playera casual",
+        "descripcion": "Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.",
+        "estado": "nuevo",
+        "especificaciones": [
+            "jhgfuyx"
+        ],
+        "variantType": "color",
+        "stock": {
+            "28": {
+                "Negro": 2,
+                "Rosa": 2
+            },
+            "30": {
+                "Negro": 2,
+                "Rosa": 2
+            },
+            "32": {
+                "Negro": 2,
+                "Rosa": 2
+            }
+        },
+        "variantes": [
+            "28",
+            "30",
+            "32"
+        ],
+        "colores": [
+            "Negro",
+            "Rosa"
+        ]
+    }
+];
 
         // Sistema de categorías - CON CATEGORÍA HOMBRE
         let categorias = [
-            {
-                "id": "ropa",
-                "nombre": "Ropa",
-                "color": "#D4AF37",
-                "icono": "fa-tshirt",
-                "orden": 1
-            },
-            {
-                "id": "hogar",
-                "nombre": "HOGAR",
-                "color": "#1f7f25",
-                "icono": "fa-home",
-                "orden": 2
-            },
-            {
-                "id": "accesorios",
-                "nombre": "Accesorios",
-                "color": "#4A90E2",
-                "icono": "fa-briefcase",
-                "orden": 3
-            },
-            {
-                "id": "juguetes",
-                "nombre": "Juguetes",
-                "color": "#FF6B8B",
-                "icono": "fa-gamepad",
-                "orden": 4
-            },
-            {
-                "id": "hombre",
-                "nombre": "Hombre",
-                "color": "#8A2BE2",
-                "icono": "fa-user-tie",
-                "orden": 5
-            }
-        ];
+    {
+        "id": "hombre-2",
+        "nombre": "Hombre 2",
+        "color": "#4d82ff",
+        "icono": "fa-user-tie",
+        "orden": 1
+    },
+    {
+        "id": "juguetes",
+        "nombre": "Juguetes",
+        "color": "#FF6B8B",
+        "icono": "fa-gamepad",
+        "orden": 2
+    }
+];
 
-        // Sistema de administración
+        // Sistema de administración CON SISTEMA FLEXIBLE DE VARIANTES
         class Administracion {
             constructor() {
                 this.pinCorrecto = "199494";
@@ -5048,6 +5457,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 this.renderCategoriasSelect();
                 this.renderCategoriasAdmin();
                 this.renderCategoryFilters();
+                this.setupVariantTypeGuide();
             }
             
             cargarDatosDesdeStorage() {
@@ -5106,6 +5516,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     this.actualizarCamposPorCategoria(e.target.value);
                 });
                 
+                document.getElementById('variantType').addEventListener('change', (e) => {
+                    this.updateFormatGuide(e.target.value);
+                    this.updateStockPlaceholder(e.target.value);
+                });
+                
                 document.getElementById('addSpecBtn').addEventListener('click', () => this.agregarEspecificacion());
                 document.getElementById('addStockBtn').addEventListener('click', () => this.agregarStock());
                 
@@ -5123,6 +5538,42 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 
                 // Exportación
                 this.setupExportListeners();
+            }
+            
+            setupVariantTypeGuide() {
+                // Mostrar guía inicial
+                this.updateFormatGuide('simple');
+                this.updateStockPlaceholder('simple');
+            }
+            
+            updateFormatGuide(variantType) {
+                const examples = document.querySelectorAll('.format-example');
+                examples.forEach(example => {
+                    example.classList.remove('active');
+                    if (example.dataset.type === variantType) {
+                        example.classList.add('active');
+                    }
+                });
+            }
+            
+            updateStockPlaceholder(variantType) {
+                const stockInput = document.getElementById('stockInput');
+                const stockHelp = document.getElementById('stockHelp');
+                
+                switch(variantType) {
+                    case 'simple':
+                        stockInput.placeholder = 'Ej: S|2, M|3, L|4';
+                        stockHelp.querySelector('span').textContent = 'Formato: variante|cantidad, separa con comas';
+                        break;
+                    case 'color':
+                        stockInput.placeholder = 'Ej: S|Negro|2, S|Azul|3, M|Negro|4';
+                        stockHelp.querySelector('span').textContent = 'Formato: variante|color|cantidad, separa con comas';
+                        break;
+                    case 'custom':
+                        stockInput.placeholder = 'Ej: Pequeño|Rojo|Algodón|5, Grande|Azul|Lino|3';
+                        stockHelp.querySelector('span').textContent = 'Formato: atributo1|atributo2|atributo3|cantidad, separa con comas';
+                        break;
+                }
             }
             
             setupExportListeners() {
@@ -5208,6 +5659,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 this.renderProductosAdmin();
                 this.renderCategoriasSelect();
                 this.renderCategoriasAdmin();
+                this.setupVariantTypeGuide();
             }
             
             closeAdminPanel() {
@@ -5613,72 +6065,19 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 
                 if (!categoria) return;
                 
-                // Determinar qué campos mostrar según la categoría
-                const esRopa = categoriaId === 'ropa' || categoriaId === 'hombre';
-                const esAccesorio = categoriaId === 'accesorios';
-                const esJuguete = categoriaId === 'juguetes';
-                const esHogar = categoriaId === 'hogar';
-                const esPredefinida = esRopa || esAccesorio || esJuguete || esHogar;
+                // Para el sistema flexible, siempre mostramos el campo de variantes
+                variantesContainer.style.display = 'block';
                 
-                if (esRopa) {
-                    // Ropa y Hombre: usar "Tallas o Variantes"
-                    variantesContainer.style.display = 'block';
-                    
-                    // Actualizar etiqueta según categoría
-                    const label = variantesContainer.querySelector('.form-label-admin');
-                    if (label) {
-                        label.innerHTML = '<i class="fas fa-ruler"></i> Tallas (separadas por comas):';
-                    }
-                    
-                    // Actualizar placeholder según categoría
-                    const input = variantesContainer.querySelector('.form-input-admin');
-                    if (input) {
-                        input.placeholder = 'Ej: S, M, L, XL';
-                        input.id = 'productVariantes';
-                    }
-                } else if (esAccesorio) {
-                    // Accesorios: usar "Variantes/Tamaños"
-                    variantesContainer.style.display = 'block';
-                    
-                    const label = variantesContainer.querySelector('.form-label-admin');
-                    if (label) {
-                        label.innerHTML = '<i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):';
-                    }
-                    
-                    const input = variantesContainer.querySelector('.form-input-admin');
-                    if (input) {
-                        input.placeholder = 'Ej: Pequeño, Mediano, Grande | 10cm, 20cm, 30cm';
-                        input.id = 'productVariantes';
-                    }
-                } else if (esJuguete || esHogar) {
-                    // Juguetes y Hogar: usar "Variantes/Tamaños"
-                    variantesContainer.style.display = 'block';
-                    
-                    const label = variantesContainer.querySelector('.form-label-admin');
-                    if (label) {
-                        label.innerHTML = '<i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):';
-                    }
-                    
-                    const input = variantesContainer.querySelector('.form-input-admin');
-                    if (input) {
-                        input.placeholder = 'Ej: Pequeño, Mediano, Grande | Individual, Matrimonial';
-                        input.id = 'productVariantes';
-                    }
+                // Actualizar placeholder según categoría
+                const input = variantesContainer.querySelector('.form-input-admin');
+                if (categoriaId === 'ropa' || categoriaId === 'hombre') {
+                    input.placeholder = 'Ej: S, M, L, XL';
+                } else if (categoriaId === 'accesorios') {
+                    input.placeholder = 'Ej: Pequeño, Mediano, Grande | 10cm, 20cm, 30cm';
+                } else if (categoriaId === 'juguetes' || categoriaId === 'hogar') {
+                    input.placeholder = 'Ej: Pequeño, Mediano, Grande | Individual, Matrimonial';
                 } else {
-                    // CATEGORÍAS DINÁMICAS: Mostrar solo UN campo
-                    variantesContainer.style.display = 'block';
-                    
-                    // Por defecto para categorías dinámicas, usar "Variantes/Tamaños"
-                    const label = variantesContainer.querySelector('.form-label-admin');
-                    if (label) {
-                        label.innerHTML = '<i class="fas fa-shapes"></i> Variantes/Tamaños (separados por comas):';
-                    }
-                    
-                    const input = variantesContainer.querySelector('.form-input-admin');
-                    if (input) {
-                        input.placeholder = 'Ej: Tamaño Único, Pequeño/Mediano/Grande, 10cm/20cm/30cm';
-                        input.id = 'productVariantes';
-                    }
+                    input.placeholder = 'Ej: Tamaño Único, Pequeño/Mediano/Grande, 10cm/20cm/30cm';
                 }
             }
             
@@ -5716,7 +6115,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 const stockValue = stockInput.value.trim();
                 
                 if (stockValue) {
-                    this.stockItems.push(stockValue);
+                    // Dividir por comas y agregar cada item
+                    const items = stockValue.split(',').map(item => item.trim()).filter(item => item);
+                    items.forEach(item => {
+                        this.stockItems.push(item);
+                    });
                     this.renderStock();
                     stockInput.value = '';
                     stockInput.focus();
@@ -5749,8 +6152,13 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 this.renderEspecificaciones();
                 this.renderStock();
                 
-                // Ocultar campos específicos
-                document.getElementById('variantesContainer').style.display = 'none';
+                // Mostrar campo de variantes
+                document.getElementById('variantesContainer').style.display = 'block';
+                
+                // Restaurar tipo de variante a simple
+                document.getElementById('variantType').value = 'simple';
+                this.updateFormatGuide('simple');
+                this.updateStockPlaceholder('simple');
                 
                 // Cambiar texto del botón
                 document.getElementById('saveProductBtn').innerHTML = '<i class="fas fa-save"></i> Guardar Producto';
@@ -5793,6 +6201,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     document.getElementById('productColores').value = producto.colores.join(', ');
                 }
                 
+                // Tipo de variante
+                document.getElementById('variantType').value = producto.variantType || 'simple';
+                this.updateFormatGuide(producto.variantType || 'simple');
+                this.updateStockPlaceholder(producto.variantType || 'simple');
+                
                 // Especificaciones
                 this.especificaciones = producto.especificaciones || [];
                 this.renderEspecificaciones();
@@ -5800,42 +6213,8 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 // Estado
                 document.getElementById('productEstado').value = producto.estado || 'normal';
                 
-                // Stock
-                this.stockItems = [];
-                if (producto.stock) {
-                    if (producto.categoria === 'ropa' || producto.categoria === 'hombre') {
-                        // Ropa y Hombre: stock por talla y color
-                        for (const talla in producto.stock) {
-                            for (const color in producto.stock[talla]) {
-                                this.stockItems.push(`${talla}|${color}|${producto.stock[talla][color]}`);
-                            }
-                        }
-                    } else if (producto.categoria === 'accesorios' && producto.colores) {
-                        if (producto.variantes) {
-                            // Accesorios con variantes y colores
-                            for (const variant in producto.stock) {
-                                for (const color in producto.stock[variant]) {
-                                    this.stockItems.push(`${variant}|${color}|${producto.stock[variant][color]}`);
-                                }
-                            }
-                        } else {
-                            // Accesorios solo con colores
-                            for (const color in producto.stock) {
-                                this.stockItems.push(`${color}|${producto.stock[color]}`);
-                            }
-                        }
-                    } else if ((producto.categoria === 'juguetes' || producto.categoria === 'hogar') && producto.colores) {
-                        for (const variant in producto.stock) {
-                            for (const color in producto.stock[variant]) {
-                                this.stockItems.push(`${variant}|${color}|${producto.stock[variant][color]}`);
-                            }
-                        }
-                    } else {
-                        for (const variant in producto.stock) {
-                            this.stockItems.push(`${variant}|${producto.stock[variant]}`);
-                        }
-                    }
-                }
+                // Stock - convertir según el tipo
+                this.stockItems = this.convertirStockATexto(producto.stock, producto.variantType || 'simple');
                 this.renderStock();
                 
                 // Cambiar texto del botón
@@ -5843,6 +6222,89 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 
                 // Cambiar a pestaña de agregar
                 this.switchTab('add');
+            }
+            
+            convertirStockATexto(stock, variantType) {
+                const items = [];
+                
+                if (!stock) return items;
+                
+                switch(variantType) {
+                    case 'simple':
+                        // Formato: variante|cantidad
+                        for (const [variant, cantidad] of Object.entries(stock)) {
+                            items.push(`${variant}|${cantidad}`);
+                        }
+                        break;
+                        
+                    case 'color':
+                        // Formato: variante|color|cantidad
+                        for (const [variant, colores] of Object.entries(stock)) {
+                            if (typeof colores === 'object') {
+                                for (const [color, cantidad] of Object.entries(colores)) {
+                                    items.push(`${variant}|${color}|${cantidad}`);
+                                }
+                            } else {
+                                // Si es un objeto simple (sin colores anidados)
+                                items.push(`${variant}|${colores}`);
+                            }
+                        }
+                        break;
+                        
+                    case 'custom':
+                        // Formato personalizado: atributo1|atributo2|...|cantidad
+                        for (const [key, cantidad] of Object.entries(stock)) {
+                            // Separar la clave por | y agregar la cantidad al final
+                            const parts = key.split('|');
+                            items.push(`${key}|${cantidad}`);
+                        }
+                        break;
+                }
+                
+                return items;
+            }
+            
+            procesarStockFlexible(variantType, stockItems, variantes, colores) {
+                const stock = {};
+                
+                switch(variantType) {
+                    case 'simple':
+                        // Formato: variante|cantidad
+                        stockItems.forEach(item => {
+                            const parts = item.split('|').map(p => p.trim());
+                            if (parts.length === 2) {
+                                const [variant, cantidad] = parts;
+                                stock[variant] = parseInt(cantidad) || 0;
+                            }
+                        });
+                        break;
+                        
+                    case 'color':
+                        // Formato: variante|color|cantidad
+                        stockItems.forEach(item => {
+                            const parts = item.split('|').map(p => p.trim());
+                            if (parts.length === 3) {
+                                const [variant, color, cantidad] = parts;
+                                if (!stock[variant]) stock[variant] = {};
+                                stock[variant][color] = parseInt(cantidad) || 0;
+                            }
+                        });
+                        break;
+                        
+                    case 'custom':
+                        // Formato personalizado: atributo1|atributo2|...|cantidad
+                        stockItems.forEach(item => {
+                            const parts = item.split('|').map(p => p.trim());
+                            if (parts.length >= 2) {
+                                const cantidad = parseInt(parts.pop()) || 0;
+                                const variantKey = parts.join('|');
+                                stock[variantKey] = cantidad;
+                            }
+                        });
+                        break;
+                }
+                
+                return stock;
             }
             
             guardarProducto() {
@@ -5853,6 +6315,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 const precio = document.getElementById('productPrice').value.trim();
                 const imagen = document.getElementById('productImage').value.trim();
                 const descripcion = document.getElementById('productDescription').value.trim();
+                const variantType = document.getElementById('variantType').value;
                 
                 if (!nombre || !categoria || !subcategoria || !precio || !imagen || !descripcion) {
                     this.mostrarMensaje('Por favor completa todos los campos requeridos', 'error');
@@ -5884,20 +6347,9 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 
                 // Procesar variantes/tallas
                 let variantes = [];
-                const esRopa = categoria === 'ropa' || categoria === 'hombre';
-                
-                if (esRopa) {
-                    // Para ropa y hombre, llamamos "tallas"
-                    const variantesText = document.getElementById('productVariantes').value.trim();
-                    if (variantesText) {
-                        variantes = variantesText.split(',').map(v => v.trim()).filter(v => v);
-                    }
-                } else {
-                    // Para todas las demás categorías (accesorios, juguetes, hogar, dinámicas)
-                    const variantesText = document.getElementById('productVariantes').value.trim();
-                    if (variantesText) {
-                        variantes = variantesText.split(',').map(v => v.trim()).filter(v => v);
-                    }
+                const variantesText = document.getElementById('productVariantes').value.trim();
+                if (variantesText) {
+                    variantes = variantesText.split(',').map(v => v.trim()).filter(v => v);
                 }
                 
                 // Procesar colores
@@ -5907,117 +6359,8 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     colores = coloresText.split(',').map(c => c.trim()).filter(c => c);
                 }
                 
-                // Procesar stock
-                const stock = {};
-                
-                if (esRopa) {
-                    // Stock para ropa y hombre: talla -> color -> cantidad
-                    variantes.forEach(talla => {
-                        stock[talla] = {};
-                        colores.forEach(color => {
-                            // Buscar en stockItems
-                            const stockItem = this.stockItems.find(item => {
-                                const partes = item.split('|');
-                                return partes.length === 3 && partes[0] === talla && partes[1] === color;
-                            });
-                            
-                            if (stockItem) {
-                                const cantidad = parseInt(stockItem.split('|')[2]) || 0;
-                                stock[talla][color] = cantidad;
-                            } else {
-                                stock[talla][color] = 0;
-                            }
-                        });
-                    });
-                } else if (categoria === 'accesorios') {
-                    if (colores.length > 0 && variantes.length > 0) {
-                        // Accesorios con variantes y colores: variante -> color -> cantidad
-                        variantes.forEach(variant => {
-                            stock[variant] = {};
-                            colores.forEach(color => {
-                                const stockItem = this.stockItems.find(item => {
-                                    const partes = item.split('|');
-                                    return partes.length === 3 && partes[0] === variant && partes[1] === color;
-                                });
-                                
-                                if (stockItem) {
-                                    const cantidad = parseInt(stockItem.split('|')[2]) || 0;
-                                    stock[variant][color] = cantidad;
-                                } else {
-                                    stock[variant][color] = 0;
-                                }
-                            });
-                        });
-                    } else if (colores.length > 0) {
-                        // Accesorios solo con colores: color -> cantidad
-                        colores.forEach(color => {
-                            const stockItem = this.stockItems.find(item => {
-                                const partes = item.split('|');
-                                return partes.length === 2 && partes[0] === color;
-                            });
-                            
-                            if (stockItem) {
-                                const cantidad = parseInt(stockItem.split('|')[1]) || 0;
-                                stock[color] = cantidad;
-                            } else {
-                                stock[color] = 0;
-                            }
-                        });
-                    } else if (variantes.length > 0) {
-                        // Accesorios solo con variantes: variante -> cantidad
-                        variantes.forEach(variant => {
-                            const stockItem = this.stockItems.find(item => {
-                                const partes = item.split('|');
-                                return partes.length === 2 && partes[0] === variant;
-                            });
-                            
-                            if (stockItem) {
-                                const cantidad = parseInt(stockItem.split('|')[1]) || 0;
-                                stock[variant] = cantidad;
-                            } else {
-                                stock[variant] = 0;
-                            }
-                        });
-                    } else {
-                        // Accesorios sin especificaciones
-                        stock["Único"] = 0;
-                    }
-                } else if ((categoria === 'juguetes' || categoria === 'hogar') && colores.length > 0) {
-                    // Juguetes/Hogar con colores: variante -> color -> cantidad
-                    variantes.forEach(variant => {
-                        stock[variant] = {};
-                        colores.forEach(color => {
-                            const stockItem = this.stockItems.find(item => {
-                                const partes = item.split('|');
-                                return partes.length === 3 && partes[0] === variant && partes[1] === color;
-                            });
-                            
-                            if (stockItem) {
-                                const cantidad = parseInt(stockItem.split('|')[2]) || 0;
-                                stock[variant][color] = cantidad;
-                            } else {
-                                stock[variant][color] = 0;
-                            }
-                        });
-                    });
-                } else {
-                    // Stock simple: variante -> cantidad (para categorías dinámicas)
-                    const items = variantes.length > 0 ? variantes : ['Estándar'];
-                    
-                    items.forEach(item => {
-                        const stockItem = this.stockItems.find(si => {
-                            const partes = si.split('|');
-                            return partes.length === 2 && partes[0] === item;
-                        });
-                        
-                        if (stockItem) {
-                            const cantidad = parseInt(stockItem.split('|')[1]) || 0;
-                            stock[item] = cantidad;
-                        } else {
-                            stock[item] = 0;
-                        }
-                    });
-                }
+                // Procesar stock usando el sistema flexible
+                const stock = this.procesarStockFlexible(variantType, this.stockItems, variantes, colores);
                 
                 // Crear objeto de producto
                 const nuevoProducto = {
@@ -6032,11 +6375,12 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     descripcion: descripcion,
                     estado: document.getElementById('productEstado').value,
                     especificaciones: [...this.especificaciones],
+                    variantType: variantType,
                     stock: stock
                 };
                 
-                // Agregar campos específicos por categoría
-                if (esRopa) {
+                // Agregar campos específicos
+                if (categoria === 'ropa' || categoria === 'hombre') {
                     nuevoProducto.tallas = variantes;
                 } else {
                     nuevoProducto.variantes = variantes;
@@ -6105,12 +6449,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     const categoria = categorias.find(c => c.id === producto.categoria);
                     const categoriaNombre = categoria ? categoria.nombre : producto.categoria;
                     
+                    // Determinar badge para tipo de variante
+                    let variantTypeBadge = '';
+                    if (producto.variantType) {
+                        const badgeClass = `variant-type-${producto.variantType}`;
+                        const badgeText = producto.variantType === 'simple' ? 'SIMPLE' : 
+                                         producto.variantType === 'color' ? 'COLOR' : 'PERSONALIZADO';
+                        variantTypeBadge = `<span class="variant-type-badge ${badgeClass}">${badgeText}</span>`;
+                    }
+                    
                     return `
                         <div class="product-item-admin" data-product-id="${producto.id}" draggable="true">
                             <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image-admin"
                                  onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
                             <div class="product-info-admin">
-                                <div class="product-name-admin">${producto.nombre}</div>
+                                <div class="product-name-admin">${producto.nombre} ${variantTypeBadge}</div>
                                 <div class="product-category-admin">
                                     <i class="fas fa-tag"></i>
                                     ${producto.subcategoria} | ${categoriaNombre}
@@ -6540,12 +6893,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         const categoria = categorias.find(c => c.id === product.categoria);
                         const categoriaNombre = categoria ? categoria.nombre : product.categoria;
                         
+                        // Badge de tipo de variante
+                        let variantTypeBadge = '';
+                        if (product.variantType) {
+                            const badgeClass = `variant-type-${product.variantType}`;
+                            const badgeText = product.variantType === 'simple' ? 'S' : 
+                                             product.variantType === 'color' ? 'C' : 'P';
+                            variantTypeBadge = `<span class="variant-type-badge ${badgeClass}" style="font-size: 0.6rem; padding: 1px 3px; margin-left: 4px;">${badgeText}</span>`;
+                        }
+                        
                         return `
                             <div class="search-result-item" data-product-id="${product.id}">
                                 <img src="${product.imagen}" alt="${product.nombre}" class="search-result-image"
                                      onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
                                 <div class="search-result-info">
-                                    <div class="search-result-name">${product.nombre}</div>
+                                    <div class="search-result-name">${product.nombre} ${variantTypeBadge}</div>
                                     <div class="search-result-category">
                                         <i class="fas fa-tag"></i>
                                         ${product.subcategoria}
@@ -6798,33 +7160,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 // Verificar stock disponible directamente del stock del producto
                 let availableStock = 0;
                 
-                if (product.categoria === 'ropa' || product.categoria === 'hombre') {
-                    // Ropa y Hombre: stock por talla y color
-                    if (product.stock && product.stock[selectedVariant] && product.stock[selectedVariant][selectedColor]) {
-                        availableStock = product.stock[selectedVariant][selectedColor];
-                    }
-                } else if (product.categoria === 'accesorios' && product.colores) {
-                    // Accesorios con colores: stock por color o variante/color
-                    if (product.variantes) {
-                        // Accesorios con variantes y colores
-                        if (product.stock && product.stock[selectedVariant] && product.stock[selectedVariant][selectedColor]) {
-                            availableStock = product.stock[selectedVariant][selectedColor];
-                        }
-                    } else {
-                        // Accesorios solo con colores
-                        if (product.stock && product.stock[selectedColor]) {
-                            availableStock = product.stock[selectedColor];
-                        }
-                    }
-                } else if ((product.categoria === 'juguetes' || product.categoria === 'hogar') && product.colores) {
-                    // Juguetes/Hogar con colores: stock por tamaño y color
-                    if (product.stock && product.stock[selectedVariant] && product.stock[selectedVariant][selectedColor]) {
-                        availableStock = product.stock[selectedVariant][selectedColor];
-                    }
-                } else {
-                    // Productos simples: stock por variante
+                if (product.variantType === 'simple') {
+                    // Simple: stock por variante
                     if (product.stock && product.stock[selectedVariant]) {
                         availableStock = product.stock[selectedVariant];
+                    }
+                } else if (product.variantType === 'color') {
+                    // Con color: stock por variante y color
+                    if (product.stock && product.stock[selectedVariant] && product.stock[selectedVariant][selectedColor]) {
+                        availableStock = product.stock[selectedVariant][selectedColor];
+                    }
+                } else if (product.variantType === 'custom') {
+                    // Personalizado: buscar combinación exacta
+                    const variantKey = selectedVariant + '|' + selectedColor;
+                    if (product.stock && product.stock[variantKey]) {
+                        availableStock = product.stock[variantKey];
                     }
                 }
                 
@@ -6873,7 +7223,8 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         color: selectedColor || 'N/A',
                         quantity: 1,
                         category: product.categoria,
-                        subcategoria: product.subcategoria
+                        subcategoria: product.subcategoria,
+                        variantType: product.variantType
                     });
                 }
                 
@@ -6906,32 +7257,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     const product = productos.find(p => p.id === id);
                     if (!product) return;
                     
-                    // Verificar stock disponible
+                    // Verificar stock disponible según tipo de variante
                     let availableStock = 0;
                     
-                    if (product.categoria === 'ropa' || product.categoria === 'hombre') {
-                        if (product.stock && product.stock[talla] && product.stock[talla][color]) {
-                            availableStock = product.stock[talla][color];
-                        }
-                    } else if (product.categoria === 'accesorios' && product.colores) {
-                        if (product.variantes) {
-                            // Accesorios con variantes y colores
-                            if (product.stock && product.stock[talla] && product.stock[talla][color]) {
-                                availableStock = product.stock[talla][color];
-                            }
-                        } else {
-                            // Accesorios solo con colores
-                            if (product.stock && product.stock[color]) {
-                                availableStock = product.stock[color];
-                            }
-                        }
-                    } else if ((product.categoria === 'juguetes' || product.categoria === 'hogar') && product.colores) {
-                        if (product.stock && product.stock[talla] && product.stock[talla][color]) {
-                            availableStock = product.stock[talla][color];
-                        }
-                    } else {
+                    if (product.variantType === 'simple') {
                         if (product.stock && product.stock[talla]) {
                             availableStock = product.stock[talla];
+                        }
+                    } else if (product.variantType === 'color') {
+                        if (product.stock && product.stock[talla] && product.stock[talla][color]) {
+                            availableStock = product.stock[talla][color];
+                        }
+                    } else if (product.variantType === 'custom') {
+                        const variantKey = talla + '|' + color;
+                        if (product.stock && product.stock[variantKey]) {
+                            availableStock = product.stock[variantKey];
                         }
                     }
                     
@@ -7048,32 +7388,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 cartItems.innerHTML = this.items.map((item, index) => {
                     const product = productos.find(p => p.id === item.id);
                     
-                    // Obtener stock disponible
+                    // Obtener stock disponible según tipo de variante
                     let availableStock = 0;
                     if (product) {
-                        if (product.categoria === 'ropa' || product.categoria === 'hombre') {
-                            if (product.stock && product.stock[item.talla] && product.stock[item.talla][item.color]) {
-                                availableStock = product.stock[item.talla][item.color];
-                            }
-                        } else if (product.categoria === 'accesorios' && product.colores) {
-                            if (product.variantes) {
-                                // Accesorios con variantes y colores
-                                if (product.stock && product.stock[item.talla] && product.stock[item.talla][item.color]) {
-                                    availableStock = product.stock[item.talla][item.color];
-                                }
-                            } else {
-                                // Accesorios solo con colores
-                                if (product.stock && product.stock[item.color]) {
-                                    availableStock = product.stock[item.color];
-                                }
-                            }
-                        } else if ((product.categoria === 'juguetes' || product.categoria === 'hogar') && product.colores) {
-                            if (product.stock && product.stock[item.talla] && product.stock[item.talla][item.color]) {
-                                availableStock = product.stock[item.talla][item.color];
-                            }
-                        } else {
+                        if (item.variantType === 'simple') {
                             if (product.stock && product.stock[item.talla]) {
                                 availableStock = product.stock[item.talla];
+                            }
+                        } else if (item.variantType === 'color') {
+                            if (product.stock && product.stock[item.talla] && product.stock[item.talla][item.color]) {
+                                availableStock = product.stock[item.talla][item.color];
+                            }
+                        } else if (item.variantType === 'custom') {
+                            const variantKey = item.talla + '|' + item.color;
+                            if (product.stock && product.stock[variantKey]) {
+                                availableStock = product.stock[variantKey];
                             }
                         }
                     }
@@ -7101,7 +7430,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                     <div class="cart-item-title">${item.name}</div>
                                     <div class="cart-item-variant">
                                         <i class="fas fa-tag"></i>
-                                        ${this.getVariantLabel(item.category, item.talla, item.color)}
+                                        ${this.getVariantLabel(item.category, item.talla, item.color, item.variantType)}
                                     </div>
                                     <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
                                 </div>
@@ -7185,21 +7514,25 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 });
             }
             
-            getVariantLabel(categoria, talla, color) {
-                if (categoria === 'ropa' || categoria === 'hombre') {
-                    return `Talla: ${talla} | Color: ${color}`;
-                } else if (categoria === 'accesorios') {
+            getVariantLabel(categoria, talla, color, variantType) {
+                if (variantType === 'simple') {
+                    return `Variante: ${talla}`;
+                } else if (variantType === 'color') {
                     if (color && color !== 'N/A') {
-                        return `Tipo: ${talla} | Color: ${color}`;
-                    } else {
-                        return `Tipo: ${talla}`;
-                    }
-                } else if (categoria === 'juguetes' || categoria === 'hogar') {
-                    if (color && color !== 'N/A') {
-                        return `Tamaño: ${talla} | Color: ${color}`;
+                        if (categoria === 'ropa' || categoria === 'hombre') {
+                            return `Talla: ${talla} | Color: ${color}`;
+                        } else {
+                            return `Tamaño: ${talla} | Color: ${color}`;
+                        }
                     } else {
                         return `Tamaño: ${talla}`;
                     }
+                } else if (variantType === 'custom') {
+                    // Para personalizado, mostrar todos los atributos
+                    const parts = talla.split('|');
+                    const colorParts = color.split('|');
+                    const allParts = [...parts, ...colorParts].filter(p => p !== 'N/A');
+                    return allParts.join(' | ');
                 } else {
                     return `Variante: ${talla}`;
                 }
@@ -7242,7 +7575,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 message += `*Productos:*\n`;
                 
                 this.items.forEach((item, index) => {
-                    message += `${index + 1}. ${item.name} - ${this.getVariantLabel(item.category, item.talla, item.color)} - ${item.quantity} x $${item.price.toFixed(2)}\n`;
+                    message += `${index + 1}. ${item.name} - ${this.getVariantLabel(item.category, item.talla, item.color, item.variantType)} - ${item.quantity} x $${item.price.toFixed(2)}\n`;
                 });
                 
                 const subtotal = this.getTotal();
@@ -7357,12 +7690,26 @@ Dejar vacío si no hay imágenes por color"></textarea>
                             estadoTexto = '';
                     }
                     
-                    // Generar opciones de tallas/variantes
+                    // Generar opciones según tipo de variante
                     let variantOptions = '';
                     const variantes = product.tallas || product.variantes || [];
+                    const variantType = product.variantType || 'simple';
                     
                     if (variantes.length > 0) {
-                        const labelText = product.categoria === 'ropa' || product.categoria === 'hombre' ? 'Selecciona talla:' : 'Selecciona tamaño:';
+                        let labelText = 'Selecciona opción:';
+                        
+                        if (variantType === 'color') {
+                            if (product.categoria === 'ropa' || product.categoria === 'hombre') {
+                                labelText = 'Selecciona talla:';
+                            } else {
+                                labelText = 'Selecciona tamaño:';
+                            }
+                        } else if (variantType === 'simple') {
+                            labelText = 'Selecciona variante:';
+                        } else if (variantType === 'custom') {
+                            labelText = 'Selecciona combinación:';
+                        }
+                        
                         variantOptions = `
                             <div class="variant-selector">
                                 <div class="variant-label">${labelText}</div>
@@ -7377,9 +7724,9 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         `;
                     }
                     
-                    // Generar opciones de colores
+                    // Generar opciones de colores (solo para tipo 'color')
                     let colorOptions = '';
-                    if (product.colores && product.colores.length > 0) {
+                    if (variantType === 'color' && product.colores && product.colores.length > 0) {
                         colorOptions = `
                             <div class="color-selector">
                                 <div class="variant-label">Selecciona color:</div>
@@ -7390,6 +7737,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                         </button>
                                     `).join('')}
                                 </div>
+                            </div>
+                        `;
+                    }
+                    
+                    // Para tipo 'custom', mostrar un campo de texto
+                    let customOption = '';
+                    if (variantType === 'custom') {
+                        customOption = `
+                            <div class="form-group-admin" style="margin-bottom: 6px;">
+                                <label class="form-label-admin" style="font-size: 0.75rem;">
+                                    <i class="fas fa-edit"></i> Especificaciones (separar con |):
+                                </label>
+                                <input type="text" class="form-input-admin custom-variant-input" 
+                                       style="font-size: 0.7rem; padding: 4px 6px;" 
+                                       placeholder="Ej: Pequeño|Rojo|Algodón">
                             </div>
                         `;
                     }
@@ -7440,13 +7802,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                 
                                 ${variantOptions}
                                 ${colorOptions}
+                                ${customOption}
                                 
                                 <div class="product-actions">
                                     <button class="add-to-cart-btn" data-product-id="${product.id}" 
-                                            data-is-ropa="${product.categoria === 'ropa' || product.categoria === 'hombre' ? 'true' : 'false'}" 
-                                            data-is-accesorio="${product.categoria === 'accesorios' ? 'true' : 'false'}" 
-                                            data-is-hogar="${product.categoria === 'hogar' ? 'true' : 'false'}"
-                                            data-is-hombre="${product.categoria === 'hombre' ? 'true' : 'false'}"
+                                            data-variant-type="${variantType}"
                                             style="background: linear-gradient(135deg, ${categoriaColor}, ${this.darkenColor(categoriaColor)});">
                                         <i class="fas fa-shopping-cart"></i>
                                         AGREGAR AL CARRITO
@@ -7461,30 +7821,48 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 productsGrid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const productId = parseInt(e.currentTarget.dataset.productId);
+                        const variantType = e.currentTarget.dataset.variantType;
                         const product = productos.find(p => p.id === productId);
                         
                         if (!product) return;
                         
-                        // Obtener selecciones de variante y color
-                        const variantBtn = e.currentTarget.closest('.product-card').querySelector('.variant-btn.selected');
-                        const colorBtn = e.currentTarget.closest('.product-card').querySelector('.color-btn.selected');
-                        
                         let selectedVariant = 'Único';
                         let selectedColor = 'N/A';
                         
-                        // Si no hay selección de variante, usar la primera disponible
-                        const variantes = product.tallas || product.variantes || [];
-                        if (!variantBtn && variantes.length > 0) {
-                            selectedVariant = variantes[0];
-                        } else if (variantBtn) {
-                            selectedVariant = variantBtn.dataset.variant;
-                        }
-                        
-                        // Si no hay selección de color, usar el primero disponible
-                        if (!colorBtn && product.colores && product.colores.length > 0) {
-                            selectedColor = product.colores[0];
-                        } else if (colorBtn) {
-                            selectedColor = colorBtn.dataset.color;
+                        // Obtener selecciones según tipo de variante
+                        if (variantType === 'simple' || variantType === 'color') {
+                            // Para simple y color, usar variante seleccionada
+                            const variantBtn = e.currentTarget.closest('.product-card').querySelector('.variant-btn.selected');
+                            
+                            // Si no hay selección de variante, usar la primera disponible
+                            const variantes = product.tallas || product.variantes || [];
+                            if (!variantBtn && variantes.length > 0) {
+                                selectedVariant = variantes[0];
+                            } else if (variantBtn) {
+                                selectedVariant = variantBtn.dataset.variant;
+                            }
+                            
+                            // Para color, también obtener color seleccionado
+                            if (variantType === 'color') {
+                                const colorBtn = e.currentTarget.closest('.product-card').querySelector('.color-btn.selected');
+                                
+                                // Si no hay selección de color, usar el primero disponible
+                                if (!colorBtn && product.colores && product.colores.length > 0) {
+                                    selectedColor = product.colores[0];
+                                } else if (colorBtn) {
+                                    selectedColor = colorBtn.dataset.color;
+                                }
+                            }
+                        } else if (variantType === 'custom') {
+                            // Para personalizado, usar el campo de texto
+                            const customInput = e.currentTarget.closest('.product-card').querySelector('.custom-variant-input');
+                            if (customInput && customInput.value.trim()) {
+                                selectedVariant = customInput.value.trim();
+                                selectedColor = 'N/A';
+                            } else {
+                                this.showNotification('Por favor ingresa las especificaciones', 'error');
+                                return;
+                            }
                         }
                         
                         // Intentar agregar al carrito
@@ -7685,5 +8063,5 @@ Dejar vacío si no hay imágenes por color"></textarea>
             setTimeout(preloadImages, 1000);
         });
     </script>
-</body>
-</html>
+
+</body></html>
