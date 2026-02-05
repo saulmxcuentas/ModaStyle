@@ -4107,7 +4107,7 @@
                     Agregar Nuevo Producto
                 </h3>
                 
-                <div class="status-message status-success" id="formMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Categorías reordenadas correctamente</span></div>
+                <div class="status-message status-success" id="formMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>HTML exportado correctamente. El archivo se está descargando.</span></div>
                 
                 <form class="admin-form" id="productForm">
                     <div class="form-row">
@@ -4122,7 +4122,7 @@
                             <label class="form-label-admin">
                                 <i class="fas fa-box"></i> Categoría:
                             </label>
-                            <select id="productCategory" class="form-select" required=""><option value="">Selecciona categoría</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="kids">Kids</option><option value="accesorios">Accesorios</option><option value="productos-de-belleza">Productos de belleza</option><option value="juguetes">Juguetes</option></select>
+                            <select id="productCategory" class="form-select" required=""><option value="">Selecciona categoría</option><option value="saul-flores">SAUL FLORES</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="kids">Kids</option><option value="accesorios">Accesorios</option><option value="productos-de-belleza">Productos de belleza</option><option value="juguetes">Juguetes</option></select>
                         </div>
                     </div>
                     
@@ -4321,6 +4321,29 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 </h4>
                 
                 <div class="categories-list-admin" id="categoriesListAdmin">
+                        <div class="category-item-admin" data-category-id="saul-flores" draggable="true">
+                            <div class="category-info-admin">
+                                <div class="category-icon-admin" style="background: #118ab2;">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div class="category-details-admin">
+                                    <div class="category-name-admin">SAUL FLORES</div>
+                                    <div class="category-stats-admin">
+                                        <span class="category-product-count">0 productos</span>
+                                        <span class="category-color" style="background: #118ab2;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-actions-admin">
+                                <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('saul-flores')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('saul-flores')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
                         <div class="category-item-admin" data-category-id="hombre" draggable="true">
                             <div class="category-info-admin">
                                 <div class="category-icon-admin" style="background: #4d82ff;">
@@ -4677,6 +4700,10 @@ Dejar vacío si no hay imágenes por color"></textarea>
             
             <!-- Filtros de categoría -->
             <div class="category-filters" id="categoryFilters"><button class="category-filter active" onclick="filterProducts('todos')" style="background: var(--accent); color: white; border-color: var(--accent);">Todos</button>
+                        <button class="category-filter dinamica" onclick="filterProducts('saul-flores')" data-color="#118ab2">
+                            SAUL FLORES
+                        </button>
+                    
                         <button class="category-filter hombre" onclick="filterProducts('hombre')" data-color="#4d82ff">
                             Hombre
                         </button>
@@ -5694,46 +5721,53 @@ Dejar vacío si no hay imágenes por color"></textarea>
         // Sistema de categorías - CON CATEGORÍA HOMBRE
         let categorias = [
     {
+        "id": "saul-flores",
+        "nombre": "SAUL FLORES",
+        "color": "#118ab2",
+        "icono": "fa-tag",
+        "orden": 1
+    },
+    {
         "id": "hombre",
         "nombre": "Hombre",
         "color": "#4d82ff",
         "icono": "fa-user-tie",
-        "orden": 1
+        "orden": 2
     },
     {
         "id": "mujer",
         "nombre": "Mujer",
         "color": "#ff8f8f",
         "icono": "fa-tag",
-        "orden": 2
+        "orden": 3
     },
     {
         "id": "kids",
         "nombre": "Kids",
         "color": "#a6f2de",
         "icono": "fa-tag",
-        "orden": 3
+        "orden": 4
     },
     {
         "id": "accesorios",
         "nombre": "Accesorios",
         "color": "#ff932e",
         "icono": "fa-tag",
-        "orden": 4
+        "orden": 5
     },
     {
         "id": "productos-de-belleza",
         "nombre": "Productos de belleza",
         "color": "#e5da61",
         "icono": "fa-user-tie",
-        "orden": 5
+        "orden": 6
     },
     {
         "id": "juguetes",
         "nombre": "Juguetes",
         "color": "#FF6B8B",
         "icono": "fa-gamepad",
-        "orden": 6
+        "orden": 7
     }
 ];
 
