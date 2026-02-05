@@ -1,4 +1,8 @@
-<html lang="es"><head>
+<html lang="es"><head></head><body style="overflow: hidden;">[file name]: modastyle_final_con_versionado.html
+[file content begin]
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaStyle - Tienda de Ropa, Accesorios y Hogar</title>
@@ -3820,8 +3824,8 @@
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-</head>
-<body style="overflow: hidden;">
+
+
     <!-- Modal de Imagen Ampliada -->
     <div class="image-modal-overlay" id="imageModal">
         <div class="image-modal">
@@ -3914,7 +3918,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-boxes"></i>
                         </div>
-                        <div class="stat-value" id="totalProducts">6</div>
+                        <div class="stat-value" id="totalProducts">7</div>
                         <div class="stat-label">Productos Totales</div>
                     </div>
                     
@@ -4097,6 +4101,26 @@
                                 </button>
                             </div>
                         </div>
+                    
+                        <div class="product-item-admin" data-product-id="13" draggable="true">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="mari" class="product-image-admin" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="product-info-admin">
+                                <div class="product-name-admin">mari <span class="variant-type-badge variant-type-simple">SIMPLE</span></div>
+                                <div class="product-category-admin">
+                                    <i class="fas fa-tag"></i>
+                                    chami | MARI
+                                </div>
+                                <div class="product-price-admin">$300</div>
+                            </div>
+                            <div class="product-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(13)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(13)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
             </div>
             
@@ -4122,7 +4146,7 @@
                             <label class="form-label-admin">
                                 <i class="fas fa-box"></i> Categoría:
                             </label>
-                            <select id="productCategory" class="form-select" required=""><option value="">Selecciona categoría</option><option value="saul-flores">SAUL FLORES</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="kids">Kids</option><option value="accesorios">Accesorios</option><option value="productos-de-belleza">Productos de belleza</option><option value="juguetes">Juguetes</option></select>
+                            <select id="productCategory" class="form-select" required=""><option value="">Selecciona categoría</option><option value="mari">MARI</option><option value="saul-flores">SAUL FLORES</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="kids">Kids</option><option value="accesorios">Accesorios</option><option value="productos-de-belleza">Productos de belleza</option><option value="juguetes">Juguetes</option></select>
                         </div>
                     </div>
                     
@@ -4153,7 +4177,7 @@
                         <label class="form-label-admin">
                             <i class="fas fa-image"></i> URL de Imagen Principal:
                         </label>
-                        <input type="url" id="productImage" class="form-input-admin" placeholder="https://ejemplo.com/imagen.jpg" required="">
+                            <input type="url" id="productImage" class="form-input-admin" placeholder="https://ejemplo.com/imagen.jpg" required="">
                     </div>
                     
                     <div class="form-group-admin">
@@ -4321,6 +4345,29 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 </h4>
                 
                 <div class="categories-list-admin" id="categoriesListAdmin">
+                        <div class="category-item-admin" data-category-id="mari" draggable="true">
+                            <div class="category-info-admin">
+                                <div class="category-icon-admin" style="background: #8a2be2;">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="category-details-admin">
+                                    <div class="category-name-admin">MARI</div>
+                                    <div class="category-stats-admin">
+                                        <span class="category-product-count">1 productos</span>
+                                        <span class="category-color" style="background: #8a2be2;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-actions-admin">
+                                <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('mari')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('mari')" disabled="">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
                         <div class="category-item-admin" data-category-id="saul-flores" draggable="true">
                             <div class="category-info-admin">
                                 <div class="category-icon-admin" style="background: #118ab2;">
@@ -4524,7 +4571,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                 <i class="fas fa-chevron-down"></i>
                             </button>
                         </div>
-                        <div class="code-preview" id="codePreview"><code>&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;html lang="es"&gt;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;head&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;meta charset="UTF-8"&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;meta <span class="html-attr">name</span>="viewport" content="width=device-width, initial-scale=1.0"&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;title&gt;ModaStyle - Tienda de Ropa, Accesorios y Hogar&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;/title&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;style&gt;<br> &nbsp; &nbsp; &nbsp; &nbsp;:root {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* Paleta de colores elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--primary: #1a1a1a;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--secondary: #333333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent: #D4AF37; /* Oro elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent2: #4A90E2; /* Azul para accesorios */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent3: #FF6B8B; /* Rosa para juguetes */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent4: #2E8B57; /* Verde para hogar */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent5: #8A2BE2; /* Violeta para HOMBRE */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--light: #f8f8f8;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--medium: #e0e0e0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--dark: #0a0a0a;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--text: #333333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--text-light: #666666;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--success: #2e8b57;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--warning: #ffa500;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--error: #cc3333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--admin: #8B5CF6; /* Color para admin */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* Variables de diseño */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--border-radius: 8px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--border-radius-sm: 4px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--shadow: 0 2px 8px rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--container-width: 1200px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--header-height: 60px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Reset y estilos base */<br> &nbsp; &nbsp; &nbsp; &nbsp;* {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-sizing: border-box;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;html {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;scroll-behavior: smooth;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 14px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;body {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: var(--light);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: var(--text);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;line-height: 1.4;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;overflow-x: hidden;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.container {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;max-width: var(--container-width);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin: 0 auto;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 0 15px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Header elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp;.main-header {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: fixed;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;top: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;left: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;right: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: rgba(255, 255, 255, 0.98);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;backdrop-filter: blur(10px);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: var(--header-height);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z-index: 1000;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-bottom: 1px solid rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.header-content {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;justify-content: space-between;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 100%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 15px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 8px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text-decoration: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: var(--primary);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;flex-shrink: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo-icon {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 30px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 30px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--primary), var(--accent));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: 50%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;justify-content: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: white;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: bold;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.8rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 4px rgba(212, 175, 55, 0.3);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo-text {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 1.1rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: 700;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;letter-spacing: -0.5px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--primary), var(--accent));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-webkit-background-clip: text;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-clip: text;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: transparent;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Botón de Administración */<br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--admin), #7C3AED);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: white;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: var(--border-radius-sm);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 8px 16px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: 600;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cursor: pointer;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: var(--transition);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.85rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 6px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 4px rgba(139, 92, 246, 0.3);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-left: auto;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-right: 10px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn:hover {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, #7C3AED, var(--admin));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transform: translateY(-1px);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 3px 8px rgba(139, 92, 246, 0.4);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn i {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.9rem;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* BARRA DE BÚSQUEDA */<br> &nbsp; &nbsp; &nbsp; &nbsp;.search-container {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;flex: 1;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;max-width: 300px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: relative;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.search-box {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 100%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 8px 12px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding-left: 35px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: 1px solid var(--medium);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: var(--border-radius);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: var(--light);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-family: inherit;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.85rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: var(--transition);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.search-box:focus {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;outline: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br><br>... (HTML truncado para vista previa) ...</code></div>
+                        <div class="code-preview" id="codePreview"><code>&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;html lang="es"&gt;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;head&gt;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;/head&gt;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;body style="overflow: hidden;"&gt;[file name]: modastyle_final_con_versionado.html<br>[file content begin]<br><br><br><br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;meta charset="UTF-8"&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;meta <span class="html-attr">name</span>="viewport" content="width=device-width, initial-scale=1.0"&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;title&gt;ModaStyle - Tienda de Ropa, Accesorios y Hogar&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;/title&gt;<br> &nbsp; &nbsp;&lt;<span <span="" class="html-attr">class</span>="html-tag"&gt;style&gt;<br> &nbsp; &nbsp; &nbsp; &nbsp;:root {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* Paleta de colores elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--primary: #1a1a1a;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--secondary: #333333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent: #D4AF37; /* Oro elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent2: #4A90E2; /* Azul para accesorios */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent3: #FF6B8B; /* Rosa para juguetes */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent4: #2E8B57; /* Verde para hogar */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--accent5: #8A2BE2; /* Violeta para HOMBRE */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--light: #f8f8f8;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--medium: #e0e0e0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--dark: #0a0a0a;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--text: #333333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--text-light: #666666;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--success: #2e8b57;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--warning: #ffa500;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--error: #cc3333;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--admin: #8B5CF6; /* Color para admin */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* Variables de diseño */<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--border-radius: 8px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--border-radius-sm: 4px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--shadow: 0 2px 8px rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--container-width: 1200px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--header-height: 60px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Reset y estilos base */<br> &nbsp; &nbsp; &nbsp; &nbsp;* {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-sizing: border-box;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;html {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;scroll-behavior: smooth;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 14px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;body {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: var(--light);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: var(--text);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;line-height: 1.4;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;overflow-x: hidden;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.container {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;max-width: var(--container-width);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin: 0 auto;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 0 15px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Header elegante */<br> &nbsp; &nbsp; &nbsp; &nbsp;.main-header {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: fixed;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;top: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;left: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;right: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: rgba(255, 255, 255, 0.98);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;backdrop-filter: blur(10px);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: var(--header-height);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z-index: 1000;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-bottom: 1px solid rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.header-content {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;justify-content: space-between;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 100%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 15px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 8px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text-decoration: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: var(--primary);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;flex-shrink: 0;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo-icon {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 30px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 30px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--primary), var(--accent));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: 50%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;justify-content: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: white;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: bold;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.8rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 4px rgba(212, 175, 55, 0.3);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.logo-text {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 1.1rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: 700;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;letter-spacing: -0.5px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--primary), var(--accent));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-webkit-background-clip: text;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-clip: text;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: transparent;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* Botón de Administración */<br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, var(--admin), #7C3AED);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: white;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: none;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: var(--border-radius-sm);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 8px 16px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-weight: 600;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cursor: pointer;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: var(--transition);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.85rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: flex;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;align-items: center;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gap: 6px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 1px 4px rgba(139, 92, 246, 0.3);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-left: auto;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-right: 10px;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn:hover {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: linear-gradient(135deg, #7C3AED, var(--admin));<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transform: translateY(-1px);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: 0 3px 8px rgba(139, 92, 246, 0.4);<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.admin-btn i {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.9rem;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;/* BARRA DE BÚSQUEDA */<br> &nbsp; &nbsp; &nbsp; &nbsp;.search-container {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;flex: 1;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;max-width: 300px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: relative;<br> &nbsp; &nbsp; &nbsp; &nbsp;}<br><br> &nbsp; &nbsp; &nbsp; &nbsp;.search-box {<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 100%;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding: 8px 12px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding-left: 35px;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: 1px solid var(--medium);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: var(--border-radius);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background: var(--light);<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-family: inherit;<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: 0.85rem;<br> &nbsp; &nbsp; &nbsp; &nbsp; <br><br>... (HTML truncado para vista previa) ...</code></div>
                     </div>
                     
                     <div class="form-actions">
@@ -4535,6 +4582,10 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <button type="button" class="btn-save" id="exportHtmlBtn">
                             <i class="fas fa-download"></i>
                             Descargar HTML Completo
+                        </button>
+                        <button type="button" class="btn-secondary" id="forceUpdateBtn">
+                            <i class="fas fa-sync-alt"></i>
+                            Forzar actualización para todos
                         </button>
                     </div>
                 </div>
@@ -4547,6 +4598,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <li>Haz clic en "Descargar HTML Completo"</li>
                         <li>El archivo se descargará como <code>modastyle_actualizado.html</code></li>
                         <li>Puedes subir este archivo a tu servidor web</li>
+                        <li>Usa "Forzar actualización" si quieres que los usuarios actualicen sus datos</li>
                     </ol>
                 </div>
             </div>
@@ -4699,7 +4751,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
             </div>
             
             <!-- Filtros de categoría -->
-            <div class="category-filters" id="categoryFilters"><button class="category-filter active" onclick="filterProducts('todos')" style="background: var(--accent); color: white; border-color: var(--accent);">Todos</button>
+            <div class="category-filters" id="categoryFilters"><button class="category-filter" onclick="filterProducts('todos')" style="background: var(--accent); color: white; border-color: var(--accent);">Todos</button>
+                        <button class="category-filter dinamica active" onclick="filterProducts('mari')" data-color="#8a2be2" style="background: rgb(138, 43, 226); color: white; border-color: rgb(138, 43, 226);">
+                            MARI
+                        </button>
+                    
                         <button class="category-filter dinamica" onclick="filterProducts('saul-flores')" data-color="#118ab2">
                             SAUL FLORES
                         </button>
@@ -4730,53 +4786,30 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     </div>
             
             <div class="products-grid" id="productsGrid">
-                        <div class="product-card hombre" style="animation-delay: 0s" data-product-id="1">
+                        <div class="product-card mari" style="animation-delay: 0s" data-product-id="13">
                             <div class="product-image-container">
-                                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp" alt="SUDADERA" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp', 'SUDADERA', 'hombre')">
-                                <div class="product-badge oferta hombre">OFERTA</div>
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="mari" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80', 'mari', 'mari')">
+                                <div class="product-badge nuevo mari">NUEVO</div>
                             </div>
                             
                             <div class="product-info">
-                                <div class="product-category hombre" style="color: #4d82ff">
+                                <div class="product-category mari" style="color: #8a2be2">
                                     <i class="fas fa-tag"></i>
-                                    SUDADERA
+                                    chami
                                 </div>
                                 
-                                <h3 class="product-title">SUDADERA</h3>
+                                <h3 class="product-title">mari</h3>
                                 
                                 <div class="product-price-container">
                                     
-                                        <div class="sale-price-container">
-                                            <div class="original-price">$250</div>
-                                            <div class="sale-price" style="color: #4d82ff">$200</div>
-                                            <div class="discount-badge">OFERTA</div>
-                                        </div>
+                                        <div class="regular-price">$300</div>
                                     
                                 </div>
                                 
                                 <p class="product-description">
-                                    La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.
+                                    ufu34h u43hfubu34f u4bfu 433i43 u
                                 </p>
                                 
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>100% algodón egipcio</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Corte regular</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Cuello redondo reforzado</span>
-                                            </div>
-                                        
-                                    </div>
                                 
                                 
                                 
@@ -4784,92 +4817,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                 <div class="variant-label">Selecciona variante:</div>
                                 <div class="variant-options">
                                     
-                                        <button class="variant-btn selected" data-variant="S" style="border-color: #4d82ff">
+                                        <button class="variant-btn" data-variant="S" style="border-color: #8a2be2">
                                             S
                                         </button>
                                     
-                                        <button class="variant-btn" data-variant="M" style="border-color: #4d82ff">
-                                            M
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="L" style="border-color: #4d82ff">
-                                            L
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="1" data-variant-type="simple" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        AGREGAR AL CARRITO
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card hombre" style="animation-delay: 0.05s" data-product-id="11">
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Camisa de Vestir para Hombre" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80', 'Camisa de Vestir para Hombre', 'hombre')">
-                                <div class="product-badge nuevo hombre">NUEVO</div>
-                            </div>
-                            
-                            <div class="product-info">
-                                <div class="product-category hombre" style="color: #4d82ff">
-                                    <i class="fas fa-tag"></i>
-                                    Camisas
-                                </div>
-                                
-                                <h3 class="product-title">Camisa de Vestir para Hombre</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="sale-price-container">
-                                            <div class="original-price">$450</div>
-                                            <div class="sale-price" style="color: #4d82ff">$380</div>
-                                            <div class="discount-badge">OFERTA</div>
-                                        </div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Corte slim fit moderno</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Cuello italiano reforzado</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Botones de nácar genuino</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector">
-                                <div class="variant-label">Selecciona talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn selected" data-variant="S" style="border-color: #4d82ff">
-                                            S
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="M" style="border-color: #4d82ff">
+                                        <button class="variant-btn selected" data-variant="M" style="border-color: #8a2be2">
                                             M
                                         </button>
                                     
@@ -4877,360 +4829,10 @@ Dejar vacío si no hay imágenes por color"></textarea>
                             </div>
                         
                                 
-                            <div class="color-selector">
-                                <div class="variant-label">Selecciona color:</div>
-                                <div class="color-options">
-                                    
-                                        <button class="color-btn selected" data-color="Negro" style="border-color: #4d82ff">
-                                            Negro
-                                        </button>
-                                    
-                                        <button class="color-btn" data-color="Rosa" style="border-color: #4d82ff">
-                                            Rosa
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
                                 
                                 
                                 <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="11" data-variant-type="color" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        AGREGAR AL CARRITO
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card hombre" style="animation-delay: 0.1s" data-product-id="12">
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="playera" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80', 'playera', 'hombre')">
-                                <div class="product-badge nuevo hombre">NUEVO</div>
-                            </div>
-                            
-                            <div class="product-info">
-                                <div class="product-category hombre" style="color: #4d82ff">
-                                    <i class="fas fa-tag"></i>
-                                    playera casual
-                                </div>
-                                
-                                <h3 class="product-title">playera</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">200</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>jhgfuyx</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector">
-                                <div class="variant-label">Selecciona talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn selected" data-variant="28" style="border-color: #4d82ff">
-                                            28
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="30" style="border-color: #4d82ff">
-                                            30
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="32" style="border-color: #4d82ff">
-                                            32
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                            <div class="color-selector">
-                                <div class="variant-label">Selecciona color:</div>
-                                <div class="color-options">
-                                    
-                                        <button class="color-btn selected" data-color="Negro" style="border-color: #4d82ff">
-                                            Negro
-                                        </button>
-                                    
-                                        <button class="color-btn" data-color="Rosa" style="border-color: #4d82ff">
-                                            Rosa
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="12" data-variant-type="color" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        AGREGAR AL CARRITO
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card hombre" style="animation-delay: 0.15000000000000002s" data-product-id="2">
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Jeans Slim Fit Elite" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80', 'Jeans Slim Fit Elite', 'hombre')">
-                                <div class="product-badge nuevo hombre">NUEVO</div>
-                            </div>
-                            
-                            <div class="product-info">
-                                <div class="product-category hombre" style="color: #4d82ff">
-                                    <i class="fas fa-tag"></i>
-                                    Pantalones
-                                </div>
-                                
-                                <h3 class="product-title">Jeans Slim Fit Elite</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$350</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Jeans de corte slim que se ajustan perfectamente a tu figura sin sacrificar la comodidad.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Denim elastano premium</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Corte slim fit</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #4d82ff"></i>
-                                                <span>Lavado especial</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector">
-                                <div class="variant-label">Selecciona talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn selected" data-variant="Corto" style="border-color: #4d82ff">
-                                            Corto
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="Grande" style="border-color: #4d82ff">
-                                            Grande
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                            <div class="color-selector">
-                                <div class="variant-label">Selecciona color:</div>
-                                <div class="color-options">
-                                    
-                                        <button class="color-btn selected" data-color="Negro" style="border-color: #4d82ff">
-                                            Negro
-                                        </button>
-                                    
-                                        <button class="color-btn" data-color="Rojo" style="border-color: #4d82ff">
-                                            Rojo
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="2" data-variant-type="color" style="background: linear-gradient(135deg, #4d82ff, rgb(61, 104, 204));">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        AGREGAR AL CARRITO
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card juguetes" style="animation-delay: 0.2s" data-product-id="7">
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Peluche Oso Teddy Premium" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80', 'Peluche Oso Teddy Premium', 'juguetes')">
-                                <div class="product-badge oferta juguetes">OFERTA</div>
-                            </div>
-                            
-                            <div class="product-info">
-                                <div class="product-category juguetes" style="color: #FF6B8B">
-                                    <i class="fas fa-tag"></i>
-                                    Peluches
-                                </div>
-                                
-                                <h3 class="product-title">Peluche Oso Teddy Premium</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$150</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Peluche oso Teddy de alta calidad, perfecto para regalo o decoración.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #FF6B8B"></i>
-                                                <span>Material hipoalergénico</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #FF6B8B"></i>
-                                                <span>Relleno premium</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #FF6B8B"></i>
-                                                <span>Costuras reforzadas</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector">
-                                <div class="variant-label">Selecciona tamaño:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn selected" data-variant="Corto" style="border-color: #FF6B8B">
-                                            Corto
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="Grande" style="border-color: #FF6B8B">
-                                            Grande
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                            <div class="color-selector">
-                                <div class="variant-label">Selecciona color:</div>
-                                <div class="color-options">
-                                    
-                                        <button class="color-btn selected" data-color="Marrón" style="border-color: #FF6B8B">
-                                            Marrón
-                                        </button>
-                                    
-                                        <button class="color-btn" data-color="Blanco" style="border-color: #FF6B8B">
-                                            Blanco
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="7" data-variant-type="color" style="background: linear-gradient(135deg, #FF6B8B, rgb(204, 85, 111));">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        AGREGAR AL CARRITO
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card juguetes" style="animation-delay: 0.25s" data-product-id="9">
-                            <div class="product-image-container">
-                                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_798871-MLM94977048253_102025-F-peluche-grande-de-conejo-suave-con-zanahoria-50-cm.webp" alt="Peluche Conejito Suave" class="product-image" onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'" onclick="carrito.openImageModal('https://http2.mlstatic.com/D_NQ_NP_2X_798871-MLM94977048253_102025-F-peluche-grande-de-conejo-suave-con-zanahoria-50-cm.webp', 'Peluche Conejito Suave', 'juguetes')">
-                                <div class="product-badge oferta juguetes">OFERTA</div>
-                            </div>
-                            
-                            <div class="product-info">
-                                <div class="product-category juguetes" style="color: #FF6B8B">
-                                    <i class="fas fa-tag"></i>
-                                    Peluches
-                                </div>
-                                
-                                <h3 class="product-title">Peluche Conejito Suave</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$100</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Adorable peluche conejito con pelo extra suave. Perfecto compañero para niños.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #FF6B8B"></i>
-                                                <span>Pelo suave y sedoso</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #FF6B8B"></i>
-                                                <span>Ojos de seguridad</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #FF6B8B"></i>
-                                                <span>Lavable</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector">
-                                <div class="variant-label">Selecciona tamaño:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn selected" data-variant="Pequeño" style="border-color: #FF6B8B">
-                                            Pequeño
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="Mediano" style="border-color: #FF6B8B">
-                                            Mediano
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-variant="Grande" style="border-color: #FF6B8B">
-                                            Grande
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="9" data-variant-type="color" style="background: linear-gradient(135deg, #FF6B8B, rgb(204, 85, 111));">
+                                    <button class="add-to-cart-btn" data-product-id="13" data-variant-type="simple" style="background: linear-gradient(135deg, #8a2be2, #5700af);">
                                         <i class="fas fa-shopping-cart"></i>
                                         AGREGAR AL CARRITO
                                     </button>
@@ -5415,7 +5017,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <i class="fas fa-box"></i>
                         Subtotal
                     </span>
-                    <span class="summary-value" id="subtotal">$400.00</span>
+                    <span class="summary-value" id="subtotal">$1800.00</span>
                 </div>
                 <div class="summary-row">
                     <span class="summary-label">
@@ -5429,7 +5031,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         <i class="fas fa-calculator"></i>
                         Total
                     </span>
-                    <span class="total-amount" id="total">$400.00</span>
+                    <span class="total-amount" id="total">$1800.00</span>
                 </div>
             </div>
         </div>
@@ -5489,7 +5091,318 @@ Dejar vacío si no hay imágenes por color"></textarea>
     </footer>
 
     <script>
-        // Datos de productos CON CONTROL DE STOCK - ACTUALIZADO CON CATEGORÍA HOMBRE
+        // ==================== SISTEMA DE VERSIONADO ====================
+        const APP_VERSION = '1.0.1'; // INCREMENTA ESTE NÚMERO CADA VEZ QUE EXPORTES CON CAMBIOS
+        
+        // Datos por defecto que estarán en el HTML
+        const PRODUCTOS_DEFAULT = [
+    {
+        "id": 1,
+        "nombre": "SUDADERA",
+        "precioRegular": "$250",
+        "precioDescuento": "$200",
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_912731-MLM87164680425_072025-F-conjunto-deportiva-hombre-manga-capucha-de-calidad-sudadera.webp",
+        "imagenes": {
+            "Único": "https://i.postimg.cc/pTFXk04B/Diseno-sin-titulo-20260127-141225-0000.jpg",
+            "Negro": "https://i.postimg.cc/MHQpGsq4/Diseno-sin-titulo-20260127-152935-0000.jpg",
+            "Azul Marino": "https://i.postimg.cc/QCWjL0pM/Diseno-sin-titulo-20260129-195912-0000.jpg",
+            "Gris": "https://i.postimg.cc/3JTjh5Bp/Diseno-sin-titulo-20260129-200155-0000.jpg",
+            "Blanco": "https://i.postimg.cc/D0Nsk6M8/Diseno-sin-titulo-20260129-200400-0000.jpg",
+            "Rosa": "https://i.postimg.cc/SNCBx0bM/Diseno-sin-titulo-20260127-150048-0000.jpg"
+        },
+        "categoria": "hombre",
+        "subcategoria": "SUDADERA",
+        "descripcion": "La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.",
+        "estado": "oferta",
+        "especificaciones": [
+            "100% algodón egipcio",
+            "Corte regular",
+            "Cuello redondo reforzado"
+        ],
+        "variantType": "simple",
+        "stock": {
+            "S": 2,
+            "M": 2,
+            "L": 2
+        },
+        "tallas": [
+            "S",
+            "M",
+            "L"
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "Camisa de Vestir para Hombre",
+        "precioRegular": "$450",
+        "precioDescuento": "$380",
+        "imagen": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "imagenes": {
+            "Blanco": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Azul Claro": "https://i.postimg.cc/8CJY8rq9/camisa-azul.jpg",
+            "Negro": "https://i.postimg.cc/0yVd8Jp3/camisa-negra.jpg",
+            "Gris": "https://i.postimg.cc/G2rVnq0P/camisa-gris.jpg"
+        },
+        "categoria": "hombre",
+        "subcategoria": "Camisas",
+        "descripcion": "Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.",
+        "estado": "nuevo",
+        "especificaciones": [
+            "Corte slim fit moderno",
+            "Cuello italiano reforzado",
+            "Botones de nácar genuino"
+        ],
+        "variantType": "color",
+        "stock": {
+            "S": {
+                "Negro": 2,
+                "Rosa": 2
+            },
+            "M": {
+                "Negro": 2,
+                "Rosa": 2
+            }
+        },
+        "tallas": [
+            "S",
+            "M"
+        ],
+        "colores": [
+            "Negro",
+            "Rosa"
+        ]
+    },
+    {
+        "id": 12,
+        "nombre": "playera",
+        "precioRegular": "200",
+        "imagen": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        "imagenes": {
+            "Blanco": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Azul Claro": "https://i.postimg.cc/8CJY8rq9/camisa-azul.jpg",
+            "Negro": "https://i.postimg.cc/0yVd8Jp3/camisa-negra.jpg",
+            "Gris": "https://i.postimg.cc/G2rVnq0P/camisa-gris.jpg"
+        },
+        "categoria": "hombre",
+        "subcategoria": "playera casual",
+        "descripcion": "Camisa de vestir elegante para hombre, ideal para ocasiones formales o semi-formales. Tela de alta calidad que ofrece comodidad y estilo.",
+        "estado": "nuevo",
+        "especificaciones": [
+            "jhgfuyx"
+        ],
+        "variantType": "color",
+        "stock": {
+            "28": {
+                "Negro": 2,
+                "Rosa": 2
+            },
+            "30": {
+                "Negro": 2,
+                "Rosa": 2
+            },
+            "32": {
+                "Negro": 2,
+                "Rosa": 2
+            }
+        },
+        "tallas": [
+            "28",
+            "30",
+            "32"
+        ],
+        "colores": [
+            "Negro",
+            "Rosa"
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Jeans Slim Fit Elite",
+        "precioRegular": "$350",
+        "imagen": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "imagenes": {
+            "Azul Oscuro": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Azul Claro": "https://i.postimg.cc/HnRpzr97/Diseno-sin-titulo-20260129-200739-0000.jpg",
+            "Negro": "https://i.postimg.cc/B6RXX6KL/Diseno-sin-titulo-20260129-201128-0000.jpg",
+            "Gris": "https://i.postimg.cc/mgLwNJVh/Diseno-sin-titulo-20260129-201329-0000.jpg"
+        },
+        "categoria": "hombre",
+        "subcategoria": "Pantalones",
+        "descripcion": "Jeans de corte slim que se ajustan perfectamente a tu figura sin sacrificar la comodidad.",
+        "estado": "nuevo",
+        "especificaciones": [
+            "Denim elastano premium",
+            "Corte slim fit",
+            "Lavado especial"
+        ],
+        "variantType": "color",
+        "stock": {
+            "Corto": {
+                "Negro": 2,
+                "Rojo": 2
+            },
+            "Grande": {
+                "Negro": 2,
+                "Rojo": 2
+            }
+        },
+        "tallas": [
+            "Corto",
+            "Grande"
+        ],
+        "colores": [
+            "Negro",
+            "Rojo"
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Peluche Oso Teddy Premium",
+        "precioRegular": "$150",
+        "imagen": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "imagenes": {
+            "Marrón": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Blanco": "https://i.postimg.cc/KjSdHSpk/Diseno-sin-titulo-20260129-205450-0000.jpg",
+            "Beige": "https://i.postimg.cc/sX2SfzNR/Diseno-sin-titulo-20260129-205719-0000.jpg"
+        },
+        "categoria": "juguetes",
+        "subcategoria": "Peluches",
+        "descripcion": "Peluche oso Teddy de alta calidad, perfecto para regalo o decoración.",
+        "estado": "oferta",
+        "especificaciones": [
+            "Material hipoalergénico",
+            "Relleno premium",
+            "Costuras reforzadas"
+        ],
+        "variantType": "color",
+        "stock": {
+            "Grande": {
+                "Blanco": 2,
+                "Marrón": 2
+            },
+            "Corto": {
+                "Marrón": 2,
+                "Blanco": 2
+            }
+        },
+        "variantes": [
+            "Corto",
+            "Grande"
+        ],
+        "colores": [
+            "Marrón",
+            "Blanco"
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Peluche Conejito Suave",
+        "precioRegular": "$100",
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_798871-MLM94977048253_102025-F-peluche-grande-de-conejo-suave-con-zanahoria-50-cm.webp",
+        "imagenes": {
+            "Blanco": "https://images.unsplash.com/photo-1594787318287-3d70b6d7a1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "Gris": "https://i.postimg.cc/T1m14sN1/Diseno-sin-titulo-20260129-210422-0000.jpg",
+            "Beige": "https://i.postimg.cc/fTN2s9Yn/Diseno-sin-titulo-20260129-210652-0000.jpg"
+        },
+        "categoria": "juguetes",
+        "subcategoria": "Peluches",
+        "descripcion": "Adorable peluche conejito con pelo extra suave. Perfecto compañero para niños.",
+        "estado": "oferta",
+        "especificaciones": [
+            "Pelo suave y sedoso",
+            "Ojos de seguridad",
+            "Lavable"
+        ],
+        "variantType": "color",
+        "stock": {},
+        "variantes": [
+            "Pequeño",
+            "Mediano",
+            "Grande"
+        ]
+    },
+    {
+        "id": 13,
+        "nombre": "mari",
+        "precioRegular": "$300",
+        "imagen": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        "categoria": "mari",
+        "subcategoria": "chami",
+        "descripcion": "ufu34h u43hfubu34f u4bfu 433i43 u",
+        "estado": "nuevo",
+        "especificaciones": [],
+        "variantType": "simple",
+        "stock": {
+            "S": 3,
+            "M": 3
+        },
+        "variantes": [
+            "S",
+            "M"
+        ]
+    }
+];
+
+        const CATEGORIAS_DEFAULT = [
+    {
+        "id": "mari",
+        "nombre": "MARI",
+        "color": "#8a2be2",
+        "icono": "fa-user-tie",
+        "orden": 1
+    },
+    {
+        "id": "saul-flores",
+        "nombre": "SAUL FLORES",
+        "color": "#118ab2",
+        "icono": "fa-tag",
+        "orden": 2
+    },
+    {
+        "id": "hombre",
+        "nombre": "Hombre",
+        "color": "#4d82ff",
+        "icono": "fa-user-tie",
+        "orden": 3
+    },
+    {
+        "id": "mujer",
+        "nombre": "Mujer",
+        "color": "#ff8f8f",
+        "icono": "fa-tag",
+        "orden": 4
+    },
+    {
+        "id": "kids",
+        "nombre": "Kids",
+        "color": "#a6f2de",
+        "icono": "fa-tag",
+        "orden": 5
+    },
+    {
+        "id": "accesorios",
+        "nombre": "Accesorios",
+        "color": "#ff932e",
+        "icono": "fa-tag",
+        "orden": 6
+    },
+    {
+        "id": "productos-de-belleza",
+        "nombre": "Productos de belleza",
+        "color": "#e5da61",
+        "icono": "fa-user-tie",
+        "orden": 7
+    },
+    {
+        "id": "juguetes",
+        "nombre": "Juguetes",
+        "color": "#FF6B8B",
+        "icono": "fa-gamepad",
+        "orden": 8
+    }
+];
+
+        // Variables globales que se actualizarán
         let productos = [
     {
         "id": 1,
@@ -5715,63 +5628,132 @@ Dejar vacío si no hay imágenes por color"></textarea>
             "Mediano",
             "Grande"
         ]
+    },
+    {
+        "id": 13,
+        "nombre": "mari",
+        "precioRegular": "$300",
+        "imagen": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        "categoria": "mari",
+        "subcategoria": "chami",
+        "descripcion": "ufu34h u43hfubu34f u4bfu 433i43 u",
+        "estado": "nuevo",
+        "especificaciones": [],
+        "variantType": "simple",
+        "stock": {
+            "S": 3,
+            "M": 3
+        },
+        "variantes": [
+            "S",
+            "M"
+        ]
     }
 ];
-
-        // Sistema de categorías - CON CATEGORÍA HOMBRE
         let categorias = [
+    {
+        "id": "mari",
+        "nombre": "MARI",
+        "color": "#8a2be2",
+        "icono": "fa-user-tie",
+        "orden": 1
+    },
     {
         "id": "saul-flores",
         "nombre": "SAUL FLORES",
         "color": "#118ab2",
         "icono": "fa-tag",
-        "orden": 1
+        "orden": 2
     },
     {
         "id": "hombre",
         "nombre": "Hombre",
         "color": "#4d82ff",
         "icono": "fa-user-tie",
-        "orden": 2
+        "orden": 3
     },
     {
         "id": "mujer",
         "nombre": "Mujer",
         "color": "#ff8f8f",
         "icono": "fa-tag",
-        "orden": 3
+        "orden": 4
     },
     {
         "id": "kids",
         "nombre": "Kids",
         "color": "#a6f2de",
         "icono": "fa-tag",
-        "orden": 4
+        "orden": 5
     },
     {
         "id": "accesorios",
         "nombre": "Accesorios",
         "color": "#ff932e",
         "icono": "fa-tag",
-        "orden": 5
+        "orden": 6
     },
     {
         "id": "productos-de-belleza",
         "nombre": "Productos de belleza",
         "color": "#e5da61",
         "icono": "fa-user-tie",
-        "orden": 6
+        "orden": 7
     },
     {
         "id": "juguetes",
         "nombre": "Juguetes",
         "color": "#FF6B8B",
         "icono": "fa-gamepad",
-        "orden": 7
+        "orden": 8
     }
 ];
 
-        // Sistema de administración CON SISTEMA FLEXIBLE DE VARIANTES
+        // ==================== INICIALIZACIÓN CON VERSIONADO ====================
+        (function inicializarVersionado() {
+            console.log(`Aplicación ModaStyle v${APP_VERSION}`);
+            
+            // Verificar versión actual vs versión guardada
+            const versionGuardada = localStorage.getItem('modastyle_version');
+            
+            if (!versionGuardada || versionGuardada !== APP_VERSION) {
+                console.log(`Actualizando de versión ${versionGuardada || 'ninguna'} a ${APP_VERSION}`);
+                
+                // Guardar datos por defecto en localStorage
+                localStorage.setItem('modastyle_productos', JSON.stringify(PRODUCTOS_DEFAULT));
+                localStorage.setItem('modastyle_categorias', JSON.stringify(CATEGORIAS_DEFAULT));
+                localStorage.setItem('modastyle_version', APP_VERSION);
+                
+                // Limpiar carrito si cambia la versión
+                localStorage.removeItem('cartModaStyle');
+                
+                console.log('Datos por defecto guardados en localStorage');
+            } else {
+                console.log('Versión actual, cargando datos guardados');
+                
+                // Cargar datos guardados
+                const productosGuardados = localStorage.getItem('modastyle_productos');
+                const categoriasGuardadas = localStorage.getItem('modastyle_categorias');
+                
+                if (productosGuardados) {
+                    try {
+                        productos = JSON.parse(productosGuardados);
+                    } catch (e) {
+                        console.error('Error al cargar productos:', e);
+                    }
+                }
+                
+                if (categoriasGuardadas) {
+                    try {
+                        categorias = JSON.parse(categoriasGuardadas);
+                    } catch (e) {
+                        console.error('Error al cargar categorías:', e);
+                    }
+                }
+            }
+        })();
+
+        // ==================== SISTEMA DE ADMINISTRACIÓN ====================
         class Administracion {
             constructor() {
                 this.pinCorrecto = "199494";
@@ -5785,7 +5767,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
             }
             
             init() {
-                this.cargarDatosDesdeStorage();
                 this.setupEventListeners();
                 this.actualizarEstadisticas();
                 this.renderProductosAdmin();
@@ -5793,34 +5774,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 this.renderCategoriasAdmin();
                 this.renderCategoryFilters();
                 this.setupVariantTypeGuide();
-            }
-            
-            cargarDatosDesdeStorage() {
-                // Cargar productos
-                const productosGuardados = localStorage.getItem('modastyle_productos');
-                if (productosGuardados) {
-                    try {
-                        const parsed = JSON.parse(productosGuardados);
-                        if (Array.isArray(parsed) && parsed.length > 0) {
-                            productos = parsed;
-                        }
-                    } catch (e) {
-                        console.error('Error al cargar productos:', e);
-                    }
-                }
-                
-                // Cargar categorías
-                const categoriasGuardadas = localStorage.getItem('modastyle_categorias');
-                if (categoriasGuardadas) {
-                    try {
-                        const parsed = JSON.parse(categoriasGuardadas);
-                        if (Array.isArray(parsed) && parsed.length > 0) {
-                            categorias = parsed;
-                        }
-                    } catch (e) {
-                        console.error('Error al cargar categorías:', e);
-                    }
-                }
             }
             
             setupEventListeners() {
@@ -5867,9 +5820,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 
                 // Gestión de categorías
                 document.getElementById('addCategoryBtn').addEventListener('click', () => this.agregarCategoria());
-                
-                // Drag and drop para reordenar
-                this.setupDragAndDrop();
                 
                 // Exportación
                 this.setupExportListeners();
@@ -5926,6 +5876,11 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 // Botón de descargar HTML
                 document.getElementById('exportHtmlBtn')?.addEventListener('click', () => {
                     this.exportHtml();
+                });
+                
+                // Botón de forzar actualización
+                document.getElementById('forceUpdateBtn')?.addEventListener('click', () => {
+                    this.forzarActualizacionGlobal();
                 });
                 
                 // Botón de toggle para vista previa
@@ -6164,7 +6119,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 categorias.sort((a, b) => a.orden - b.orden);
                 
                 // Guardar en storage
-                this.guardarCategoriasEnStorage();
+                this.guardarDatosEnStorage();
                 
                 // Actualizar selects y filtros
                 this.renderCategoriasSelect();
@@ -6210,7 +6165,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 categorias.push(nuevaCategoria);
                 
                 // Guardar en storage
-                this.guardarCategoriasEnStorage();
+                this.guardarDatosEnStorage();
                 
                 // Actualizar interfaz
                 this.renderCategoriasSelect();
@@ -6266,7 +6221,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     });
                     
                     // Guardar en storage
-                    this.guardarCategoriasEnStorage();
+                    this.guardarDatosEnStorage();
                     
                     // Actualizar interfaz
                     this.renderCategoriasSelect();
@@ -6275,10 +6230,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     
                     this.mostrarMensaje('Categoría eliminada correctamente', 'success');
                 }
-            }
-            
-            guardarCategoriasEnStorage() {
-                localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
             }
             
             resetCategoriaForm() {
@@ -6294,7 +6245,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 document.getElementById('categoriesMessage').style.display = 'none';
             }
             
-            // CORREGIDO: Función renderCategoryFilters para mantener coherencia
             renderCategoryFilters() {
                 const filtersContainer = document.getElementById('categoryFilters');
                 
@@ -6307,8 +6257,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     const isSpecialCategory = ['ropa', 'accesorios', 'juguetes', 'hogar', 'hombre'].includes(categoria.id);
                     const specialClass = isSpecialCategory ? ` ${categoria.id}` : ' dinamica';
                     
-                    // REMOVER el estilo inline para mantener consistencia
-                    // Solo mantener el atributo data-color para cuando esté activo
                     filtersHTML += `
                         <button class="category-filter${specialClass}" 
                                 onclick="filterProducts('${categoria.id}')"
@@ -6356,24 +6304,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         todosBtn.style.borderColor = 'var(--accent)';
                     }
                 }, 100);
-            }
-            
-            actualizarCategoriaEnProductos(categoriaId, nuevoNombre, nuevoColor) {
-                // Actualizar todos los productos de esta categoría
-                productos.forEach(producto => {
-                    if (producto.categoria === categoriaId) {
-                        // Si cambiamos el nombre, actualizamos también el nombre en la interfaz si es necesario
-                        // Aquí podríamos actualizar otras propiedades si fuera necesario
-                    }
-                });
-                
-                // Guardar productos actualizados
-                this.guardarProductosEnStorage();
-                
-                // Actualizar la tienda
-                if (window.carrito) {
-                    window.carrito.renderProducts();
-                }
             }
             
             crearSlug(texto) {
@@ -6740,7 +6670,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 }
                 
                 // Guardar en localStorage
-                this.guardarProductosEnStorage();
+                this.guardarDatosEnStorage();
                 
                 // Actualizar la tienda
                 if (window.carrito) {
@@ -6762,8 +6692,10 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 return Math.max(...productos.map(p => p.id), 0) + 1;
             }
             
-            guardarProductosEnStorage() {
+            guardarDatosEnStorage() {
                 localStorage.setItem('modastyle_productos', JSON.stringify(productos));
+                localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
+                localStorage.setItem('modastyle_version', APP_VERSION);
             }
             
             renderProductosAdmin() {
@@ -6885,7 +6817,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 productos = productosOrdenados;
                 
                 // Guardar en storage
-                this.guardarProductosEnStorage();
+                this.guardarDatosEnStorage();
                 
                 // Actualizar la tienda
                 if (window.carrito) {
@@ -6911,7 +6843,7 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         productos.splice(index, 1);
                         
                         // Guardar en storage
-                        this.guardarProductosEnStorage();
+                        this.guardarDatosEnStorage();
                         
                         // Actualizar la tienda
                         if (window.carrito) {
@@ -6942,13 +6874,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 document.getElementById('juguetesProducts').textContent = stats['juguetes'] || 0;
                 document.getElementById('hogarProducts').textContent = stats['hogar'] || 0;
                 document.getElementById('hombreProducts').textContent = stats['hombre'] || 0;
-                
-                // Actualizar otras categorías si existen
-                categorias.forEach(categoria => {
-                    if (!['ropa', 'accesorios', 'juguetes', 'hogar', 'hombre'].includes(categoria.id)) {
-                        // Podríamos agregar estadísticas dinámicas aquí si fuera necesario
-                    }
-                });
             }
             
             mostrarMensaje(texto, tipo, seccion = 'form') {
@@ -7029,21 +6954,42 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 if (includeData) {
                     const scriptTags = doc.querySelectorAll('script');
                     scriptTags.forEach(script => {
-                        if (script.textContent.includes('let productos = [')) {
-                            // Actualizar con los productos actuales
-                            const productsJson = JSON.stringify(productos, null, 4);
+                        // Actualizar productos y categorías
+                        if (script.textContent.includes('const PRODUCTOS_DEFAULT = [')) {
                             script.textContent = script.textContent.replace(
-                                /let productos = \[[\s\S]*?\];/,
-                                `let productos = ${productsJson};`
+                                /const PRODUCTOS_DEFAULT = \[[\s\S]*?\];/,
+                                `const PRODUCTOS_DEFAULT = ${JSON.stringify(productos, null, 4)};`
                             );
                         }
                         
-                        if (script.textContent.includes('let categorias = [')) {
-                            // Actualizar con las categorías actuales
-                            const categoriesJson = JSON.stringify(categorias, null, 4);
+                        if (script.textContent.includes('const CATEGORIAS_DEFAULT = [')) {
                             script.textContent = script.textContent.replace(
-                                /let categorias = \[[\s\S]*?\];/,
-                                `let categorias = ${categoriesJson};`
+                                /const CATEGORIAS_DEFAULT = \[[\s\S]*?\];/,
+                                `const CATEGORIAS_DEFAULT = ${JSON.stringify(categorias, null, 4)};`
+                            );
+                        }
+                        
+                        // Actualizar variables globales
+                        if (script.textContent.includes('let productos = [...PRODUCTOS_DEFAULT];')) {
+                            script.textContent = script.textContent.replace(
+                                /let productos = \[\.\.\.PRODUCTOS_DEFAULT\];/,
+                                `let productos = ${JSON.stringify(productos, null, 4)};`
+                            );
+                        }
+                        
+                        if (script.textContent.includes('let categorias = [...CATEGORIAS_DEFAULT];')) {
+                            script.textContent = script.textContent.replace(
+                                /let categorias = \[\.\.\.CATEGORIAS_DEFAULT\];/,
+                                `let categorias = ${JSON.stringify(categorias, null, 4)};`
+                            );
+                        }
+                        
+                        // Incrementar versión para forzar actualización
+                        if (script.textContent.includes("const APP_VERSION = '")) {
+                            const nuevaVersion = this.incrementarVersion(APP_VERSION);
+                            script.textContent = script.textContent.replace(
+                                /const APP_VERSION = '[^']*'/,
+                                `const APP_VERSION = '${nuevaVersion}'`
                             );
                         }
                     });
@@ -7064,6 +7010,13 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 }
                 
                 return html;
+            }
+            
+            incrementarVersion(version) {
+                const partes = version.split('.');
+                const ultimoNumero = parseInt(partes[partes.length - 1]);
+                partes[partes.length - 1] = (ultimoNumero + 1).toString();
+                return partes.join('.');
             }
             
             exportHtml() {
@@ -7091,9 +7044,21 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 // Mostrar mensaje de éxito
                 this.mostrarMensaje('HTML exportado correctamente. El archivo se está descargando.', 'success');
             }
+            
+            forzarActualizacionGlobal() {
+                if (confirm('¿Estás seguro de forzar la actualización para todos los usuarios?\n\nEsto incrementará la versión y hará que todos los usuarios recarguen los datos por defecto.')) {
+                    // Incrementar versión
+                    const nuevaVersion = this.incrementarVersion(APP_VERSION);
+                    
+                    // Actualizar en localStorage
+                    localStorage.setItem('modastyle_version', nuevaVersion);
+                    
+                    alert(`Versión incrementada a ${nuevaVersion}.\n\nLa próxima vez que exportes, todos los usuarios actualizarán sus datos automáticamente.`);
+                }
+            }
         }
 
-        // Sistema de carrito SIMPLIFICADO - SIN STOCK DE RESERVA
+        // ==================== SISTEMA DE CARRITO ====================
         class Carrito {
             constructor() {
                 this.items = JSON.parse(localStorage.getItem('cartModaStyle')) || [];
@@ -7176,190 +7141,135 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     if (e.key === 'Enter') {
                         e.preventDefault();
                         if (this.searchResults.length > 0) {
-                            this.navigateToProduct(this.searchResults[0]);
+                            this.navigateToProduct(this.searchResults[0].id);
                         }
                     }
                 });
             }
             
             searchProducts(query) {
-                if (query.length < 2) {
-                    this.searchResults = [];
-                    this.renderSearchResults();
-                    return;
-                }
+                this.searchResults = productos.filter(producto => 
+                    producto.nombre.toLowerCase().includes(query) ||
+                    producto.descripcion.toLowerCase().includes(query) ||
+                    producto.subcategoria.toLowerCase().includes(query) ||
+                    producto.categoria.toLowerCase().includes(query)
+                );
                 
-                const results = productos.filter(product => {
-                    // Buscar en nombre, categoría, subcategoría, descripción, etc.
-                    const searchText = `
-                        ${product.nombre.toLowerCase()}
-                        ${product.categoria.toLowerCase()}
-                        ${product.subcategoria.toLowerCase()}
-                        ${product.descripcion.toLowerCase()}
-                        ${product.especificaciones ? product.especificaciones.join(' ').toLowerCase() : ''}
-                        ${product.variantes ? product.variantes.join(' ').toLowerCase() : ''}
-                        ${product.tallas ? product.tallas.join(' ').toLowerCase() : ''}
-                        ${product.colores ? product.colores.join(' ').toLowerCase() : ''}
-                    `;
-                    
-                    return searchText.includes(query);
-                });
-                
-                this.searchResults = results;
                 this.renderSearchResults();
+                
+                // Actualizar contador
+                document.getElementById('searchResultCount').textContent = this.searchResults.length;
             }
             
             renderSearchResults() {
-                const searchResults = document.getElementById('searchResults');
-                const searchResultCount = document.getElementById('searchResultCount');
+                const container = document.getElementById('searchResults');
+                const count = this.searchResults.length;
                 
-                if (this.searchResults.length === 0) {
-                    searchResults.innerHTML = `
-                        <div class="search-result-empty">
-                            <i class="fas fa-search"></i>
-                            <p>No se encontraron productos</p>
-                            <small>Intenta con otras palabras clave</small>
-                        </div>
-                    `;
-                    searchResultCount.textContent = '0';
-                } else {
-                    searchResults.innerHTML = this.searchResults.map(product => {
-                        const price = product.precioDescuento ? product.precioDescuento : product.precioRegular;
-                        const categoria = categorias.find(c => c.id === product.categoria);
-                        const categoriaNombre = categoria ? categoria.nombre : product.categoria;
-                        
-                        // Badge de tipo de variante
-                        let variantTypeBadge = '';
-                        if (product.variantType) {
-                            const badgeClass = `variant-type-${product.variantType}`;
-                            const badgeText = product.variantType === 'simple' ? 'S' : 
-                                             product.variantType === 'color' ? 'C' : 'P';
-                            variantTypeBadge = `<span class="variant-type-badge ${badgeClass}" style="font-size: 0.6rem; padding: 1px 3px; margin-left: 4px;">${badgeText}</span>`;
-                        }
-                        
-                        return `
-                            <div class="search-result-item" data-product-id="${product.id}">
-                                <img src="${product.imagen}" alt="${product.nombre}" class="search-result-image"
-                                     onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
-                                <div class="search-result-info">
-                                    <div class="search-result-name">${product.nombre} ${variantTypeBadge}</div>
-                                    <div class="search-result-category">
-                                        <i class="fas fa-tag"></i>
-                                        ${product.subcategoria}
-                                        <span class="search-result-price">${price}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                    
-                    searchResultCount.textContent = this.searchResults.length;
-                    
-                    searchResults.querySelectorAll('.search-result-item').forEach(item => {
-                        item.addEventListener('click', (e) => {
-                            const productId = parseInt(e.currentTarget.dataset.productId);
-                            this.navigateToProduct(productId);
-                        });
-                    });
+                if (count === 0) {
+                    container.innerHTML = '<div class="search-result-empty">No se encontraron productos</div>';
+                    container.classList.add('active');
+                    return;
                 }
                 
-                searchResults.classList.add('active');
-            }
-            
-            navigateToProduct(productId) {
-                const product = productos.find(p => p.id === productId);
-                if (!product) return;
+                container.innerHTML = this.searchResults.map(producto => {
+                    const categoria = categorias.find(c => c.id === producto.categoria);
+                    const precio = producto.precioDescuento ? producto.precioDescuento : producto.precioRegular;
+                    
+                    return `
+                        <div class="search-result-item" onclick="carrito.navigateToProduct(${producto.id})">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" class="search-result-image"
+                                 onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'">
+                            <div class="search-result-info">
+                                <div class="search-result-name">${producto.nombre}</div>
+                                <div class="search-result-category">
+                                    <i class="fas fa-tag"></i>
+                                    ${categoria ? categoria.nombre : producto.categoria}
+                                </div>
+                            </div>
+                            <div class="search-result-price">${precio}</div>
+                        </div>
+                    `;
+                }).join('');
                 
-                this.closeSearchResults();
-                document.getElementById('searchBox').value = '';
-                
-                this.filterProducts(product.categoria);
-                
-                setTimeout(() => {
-                    const productElement = document.querySelector(`.product-card[data-product-id="${productId}"]`);
-                    if (productElement) {
-                        productElement.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-                        
-                        this.highlightProduct(productElement);
-                    }
-                }, 800);
-            }
-            
-            highlightProduct(productElement) {
-                const originalBoxShadow = productElement.style.boxShadow;
-                const originalBorder = productElement.style.border;
-                const originalTransform = productElement.style.transform;
-                
-                productElement.style.boxShadow = '0 0 0 3px var(--accent), 0 5px 15px rgba(212, 175, 55, 0.3)';
-                productElement.style.border = '1px solid var(--accent)';
-                productElement.style.transform = 'translateY(-5px)';
-                productElement.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                
-                setTimeout(() => {
-                    productElement.style.boxShadow = originalBoxShadow;
-                    productElement.style.border = originalBorder;
-                    productElement.style.transform = originalTransform;
-                    productElement.style.transition = 'var(--transition)';
-                }, 2000);
+                container.classList.add('active');
             }
             
             closeSearchResults() {
                 document.getElementById('searchResults').classList.remove('active');
-                this.searchResults = [];
+                document.getElementById('searchResultCount').textContent = '0';
             }
             
-            filterProducts(category) {
-                this.currentFilter = category;
-                this.renderProducts();
+            navigateToProduct(productId) {
+                const producto = productos.find(p => p.id === productId);
+                if (!producto) return;
                 
-                // Actualizar botones activos
-                const filters = document.querySelectorAll('.category-filter');
-                filters.forEach(filter => {
-                    filter.classList.remove('active');
-                    // Restaurar estilo original para categorías dinámicas
-                    if (filter.classList.contains('dinamica')) {
-                        filter.style.background = '';
-                        filter.style.color = '';
-                        filter.style.borderColor = '';
-                    }
+                // Cerrar resultados de búsqueda
+                this.closeSearchResults();
+                
+                // Filtrar por categoría del producto
+                filterProducts(producto.categoria);
+                
+                // Hacer scroll a la sección de productos
+                document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+                
+                // Limpiar búsqueda
+                document.getElementById('searchBox').value = '';
+            }
+            
+            setupMobileMenu() {
+                const menuToggle = document.getElementById('menuToggle');
+                const navLinks = document.getElementById('navLinks');
+                
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
                 });
                 
-                // Activar el botón correspondiente
-                const activeFilter = document.querySelector(`.category-filter[onclick*="${category}"]`);
-                if (activeFilter) {
-                    activeFilter.classList.add('active');
-                    // Aplicar estilo activo para categorías dinámicas
-                    if (activeFilter.classList.contains('dinamica')) {
-                        const color = activeFilter.getAttribute('data-color') || 'var(--accent)';
-                        activeFilter.style.background = color;
-                        activeFilter.style.color = 'white';
-                        activeFilter.style.borderColor = color;
-                    } else if (category === 'todos') {
-                        // Aplicar estilo para el botón "Todos"
-                        activeFilter.style.background = 'var(--accent)';
-                        activeFilter.style.color = 'white';
-                        activeFilter.style.borderColor = 'var(--accent)';
-                    }
-                } else {
-                    // Si no encuentra el botón específico, activar "Todos"
-                    const todosFilter = document.querySelector('.category-filter[onclick*="todos"]');
-                    if (todosFilter) {
-                        todosFilter.classList.add('active');
-                        todosFilter.style.background = 'var(--accent)';
-                        todosFilter.style.color = 'white';
-                        todosFilter.style.borderColor = 'var(--accent)';
-                    }
-                }
-                
-                if (this.searchResults.length === 0) {
-                    document.getElementById('productos').scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
+                // Cerrar menú al hacer clic en un enlace
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
                     });
-                }
+                });
+            }
+            
+            setupCheckoutModal() {
+                const checkoutModal = document.getElementById('checkoutModal');
+                const closeModal = document.getElementById('closeModal');
+                const cancelCheckout = document.getElementById('cancelCheckout');
+                const checkoutForm = document.getElementById('checkoutForm');
+                
+                closeModal.addEventListener('click', () => this.closeCheckoutModal());
+                cancelCheckout.addEventListener('click', () => this.closeCheckoutModal());
+                
+                checkoutForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.confirmCheckout();
+                });
+                
+                // Configurar opciones de entrega
+                document.querySelectorAll('.delivery-option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        document.querySelectorAll('.delivery-option').forEach(o => o.classList.remove('selected'));
+                        e.currentTarget.classList.add('selected');
+                    });
+                });
+                
+                // Configurar opciones de pago
+                document.querySelectorAll('.payment-option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+                        e.currentTarget.classList.add('selected');
+                        
+                        const paymentMethod = e.currentTarget.querySelector('input').value;
+                        const transferInfo = document.getElementById('transferInfo');
+                        
+                        if (paymentMethod === 'transferencia') {
+                            transferInfo.classList.add('show');
+                        } else {
+                            transferInfo.classList.remove('show');
+                        }
+                    });
+                });
             }
             
             setupImageModal() {
@@ -7367,7 +7277,6 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 const closeImageModal = document.getElementById('closeImageModal');
                 
                 closeImageModal.addEventListener('click', () => this.closeImageModal());
-                
                 imageModal.addEventListener('click', (e) => {
                     if (e.target === imageModal) {
                         this.closeImageModal();
@@ -7375,21 +7284,19 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 });
             }
             
-            openImageModal(imageSrc, productName, productCategory) {
+            openImageModal(imageSrc, title, category) {
+                const modal = document.getElementById('imageModal');
                 const modalImage = document.getElementById('modalImage');
                 const modalImageTitle = document.getElementById('modalImageTitle');
                 const modalImageCategory = document.getElementById('modalImageCategory');
                 
                 modalImage.src = imageSrc;
-                modalImageTitle.textContent = productName;
+                modalImageTitle.textContent = title;
                 
-                // Buscar la categoría
-                const categoria = categorias.find(c => c.id === productCategory);
-                let categoryDisplay = categoria ? categoria.nombre : productCategory;
+                const categoria = categorias.find(c => c.id === category);
+                modalImageCategory.textContent = categoria ? categoria.nombre : category;
                 
-                modalImageCategory.textContent = categoryDisplay;
-                
-                document.getElementById('imageModal').classList.add('active');
+                modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
             
@@ -7398,660 +7305,148 @@ Dejar vacío si no hay imágenes por color"></textarea>
                 document.body.style.overflow = 'auto';
             }
             
-            setupMobileMenu() {
-                const menuToggle = document.getElementById('menuToggle');
-                const navLinks = document.getElementById('navLinks');
-                
-                if (menuToggle && navLinks) {
-                    menuToggle.addEventListener('click', () => {
-                        navLinks.classList.toggle('active');
-                        menuToggle.innerHTML = navLinks.classList.contains('active') 
-                            ? '<i class="fas fa-times"></i>' 
-                            : '<i class="fas fa-bars"></i>';
-                    });
-                    
-                    navLinks.querySelectorAll('.nav-link').forEach(link => {
-                        link.addEventListener('click', () => {
-                            navLinks.classList.remove('active');
-                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        });
-                    });
-                }
-            }
-            
-            setupCheckoutModal() {
-                const checkoutModal = document.getElementById('checkoutModal');
-                const closeModal = document.getElementById('closeModal');
-                const cancelCheckout = document.getElementById('cancelCheckout');
-                const confirmCheckout = document.getElementById('confirmCheckout');
-                const checkoutForm = document.getElementById('checkoutForm');
-                
-                closeModal.addEventListener('click', () => this.closeCheckoutModal());
-                cancelCheckout.addEventListener('click', () => this.closeCheckoutModal());
-                
-                const deliveryOptions = document.querySelectorAll('.delivery-option');
-                deliveryOptions.forEach(option => {
-                    option.addEventListener('click', () => {
-                        deliveryOptions.forEach(opt => opt.classList.remove('selected'));
-                        option.classList.add('selected');
-                        const radio = option.querySelector('input[type="radio"]');
-                        if (radio) radio.checked = true;
-                    });
-                });
-                
-                const paymentOptions = document.querySelectorAll('.payment-option');
-                const transferInfo = document.getElementById('transferInfo');
-                
-                paymentOptions.forEach(option => {
-                    option.addEventListener('click', () => {
-                        paymentOptions.forEach(opt => opt.classList.remove('selected'));
-                        option.classList.add('selected');
-                        const radio = option.querySelector('input[type="radio"]');
-                        if (radio) radio.checked = true;
-                        
-                        if (radio.value === 'transferencia') {
-                            transferInfo.classList.add('show');
-                        } else {
-                            transferInfo.classList.remove('show');
-                        }
-                    });
-                });
-                
-                checkoutForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.processCheckout();
-                });
-                
-                checkoutModal.addEventListener('click', (e) => {
-                    if (e.target === checkoutModal) {
-                        this.closeCheckoutModal();
-                    }
-                });
-            }
-            
             showCheckoutModal() {
-                if (this.items.length === 0) {
-                    this.showNotification('El carrito está vacío', 'info');
-                    return;
-                }
-                
-                document.getElementById('checkoutForm').reset();
-                document.querySelectorAll('.delivery-option').forEach(opt => opt.classList.remove('selected'));
-                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
-                document.getElementById('transferInfo').classList.remove('show');
+                if (this.items.length === 0) return;
                 
                 document.getElementById('checkoutModal').classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
-                document.getElementById('customerName').focus();
+                // Enfocar en el primer campo
+                setTimeout(() => {
+                    document.getElementById('customerName').focus();
+                }, 300);
             }
             
             closeCheckoutModal() {
                 document.getElementById('checkoutModal').classList.remove('active');
                 document.body.style.overflow = 'auto';
+                
+                // Resetear formulario
+                document.getElementById('checkoutForm').reset();
+                document.querySelectorAll('.delivery-option').forEach(o => o.classList.remove('selected'));
+                document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+                document.getElementById('transferInfo').classList.remove('show');
             }
             
-            addItem(product, selectedVariant, selectedColor) {
-                // Verificar stock disponible directamente del stock del producto
-                let availableStock = 0;
-                
-                if (product.variantType === 'simple') {
-                    // Simple: stock por variante
-                    if (product.stock && product.stock[selectedVariant]) {
-                        availableStock = product.stock[selectedVariant];
-                    }
-                } else if (product.variantType === 'color') {
-                    // Con color: stock por variante y color
-                    if (product.stock && product.stock[selectedVariant] && product.stock[selectedVariant][selectedColor]) {
-                        availableStock = product.stock[selectedVariant][selectedColor];
-                    }
-                } else if (product.variantType === 'custom') {
-                    // Personalizado: buscar combinación exacta
-                    const variantKey = selectedVariant + '|' + selectedColor;
-                    if (product.stock && product.stock[variantKey]) {
-                        availableStock = product.stock[variantKey];
-                    }
-                }
-                
-                if (availableStock <= 0) {
-                    return false;
-                }
-                
-                // Obtener la imagen correcta basada en el color/variante seleccionado
-                let productImage = product.imagen;
-                
-                // Verificar si el producto tiene imágenes específicas
-                if (product.imagenes) {
-                    // Si se seleccionó un color, usar esa imagen
-                    if (selectedColor && product.imagenes[selectedColor]) {
-                        productImage = product.imagenes[selectedColor];
-                    }
-                    // Si se seleccionó una variante (para rompecabezas 3D o camas)
-                    else if (selectedVariant && product.imagenes[selectedVariant]) {
-                        productImage = product.imagenes[selectedVariant];
-                    }
-                }
-                
-                // Usar precio con descuento si existe, de lo contrario usar precio regular
-                const price = product.precioDescuento ? product.precioDescuento : product.precioRegular;
-                
-                const existingItem = this.items.find(item => 
-                    item.id === product.id && 
-                    item.talla === selectedVariant && 
-                    item.color === (selectedColor || 'N/A')
-                );
-                
-                if (existingItem) {
-                    // Verificar si hay suficiente stock para agregar uno más
-                    if (availableStock <= existingItem.quantity) {
-                        return false;
-                    }
-                    
-                    existingItem.quantity += 1;
-                } else {
-                    this.items.push({
-                        id: product.id,
-                        name: product.nombre,
-                        price: this.parsePrice(price),
-                        image: productImage,
-                        talla: selectedVariant,
-                        color: selectedColor || 'N/A',
-                        quantity: 1,
-                        category: product.categoria,
-                        subcategoria: product.subcategoria,
-                        variantType: product.variantType
-                    });
-                }
-                
-                this.save();
-                this.renderCartCount();
-                this.renderCartItems();
-                this.updateCartButtons();
-                this.showNotification(`${product.nombre} agregado al carrito`, 'success');
-                
-                this.shakeCartIcon();
-                return true;
-            }
-            
-            removeItem(id, talla, color) {
-                this.items = this.items.filter(item => 
-                    !(item.id === id && item.talla === talla && item.color === color)
-                );
-                this.save();
-                this.renderCartCount();
-                this.renderCartItems();
-                this.updateCartButtons();
-            }
-            
-            updateQuantity(id, talla, color, newQuantity) {
-                const item = this.items.find(item => 
-                    item.id === id && item.talla === talla && item.color === color
-                );
-                
-                if (item) {
-                    const product = productos.find(p => p.id === id);
-                    if (!product) return;
-                    
-                    // Verificar stock disponible según tipo de variante
-                    let availableStock = 0;
-                    
-                    if (product.variantType === 'simple') {
-                        if (product.stock && product.stock[talla]) {
-                            availableStock = product.stock[talla];
-                        }
-                    } else if (product.variantType === 'color') {
-                        if (product.stock && product.stock[talla] && product.stock[talla][color]) {
-                            availableStock = product.stock[talla][color];
-                        }
-                    } else if (product.variantType === 'custom') {
-                        const variantKey = talla + '|' + color;
-                        if (product.stock && product.stock[variantKey]) {
-                            availableStock = product.stock[variantKey];
-                        }
-                    }
-                    
-                    if (newQuantity > availableStock) {
-                        return;
-                    }
-                    
-                    item.quantity = newQuantity;
-                    
-                    if (newQuantity <= 0) {
-                        this.removeItem(id, talla, color);
-                    } else {
-                        this.save();
-                        this.renderCartItems();
-                        this.updateCartButtons();
-                    }
-                }
-            }
-            
-            shakeCartIcon() {
-                const cartIcon = document.getElementById('cartIcon');
-                cartIcon.style.animation = 'none';
-                setTimeout(() => {
-                    cartIcon.style.animation = 'float 3s ease-in-out infinite, shake 0.3s ease';
-                }, 10);
-                
-                setTimeout(() => {
-                    cartIcon.style.animation = 'float 3s ease-in-out infinite';
-                }, 300);
-            }
-            
-            updateCartButtons() {
-                const hasItems = this.items.length > 0;
-                const checkoutBtn = document.getElementById('checkoutBtn');
-                const clearCartBtn = document.getElementById('clearCartBtn');
-                
-                if (hasItems) {
-                    checkoutBtn.disabled = false;
-                    clearCartBtn.disabled = false;
-                    document.getElementById('cartActions').classList.remove('disabled');
-                } else {
-                    checkoutBtn.disabled = true;
-                    clearCartBtn.disabled = true;
-                    document.getElementById('cartActions').classList.add('disabled');
-                }
-            }
-            
-            clearCart() {
-                if (this.items.length === 0) {
-                    return;
-                }
-                
-                if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
-                    this.items = [];
-                    this.save();
-                    this.renderCartCount();
-                    this.renderCartItems();
-                    this.updateCartButtons();
-                }
-            }
-            
-            getTotal() {
-                return this.items.reduce((total, item) => 
-                    total + (item.price * item.quantity), 0
-                );
-            }
-            
-            parsePrice(priceString) {
-                return parseFloat(priceString.replace('$', '').replace(',', ''));
-            }
-            
-            save() {
-                localStorage.setItem('cartModaStyle', JSON.stringify(this.items));
-            }
-            
-            renderCartCount() {
-                const totalItems = this.items.reduce((total, item) => total + item.quantity, 0);
-                const cartCount = document.getElementById('cartCount');
-                
-                cartCount.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    cartCount.style.transform = 'scale(1)';
-                }, 150);
-                
-                cartCount.textContent = totalItems;
-                
-                if (totalItems > 9) {
-                    cartCount.style.background = 'linear-gradient(135deg, #ff3b3b, #ff0000)';
-                } else {
-                    cartCount.style.background = 'linear-gradient(135deg, #ff6b6b, #ff5252)';
-                }
-            }
-            
-            renderCartItems() {
-                const cartItems = document.getElementById('cartItems');
-                const cartSummary = document.getElementById('cartSummary');
-                const emptyCart = document.getElementById('emptyCart');
-                const freeShippingPromo = document.getElementById('freeShippingPromo');
-                
-                if (this.items.length === 0) {
-                    cartSummary.style.display = 'none';
-                    emptyCart.style.display = 'block';
-                    freeShippingPromo.style.display = 'none';
-                    cartItems.innerHTML = '';
-                    return;
-                }
-                
-                emptyCart.style.display = 'none';
-                cartSummary.classList.add('show');
-                cartSummary.style.display = 'block';
-                freeShippingPromo.style.display = 'none';
-                
-                let subtotal = 0;
-                cartItems.innerHTML = this.items.map((item, index) => {
-                    const product = productos.find(p => p.id === item.id);
-                    
-                    // Obtener stock disponible según tipo de variante
-                    let availableStock = 0;
-                    if (product) {
-                        if (item.variantType === 'simple') {
-                            if (product.stock && product.stock[item.talla]) {
-                                availableStock = product.stock[item.talla];
-                            }
-                        } else if (item.variantType === 'color') {
-                            if (product.stock && product.stock[item.talla] && product.stock[item.talla][item.color]) {
-                                availableStock = product.stock[item.talla][item.color];
-                            }
-                        } else if (item.variantType === 'custom') {
-                            const variantKey = item.talla + '|' + item.color;
-                            if (product.stock && product.stock[variantKey]) {
-                                availableStock = product.stock[variantKey];
-                            }
-                        }
-                    }
-                    
-                    const maxQuantity = availableStock;
-                    
-                    const itemTotal = item.price * item.quantity;
-                    subtotal += itemTotal;
-                    
-                    // Obtener color de la categoría
-                    const categoria = categorias.find(c => c.id === item.category);
-                    const categoriaColor = categoria ? categoria.color : 'var(--accent)';
-                    
-                    return `
-                        <div class="cart-item" 
-                             data-id="${item.id}" 
-                             data-talla="${item.talla}" 
-                             data-color="${item.color}" 
-                             style="animation-delay: ${index * 0.06}s; --accent: ${categoriaColor};">
-                            <img src="${item.image}" alt="${item.name}" class="cart-item-image" 
-                                 onclick="carrito.openImageModal('${item.image}', '${item.name}', '${item.category}')"
-                                 onerror="this.src='${productos.find(p => p.id === item.id)?.imagen || 'https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'}'">
-                            <div class="cart-item-details">
-                                <div class="cart-item-info">
-                                    <div class="cart-item-title">${item.name}</div>
-                                    <div class="cart-item-variant">
-                                        <i class="fas fa-tag"></i>
-                                        ${this.getVariantLabel(item.category, item.talla, item.color, item.variantType)}
-                                    </div>
-                                    <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
-                                </div>
-                                <div class="cart-item-actions">
-                                    <div class="quantity-control">
-                                        <button class="quantity-btn decrease" ${item.quantity <= 1 ? 'disabled' : ''}>
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <span class="quantity-value">${item.quantity}</span>
-                                        <button class="quantity-btn increase" ${maxQuantity <= item.quantity ? 'disabled' : ''}>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <button class="remove-item">
-                                        <i class="fas fa-trash"></i>
-                                        Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-                
-                const shipping = subtotal >= this.FREE_SHIPPING_MINIMUM ? 0 : 50;
-                const total = subtotal + shipping;
-                
-                document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-                document.getElementById('shipping').textContent = shipping === 0
-                    ? 'Gratis' 
-                    : `$${shipping.toFixed(2)}`;
-                document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-                
-                // Mostrar/ocultar promoción de envío gratuito
-                if (subtotal > 0 && subtotal < this.FREE_SHIPPING_MINIMUM) {
-                    const remaining = this.FREE_SHIPPING_MINIMUM - subtotal;
-                    const progress = (subtotal / this.FREE_SHIPPING_MINIMUM) * 100;
-                    
-                    document.getElementById('remainingAmount').textContent = `$${remaining.toFixed(2)}`;
-                    document.getElementById('shippingProgress').style.width = `${progress}%`;
-                    freeShippingPromo.style.display = 'block';
-                } else {
-                    freeShippingPromo.style.display = 'none';
-                }
-                
-                // Configurar event listeners para los botones de cantidad
-                cartItems.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const cartItem = e.target.closest('.cart-item');
-                        const id = parseInt(cartItem.dataset.id);
-                        const talla = cartItem.dataset.talla;
-                        const color = cartItem.dataset.color;
-                        const quantityElement = cartItem.querySelector('.quantity-value');
-                        const currentQuantity = parseInt(quantityElement.textContent);
-                        
-                        this.updateQuantity(id, talla, color, currentQuantity - 1);
-                    });
-                });
-                
-                cartItems.querySelectorAll('.quantity-btn.increase').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const cartItem = e.target.closest('.cart-item');
-                        const id = parseInt(cartItem.dataset.id);
-                        const talla = cartItem.dataset.talla;
-                        const color = cartItem.dataset.color;
-                        const quantityElement = cartItem.querySelector('.quantity-value');
-                        const currentQuantity = parseInt(quantityElement.textContent);
-                        
-                        this.updateQuantity(id, talla, color, currentQuantity + 1);
-                    });
-                });
-                
-                cartItems.querySelectorAll('.remove-item').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const cartItem = e.target.closest('.cart-item');
-                        const id = parseInt(cartItem.dataset.id);
-                        const talla = cartItem.dataset.talla;
-                        const color = cartItem.dataset.color;
-                        
-                        this.removeItem(id, talla, color);
-                    });
-                });
-            }
-            
-            getVariantLabel(categoria, talla, color, variantType) {
-                if (variantType === 'simple') {
-                    return `Variante: ${talla}`;
-                } else if (variantType === 'color') {
-                    if (color && color !== 'N/A') {
-                        if (categoria === 'ropa' || categoria === 'hombre') {
-                            return `Talla: ${talla} | Color: ${color}`;
-                        } else {
-                            return `Tamaño: ${talla} | Color: ${color}`;
-                        }
-                    } else {
-                        return `Tamaño: ${talla}`;
-                    }
-                } else if (variantType === 'custom') {
-                    // Para personalizado, mostrar todos los atributos
-                    const parts = talla.split('|');
-                    const colorParts = color.split('|');
-                    const allParts = [...parts, ...colorParts].filter(p => p !== 'N/A');
-                    return allParts.join(' | ');
-                } else {
-                    return `Variante: ${talla}`;
-                }
-            }
-            
-            openCart() {
-                document.getElementById('cartPanel').classList.add('open');
-                document.getElementById('cartOverlay').classList.add('show');
-                document.body.style.overflow = 'hidden';
-                
-                this.renderCartItems();
-            }
-            
-            closeCart() {
-                document.getElementById('cartPanel').classList.remove('open');
-                document.getElementById('cartOverlay').classList.remove('show');
-                document.body.style.overflow = 'auto';
-            }
-            
-            processCheckout() {
+            confirmCheckout() {
+                // Validar formulario
                 const name = document.getElementById('customerName').value.trim();
                 const phone = document.getElementById('customerPhone').value.trim();
-                const delivery = document.querySelector('input[name="delivery"]:checked');
-                const payment = document.querySelector('input[name="payment"]:checked');
+                const deliveryOption = document.querySelector('.delivery-option.selected');
+                const paymentOption = document.querySelector('.payment-option.selected');
                 
-                if (!name || !phone || !delivery || !payment) {
-                    this.showNotification('Por favor completa todos los campos', 'error');
+                if (!name || !phone || !deliveryOption || !paymentOption) {
+                    alert('Por favor completa toda la información requerida.');
                     return;
                 }
                 
-                const deliveryPoint = delivery.value;
-                const paymentMethod = payment.value;
-                const deliveryName = this.deliveryNames[deliveryPoint] || deliveryPoint;
+                // Generar mensaje de WhatsApp
+                const deliveryValue = deliveryOption.querySelector('input').value;
+                const paymentValue = paymentOption.querySelector('input').value;
                 
-                let message = `*Pedido de ModaStyle*\n\n`;
-                message += `*Cliente:* ${name}\n`;
-                message += `*Teléfono:* ${phone}\n\n`;
-                message += `*Punto de entrega:* ${deliveryName}\n`;
-                message += `*Método de pago:* ${paymentMethod === 'efectivo' ? 'Efectivo' : 'Transferencia'}\n\n`;
-                message += `*Productos:*\n`;
+                const message = this.generateWhatsAppMessage(name, phone, deliveryValue, paymentValue);
                 
-                this.items.forEach((item, index) => {
-                    message += `${index + 1}. ${item.name} - ${this.getVariantLabel(item.category, item.talla, item.color, item.variantType)} - ${item.quantity} x $${item.price.toFixed(2)}\n`;
-                });
+                // Redirigir a WhatsApp
+                const phoneNumber = '5215512345678'; // Reemplaza con tu número
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                 
-                const subtotal = this.getTotal();
-                const shipping = subtotal >= this.FREE_SHIPPING_MINIMUM ? 0 : 50;
-                const total = subtotal + shipping;
+                window.open(url, '_blank');
                 
-                message += `\n*Subtotal:* $${subtotal.toFixed(2)}\n`;
-                message += `*Env\u00EDo:* ${shipping === 0 ? 'Gratis' : `$${shipping.toFixed(2)}`}\n`;
-                message += `*Total:* $${total.toFixed(2)}\n\n`;
-                message += `_Pedido generado desde ModaStyle_`;
-                
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappURL = `https://wa.me/5215512345678?text=${encodedMessage}`;
-                
-                window.open(whatsappURL, '_blank');
-                
-                this.closeCheckoutModal();
+                // Limpiar carrito
                 this.clearCart();
-                this.showNotification('Pedido enviado por WhatsApp. ¡Gracias por tu compra!', 'success');
+                this.closeCheckoutModal();
             }
             
-            showNotification(message, type = 'info') {
-                // Crear notificación
-                const notification = document.createElement('div');
-                notification.className = `notification notification-${type}`;
-                notification.innerHTML = `
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                    <span>${message}</span>
-                `;
+            generateWhatsAppMessage(name, phone, delivery, payment) {
+                const deliveryName = this.deliveryNames[delivery] || delivery;
+                const paymentMethod = payment === 'efectivo' ? 'Efectivo' : 'Transferencia';
                 
-                // Estilos para la notificación
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 80px;
-                    right: 20px;
-                    background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--error)' : 'var(--accent)'};
-                    color: white;
-                    padding: 12px 16px;
-                    border-radius: var(--border-radius-sm);
-                    box-shadow: var(--shadow-hover);
-                    z-index: 3000;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    animation: slideInRight 0.3s ease;
-                    max-width: 350px;
-                    font-size: 0.85rem;
-                    font-weight: 500;
-                `;
+                let message = `¡Hola! Quiero hacer un pedido:\n\n`;
+                message += `*Cliente:* ${name}\n`;
+                message += `*Teléfono:* ${phone}\n`;
+                message += `*Punto de entrega:* ${deliveryName}\n`;
+                message += `*Método de pago:* ${paymentMethod}\n\n`;
+                message += `*Productos:*\n`;
                 
-                document.body.appendChild(notification);
+                this.items.forEach(item => {
+                    message += `- ${item.nombre} (${item.variant || 'Único'}) x${item.quantity} - ${item.precio}\n`;
+                });
                 
-                // Remover después de 3 segundos
-                setTimeout(() => {
-                    notification.style.animation = 'slideInRight 0.3s ease reverse forwards';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 3000);
+                const total = this.calculateTotal();
+                message += `\n*Total:* ${total}\n`;
+                
+                if (payment === 'transferencia') {
+                    message += `\n*Datos para transferencia:*\n`;
+                    message += `Nombre: Saul Flores\n`;
+                    message += `Banco: STP\n`;
+                    message += `CLABE: 721180100001101243\n`;
+                }
+                
+                message += `\n¡Gracias!`;
+                
+                return message;
             }
             
             renderProducts() {
-                const productsGrid = document.getElementById('productsGrid');
+                const container = document.getElementById('productsGrid');
                 
-                // Filtrar productos según categoría seleccionada
-                let filteredProducts = productos;
-                if (this.currentFilter !== 'todos') {
-                    filteredProducts = productos.filter(product => product.categoria === this.currentFilter);
-                }
-                
-                if (filteredProducts.length === 0) {
-                    productsGrid.innerHTML = `
-                        <div class="no-products" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                            <i class="fas fa-box-open" style="font-size: 3rem; color: var(--text-light); margin-bottom: 15px; opacity: 0.5;"></i>
-                            <h3 style="color: var(--text-light); margin-bottom: 10px;">No hay productos en esta categoría</h3>
-                            <p style="color: var(--text-light); font-size: 0.9rem;">Prueba con otra categoría o vuelve más tarde.</p>
-                        </div>
-                    `;
+                if (productos.length === 0) {
+                    container.innerHTML = '<div class="status-message status-info" style="grid-column: 1 / -1; text-align: center;">No hay productos disponibles</div>';
                     return;
                 }
                 
-                productsGrid.innerHTML = filteredProducts.map((product, index) => {
-                    const categoria = categorias.find(c => c.id === product.categoria);
+                // Filtrar productos según categoría seleccionada
+                let productosFiltrados = [];
+                if (this.currentFilter === 'todos') {
+                    productosFiltrados = productos;
+                } else {
+                    productosFiltrados = productos.filter(p => p.categoria === this.currentFilter);
+                }
+                
+                // Renderizar productos
+                container.innerHTML = productosFiltrados.map((producto, index) => {
+                    const categoria = categorias.find(c => c.id === producto.categoria);
                     const categoriaColor = categoria ? categoria.color : 'var(--accent)';
+                    const categoriaNombre = categoria ? categoria.nombre : producto.categoria;
                     
-                    // Determinar el precio a mostrar
-                    const hasDiscount = product.precioDescuento;
-                    const precioMostrar = hasDiscount ? product.precioDescuento : product.precioRegular;
-                    const precioOriginal = hasDiscount ? product.precioRegular : null;
+                    // Determinar precio
+                    const tieneDescuento = producto.precioDescuento && producto.precioDescuento !== '';
+                    const precioMostrar = tieneDescuento ? producto.precioDescuento : producto.precioRegular;
+                    const precioOriginal = tieneDescuento ? producto.precioRegular : null;
                     
-                    // Determinar el estado del producto
-                    let estadoClase = '';
-                    let estadoTexto = '';
+                    // Determinar clase de estado
+                    let estadoClass = 'normal';
+                    if (producto.estado === 'nuevo') estadoClass = 'nuevo';
+                    if (producto.estado === 'oferta') estadoClass = 'oferta';
+                    if (producto.estado === 'agotado') estadoClass = 'agotado';
                     
-                    switch(product.estado) {
-                        case 'oferta':
-                            estadoClase = 'oferta';
-                            estadoTexto = 'OFERTA';
-                            break;
-                        case 'nuevo':
-                            estadoClase = 'nuevo';
-                            estadoTexto = 'NUEVO';
-                            break;
-                        case 'agotado':
-                            estadoClase = 'agotado';
-                            estadoTexto = 'AGOTADO';
-                            break;
-                        default:
-                            estadoClase = '';
-                            estadoTexto = '';
-                    }
-                    
-                    // Generar opciones según tipo de variante
-                    let variantOptions = '';
-                    const variantes = product.tallas || product.variantes || [];
-                    const variantType = product.variantType || 'simple';
-                    
-                    if (variantes.length > 0) {
-                        let labelText = 'Selecciona opción:';
-                        
-                        if (variantType === 'color') {
-                            if (product.categoria === 'ropa' || product.categoria === 'hombre') {
-                                labelText = 'Selecciona talla:';
-                            } else {
-                                labelText = 'Selecciona tamaño:';
-                            }
-                        } else if (variantType === 'simple') {
-                            labelText = 'Selecciona variante:';
-                        } else if (variantType === 'custom') {
-                            labelText = 'Selecciona combinación:';
-                        }
-                        
-                        variantOptions = `
+                    // Generar variantes/tallas
+                    let variantesHTML = '';
+                    if (producto.tallas && producto.tallas.length > 0) {
+                        variantesHTML = `
                             <div class="variant-selector">
-                                <div class="variant-label">${labelText}</div>
+                                <div class="variant-label">Selecciona talla:</div>
                                 <div class="variant-options">
-                                    ${variantes.map(variant => `
-                                        <button class="variant-btn" data-variant="${variant}" style="border-color: ${categoriaColor}">
-                                            ${variant}
+                                    ${producto.tallas.map((talla, i) => `
+                                        <button class="variant-btn ${i === 0 ? 'selected' : ''}" 
+                                                data-variant="${talla}"
+                                                style="border-color: ${categoriaColor}">
+                                            ${talla}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    } else if (producto.variantes && producto.variantes.length > 0) {
+                        variantesHTML = `
+                            <div class="variant-selector">
+                                <div class="variant-label">Selecciona variante:</div>
+                                <div class="variant-options">
+                                    ${producto.variantes.map((variante, i) => `
+                                        <button class="variant-btn ${i === 0 ? 'selected' : ''}" 
+                                                data-variant="${variante}"
+                                                style="border-color: ${categoriaColor}">
+                                            ${variante}
                                         </button>
                                     `).join('')}
                                 </div>
@@ -8059,15 +7454,17 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         `;
                     }
                     
-                    // Generar opciones de colores (solo para tipo 'color')
-                    let colorOptions = '';
-                    if (variantType === 'color' && product.colores && product.colores.length > 0) {
-                        colorOptions = `
+                    // Generar colores
+                    let coloresHTML = '';
+                    if (producto.colores && producto.colores.length > 0) {
+                        coloresHTML = `
                             <div class="color-selector">
                                 <div class="variant-label">Selecciona color:</div>
                                 <div class="color-options">
-                                    ${product.colores.map(color => `
-                                        <button class="color-btn" data-color="${color}" style="border-color: ${categoriaColor}">
+                                    ${producto.colores.map((color, i) => `
+                                        <button class="color-btn ${i === 0 ? 'selected' : ''}" 
+                                                data-color="${color}"
+                                                style="border-color: ${categoriaColor}">
                                             ${color}
                                         </button>
                                     `).join('')}
@@ -8076,40 +7473,42 @@ Dejar vacío si no hay imágenes por color"></textarea>
                         `;
                     }
                     
-                    // Para tipo 'custom', mostrar un campo de texto
-                    let customOption = '';
-                    if (variantType === 'custom') {
-                        customOption = `
-                            <div class="form-group-admin" style="margin-bottom: 6px;">
-                                <label class="form-label-admin" style="font-size: 0.75rem;">
-                                    <i class="fas fa-edit"></i> Especificaciones (separar con |):
-                                </label>
-                                <input type="text" class="form-input-admin custom-variant-input" 
-                                       style="font-size: 0.7rem; padding: 4px 6px;" 
-                                       placeholder="Ej: Pequeño|Rojo|Algodón">
+                    // Generar especificaciones
+                    let especificacionesHTML = '';
+                    if (producto.especificaciones && producto.especificaciones.length > 0) {
+                        especificacionesHTML = `
+                            <div class="product-features">
+                                ${producto.especificaciones.map(espec => `
+                                    <div class="feature">
+                                        <i class="fas fa-check" style="color: ${categoriaColor}"></i>
+                                        <span>${espec}</span>
+                                    </div>
+                                `).join('')}
                             </div>
                         `;
                     }
                     
                     return `
-                        <div class="product-card ${product.categoria}" style="animation-delay: ${index * 0.05}s" data-product-id="${product.id}">
+                        <div class="product-card ${producto.categoria}" 
+                             style="animation-delay: ${index * 0.05}s" 
+                             data-product-id="${producto.id}">
                             <div class="product-image-container">
-                                <img src="${product.imagen}" alt="${product.nombre}" class="product-image" 
+                                <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image"
                                      onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'"
-                                     onclick="carrito.openImageModal('${product.imagen}', '${product.nombre}', '${product.categoria}')">
-                                ${estadoTexto ? `<div class="product-badge ${estadoClase} ${product.categoria}">${estadoTexto}</div>` : ''}
+                                     onclick="carrito.openImageModal('${producto.imagen}', '${producto.nombre}', '${producto.categoria}')">
+                                <div class="product-badge ${estadoClass} ${producto.categoria}">${producto.estado.toUpperCase()}</div>
                             </div>
                             
                             <div class="product-info">
-                                <div class="product-category ${product.categoria}" style="color: ${categoriaColor}">
+                                <div class="product-category ${producto.categoria}" style="color: ${categoriaColor}">
                                     <i class="fas fa-tag"></i>
-                                    ${product.subcategoria}
+                                    ${producto.subcategoria}
                                 </div>
                                 
-                                <h3 class="product-title">${product.nombre}</h3>
+                                <h3 class="product-title">${producto.nombre}</h3>
                                 
                                 <div class="product-price-container">
-                                    ${hasDiscount ? `
+                                    ${tieneDescuento ? `
                                         <div class="sale-price-container">
                                             <div class="original-price">${precioOriginal}</div>
                                             <div class="sale-price" style="color: ${categoriaColor}">${precioMostrar}</div>
@@ -8121,28 +7520,20 @@ Dejar vacío si no hay imágenes por color"></textarea>
                                 </div>
                                 
                                 <p class="product-description">
-                                    ${product.descripcion}
+                                    ${producto.descripcion}
                                 </p>
                                 
-                                ${product.especificaciones && product.especificaciones.length > 0 ? `
-                                    <div class="product-features">
-                                        ${product.especificaciones.slice(0, 3).map(spec => `
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: ${categoriaColor}"></i>
-                                                <span>${spec}</span>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                ` : ''}
+                                ${especificacionesHTML}
                                 
-                                ${variantOptions}
-                                ${colorOptions}
-                                ${customOption}
+                                ${variantesHTML}
+                                
+                                ${coloresHTML}
                                 
                                 <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="${product.id}" 
-                                            data-variant-type="${variantType}"
-                                            style="background: linear-gradient(135deg, ${categoriaColor}, ${this.darkenColor(categoriaColor)});">
+                                    <button class="add-to-cart-btn" 
+                                            data-product-id="${producto.id}"
+                                            data-variant-type="${producto.variantType || 'simple'}"
+                                            style="background: linear-gradient(135deg, ${categoriaColor}, ${this.darkenColor(categoriaColor, 20)});">
                                         <i class="fas fa-shopping-cart"></i>
                                         AGREGAR AL CARRITO
                                     </button>
@@ -8152,251 +7543,424 @@ Dejar vacío si no hay imágenes por color"></textarea>
                     `;
                 }).join('');
                 
-                // Configurar event listeners para los botones de agregar al carrito
-                productsGrid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                // Agregar event listeners a los botones de agregar al carrito
+                this.setupAddToCartListeners();
+                
+                // Agregar event listeners a los selectores de variante/color
+                this.setupVariantListeners();
+            }
+            
+            setupAddToCartListeners() {
+                document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const productId = parseInt(e.currentTarget.dataset.productId);
                         const variantType = e.currentTarget.dataset.variantType;
-                        const product = productos.find(p => p.id === productId);
-                        
-                        if (!product) return;
-                        
-                        let selectedVariant = 'Único';
-                        let selectedColor = 'N/A';
-                        
-                        // Obtener selecciones según tipo de variante
-                        if (variantType === 'simple' || variantType === 'color') {
-                            // Para simple y color, usar variante seleccionada
-                            const variantBtn = e.currentTarget.closest('.product-card').querySelector('.variant-btn.selected');
-                            
-                            // Si no hay selección de variante, usar la primera disponible
-                            const variantes = product.tallas || product.variantes || [];
-                            if (!variantBtn && variantes.length > 0) {
-                                selectedVariant = variantes[0];
-                            } else if (variantBtn) {
-                                selectedVariant = variantBtn.dataset.variant;
-                            }
-                            
-                            // Para color, también obtener color seleccionado
-                            if (variantType === 'color') {
-                                const colorBtn = e.currentTarget.closest('.product-card').querySelector('.color-btn.selected');
-                                
-                                // Si no hay selección de color, usar el primero disponible
-                                if (!colorBtn && product.colores && product.colores.length > 0) {
-                                    selectedColor = product.colores[0];
-                                } else if (colorBtn) {
-                                    selectedColor = colorBtn.dataset.color;
-                                }
-                            }
-                        } else if (variantType === 'custom') {
-                            // Para personalizado, usar el campo de texto
-                            const customInput = e.currentTarget.closest('.product-card').querySelector('.custom-variant-input');
-                            if (customInput && customInput.value.trim()) {
-                                selectedVariant = customInput.value.trim();
-                                selectedColor = 'N/A';
-                            } else {
-                                this.showNotification('Por favor ingresa las especificaciones', 'error');
-                                return;
-                            }
-                        }
-                        
-                        // Intentar agregar al carrito
-                        const success = this.addItem(product, selectedVariant, selectedColor);
-                        
-                        if (!success) {
-                            this.showNotification('Producto agotado o sin stock disponible', 'error');
-                        }
+                        this.addToCart(productId, variantType);
                     });
                 });
-                
-                // Configurar event listeners para los botones de variante
-                productsGrid.querySelectorAll('.variant-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const variantContainer = e.currentTarget.closest('.variant-selector');
-                        variantContainer.querySelectorAll('.variant-btn').forEach(v => {
-                            v.classList.remove('selected');
-                        });
-                        e.currentTarget.classList.add('selected');
-                    });
-                });
-                
-                // Configurar event listeners para los botones de color
-                productsGrid.querySelectorAll('.color-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const colorContainer = e.currentTarget.closest('.color-selector');
-                        colorContainer.querySelectorAll('.color-btn').forEach(c => {
-                            c.classList.remove('selected');
-                        });
-                        e.currentTarget.classList.add('selected');
-                    });
-                });
-                
-                // Configurar event listeners para las imágenes de los productos
-                productsGrid.querySelectorAll('.product-image').forEach(img => {
-                    img.addEventListener('click', (e) => {
-                        const productCard = e.currentTarget.closest('.product-card');
-                        const productId = parseInt(productCard.dataset.productId);
-                        const product = productos.find(p => p.id === productId);
-                        
-                        if (product) {
-                            this.openImageModal(e.currentTarget.src, product.nombre, product.categoria);
-                        }
-                    });
-                });
-                
-                // Seleccionar automáticamente la primera variante y color si existen
-                setTimeout(() => {
-                    productsGrid.querySelectorAll('.product-card').forEach(card => {
-                        const firstVariant = card.querySelector('.variant-btn');
-                        if (firstVariant) {
-                            firstVariant.classList.add('selected');
-                        }
-                        
-                        const firstColor = card.querySelector('.color-btn');
-                        if (firstColor) {
-                            firstColor.classList.add('selected');
-                        }
-                    });
-                }, 100);
             }
             
-            darkenColor(color) {
-                // Convertir color hexadecimal a RGB
-                let r, g, b;
+            setupVariantListeners() {
+                // Selectores de variante
+                document.querySelectorAll('.variant-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const container = e.currentTarget.closest('.variant-selector');
+                        container.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('selected'));
+                        e.currentTarget.classList.add('selected');
+                    });
+                });
                 
-                if (color.startsWith('#')) {
-                    r = parseInt(color.slice(1, 3), 16);
-                    g = parseInt(color.slice(3, 5), 16);
-                    b = parseInt(color.slice(5, 7), 16);
-                } else if (color.startsWith('rgb')) {
-                    const match = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-                    if (match) {
-                        r = parseInt(match[1]);
-                        g = parseInt(match[2]);
-                        b = parseInt(match[3]);
-                    } else {
-                        return color;
+                // Selectores de color
+                document.querySelectorAll('.color-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const container = e.currentTarget.closest('.color-selector');
+                        container.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+                        e.currentTarget.classList.add('selected');
+                    });
+                });
+            }
+            
+            addToCart(productId, variantType) {
+                const producto = productos.find(p => p.id === productId);
+                if (!producto) return;
+                
+                // Obtener variante seleccionada
+                let variant = 'Único';
+                let color = null;
+                
+                const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
+                
+                if (variantType === 'simple' || variantType === 'color') {
+                    const variantBtn = productCard?.querySelector('.variant-btn.selected');
+                    if (variantBtn) {
+                        variant = variantBtn.dataset.variant;
                     }
-                } else {
-                    return color;
                 }
                 
-                // Oscurecer el color (reducir cada componente en un 20%)
-                r = Math.max(0, Math.floor(r * 0.8));
-                g = Math.max(0, Math.floor(g * 0.8));
-                b = Math.max(0, Math.floor(b * 0.8));
+                if (variantType === 'color') {
+                    const colorBtn = productCard?.querySelector('.color-btn.selected');
+                    if (colorBtn) {
+                        color = colorBtn.dataset.color;
+                    }
+                }
                 
-                return `rgb(${r}, ${g}, ${b})`;
+                // Verificar stock
+                if (!this.verificarStock(producto, variant, color)) {
+                    alert('Lo sentimos, no hay suficiente stock de este producto/variante.');
+                    return;
+                }
+                
+                // Crear clave única para el item del carrito
+                const itemKey = color ? `${productId}-${variant}-${color}` : `${productId}-${variant}`;
+                
+                // Buscar si ya existe en el carrito
+                const existingItem = this.items.find(item => item.key === itemKey);
+                
+                if (existingItem) {
+                    // Incrementar cantidad
+                    existingItem.quantity++;
+                } else {
+                    // Agregar nuevo item
+                    const categoria = categorias.find(c => c.id === producto.categoria);
+                    const categoriaColor = categoria ? categoria.color : 'var(--accent)';
+                    const precio = producto.precioDescuento ? producto.precioDescuento : producto.precioRegular;
+                    
+                    this.items.push({
+                        key: itemKey,
+                        id: producto.id,
+                        nombre: producto.nombre,
+                        variant: variant,
+                        color: color,
+                        precio: precio,
+                        imagen: producto.imagen,
+                        categoria: producto.categoria,
+                        categoriaColor: categoriaColor,
+                        quantity: 1
+                    });
+                }
+                
+                // Actualizar carrito
+                this.saveCart();
+                this.renderCartCount();
+                this.renderCartItems();
+                this.updateCartButtons();
+                
+                // Mostrar feedback visual
+                this.showAddToCartFeedback(producto.nombre);
+            }
+            
+            verificarStock(producto, variant, color) {
+                if (!producto.stock) return true; // Si no hay stock definido, permitir agregar
+                
+                if (producto.variantType === 'simple') {
+                    return producto.stock[variant] > 0;
+                } else if (producto.variantType === 'color') {
+                    return producto.stock[variant] && producto.stock[variant][color] > 0;
+                }
+                
+                return true;
+            }
+            
+            showAddToCartFeedback(productName) {
+                // Crear notificación temporal
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: linear-gradient(135deg, var(--success), #2e8b57);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--shadow-hover);
+                    z-index: 2000;
+                    animation: slideInRight 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 600;
+                    max-width: 300px;
+                `;
+                
+                notification.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>${productName} agregado al carrito</span>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Remover después de 3 segundos
+                setTimeout(() => {
+                    notification.style.animation = 'slideInRight 0.3s ease reverse';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+            
+            renderCartCount() {
+                const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+                document.getElementById('cartCount').textContent = totalItems;
+            }
+            
+            openCart() {
+                document.getElementById('cartPanel').classList.add('open');
+                document.getElementById('cartOverlay').classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            closeCart() {
+                document.getElementById('cartPanel').classList.remove('open');
+                document.getElementById('cartOverlay').classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+            
+            renderCartItems() {
+                const container = document.getElementById('cartItems');
+                const emptyCart = document.getElementById('emptyCart');
+                const cartSummary = document.getElementById('cartSummary');
+                const freeShippingPromo = document.getElementById('freeShippingPromo');
+                
+                if (this.items.length === 0) {
+                    container.innerHTML = '';
+                    emptyCart.style.display = 'block';
+                    cartSummary.style.display = 'none';
+                    freeShippingPromo.style.display = 'none';
+                    return;
+                }
+                
+                emptyCart.style.display = 'none';
+                cartSummary.style.display = 'block';
+                
+                // Renderizar items
+                container.innerHTML = this.items.map((item, index) => {
+                    const variantText = item.color ? `${item.variant} - ${item.color}` : item.variant;
+                    
+                    return `
+                        <div class="cart-item ${item.categoria}" style="animation-delay: ${index * 0.05}s">
+                            <img src="${item.imagen}" alt="${item.nombre}" class="cart-item-image"
+                                 onerror="this.src='https://via.placeholder.com/800x600/cccccc/333333?text=ModaStyle+Premium'"
+                                 onclick="carrito.openImageModal('${item.imagen}', '${item.nombre}', '${item.categoria}')">
+                            <div class="cart-item-details">
+                                <div class="cart-item-info">
+                                    <div class="cart-item-title">${item.nombre}</div>
+                                    <div class="cart-item-variant">
+                                        <i class="fas fa-palette" style="color: ${item.categoriaColor}"></i>
+                                        ${variantText}
+                                    </div>
+                                    <div class="cart-item-price" style="color: ${item.categoriaColor}">
+                                        ${item.precio}
+                                    </div>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn" onclick="carrito.updateQuantity('${item.key}', -1)">-</button>
+                                        <span class="quantity-value">${item.quantity}</span>
+                                        <button class="quantity-btn" onclick="carrito.updateQuantity('${item.key}', 1)">+</button>
+                                    </div>
+                                    <button class="remove-item" onclick="carrito.removeItem('${item.key}')">
+                                        <i class="fas fa-trash"></i>
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                // Actualizar resumen
+                this.updateCartSummary();
+                
+                // Actualizar promoción de envío gratuito
+                this.updateFreeShippingPromo();
+            }
+            
+            updateQuantity(itemKey, change) {
+                const item = this.items.find(i => i.key === itemKey);
+                if (!item) return;
+                
+                const newQuantity = item.quantity + change;
+                
+                if (newQuantity < 1) {
+                    this.removeItem(itemKey);
+                } else {
+                    item.quantity = newQuantity;
+                    this.saveCart();
+                    this.renderCartCount();
+                    this.updateCartSummary();
+                    this.updateFreeShippingPromo();
+                }
+            }
+            
+            removeItem(itemKey) {
+                this.items = this.items.filter(item => item.key !== itemKey);
+                this.saveCart();
+                this.renderCartCount();
+                this.renderCartItems();
+                this.updateCartButtons();
+            }
+            
+            clearCart() {
+                if (this.items.length === 0) return;
+                
+                if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                    this.items = [];
+                    this.saveCart();
+                    this.renderCartCount();
+                    this.renderCartItems();
+                    this.updateCartButtons();
+                }
+            }
+            
+            updateCartSummary() {
+                const subtotal = this.calculateSubtotal();
+                const total = this.calculateTotal();
+                
+                document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+                
+                // Actualizar envío
+                const shipping = subtotal >= this.FREE_SHIPPING_MINIMUM ? 0 : 50;
+                const shippingElement = document.getElementById('shipping');
+                
+                if (shipping === 0) {
+                    shippingElement.textContent = 'Gratis';
+                    shippingElement.classList.add('free-shipping');
+                } else {
+                    shippingElement.textContent = `$${shipping.toFixed(2)}`;
+                    shippingElement.classList.remove('free-shipping');
+                }
+            }
+            
+            updateFreeShippingPromo() {
+                const subtotal = this.calculateSubtotal();
+                const promo = document.getElementById('freeShippingPromo');
+                const progress = document.getElementById('shippingProgress');
+                const remainingAmount = document.getElementById('remainingAmount');
+                
+                if (subtotal >= this.FREE_SHIPPING_MINIMUM) {
+                    promo.style.display = 'none';
+                } else {
+                    const remaining = this.FREE_SHIPPING_MINIMUM - subtotal;
+                    const progressPercentage = (subtotal / this.FREE_SHIPPING_MINIMUM) * 100;
+                    
+                    remainingAmount.textContent = `$${remaining.toFixed(2)}`;
+                    progress.style.width = `${progressPercentage}%`;
+                    promo.style.display = 'block';
+                }
+            }
+            
+            calculateSubtotal() {
+                return this.items.reduce((sum, item) => {
+                    const precio = parseFloat(item.precio.replace('$', '').replace(',', ''));
+                    return sum + (precio * item.quantity);
+                }, 0);
+            }
+            
+            calculateTotal() {
+                const subtotal = this.calculateSubtotal();
+                const shipping = subtotal >= this.FREE_SHIPPING_MINIMUM ? 0 : 50;
+                return subtotal + shipping;
+            }
+            
+            updateCartButtons() {
+                const hasItems = this.items.length > 0;
+                const cartActions = document.getElementById('cartActions');
+                const checkoutBtn = document.getElementById('checkoutBtn');
+                const clearCartBtn = document.getElementById('clearCartBtn');
+                
+                if (hasItems) {
+                    cartActions.classList.remove('disabled');
+                    checkoutBtn.disabled = false;
+                    clearCartBtn.disabled = false;
+                } else {
+                    cartActions.classList.add('disabled');
+                    checkoutBtn.disabled = true;
+                    clearCartBtn.disabled = true;
+                }
+            }
+            
+            saveCart() {
+                localStorage.setItem('cartModaStyle', JSON.stringify(this.items));
+            }
+            
+            darkenColor(color, percent) {
+                const num = parseInt(color.replace('#', ''), 16);
+                const amt = Math.round(2.55 * percent);
+                const R = (num >> 16) - amt;
+                const G = (num >> 8 & 0x00FF) - amt;
+                const B = (num & 0x0000FF) - amt;
+                
+                return '#' + (
+                    0x1000000 +
+                    (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+                    (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+                    (B < 255 ? B < 1 ? 0 : B : 255)
+                ).toString(16).slice(1);
             }
         }
 
-        // Inicializar sistemas
-        let admin = new Administracion();
-        let carrito = new Carrito();
+        // ==================== FUNCIONES GLOBALES ====================
+        
+        // Función para filtrar productos
+        function filterProducts(category) {
+            carrito.currentFilter = category;
+            carrito.renderProducts();
+            
+            // Actualizar botones activos
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.classList.remove('active');
+                
+                // Remover estilos inline para botones dinámicos
+                if (btn.classList.contains('dinamica')) {
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                }
+            });
+            
+            // Encontrar el botón correcto y activarlo
+            const activeBtn = Array.from(document.querySelectorAll('.category-filter')).find(btn => {
+                if (category === 'todos') {
+                    return btn.textContent.includes('Todos');
+                }
+                return btn.textContent.includes(categorias.find(c => c.id === category)?.nombre || '');
+            });
+            
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                
+                // Aplicar estilo para botones dinámicos
+                if (activeBtn.classList.contains('dinamica')) {
+                    const color = activeBtn.getAttribute('data-color') || 'var(--accent)';
+                    activeBtn.style.background = color;
+                    activeBtn.style.color = 'white';
+                    activeBtn.style.borderColor = color;
+                }
+            }
+            
+            // Hacer scroll a la sección de productos
+            document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+        }
 
-        // Función global para filtrado
-        window.filterProducts = function(category) {
-            carrito.filterProducts(category);
-        };
+        // ==================== INICIALIZACIÓN ====================
+        let admin;
+        let carrito;
 
-        // Inicializar la tienda
         document.addEventListener('DOMContentLoaded', function() {
-            // Verificar si hay datos guardados en localStorage
-            const savedProducts = localStorage.getItem('modastyle_productos');
-            const savedCategories = localStorage.getItem('modastyle_categorias');
+            // Inicializar sistemas
+            admin = new Administracion();
+            carrito = new Carrito();
             
-            if (savedProducts) {
-                try {
-                    productos = JSON.parse(savedProducts);
-                } catch (e) {
-                    console.error('Error al cargar productos:', e);
-                }
-            }
-            
-            if (savedCategories) {
-                try {
-                    categorias = JSON.parse(savedCategories);
-                } catch (e) {
-                    console.error('Error al cargar categorías:', e);
-                }
-            }
+            // Hacer que las funciones estén disponibles globalmente
+            window.admin = admin;
+            window.carrito = carrito;
+            window.filterProducts = filterProducts;
             
             // Renderizar productos iniciales
             carrito.renderProducts();
             
-            // Actualizar estadísticas
-            admin.actualizarEstadisticas();
-            
-            // Renderizar productos en panel de administración
-            admin.renderProductosAdmin();
-            
-            // Renderizar categorías en panel de administración
-            admin.renderCategoriasAdmin();
-            
-            // Renderizar filtros de categoría
-            admin.renderCategoryFilters();
-            
-            // Renderizar opciones de categoría en formulario
-            admin.renderCategoriasSelect();
-            
-            // Mostrar mensaje de bienvenida
-            setTimeout(() => {
-                carrito.showNotification('¡Bienvenido a ModaStyle! Explora nuestra colección exclusiva.', 'info');
-            }, 1000);
-        });
-
-        // Función para manejar el cierre de modales con Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const modales = ['imageModal', 'authModal', 'checkoutModal', 'adminPanel'];
-                
-                modales.forEach(modalId => {
-                    const modal = document.getElementById(modalId);
-                    if (modal && (modal.classList.contains('active') || modal.classList.contains('open'))) {
-                        if (modalId === 'imageModal') {
-                            carrito.closeImageModal();
-                        } else if (modalId === 'authModal') {
-                            admin.closeAuthModal();
-                        } else if (modalId === 'checkoutModal') {
-                            carrito.closeCheckoutModal();
-                        } else if (modalId === 'adminPanel') {
-                            admin.closeAdminPanel();
-                        }
-                    }
-                });
-                
-                // Cerrar resultados de búsqueda
-                const searchResults = document.getElementById('searchResults');
-                if (searchResults && searchResults.classList.contains('active')) {
-                    carrito.closeSearchResults();
-                }
-            }
-        });
-
-        // Función para pre-cargar imágenes (mejora de rendimiento)
-        function preloadImages() {
-            const images = [];
-            
-            productos.forEach(product => {
-                if (product.imagen) images.push(product.imagen);
-                if (product.imagenes && typeof product.imagenes === 'object') {
-                    Object.values(product.imagenes).forEach(url => {
-                        if (url) images.push(url);
-                    });
-                }
-            });
-            
-            // Precargar imágenes en segundo plano
-            images.forEach(url => {
-                const img = new Image();
-                img.src = url;
-            });
-        }
-
-        // Pre-cargar imágenes después de que la página cargue
-        window.addEventListener('load', function() {
-            setTimeout(preloadImages, 1000);
+            console.log('ModaStyle cargado correctamente');
         });
     </script>
 
-</body></html>
+
+[file content end]</body></html>
