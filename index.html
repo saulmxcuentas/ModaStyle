@@ -1,4 +1,7 @@
-<html lang="es"><head>
+<html lang="es" style="overflow: auto;"><head></head><body style="overflow: hidden;">Voy a crear un sistema completo de Banner de Ofertas Relámpago que se puede controlar desde el panel de administración. Aquí está el archivo completo con todas las integraciones:
+
+```html
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaStyle - Tienda de Ropa, Accesorios y Hogar</title>
@@ -20,6 +23,7 @@
             --error: #cc3333;
             --admin: #8B5CF6;
             --coupon: #FF6B6B;
+            --flash-sale: #FF4757;
             
             /* Colores categorías */
             --color-todo: #D4AF37;
@@ -64,7 +68,188 @@
             padding: 0 15px;
         }
 
-        /* Header */
+        /* ==================== BANNER DE OFERTAS RELÁMPAGO ==================== */
+        .flash-sale-banner {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #FF4757, #FF6B6B, #FF3838);
+            color: white;
+            z-index: 999;
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
+            animation: slideDown 0.5s ease;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .flash-sale-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .flash-sale-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .flash-sale-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .flash-sale-info {
+            flex: 1;
+        }
+
+        .flash-sale-title {
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .flash-sale-description {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .flash-sale-timer {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .timer-label {
+            font-size: 0.7rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .timer-display {
+            display: flex;
+            gap: 8px;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 40px;
+        }
+
+        .timer-value {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 8px;
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            min-width: 32px;
+            text-align: center;
+        }
+
+        .timer-label-unit {
+            font-size: 0.6rem;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .flash-sale-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .flash-sale-products {
+            display: flex;
+            gap: 8px;
+            margin-right: 10px;
+        }
+
+        .flash-product-preview {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .flash-product-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flash-sale-btn {
+            padding: 8px 16px;
+            background: white;
+            color: #FF4757;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .flash-sale-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-flash-banner {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .close-flash-banner:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        /* Header con ajuste para el banner */
         .main-header {
             position: fixed;
             top: 0;
@@ -345,12 +530,16 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Ajuste para el hero section cuando hay banner */
         .hero-section {
             padding: 80px 0 30px;
             background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        .flash-sale-banner.active ~ .hero-section {
+            padding-top: 120px;
         }
 
         .hero-content {
@@ -2615,8 +2804,8 @@
         .stat-value {
             font-size: 1.1rem;
             font-weight: 800;
-            color: var(--primary);
             margin-bottom: 2px;
+            color: var(--primary);
         }
 
         .stat-label {
@@ -2886,6 +3075,21 @@
             .search-container {
                 max-width: 300px;
             }
+            
+            .flash-sale-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .flash-sale-left, .flash-sale-right {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .flash-sale-products {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -2921,6 +3125,18 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .flash-sale-banner {
+                padding: 8px 0;
+            }
+            
+            .flash-sale-timer {
+                align-items: center;
+            }
+            
+            .timer-display {
+                justify-content: center;
             }
         }
 
@@ -2987,6 +3203,31 @@
             .clear-search {
                 right: 10px;
             }
+            
+            .flash-sale-banner {
+                padding: 6px 0;
+            }
+            
+            .flash-sale-title {
+                font-size: 0.8rem;
+            }
+            
+            .flash-sale-description {
+                font-size: 0.7rem;
+            }
+            
+            .timer-display {
+                font-size: 0.9rem;
+            }
+            
+            .timer-unit {
+                min-width: 35px;
+            }
+            
+            .flash-sale-btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
         }
 
         @media (max-width: 400px) {
@@ -2997,14 +3238,77 @@
             .search-input::placeholder {
                 font-size: 0.75rem;
             }
+            
+            .flash-sale-products {
+                display: none;
+            }
+            
+            .timer-display {
+                gap: 4px;
+            }
+            
+            .timer-unit {
+                min-width: 30px;
+            }
+            
+            .timer-value {
+                font-size: 0.9rem;
+                min-width: 28px;
+            }
         }
     </style>
     
     <!-- Fuentes e íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-</head>
-<body style="overflow: hidden;">
+
+
+    <!-- Banner de Ofertas Relámpago -->
+    <div class="flash-sale-banner" id="flashSaleBanner" style="display: block;">
+        <div class="container">
+            <div class="flash-sale-content">
+                <div class="flash-sale-left">
+                    <div class="flash-sale-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="flash-sale-info">
+                        <div class="flash-sale-title" id="flashSaleTitle">¡OFERTA RELÁMPAGO!</div>
+                        <div class="flash-sale-description" id="flashSaleDescription">Hasta 50% de descuento en productos seleccionados</div>
+                    </div>
+                    <div class="flash-sale-timer">
+                        <div class="timer-label">TERMINA EN:</div>
+                        <div class="timer-display" id="flashSaleTimer">
+                            <div class="timer-unit">
+                                <span class="timer-value" id="timerHours">00</span>
+                                <span class="timer-label-unit">HORAS</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-value" id="timerMinutes">42</span>
+                                <span class="timer-label-unit">MIN</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-value" id="timerSeconds">32</span>
+                                <span class="timer-label-unit">SEG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flash-sale-right">
+                    <div class="flash-sale-products" style="display: flex;">
+                        <div class="flash-product-preview" onclick="carrito.filterFlashSaleProducts(); carrito.scrollToProduct(1)">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="SUDADERA BÁSICA">
+                        </div>
+                    </div>
+                    <button class="flash-sale-btn" id="flashSaleBtn" onclick="carrito.filterFlashSaleProducts()"><i class="fas fa-shopping-bag"></i> VER ARTICULOS</button>
+                    <button class="close-flash-banner" id="closeFlashBanner">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal de Imagen -->
     <div class="image-modal-overlay" id="imageModal">
         <div class="image-modal">
@@ -3115,6 +3419,9 @@
                 </button>
                 <button class="admin-tab" data-tab="coupons">
                     <i class="fas fa-ticket-alt"></i> Cupones
+                </button>
+                <button class="admin-tab" data-tab="flash-sale">
+                    <i class="fas fa-bolt"></i> Ofertas Relámpago
                 </button>
                 <button class="admin-tab" data-tab="section-editor">
                     <i class="fas fa-edit"></i> Editor de Sección
@@ -3597,7 +3904,301 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     </div>
                                 </div>
                             </div>
+                        
+                            <div class="editor-category-item" data-coupon-id="2">
+                                <div class="editor-category-header">
+                                    <div class="editor-category-title">
+                                        <i class="fas fa-shipping-fast" style="color: var(--coupon)"></i>
+                                        ENVIOGRATIS
+                                        <span class="color-preview" style="background: var(--coupon);"></span>
+                                    </div>
+                                    <div class="editor-category-actions">
+                                        <button class="category-action-btn edit-category-btn" onclick="admin.editarCupon(2)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCupon(2)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="editor-category-content">
+                                    <div class="editor-category-fields">
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-ticket-alt"></i> Tipo:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="ENVÍO GRATIS" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-align-left"></i> Descripción:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Envío gratis en cualquier compra" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-calendar"></i> Validez:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="31/12/2023 - 30/12/2024" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-hashtag"></i> Usos:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="0 / 50 (50 restantes)" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-toggle-on"></i> Estado:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Activo" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="editor-category-item" data-coupon-id="3">
+                                <div class="editor-category-header">
+                                    <div class="editor-category-title">
+                                        <i class="fas fa-gift" style="color: var(--coupon)"></i>
+                                        2X1MODA
+                                        <span class="color-preview" style="background: var(--coupon);"></span>
+                                    </div>
+                                    <div class="editor-category-actions">
+                                        <button class="category-action-btn edit-category-btn" onclick="admin.editarCupon(3)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCupon(3)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="editor-category-content">
+                                    <div class="editor-category-fields">
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-ticket-alt"></i> Tipo:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="2X1" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-align-left"></i> Descripción:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Llévate 2 productos y paga solo 1 (el de menor precio)" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-calendar"></i> Validez:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="31/12/2023 - 30/12/2024" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-hashtag"></i> Usos:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="0 / 30 (30 restantes)" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-toggle-on"></i> Estado:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Activo" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="editor-category-item" data-coupon-id="4">
+                                <div class="editor-category-header">
+                                    <div class="editor-category-title">
+                                        <i class="fas fa-gift" style="color: var(--coupon)"></i>
+                                        3X2STYLE
+                                        <span class="color-preview" style="background: var(--coupon);"></span>
+                                    </div>
+                                    <div class="editor-category-actions">
+                                        <button class="category-action-btn edit-category-btn" onclick="admin.editarCupon(4)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCupon(4)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="editor-category-content">
+                                    <div class="editor-category-fields">
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-ticket-alt"></i> Tipo:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="3X2" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-align-left"></i> Descripción:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Llévate 3 productos y paga solo 2 (los de menor precio)" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-calendar"></i> Validez:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="31/12/2023 - 30/12/2024" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-hashtag"></i> Usos:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="0 / 20 (20 restantes)" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-toggle-on"></i> Estado:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Activo" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                </div>
+
+                <!-- Sección de Ofertas Relámpago -->
+                <div class="admin-section" id="flash-saleSection">
+                    <h3 class="section-title-admin">
+                        <i class="fas fa-bolt"></i>
+                        Configuración de Ofertas Relámpago
+                    </h3>
+                    
+                    <div class="status-message status-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Configura el banner de ofertas relámpago que aparece en la parte superior de la tienda</span>
+                    </div>
+                    
+                    <div class="admin-form">
+                        <h4 class="section-title-admin">
+                            <i class="fas fa-cog"></i>
+                            Configuración del Banner
+                        </h4>
+                        
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">
+                                <i class="fas fa-toggle-on"></i> Estado del Banner:
+                            </label>
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="flashSaleEnabled" checked="">
+                                    <span>Mostrar banner de ofertas relámpago</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">
+                                    <i class="fas fa-heading"></i> Título del Banner:
+                                </label>
+                                <input type="text" id="flashSaleTitleInput" class="form-input-admin" placeholder="Ej: ¡OFERTA RELÁMPAGO!" value="¡OFERTA RELÁMPAGO!">
+                            </div>
+                            
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">
+                                    <i class="fas fa-align-left"></i> Descripción:
+                                </label>
+                                <input type="text" id="flashSaleDescriptionInput" class="form-input-admin" placeholder="Ej: Hasta 50% de descuento en productos seleccionados" value="Hasta 50% de descuento en productos seleccionados">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">
+                                    <i class="fas fa-calendar"></i> Fecha de Inicio:
+                                </label>
+                                <input type="datetime-local" id="flashSaleStartDate" class="form-input-admin">
+                            </div>
+                            
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">
+                                    <i class="fas fa-calendar-times"></i> Fecha de Fin:
+                                </label>
+                                <input type="datetime-local" id="flashSaleEndDate" class="form-input-admin">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">
+                                <i class="fas fa-box"></i> Productos en Oferta (IDs separados por comas):
+                            </label>
+                            <input type="text" id="flashSaleProducts" class="form-input-admin" placeholder="Ej: 1,2,3 (dejar vacío para todos los productos en oferta)">
+                        </div>
+                        
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">
+                                <i class="fas fa-tag"></i> Texto del Botón:
+                            </label>
+                            <input type="text" id="flashSaleButtonText" class="form-input-admin" placeholder="Ej: VER OFERTAS" value="VER OFERTAS">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-save" id="saveFlashSaleBtn">
+                                <i class="fas fa-save"></i>
+                                Guardar Configuración
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="status-message status-success" id="flashSaleMessage" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Configuración guardada correctamente</span>
+                    </div>
+                    
+                    <div class="admin-form" style="margin-top: 20px;">
+                        <h4 class="section-title-admin">
+                            <i class="fas fa-eye"></i>
+                            Vista Previa del Banner
+                        </h4>
+                        
+                        <div class="section-preview" style="margin-top: 10px;">
+                            <div class="flash-sale-banner" style="position: relative; top: 0; animation: none; margin-bottom: 15px;">
+                                <div class="flash-sale-content">
+                                    <div class="flash-sale-left">
+                                        <div class="flash-sale-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="flash-sale-info">
+                                            <div class="flash-sale-title" id="previewFlashSaleTitle">¡OFERTA RELÁMPAGO!</div>
+                                            <div class="flash-sale-description" id="previewFlashSaleDescription">Hasta 50% de descuento en productos seleccionados</div>
+                                        </div>
+                                        <div class="flash-sale-timer">
+                                            <div class="timer-label">TERMINA EN:</div>
+                                            <div class="timer-display">
+                                                <div class="timer-unit">
+                                                    <span class="timer-value">24</span>
+                                                    <span class="timer-label-unit">HORAS</span>
+                                                </div>
+                                                <div class="timer-unit">
+                                                    <span class="timer-value">00</span>
+                                                    <span class="timer-label-unit">MIN</span>
+                                                </div>
+                                                <div class="timer-unit">
+                                                    <span class="timer-value">00</span>
+                                                    <span class="timer-label-unit">SEG</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flash-sale-right">
+                                        <button class="flash-sale-btn" style="cursor: default;"><i class="fas fa-shopping-bag"></i> VER ARTICULOS</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p style="font-size: 0.8rem; color: var(--text-light); text-align: center;">
+                                Esta es una vista previa del banner. Los cambios se reflejarán después de guardar.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sección de Editor de Categorías -->
@@ -3831,48 +4432,6 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     </div>
                                 </div>
                             </div>
-                        
-                            <div class="editor-category-item" data-category-id="5" draggable="true">
-                                <div class="editor-category-header">
-                                    <div class="editor-category-title">
-                                        <i class="fas fa-tag"></i> Nueva Categoría 5
-                                        <span class="color-preview" style="background: #D4AF37;"></span>
-                                    </div>
-                                    <div class="editor-category-actions">
-                                        <button class="category-action-btn edit-category-btn" onclick="admin.editarSectionCategory(5)">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="category-action-btn delete-category-btn" onclick="admin.eliminarSectionCategory(5)">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="editor-category-content">
-                                    <div class="editor-category-preview">
-                                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Nueva Categoría 5">
-                                    </div>
-                                    <div class="editor-category-fields">
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-font"></i> Nombre:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="Nueva Categoría 5" readonly="">
-                                        </div>
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-align-left"></i> Descripción:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="Descripción de la categoría" readonly="">
-                                        </div>
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-link"></i> Acción:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="carrito.filterProducts('todo')" readonly="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     
@@ -3905,39 +4464,47 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                             <div class="stat-value">1</div>
                             <div class="stat-label">Productos Totales</div>
                         </div>
-                    
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: #2563EB;">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="stat-value">1</div>
-                                <div class="stat-label">Hombre</div>
-                            </div>
                         
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: #7C3AED;">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="stat-value">0</div>
-                                <div class="stat-label">Accesorios</div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #2563EB;">
+                                <i class="fas fa-user-tie"></i>
                             </div>
-                        
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: #DB2777;">
-                                    <i class="fas fa-female"></i>
-                                </div>
-                                <div class="stat-value">0</div>
-                                <div class="stat-label">Mujer</div>
-                            </div>
-                        
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: #059669;">
-                                    <i class="fas fa-child"></i>
-                                </div>
-                                <div class="stat-value">0</div>
-                                <div class="stat-label">Kids</div>
-                            </div>
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">Hombre</div>
                         </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #7C3AED;">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Accesorios</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #DB2777;">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Mujer</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #059669;">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Kids</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: var(--coupon);">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">En Oferta</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sección de Exportación -->
@@ -4018,7 +4585,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
         </header>
 
         <!-- Hero Section -->
-        <section class="hero-section" id="inicio">
+        <section class="hero-section" id="inicio" style="padding-top: 120px;">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">
@@ -4085,15 +4652,6 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     <h3 class="category-name">Accesorios</h3>
                                     <p class="category-description">Complementos para completar tu look</p>
                                     <span class="category-badge" style="background: #7C3AED">Ver productos</span>
-                                </div>
-                            </div>
-                        
-                            <div class="category-card" onclick="carrito.filterProducts('todo')">
-                                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Nueva Categoría 5" class="category-image">
-                                <div class="category-overlay">
-                                    <h3 class="category-name">Nueva Categoría 5</h3>
-                                    <p class="category-description">Descripción de la categoría</p>
-                                    <span class="category-badge" style="background: #D4AF37">Ver productos</span>
                                 </div>
                             </div>
                         </div>
@@ -4515,7 +5073,18 @@ Dejar vacío si no hay imágenes por variante"></textarea>
         <script>
             // ==================== DATOS INICIALES ====================
             // Versión actual
-            const CURRENT_VERSION = '2.4.0';
+            const CURRENT_VERSION = '2.5.0';
+
+            // Configuración del banner de ofertas relámpago
+            let flashSaleConfig = {
+                enabled: true,
+                title: "¡OFERTA RELÁMPAGO!",
+                description: "Hasta 50% de descuento en productos seleccionados",
+                startDate: null,
+                endDate: null,
+                products: [], // IDs de productos en oferta
+                buttonText: "VER OFERTAS"
+            };
 
             // Datos de productos iniciales con nuevo sistema de variantes
             let productos = [{
@@ -4710,6 +5279,199 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 }
             ];
 
+            // ==================== SISTEMA DE OFERTAS RELÁMPAGO ====================
+            class FlashSaleManager {
+                constructor() {
+                    this.timerInterval = null;
+                    this.bannerVisible = false;
+                    this.init();
+                }
+                
+                init() {
+                    this.loadConfig();
+                    this.setupEventListeners();
+                    this.checkAndShowBanner();
+                }
+                
+                loadConfig() {
+                    const savedConfig = localStorage.getItem('modastyle_flash_sale');
+                    if (savedConfig) {
+                        flashSaleConfig = JSON.parse(savedConfig);
+                    }
+                }
+                
+                saveConfig() {
+                    localStorage.setItem('modastyle_flash_sale', JSON.stringify(flashSaleConfig));
+                }
+                
+                setupEventListeners() {
+                    // Botón de cierre del banner
+                    document.getElementById('closeFlashBanner')?.addEventListener('click', () => {
+                        this.hideBanner();
+                    });
+                    
+                    // Botón de ver ofertas
+                    document.getElementById('flashSaleBtn')?.addEventListener('click', () => {
+                        this.filterFlashSaleProducts();
+                    });
+                }
+                
+                checkAndShowBanner() {
+                    if (!flashSaleConfig.enabled) {
+                        this.hideBanner();
+                        return;
+                    }
+                    
+                    const now = new Date();
+                    const startDate = flashSaleConfig.startDate ? new Date(flashSaleConfig.startDate) : null;
+                    const endDate = flashSaleConfig.endDate ? new Date(flashSaleConfig.endDate) : null;
+                    
+                    // Verificar si estamos dentro del rango de fechas
+                    let shouldShow = true;
+                    
+                    if (startDate && now < startDate) {
+                        shouldShow = false;
+                    }
+                    
+                    if (endDate && now > endDate) {
+                        shouldShow = false;
+                        // Si la oferta expiró, desactivarla
+                        flashSaleConfig.enabled = false;
+                        this.saveConfig();
+                    }
+                    
+                    if (shouldShow) {
+                        this.showBanner();
+                        this.updateBannerContent();
+                        this.startTimer();
+                        this.updateFlashSaleProducts();
+                    } else {
+                        this.hideBanner();
+                    }
+                }
+                
+                showBanner() {
+                    const banner = document.getElementById('flashSaleBanner');
+                    if (banner) {
+                        banner.style.display = 'block';
+                        this.bannerVisible = true;
+                        
+                        // Ajustar padding del hero section
+                        document.querySelector('.hero-section').style.paddingTop = '120px';
+                    }
+                }
+                
+                hideBanner() {
+                    const banner = document.getElementById('flashSaleBanner');
+                    if (banner) {
+                        banner.style.display = 'none';
+                        this.bannerVisible = false;
+                        
+                        // Restaurar padding del hero section
+                        document.querySelector('.hero-section').style.paddingTop = '80px';
+                        
+                        // Detener el timer
+                        this.stopTimer();
+                    }
+                }
+                
+                updateBannerContent() {
+                    document.getElementById('flashSaleTitle').textContent = flashSaleConfig.title;
+                    document.getElementById('flashSaleDescription').textContent = flashSaleConfig.description;
+                    document.getElementById('flashSaleBtn').innerHTML = `<i class="fas fa-shopping-bag"></i> ${flashSaleConfig.buttonText}`;
+                    
+                    // Actualizar vista previa en admin
+                    document.getElementById('previewFlashSaleTitle').textContent = flashSaleConfig.title;
+                    document.getElementById('previewFlashSaleDescription').textContent = flashSaleConfig.description;
+                }
+                
+                updateFlashSaleProducts() {
+                    const container = document.querySelector('.flash-sale-products');
+                    if (!container) return;
+                    
+                    let productsToShow = productos;
+                    
+                    // Si hay productos específicos configurados
+                    if (flashSaleConfig.products && flashSaleConfig.products.length > 0) {
+                        productsToShow = productos.filter(p => flashSaleConfig.products.includes(p.id));
+                    } else {
+                        // Mostrar productos con estado "oferta"
+                        productsToShow = productos.filter(p => p.estado === 'oferta');
+                    }
+                    
+                    // Limitar a 3 productos para mostrar en el banner
+                    productsToShow = productsToShow.slice(0, 3);
+                    
+                    if (productsToShow.length === 0) {
+                        container.style.display = 'none';
+                        return;
+                    }
+                    
+                    container.innerHTML = productsToShow.map(product => `
+                        <div class="flash-product-preview" onclick="carrito.filterFlashSaleProducts(); carrito.scrollToProduct(${product.id})">
+                            <img src="${product.imagen}" alt="${product.nombre}">
+                        </div>
+                    `).join('');
+                    
+                    container.style.display = 'flex';
+                }
+                
+                startTimer() {
+                    this.stopTimer(); // Detener cualquier timer existente
+                    
+                    const updateTimer = () => {
+                        const now = new Date();
+                        const endDate = flashSaleConfig.endDate ? new Date(flashSaleConfig.endDate) : null;
+                        
+                        if (!endDate || now > endDate) {
+                            this.stopTimer();
+                            flashSaleConfig.enabled = false;
+                            this.saveConfig();
+                            this.hideBanner();
+                            return;
+                        }
+                        
+                        const diff = endDate - now;
+                        
+                        const hours = Math.floor(diff / (1000 * 60 * 60));
+                        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                        
+                        document.getElementById('timerHours').textContent = hours.toString().padStart(2, '0');
+                        document.getElementById('timerMinutes').textContent = minutes.toString().padStart(2, '0');
+                        document.getElementById('timerSeconds').textContent = seconds.toString().padStart(2, '0');
+                    };
+                    
+                    updateTimer();
+                    this.timerInterval = setInterval(updateTimer, 1000);
+                }
+                
+                stopTimer() {
+                    if (this.timerInterval) {
+                        clearInterval(this.timerInterval);
+                        this.timerInterval = null;
+                    }
+                }
+                
+                filterFlashSaleProducts() {
+                    if (window.carrito) {
+                        window.carrito.filterFlashSaleProducts();
+                    }
+                }
+                
+                getFlashSaleProducts() {
+                    if (flashSaleConfig.products && flashSaleConfig.products.length > 0) {
+                        return productos.filter(p => flashSaleConfig.products.includes(p.id));
+                    } else {
+                        return productos.filter(p => p.estado === 'oferta');
+                    }
+                }
+                
+                isBannerVisible() {
+                    return this.bannerVisible;
+                }
+            }
+
             // ==================== GESTOR DE VERSIONES ====================
             class VersionManager {
                 constructor() {
@@ -4726,6 +5488,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
                         localStorage.setItem('modastyle_section_config', JSON.stringify(sectionConfig));
                         localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
+                        localStorage.setItem('modastyle_flash_sale', JSON.stringify(flashSaleConfig));
                         localStorage.setItem('modastyle_version', CURRENT_VERSION);
                         console.log('Datos actualizados a versión', CURRENT_VERSION);
                     } else {
@@ -4735,6 +5498,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         const sectionCategoriesGuardadas = localStorage.getItem('modastyle_section_categories');
                         const sectionConfigGuardada = localStorage.getItem('modastyle_section_config');
                         const cuponesGuardados = localStorage.getItem('modastyle_cupones');
+                        const flashSaleConfigGuardada = localStorage.getItem('modastyle_flash_sale');
                         
                         if (productosGuardados) {
                             try {
@@ -4773,6 +5537,14 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                 cupones = JSON.parse(cuponesGuardados);
                             } catch (e) {
                                 console.error('Error al cargar cupones:', e);
+                            }
+                        }
+                        
+                        if (flashSaleConfigGuardada) {
+                            try {
+                                flashSaleConfig = JSON.parse(flashSaleConfigGuardada);
+                            } catch (e) {
+                                console.error('Error al cargar configuración de ofertas relámpago:', e);
                             }
                         }
                     }
@@ -5432,6 +6204,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     this.currentFilter = 'todo';
                     this.FREE_SHIPPING_MINIMUM = 300;
                     this.cuponManager = new CuponManager();
+                    this.flashSaleManager = new FlashSaleManager();
                     
                     // Asegurar que el scroll esté habilitado al iniciar
                     document.body.style.overflow = 'auto';
@@ -6530,6 +7303,125 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
                 }
                 
+                filterFlashSaleProducts() {
+                    // Limpiar búsqueda si existe
+                    if (window.buscador) {
+                        window.buscador.clearSearch('header');
+                    }
+                    
+                    const flashSaleProducts = this.flashSaleManager.getFlashSaleProducts();
+                    
+                    if (flashSaleProducts.length === 0) {
+                        alert('No hay productos en oferta relámpago en este momento');
+                        return;
+                    }
+                    
+                    // Mostrar solo productos en oferta relámpago
+                    const productsGrid = document.getElementById('productsGrid');
+                    
+                    productsGrid.innerHTML = flashSaleProducts.map((product, index) => {
+                        const precio = product.precioDescuento || product.precioRegular;
+                        const categoria = categorias.find(c => c.id === product.categoria);
+                        const colorCategoria = categoria ? categoria.color : 'var(--flash-sale)';
+                        
+                        return `
+                            <div class="product-card" data-product-id="${product.id}" style="animation-delay: ${index * 0.05}s">
+                                <div class="product-image-container">
+                                    <img src="${product.imagen}" alt="${product.nombre}" class="product-image" 
+                                         onclick="carrito.openImageModal('${product.imagen}', '${product.nombre}')"
+                                         data-original-image="${product.imagen}"
+                                         ${product.imagenesPorVariante ? 'data-has-variant-images="true"' : ''}>
+                                    <div class="product-badge oferta" style="background: var(--flash-sale);">OFERTA RELÁMPAGO</div>
+                                </div>
+                                
+                                <div class="product-info">
+                                    <div class="product-category" style="color: ${colorCategoria}">
+                                        <i class="fas fa-bolt"></i>
+                                        OFERTA RELÁMPAGO
+                                    </div>
+                                    
+                                    <h3 class="product-title">${product.nombre}</h3>
+                                    
+                                    <div class="product-price-container">
+                                        ${product.precioDescuento ? `
+                                            <div class="sale-price-container">
+                                                <div class="original-price">${product.precioRegular}</div>
+                                                <div class="sale-price" style="color: var(--flash-sale)">${product.precioDescuento}</div>
+                                                <div class="discount-badge" style="background: var(--flash-sale);">OFERTA RELÁMPAGO</div>
+                                            </div>
+                                        ` : `
+                                            <div class="regular-price">${product.precioRegular}</div>
+                                        `}
+                                    </div>
+                                    
+                                    <p class="product-description">
+                                        ${product.descripcion}
+                                    </p>
+                                    
+                                    ${product.especificaciones && product.especificaciones.length > 0 ? `
+                                        <div class="product-features">
+                                            ${product.especificaciones.map(spec => `
+                                                <div class="feature">
+                                                    <i class="fas fa-check" style="color: var(--flash-sale)"></i>
+                                                    <span>${spec}</span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+                                    
+                                    ${this.renderProductVariants(product, colorCategoria)}
+                                    
+                                    <div class="product-actions">
+                                        <button class="add-to-cart-btn" 
+                                                data-product-id="${product.id}"
+                                                style="background: linear-gradient(135deg, var(--flash-sale), #ff3838);"
+                                                onclick="carrito.handleAddToCart(${product.id})">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            AGREGAR AL CARRITO
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                    
+                    // Actualizar título de sección
+                    document.querySelector('#productos .section-title').textContent = 'Ofertas Relámpago';
+                    document.querySelector('#productos .section-subtitle').textContent = '¡Aprovecha estas ofertas por tiempo limitado!';
+                    
+                    // Actualizar filtros
+                    document.querySelectorAll('.category-filter').forEach(filter => {
+                        filter.classList.remove('active');
+                    });
+                    
+                    // Deseleccionar todas las variantes
+                    setTimeout(() => {
+                        document.querySelectorAll('.variant-btn.selected').forEach(btn => {
+                            btn.classList.remove('selected');
+                        });
+                    }, 50);
+                    
+                    // Hacer scroll a productos
+                    document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                scrollToProduct(productId) {
+                    const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
+                    if (productCard) {
+                        productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Efecto de destello
+                        productCard.style.animation = 'none';
+                        setTimeout(() => {
+                            productCard.style.animation = '';
+                            productCard.style.boxShadow = '0 0 0 3px var(--flash-sale)';
+                            setTimeout(() => {
+                                productCard.style.boxShadow = '';
+                            }, 1000);
+                        }, 50);
+                    }
+                }
+                
                 updateFilterColors() {
                     document.querySelectorAll('.category-filter.active').forEach(filter => {
                         const color = filter.getAttribute('data-color');
@@ -6573,6 +7465,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     this.renderStats();
                     this.loadSectionConfig();
                     this.renderSectionCategories();
+                    this.loadFlashSaleConfig();
                 }
                 
                 setupEventListeners() {
@@ -6615,6 +7508,15 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     document.getElementById('couponType').addEventListener('change', (e) => this.toggleCouponFields(e.target.value));
                     document.getElementById('resetCouponBtn').addEventListener('click', () => this.resetCouponForm());
                     document.getElementById('saveCouponBtn').addEventListener('click', () => this.guardarCupon());
+                    
+                    // Gestión de ofertas relámpago
+                    document.getElementById('saveFlashSaleBtn').addEventListener('click', () => this.guardarFlashSaleConfig());
+                    document.getElementById('flashSaleEnabled').addEventListener('change', (e) => {
+                        this.updateFlashSalePreview();
+                    });
+                    document.getElementById('flashSaleTitleInput').addEventListener('input', () => this.updateFlashSalePreview());
+                    document.getElementById('flashSaleDescriptionInput').addEventListener('input', () => this.updateFlashSalePreview());
+                    document.getElementById('flashSaleButtonText').addEventListener('input', () => this.updateFlashSalePreview());
                     
                     // Editor de sección
                     document.getElementById('previewSectionBtn').addEventListener('click', () => this.togglePreviewSection());
@@ -6672,6 +7574,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     this.renderStats();
                     this.loadSectionConfig();
                     this.renderSectionCategories();
+                    this.loadFlashSaleConfig();
                 }
                 
                 closeAdminPanel() {
@@ -6703,6 +7606,8 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         this.renderStats();
                     } else if (tabId === 'coupons') {
                         this.renderCuponesAdmin();
+                    } else if (tabId === 'flash-sale') {
+                        this.loadFlashSaleConfig();
                     }
                 }
                 
@@ -7309,78 +8214,24 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         item.dataset.categoryId
                     );
                     
-                    const categoriasOrdenadas = [];
-                    newOrder.forEach(id => {
-                        const categoria = categorias.find(c => c.id === id);
-                        if (categoria) categoriasOrdenadas.push(categoria);
-                    });
-                    
-                    // Actualizar órdenes
-                    categoriasOrdenadas.forEach((categoria, index) => {
-                        categoria.orden = index + 1;
-                    });
-                    
-                    // Añadir las categorías que no estaban en la lista
+                    // Actualizar el orden de las categorías
+                    let orden = 1;
                     categorias.forEach(categoria => {
-                        if (!newOrder.includes(categoria.id)) {
-                            categoriasOrdenadas.push(categoria);
+                        const index = newOrder.indexOf(categoria.id);
+                        if (index !== -1 && categoria.id !== 'todo') {
+                            categoria.orden = orden++;
                         }
                     });
                     
-                    categorias = categoriasOrdenadas;
+                    // Guardar cambios
                     this.guardarCategoriasEnStorage();
                     
+                    // Actualizar la página principal
                     if (window.carrito) {
                         window.carrito.renderCategoryFilters();
                     }
                     
-                    this.renderCategoriasAdmin();
-                    this.renderCategoriasSelect();
-                    this.mostrarMensaje('Categorías reordenadas', 'success');
-                }
-                
-                editarCategoria(id) {
-                    const categoria = categorias.find(c => c.id === id);
-                    if (categoria) {
-                        this.categoriaEditando = categoria;
-                        document.getElementById('newCategoryName').value = categoria.nombre;
-                        document.getElementById('newCategoryColor').value = categoria.color;
-                        document.getElementById('newCategoryIcon').value = categoria.icono;
-                        document.getElementById('addCategoryBtn').innerHTML = '<i class="fas fa-save"></i> Actualizar Categoría';
-                    }
-                }
-                
-                eliminarCategoria(id) {
-                    if (id === 'hombre' || id === 'mujer' || id === 'kids' || id === 'accesorios') {
-                        alert('No se pueden eliminar las categorías básicas');
-                        return;
-                    }
-                    
-                    if (confirm('¿Estás seguro de que quieres eliminar esta categoría?')) {
-                        const index = categorias.findIndex(c => c.id === id);
-                        if (index !== -1) {
-                            categorias.splice(index, 1);
-                            this.guardarCategoriasEnStorage();
-                            
-                            // Actualizar productos que usaban esta categoría
-                            productos.forEach(producto => {
-                                if (producto.categoria === id) {
-                                    producto.categoria = 'hombre';
-                                }
-                            });
-                            this.guardarProductosEnStorage();
-                            
-                            if (window.carrito) {
-                                window.carrito.renderProducts();
-                                window.carrito.renderCategoryFilters();
-                            }
-                            
-                            this.renderCategoriasAdmin();
-                            this.renderCategoriasSelect();
-                            this.renderProductosAdmin();
-                            this.mostrarMensaje('Categoría eliminada', 'success');
-                        }
-                    }
+                    this.mostrarMensajeCategorias('Categorías reordenadas', 'success');
                 }
                 
                 agregarCategoria() {
@@ -7389,62 +8240,188 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     const icono = document.getElementById('newCategoryIcon').value.trim();
                     
                     if (!nombre) {
-                        this.mostrarMensaje('Ingresa un nombre para la categoría', 'error');
+                        alert('Por favor ingresa un nombre para la categoría');
                         return;
                     }
                     
-                    if (this.categoriaEditando) {
-                        // Actualizar categoría existente
-                        this.categoriaEditando.nombre = nombre;
-                        this.categoriaEditando.color = color;
-                        this.categoriaEditando.icono = icono || 'fa-tag';
-                        this.mostrarMensaje('Categoría actualizada correctamente', 'success');
-                    } else {
-                        // Crear nueva categoría
-                        const nuevaCategoria = {
-                            id: nombre.toLowerCase().replace(/\s+/g, '-'),
-                            nombre: nombre,
-                            color: color,
-                            icono: icono || 'fa-tag',
-                            orden: categorias.filter(c => c.id !== 'todo').length + 1
-                        };
-                        
-                        categorias.push(nuevaCategoria);
-                        this.mostrarMensaje('Categoría agregada correctamente', 'success');
+                    // Verificar si ya existe
+                    if (categorias.some(c => c.id === nombre.toLowerCase())) {
+                        alert('Ya existe una categoría con ese nombre');
+                        return;
                     }
                     
+                    const nuevaCategoria = {
+                        id: nombre.toLowerCase(),
+                        nombre: nombre,
+                        color: color,
+                        icono: icono || 'fa-tag',
+                        orden: categorias.filter(c => c.id !== 'todo').length + 1
+                    };
+                    
+                    categorias.push(nuevaCategoria);
                     this.guardarCategoriasEnStorage();
-                    this.renderCategoriasAdmin();
-                    this.renderCategoriasSelect();
                     
                     if (window.carrito) {
                         window.carrito.renderCategoryFilters();
+                        window.carrito.renderCategories();
                     }
+                    
+                    this.renderCategoriasSelect();
+                    this.renderCategoriasAdmin();
+                    this.renderStats();
+                    
+                    this.mostrarMensajeCategorias('Categoría agregada correctamente', 'success');
+                    
+                    // Limpiar formulario
+                    document.getElementById('newCategoryName').value = '';
+                    document.getElementById('newCategoryIcon').value = '';
+                }
+                
+                editarCategoria(id) {
+                    const categoria = categorias.find(c => c.id === id);
+                    if (!categoria) return;
+                    
+                    this.categoriaEditando = categoria;
+                    
+                    // Cargar datos en el formulario
+                    document.getElementById('newCategoryName').value = categoria.nombre;
+                    document.getElementById('newCategoryColor').value = categoria.color;
+                    document.getElementById('newCategoryIcon').value = categoria.icono;
+                    
+                    // Cambiar el botón
+                    const btn = document.getElementById('addCategoryBtn');
+                    btn.innerHTML = '<i class="fas fa-save"></i> Actualizar Categoría';
+                    btn.onclick = () => this.actualizarCategoria();
+                }
+                
+                actualizarCategoria() {
+                    if (!this.categoriaEditando) return;
+                    
+                    const nombre = document.getElementById('newCategoryName').value.trim();
+                    const color = document.getElementById('newCategoryColor').value;
+                    const icono = document.getElementById('newCategoryIcon').value.trim();
+                    
+                    if (!nombre) {
+                        alert('Por favor ingresa un nombre para la categoría');
+                        return;
+                    }
+                    
+                    // Actualizar la categoría
+                    this.categoriaEditando.nombre = nombre;
+                    this.categoriaEditando.color = color;
+                    this.categoriaEditando.icono = icono || 'fa-tag';
+                    
+                    // Actualizar productos que usan esta categoría
+                    productos.forEach(producto => {
+                        if (producto.categoria === this.categoriaEditando.id) {
+                            producto.categoria = this.categoriaEditando.id;
+                        }
+                    });
+                    
+                    this.guardarCategoriasEnStorage();
+                    this.guardarProductosEnStorage();
+                    
+                    if (window.carrito) {
+                        window.carrito.renderCategoryFilters();
+                        window.carrito.renderCategories();
+                        window.carrito.renderProducts();
+                    }
+                    
+                    this.renderCategoriasSelect();
+                    this.renderCategoriasAdmin();
+                    this.renderStats();
+                    
+                    this.mostrarMensajeCategorias('Categoría actualizada correctamente', 'success');
                     
                     // Resetear formulario
                     this.resetCategoriaForm();
                 }
                 
+                eliminarCategoria(id) {
+                    const categoria = categorias.find(c => c.id === id);
+                    if (!categoria) return;
+                    
+                    // Verificar si hay productos usando esta categoría
+                    const productosEnCategoria = productos.filter(p => p.categoria === id);
+                    
+                    if (productosEnCategoria.length > 0) {
+                        alert(`No se puede eliminar la categoría porque tiene ${productosEnCategoria.length} productos asociados.`);
+                        return;
+                    }
+                    
+                    if (confirm(`¿Estás seguro de que quieres eliminar la categoría "${categoria.nombre}"?`)) {
+                        const index = categorias.findIndex(c => c.id === id);
+                        if (index !== -1) {
+                            categorias.splice(index, 1);
+                            this.guardarCategoriasEnStorage();
+                            
+                            if (window.carrito) {
+                                window.carrito.renderCategoryFilters();
+                                window.carrito.renderCategories();
+                            }
+                            
+                            this.renderCategoriasSelect();
+                            this.renderCategoriasAdmin();
+                            this.renderStats();
+                            
+                            this.mostrarMensajeCategorias('Categoría eliminada', 'success');
+                        }
+                    }
+                }
+                
                 resetCategoriaForm() {
                     document.getElementById('newCategoryName').value = '';
-                    document.getElementById('newCategoryColor').value = '#D4AF37';
                     document.getElementById('newCategoryIcon').value = '';
+                    
+                    const btn = document.getElementById('addCategoryBtn');
+                    btn.innerHTML = '<i class="fas fa-plus"></i> Agregar Nueva Categoría';
+                    btn.onclick = () => this.agregarCategoria();
+                    
                     this.categoriaEditando = null;
-                    document.getElementById('addCategoryBtn').innerHTML = '<i class="fas fa-plus"></i> Agregar Nueva Categoría';
                 }
                 
                 guardarCategoriasEnStorage() {
                     localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
                 }
                 
-                // ==================== SISTEMA DE CUPONES EN ADMIN ====================
+                mostrarMensaje(texto, tipo) {
+                    const messageElement = document.getElementById('formMessage');
+                    messageElement.textContent = texto;
+                    messageElement.className = `status-message status-${tipo}`;
+                    messageElement.style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        messageElement.style.display = 'none';
+                    }, 3000);
+                }
+                
+                mostrarMensajeCategorias(texto, tipo) {
+                    const messageElement = document.getElementById('categoriesMessage');
+                    messageElement.innerHTML = `<i class="fas fa-${tipo === 'success' ? 'check-circle' : 'times-circle'}"></i><span>${texto}</span>`;
+                    messageElement.className = `status-message status-${tipo}`;
+                    messageElement.style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        messageElement.style.display = 'none';
+                    }, 3000);
+                }
+                
+                // ==================== SISTEMA DE CUPONES (ADMIN) ====================
                 
                 toggleCouponFields(tipo) {
                     const percentageField = document.getElementById('percentageField');
                     const bogoField = document.getElementById('bogoField');
                     
-                    percentageField.style.display = tipo === 'percentage' ? 'block' : 'none';
-                    bogoField.style.display = (tipo === 'bogo_2x1' || tipo === 'bogo_3x2') ? 'block' : 'none';
+                    if (tipo === 'percentage') {
+                        percentageField.style.display = 'block';
+                        bogoField.style.display = 'none';
+                    } else if (tipo === 'bogo_2x1' || tipo === 'bogo_3x2') {
+                        percentageField.style.display = 'none';
+                        bogoField.style.display = 'block';
+                    } else {
+                        percentageField.style.display = 'none';
+                        bogoField.style.display = 'none';
+                    }
                 }
                 
                 resetCouponForm() {
@@ -7467,80 +8444,71 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 }
                 
                 guardarCupon() {
-                    const codigo = document.getElementById('couponCode').value.trim().toUpperCase();
+                    const codigo = document.getElementById('couponCode').value.trim();
                     const tipo = document.getElementById('couponType').value;
+                    const porcentaje = document.getElementById('couponPercentage').value;
+                    const productos = document.getElementById('couponProducts').value;
                     const fechaInicio = document.getElementById('couponStartDate').value;
                     const fechaFin = document.getElementById('couponEndDate').value;
+                    const usosPorCliente = document.getElementById('couponUsesPerCustomer').value;
+                    const montoMinimo = document.getElementById('couponMinAmount').value;
+                    const usosMaximos = document.getElementById('couponMaxUses').value;
+                    const descripcion = document.getElementById('couponDescription').value.trim();
                     
                     if (!codigo || !tipo || !fechaInicio || !fechaFin) {
-                        this.mostrarMensaje('Completa todos los campos requeridos', 'error');
+                        alert('Por favor completa todos los campos requeridos');
                         return;
                     }
                     
-                    const ahora = new Date();
-                    const inicio = new Date(fechaInicio);
-                    const fin = new Date(fechaFin);
-                    
-                    if (fin < inicio) {
-                        this.mostrarMensaje('La fecha de fin no puede ser anterior a la fecha de inicio', 'error');
+                    if (tipo === 'percentage' && (!porcentaje || porcentaje < 1 || porcentaje > 100)) {
+                        alert('Por favor ingresa un porcentaje válido (1-100)');
                         return;
                     }
                     
-                    if (fin < ahora) {
-                        this.mostrarMensaje('La fecha de fin no puede ser anterior a la fecha actual', 'error');
-                        return;
-                    }
-                    
-                    let valor = 0;
-                    let productosAplicables = [];
-                    
-                    if (tipo === 'percentage') {
-                        valor = parseInt(document.getElementById('couponPercentage').value) || 0;
-                        if (valor < 1 || valor > 100) {
-                            this.mostrarMensaje('El porcentaje debe estar entre 1 y 100', 'error');
-                            return;
-                        }
-                    } else if (tipo === 'bogo_2x1' || tipo === 'bogo_3x2') {
-                        const productosText = document.getElementById('couponProducts').value.trim();
-                        if (productosText) {
-                            productosAplicables = productosText.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id) && id > 0);
-                        }
-                    }
+                    // Procesar productos aplicables
+                    const productosAplicables = productos.trim() ? 
+                        productos.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id)) : [];
                     
                     const nuevoCupon = {
                         id: this.cuponEditando ? this.cuponEditando.id : this.generarIdCupon(),
-                        codigo: codigo,
+                        codigo: codigo.toUpperCase(),
                         tipo: tipo,
-                        valor: valor,
-                        descripcion: document.getElementById('couponDescription').value.trim() || `${codigo} - Cupón de descuento`,
+                        valor: tipo === 'percentage' ? parseInt(porcentaje) : 0,
+                        descripcion: descripcion || `${tipo === 'percentage' ? porcentaje + '% descuento' : tipo}`,
                         fechaInicio: fechaInicio,
                         fechaFin: fechaFin,
-                        usosPorCliente: parseInt(document.getElementById('couponUsesPerCustomer').value) || 0,
-                        usosMaximos: parseInt(document.getElementById('couponMaxUses').value) || 0,
-                        usosActuales: this.cuponEditando ? (this.cuponEditando.usosActuales || 0) : 0,
-                        montoMinimo: parseInt(document.getElementById('couponMinAmount').value) || 0,
+                        usosPorCliente: parseInt(usosPorCliente) || 0,
+                        usosMaximos: parseInt(usosMaximos) || 0,
+                        usosActuales: this.cuponEditando ? this.cuponEditando.usosActuales : 0,
+                        montoMinimo: parseInt(montoMinimo) || 0,
                         productosAplicables: productosAplicables,
                         activo: true
                     };
                     
+                    // Guardar o actualizar
                     if (this.cuponEditando) {
                         const index = cupones.findIndex(c => c.id === this.cuponEditando.id);
                         if (index !== -1) {
                             cupones[index] = nuevoCupon;
-                            this.mostrarMensaje('Cupón actualizado correctamente', 'success');
                         }
                     } else {
                         cupones.push(nuevoCupon);
-                        this.mostrarMensaje('Cupón creado correctamente', 'success');
                     }
                     
-                    this.cuponManager.guardarCuponesEnStorage();
+                    // Guardar en storage
+                    localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
+                    
+                    // Actualizar lista
                     this.renderCuponesAdmin();
                     
+                    // Mostrar mensaje
+                    document.getElementById('couponsMessage').style.display = 'flex';
                     setTimeout(() => {
-                        this.resetCouponForm();
-                        this.switchTab('coupons');
-                    }, 1500);
+                        document.getElementById('couponsMessage').style.display = 'none';
+                    }, 3000);
+                    
+                    // Resetear formulario
+                    this.resetCouponForm();
                 }
                 
                 generarIdCupon() {
@@ -7554,7 +8522,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         container.innerHTML = `
                             <div class="status-message status-info">
                                 <i class="fas fa-info-circle"></i>
-                                <span>No hay cupones. Crea algunos desde el formulario.</span>
+                                <span>No hay cupones. Agrega algunos desde el formulario.</span>
                             </div>
                         `;
                         return;
@@ -7562,44 +8530,38 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     
                     container.innerHTML = cupones.map(cupon => {
                         let tipoTexto = '';
-                        let color = '';
-                        let icono = '';
+                        let icono = 'fa-tag';
                         
                         switch (cupon.tipo) {
                             case 'percentage':
                                 tipoTexto = `${cupon.valor}% DESCUENTO`;
-                                color = 'var(--coupon)';
-                                icono = 'fas fa-percentage';
+                                icono = 'fa-percentage';
                                 break;
                             case 'free_shipping':
                                 tipoTexto = 'ENVÍO GRATIS';
-                                color = '#2e8b57';
-                                icono = 'fas fa-shipping-fast';
+                                icono = 'fa-shipping-fast';
                                 break;
                             case 'bogo_2x1':
                                 tipoTexto = '2X1';
-                                color = '#FFA500';
-                                icono = 'fas fa-gift';
+                                icono = 'fa-gift';
                                 break;
                             case 'bogo_3x2':
                                 tipoTexto = '3X2';
-                                color = '#FF6347';
-                                icono = 'fas fa-gift';
+                                icono = 'fa-gift';
                                 break;
                         }
                         
                         const fechaInicio = new Date(cupon.fechaInicio).toLocaleDateString('es-ES');
                         const fechaFin = new Date(cupon.fechaFin).toLocaleDateString('es-ES');
-                        const usosRestantes = cupon.usosMaximos > 0 ? cupon.usosMaximos - cupon.usosActuales : 'Ilimitado';
-                        const estado = cupon.activo ? 'Activo' : 'Inactivo';
+                        const usosRestantes = cupon.usosMaximos > 0 ? cupon.usosMaximos - cupon.usosActuales : '∞';
                         
                         return `
                             <div class="editor-category-item" data-coupon-id="${cupon.id}">
                                 <div class="editor-category-header">
                                     <div class="editor-category-title">
-                                        <i class="${icono}" style="color: ${color}"></i>
+                                        <i class="fas ${icono}" style="color: var(--coupon)"></i>
                                         ${cupon.codigo}
-                                        <span class="color-preview" style="background: ${color};"></span>
+                                        <span class="color-preview" style="background: var(--coupon);"></span>
                                     </div>
                                     <div class="editor-category-actions">
                                         <button class="category-action-btn edit-category-btn" onclick="admin.editarCupon(${cupon.id})">
@@ -7634,13 +8596,13 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                             <label class="form-label-admin">
                                                 <i class="fas fa-hashtag"></i> Usos:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${cupon.usosActuales} / ${cupon.usosMaximos > 0 ? cupon.usosMaximos : '∞'} (${usosRestantes} restantes)" readonly>
+                                            <input type="text" class="form-input-admin" value="${cupon.usosActuales} / ${cupon.usosMaximos || '∞'} (${usosRestantes} restantes)" readonly>
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-toggle-on"></i> Estado:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${estado}" readonly>
+                                            <input type="text" class="form-input-admin" value="${cupon.activo ? 'Activo' : 'Inactivo'}" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -7651,28 +8613,30 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 
                 editarCupon(id) {
                     const cupon = cupones.find(c => c.id === id);
-                    if (cupon) {
-                        this.cuponEditando = cupon;
-                        
-                        document.getElementById('couponCode').value = cupon.codigo;
-                        document.getElementById('couponType').value = cupon.tipo;
-                        document.getElementById('couponStartDate').value = cupon.fechaInicio;
-                        document.getElementById('couponEndDate').value = cupon.fechaFin;
-                        document.getElementById('couponUsesPerCustomer').value = cupon.usosPorCliente;
-                        document.getElementById('couponMinAmount').value = cupon.montoMinimo;
-                        document.getElementById('couponMaxUses').value = cupon.usosMaximos;
-                        document.getElementById('couponDescription').value = cupon.descripcion;
-                        
-                        if (cupon.tipo === 'percentage') {
-                            document.getElementById('couponPercentage').value = cupon.valor;
-                        } else if (cupon.tipo === 'bogo_2x1' || cupon.tipo === 'bogo_3x2') {
-                            document.getElementById('couponProducts').value = cupon.productosAplicables.join(', ');
-                        }
-                        
-                        this.toggleCouponFields(cupon.tipo);
-                        document.getElementById('saveCouponBtn').innerHTML = '<i class="fas fa-save"></i> Actualizar Cupón';
-                        this.switchTab('coupons');
-                    }
+                    if (!cupon) return;
+                    
+                    this.cuponEditando = cupon;
+                    
+                    // Cargar datos en el formulario
+                    document.getElementById('couponCode').value = cupon.codigo;
+                    document.getElementById('couponType').value = cupon.tipo;
+                    document.getElementById('couponPercentage').value = cupon.valor;
+                    document.getElementById('couponProducts').value = cupon.productosAplicables.join(', ');
+                    document.getElementById('couponStartDate').value = cupon.fechaInicio;
+                    document.getElementById('couponEndDate').value = cupon.fechaFin;
+                    document.getElementById('couponUsesPerCustomer').value = cupon.usosPorCliente;
+                    document.getElementById('couponMinAmount').value = cupon.montoMinimo;
+                    document.getElementById('couponMaxUses').value = cupon.usosMaximos;
+                    document.getElementById('couponDescription').value = cupon.descripcion;
+                    
+                    // Mostrar campos según tipo
+                    this.toggleCouponFields(cupon.tipo);
+                    
+                    // Cambiar el botón
+                    document.getElementById('saveCouponBtn').innerHTML = '<i class="fas fa-save"></i> Actualizar Cupón';
+                    
+                    // Cambiar a pestaña de cupones
+                    this.switchTab('coupons');
                 }
                 
                 eliminarCupon(id) {
@@ -7680,47 +8644,129 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         const index = cupones.findIndex(c => c.id === id);
                         if (index !== -1) {
                             cupones.splice(index, 1);
-                            this.cuponManager.guardarCuponesEnStorage();
+                            localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
                             this.renderCuponesAdmin();
-                            this.mostrarMensaje('Cupón eliminado', 'success');
                         }
                     }
                 }
                 
-                // ==================== EDITOR DE SECCIÓN ====================
+                // ==================== SISTEMA DE OFERTAS RELÁMPAGO (ADMIN) ====================
                 
-                loadSectionConfig() {
-                    document.getElementById('sectionTitle').value = sectionConfig.title;
-                    document.getElementById('sectionSubtitle').value = sectionConfig.subtitle;
-                }
-                
-                saveSectionConfig() {
-                    sectionConfig.title = document.getElementById('sectionTitle').value;
-                    sectionConfig.subtitle = document.getElementById('sectionSubtitle').value;
+                loadFlashSaleConfig() {
+                    // Cargar configuración actual en los campos
+                    document.getElementById('flashSaleEnabled').checked = flashSaleConfig.enabled;
+                    document.getElementById('flashSaleTitleInput').value = flashSaleConfig.title;
+                    document.getElementById('flashSaleDescriptionInput').value = flashSaleConfig.description;
+                    document.getElementById('flashSaleButtonText').value = flashSaleConfig.buttonText;
                     
-                    localStorage.setItem('modastyle_section_config', JSON.stringify(sectionConfig));
+                    // Configurar fechas por defecto si no existen
+                    const now = new Date();
+                    const tomorrow = new Date(now);
+                    tomorrow.setDate(tomorrow.getDate() + 1);
                     
-                    if (window.carrito) {
-                        window.carrito.updateSectionCategories();
+                    if (!flashSaleConfig.startDate) {
+                        flashSaleConfig.startDate = now.toISOString().slice(0, 16);
                     }
                     
-                    this.mostrarMensaje('Configuración guardada correctamente', 'success');
+                    if (!flashSaleConfig.endDate) {
+                        flashSaleConfig.endDate = tomorrow.toISOString().slice(0, 16);
+                    }
+                    
+                    document.getElementById('flashSaleStartDate').value = flashSaleConfig.startDate;
+                    document.getElementById('flashSaleEndDate').value = flashSaleConfig.endDate;
+                    
+                    // Productos
+                    document.getElementById('flashSaleProducts').value = flashSaleConfig.products.join(', ');
+                    
+                    // Actualizar vista previa
+                    this.updateFlashSalePreview();
+                }
+                
+                updateFlashSalePreview() {
+                    const enabled = document.getElementById('flashSaleEnabled').checked;
+                    const title = document.getElementById('flashSaleTitleInput').value;
+                    const description = document.getElementById('flashSaleDescriptionInput').value;
+                    const buttonText = document.getElementById('flashSaleButtonText').value;
+                    
+                    // Actualizar elementos de vista previa
+                    document.getElementById('previewFlashSaleTitle').textContent = title || flashSaleConfig.title;
+                    document.getElementById('previewFlashSaleDescription').textContent = description || flashSaleConfig.description;
+                    
+                    // Actualizar botón en vista previa
+                    const previewBtn = document.querySelector('#flash-saleSection .flash-sale-btn');
+                    if (previewBtn) {
+                        previewBtn.innerHTML = `<i class="fas fa-shopping-bag"></i> ${buttonText || flashSaleConfig.buttonText}`;
+                    }
+                }
+                
+                guardarFlashSaleConfig() {
+                    const enabled = document.getElementById('flashSaleEnabled').checked;
+                    const title = document.getElementById('flashSaleTitleInput').value.trim();
+                    const description = document.getElementById('flashSaleDescriptionInput').value.trim();
+                    const startDate = document.getElementById('flashSaleStartDate').value;
+                    const endDate = document.getElementById('flashSaleEndDate').value;
+                    const products = document.getElementById('flashSaleProducts').value.trim();
+                    const buttonText = document.getElementById('flashSaleButtonText').value.trim();
+                    
+                    // Validar
+                    if (!title || !description || !buttonText) {
+                        alert('Por favor completa todos los campos');
+                        return;
+                    }
+                    
+                    if (!startDate || !endDate) {
+                        alert('Por favor selecciona las fechas de inicio y fin');
+                        return;
+                    }
+                    
+                    const start = new Date(startDate);
+                    const end = new Date(endDate);
+                    
+                    if (end <= start) {
+                        alert('La fecha de fin debe ser posterior a la fecha de inicio');
+                        return;
+                    }
+                    
+                    // Guardar configuración
+                    flashSaleConfig.enabled = enabled;
+                    flashSaleConfig.title = title;
+                    flashSaleConfig.description = description;
+                    flashSaleConfig.startDate = startDate;
+                    flashSaleConfig.endDate = endDate;
+                    flashSaleConfig.buttonText = buttonText;
+                    
+                    // Procesar productos
+                    flashSaleConfig.products = products.trim() ? 
+                        products.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id)) : [];
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_flash_sale', JSON.stringify(flashSaleConfig));
+                    
+                    // Actualizar banner si está visible
+                    if (window.flashSaleManager) {
+                        window.flashSaleManager.saveConfig();
+                        window.flashSaleManager.checkAndShowBanner();
+                    }
+                    
+                    // Mostrar mensaje de éxito
+                    document.getElementById('flashSaleMessage').style.display = 'flex';
+                    setTimeout(() => {
+                        document.getElementById('flashSaleMessage').style.display = 'none';
+                    }, 3000);
+                }
+                
+                // ==================== EDITOR DE SECCIÓN (ADMIN) ====================
+                
+                loadSectionConfig() {
+                    // Cargar configuración de la sección
+                    document.getElementById('sectionTitle').value = sectionConfig.title;
+                    document.getElementById('sectionSubtitle').value = sectionConfig.subtitle;
                 }
                 
                 renderSectionCategories() {
                     const container = document.getElementById('sectionCategoriesList');
                     
-                    if (sectionCategories.length === 0) {
-                        container.innerHTML = `
-                            <div class="status-message status-info">
-                                <i class="fas fa-info-circle"></i>
-                                <span>No hay categorías en la sección. Agrega algunas desde el botón "Agregar Categoría".</span>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
-                    // Ordenar por orden
+                    // Ordenar categorías por orden
                     const sortedCategories = [...sectionCategories].sort((a, b) => a.order - b.order);
                     
                     container.innerHTML = sortedCategories.map(categoria => {
@@ -7769,10 +8815,10 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         `;
                     }).join('');
                     
-                    this.setupDragAndDropSection();
+                    this.setupDragAndDropSectionCategories();
                 }
                 
-                setupDragAndDropSection() {
+                setupDragAndDropSectionCategories() {
                     const container = document.getElementById('sectionCategoriesList');
                     if (!container) return;
                     
@@ -7792,7 +8838,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     
                     container.addEventListener('dragover', (e) => {
                         e.preventDefault();
-                        const afterElement = this.getDragAfterElementSection(container, e.clientY);
+                        const afterElement = this.getDragAfterElementSectionCategories(container, e.clientY);
                         
                         if (afterElement == null) {
                             container.appendChild(draggingItem);
@@ -7806,7 +8852,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     });
                 }
                 
-                getDragAfterElementSection(container, y) {
+                getDragAfterElementSectionCategories(container, y) {
                     const draggableElements = [...container.querySelectorAll('.editor-category-item:not(.dragging)')];
                     
                     return draggableElements.reduce((closest, child) => {
@@ -7827,155 +8873,162 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         parseInt(item.dataset.categoryId)
                     );
                     
-                    const categoriasOrdenadas = [];
-                    newOrder.forEach(id => {
-                        const categoria = sectionCategories.find(c => c.id === id);
-                        if (categoria) categoriasOrdenadas.push(categoria);
-                    });
-                    
-                    // Actualizar órdenes
-                    categoriasOrdenadas.forEach((categoria, index) => {
-                        categoria.order = index + 1;
-                    });
-                    
-                    // Añadir las categorías que no estaban en la lista
+                    // Actualizar el orden de las categorías de sección
                     sectionCategories.forEach(categoria => {
-                        if (!newOrder.includes(categoria.id)) {
-                            categoriasOrdenadas.push(categoria);
+                        const index = newOrder.indexOf(categoria.id);
+                        if (index !== -1) {
+                            categoria.order = index + 1;
                         }
                     });
                     
-                    sectionCategories = categoriasOrdenadas;
+                    // Guardar cambios
                     localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
                     
+                    // Actualizar la página principal
                     if (window.carrito) {
                         window.carrito.updateSectionCategories();
                     }
                     
-                    this.renderSectionCategories();
-                    this.updateSectionPreview();
-                    this.mostrarMensaje('Categorías reordenadas', 'success');
+                    document.getElementById('editorMessage').innerHTML = '<i class="fas fa-check-circle"></i><span>Categorías reordenadas</span>';
+                    document.getElementById('editorMessage').className = 'status-message status-success';
+                    document.getElementById('editorMessage').style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        document.getElementById('editorMessage').style.display = 'none';
+                    }, 2000);
                 }
                 
-                editarSectionCategory(id) {
-                    const categoria = sectionCategories.find(c => c.id === id);
-                    if (categoria) {
-                        this.sectionCategoryEditando = categoria;
+                togglePreviewSection() {
+                    const preview = document.getElementById('sectionPreview');
+                    const isVisible = preview.style.display === 'block';
+                    
+                    if (!isVisible) {
+                        // Actualizar vista previa
+                        document.getElementById('previewSectionTitle').textContent = document.getElementById('sectionTitle').value;
+                        document.getElementById('previewSectionSubtitle').textContent = document.getElementById('sectionSubtitle').value;
                         
-                        // Mostrar modal de edición (simplificado)
-                        const nuevoNombre = prompt('Nuevo nombre:', categoria.name);
-                        if (nuevoNombre !== null) {
-                            categoria.name = nuevoNombre;
-                            const nuevaDescripcion = prompt('Nueva descripción:', categoria.description);
-                            if (nuevaDescripcion !== null) {
-                                categoria.description = nuevaDescripcion;
-                            }
-                            const nuevaImagen = prompt('Nueva URL de imagen:', categoria.image);
-                            if (nuevaImagen !== null && nuevaImagen.trim() !== '') {
-                                categoria.image = nuevaImagen;
-                            }
-                            const nuevoColor = prompt('Nuevo color (hex):', categoria.buttonColor);
-                            if (nuevoColor !== null && nuevoColor.trim() !== '') {
-                                categoria.buttonColor = nuevoColor;
-                            }
-                            
-                            localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
-                            
-                            if (window.carrito) {
-                                window.carrito.updateSectionCategories();
-                            }
-                            
-                            this.renderSectionCategories();
-                            this.updateSectionPreview();
-                            this.mostrarMensaje('Categoría actualizada', 'success');
-                        }
+                        // Generar vista previa de categorías
+                        const sortedCategories = [...sectionCategories].sort((a, b) => a.order - b.order);
+                        const previewGrid = document.getElementById('previewCategoriesGrid');
                         
-                        this.sectionCategoryEditando = null;
+                        previewGrid.innerHTML = sortedCategories.map(categoria => {
+                            return `
+                                <div class="category-card">
+                                    <img src="${categoria.image}" alt="${categoria.name}" class="category-image">
+                                    <div class="category-overlay">
+                                        <h3 class="category-name">${categoria.name}</h3>
+                                        <p class="category-description">${categoria.description}</p>
+                                        <span class="category-badge" style="background: ${categoria.buttonColor}">Ver productos</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                        
+                        preview.style.display = 'block';
+                    } else {
+                        preview.style.display = 'none';
                     }
                 }
                 
-                eliminarSectionCategory(id) {
-                    if (confirm('¿Estás seguro de que quieres eliminar esta categoría de la sección?')) {
-                        const index = sectionCategories.findIndex(c => c.id === id);
-                        if (index !== -1) {
-                            sectionCategories.splice(index, 1);
-                            localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
-                            
-                            if (window.carrito) {
-                                window.carrito.updateSectionCategories();
-                            }
-                            
-                            this.renderSectionCategories();
-                            this.updateSectionPreview();
-                            this.mostrarMensaje('Categoría eliminada', 'success');
-                        }
+                saveSectionConfig() {
+                    sectionConfig.title = document.getElementById('sectionTitle').value;
+                    sectionConfig.subtitle = document.getElementById('sectionSubtitle').value;
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_section_config', JSON.stringify(sectionConfig));
+                    
+                    // Actualizar la página principal
+                    if (window.carrito) {
+                        window.carrito.updateSectionCategories();
                     }
+                    
+                    document.getElementById('editorMessage').innerHTML = '<i class="fas fa-check-circle"></i><span>Cambios guardados correctamente</span>';
+                    document.getElementById('editorMessage').className = 'status-message status-success';
+                    document.getElementById('editorMessage').style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        document.getElementById('editorMessage').style.display = 'none';
+                    }, 2000);
                 }
                 
                 addSectionCategory() {
-                    const nombre = prompt('Nombre de la categoría:');
-                    if (!nombre) return;
-                    
-                    const descripcion = prompt('Descripción:') || 'Descripción de la categoría';
-                    const imagen = prompt('URL de la imagen:') || 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80';
-                    const color = prompt('Color (hex):') || '#D4AF37';
-                    const accion = prompt('Acción (código JavaScript):') || "carrito.filterProducts('todo')";
+                    // Buscar el próximo ID disponible
+                    const newId = Math.max(...sectionCategories.map(c => c.id), 0) + 1;
                     
                     const nuevaCategoria = {
-                        id: Math.max(...sectionCategories.map(c => c.id), 0) + 1,
-                        name: nombre,
-                        description: descripcion,
-                        image: imagen,
-                        buttonColor: color,
-                        action: accion,
+                        id: newId,
+                        name: `Nueva Categoría ${newId}`,
+                        description: "Descripción de la categoría",
+                        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                        buttonColor: "#D4AF37",
+                        action: "carrito.filterProducts('todo')",
                         order: sectionCategories.length + 1
                     };
                     
                     sectionCategories.push(nuevaCategoria);
                     localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
                     
+                    this.renderSectionCategories();
+                    
+                    // Editar la nueva categoría
+                    this.editarSectionCategory(newId);
+                }
+                
+                editarSectionCategory(id) {
+                    const categoria = sectionCategories.find(c => c.id === id);
+                    if (!categoria) return;
+                    
+                    this.sectionCategoryEditando = categoria;
+                    
+                    // Mostrar modal o formulario para editar
+                    const nombre = prompt("Nombre de la categoría:", categoria.name);
+                    if (nombre === null) return;
+                    
+                    const descripcion = prompt("Descripción:", categoria.description);
+                    if (descripcion === null) return;
+                    
+                    const imagen = prompt("URL de la imagen:", categoria.image);
+                    if (imagen === null) return;
+                    
+                    const color = prompt("Color del botón (hex):", categoria.buttonColor);
+                    if (color === null) return;
+                    
+                    const accion = prompt("Acción al hacer clic:", categoria.action);
+                    if (accion === null) return;
+                    
+                    // Actualizar la categoría
+                    categoria.name = nombre;
+                    categoria.description = descripcion;
+                    categoria.image = imagen;
+                    categoria.buttonColor = color;
+                    categoria.action = accion;
+                    
+                    // Guardar cambios
+                    localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
+                    
+                    // Actualizar vistas
+                    this.renderSectionCategories();
                     if (window.carrito) {
                         window.carrito.updateSectionCategories();
                     }
-                    
-                    this.renderSectionCategories();
-                    this.updateSectionPreview();
-                    this.mostrarMensaje('Categoría agregada', 'success');
                 }
                 
-                togglePreviewSection() {
-                    const preview = document.getElementById('sectionPreview');
-                    const btn = document.getElementById('previewSectionBtn');
+                eliminarSectionCategory(id) {
+                    const categoria = sectionCategories.find(c => c.id === id);
+                    if (!categoria) return;
                     
-                    if (preview.style.display === 'none') {
-                        preview.style.display = 'block';
-                        btn.innerHTML = '<i class="fas fa-eye-slash"></i> Ocultar Vista Previa';
-                        this.updateSectionPreview();
-                    } else {
-                        preview.style.display = 'none';
-                        btn.innerHTML = '<i class="fas fa-eye"></i> Mostrar Vista Previa';
+                    if (confirm(`¿Estás seguro de que quieres eliminar la categoría "${categoria.name}"?`)) {
+                        const index = sectionCategories.findIndex(c => c.id === id);
+                        if (index !== -1) {
+                            sectionCategories.splice(index, 1);
+                            localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
+                            
+                            this.renderSectionCategories();
+                            if (window.carrito) {
+                                window.carrito.updateSectionCategories();
+                            }
+                        }
                     }
-                }
-                
-                updateSectionPreview() {
-                    document.getElementById('previewSectionTitle').textContent = sectionConfig.title;
-                    document.getElementById('previewSectionSubtitle').textContent = sectionConfig.subtitle;
-                    
-                    const container = document.getElementById('previewCategoriesGrid');
-                    const sortedCategories = [...sectionCategories].sort((a, b) => a.order - b.order);
-                    
-                    container.innerHTML = sortedCategories.map(categoria => {
-                        return `
-                            <div class="category-card">
-                                <img src="${categoria.image}" alt="${categoria.name}" class="category-image">
-                                <div class="category-overlay">
-                                    <h3 class="category-name">${categoria.name}</h3>
-                                    <p class="category-description">${categoria.description}</p>
-                                    <span class="category-badge" style="background: ${categoria.buttonColor}">Ver productos</span>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
                 }
                 
                 resetSectionCategoryForm() {
@@ -7985,126 +9038,150 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 // ==================== ESTADÍSTICAS ====================
                 
                 renderStats() {
-                    const container = document.getElementById('statsGrid');
+                    const statsGrid = document.getElementById('statsGrid');
                     
-                    // Contar productos por categoría
-                    const productosPorCategoria = {};
-                    categorias.filter(c => c.id !== 'todo').forEach(categoria => {
-                        productosPorCategoria[categoria.id] = productos.filter(p => p.categoria === categoria.id).length;
-                    });
+                    // Calcular estadísticas
+                    const totalProductos = productos.length;
+                    const productosHombre = productos.filter(p => p.categoria === 'hombre').length;
+                    const productosAccesorios = productos.filter(p => p.categoria === 'accesorios').length;
+                    const productosMujer = productos.filter(p => p.categoria === 'mujer').length;
+                    const productosKids = productos.filter(p => p.categoria === 'kids').length;
+                    const productosOferta = productos.filter(p => p.estado === 'oferta').length;
                     
-                    container.innerHTML = `
+                    statsGrid.innerHTML = `
                         <div class="stat-card">
                             <div class="stat-icon" style="background: var(--admin);">
                                 <i class="fas fa-boxes"></i>
                             </div>
-                            <div class="stat-value">${productos.length}</div>
+                            <div class="stat-value">${totalProductos}</div>
                             <div class="stat-label">Productos Totales</div>
                         </div>
-                    `;
-                    
-                    categorias.filter(c => c.id !== 'todo').forEach(categoria => {
-                        container.innerHTML += `
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: ${categoria.color};">
-                                    <i class="fas ${categoria.icono}"></i>
-                                </div>
-                                <div class="stat-value">${productosPorCategoria[categoria.id] || 0}</div>
-                                <div class="stat-label">${categoria.nombre}</div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #2563EB;">
+                                <i class="fas fa-user-tie"></i>
                             </div>
-                        `;
-                    });
+                            <div class="stat-value">${productosHombre}</div>
+                            <div class="stat-label">Hombre</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #7C3AED;">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="stat-value">${productosAccesorios}</div>
+                            <div class="stat-label">Accesorios</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #DB2777;">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <div class="stat-value">${productosMujer}</div>
+                            <div class="stat-label">Mujer</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: #059669;">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div class="stat-value">${productosKids}</div>
+                            <div class="stat-label">Kids</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: var(--coupon);">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-value">${productosOferta}</div>
+                            <div class="stat-label">En Oferta</div>
+                        </div>
+                    `;
                 }
                 
                 // ==================== EXPORTACIÓN ====================
                 
                 exportHtml() {
                     const exportClean = document.getElementById('exportClean').checked;
-                    const exportIncludeData = document.getElementById('exportIncludeData').checked;
+                    const includeData = document.getElementById('exportIncludeData').checked;
                     
-                    // Crear una copia del HTML actual
-                    let html = document.documentElement.outerHTML;
+                    // Crear un nuevo documento
+                    let htmlContent = document.documentElement.outerHTML;
                     
+                    // Si se selecciona limpiar HTML
                     if (exportClean) {
                         // Remover panel de administración
-                        html = html.replace(/<div class="admin-panel[\s\S]*?<\/div><\/div><\/div>/g, '');
+                        htmlContent = htmlContent.replace(/<div class="admin-panel[\s\S]*?<\/div><\/div><\/div>\s*<!-- Header -->/, '<!-- Header -->');
+                        
                         // Remover botón de administración
-                        html = html.replace(/<button class="admin-btn" id="adminBtn">[\s\S]*?<\/button>/g, '');
+                        htmlContent = htmlContent.replace(/\s*<button class="admin-btn" id="adminBtn">[\s\S]*?<\/button>/, '');
+                        
                         // Remover modal de autenticación
-                        html = html.replace(/<div class="auth-modal" id="authModal">[\s\S]*?<\/div><\/div>/g, '');
+                        htmlContent = htmlContent.replace(/<!-- Modal de Autenticación -->[\s\S]*?<\/div>\s*<\/div>/, '');
+                        
+                        // Remover scripts relacionados con admin
+                        const scriptRegex = /\/\/ ==================== SISTEMA DE ADMINISTRACIÓN ====================[\s\S]*?\/\/ ==================== EXPORTACIÓN ====================/;
+                        htmlContent = htmlContent.replace(scriptRegex, '');
+                        
+                        // Remover el evento del botón admin del carrito
+                        htmlContent = htmlContent.replace(/\s*\/\/ Botón de administración[\s\S]*?document\.getElementById\('adminBtn'\)\.addEventListener\('click', \(\) => this\.showAuthModal\(\)\);/g, '');
                     }
                     
-                    if (!exportIncludeData) {
-                        // Remover datos específicos (opcional)
-                        html = html.replace(/let productos = \[[\s\S]*?\];/g, 'let productos = [];');
-                        html = html.replace(/let categorias = \[[\s\S]*?\];/g, 'let categorias = [];');
-                        html = html.replace(/let sectionCategories = \[[\s\S]*?\];/g, 'let sectionCategories = [];');
-                        html = html.replace(/let cupones = \[[\s\S]*?\];/g, 'let cupones = [];');
+                    // Si no incluir datos, remover localStorage y datos iniciales
+                    if (!includeData) {
+                        // Remover datos iniciales
+                        const initialDataRegex = /\/\/ ==================== DATOS INICIALES ====================[\s\S]*?\/\/ ==================== SISTEMA DE CUPONES ====================/;
+                        htmlContent = htmlContent.replace(initialDataRegex, '// ==================== SISTEMA DE CUPONES ====================');
+                        
+                        // Remover localStorage
+                        htmlContent = htmlContent.replace(/localStorage\.setItem/g, '// localStorage.setItem');
+                        htmlContent = htmlContent.replace(/localStorage\.getItem/g, '// localStorage.getItem');
+                        htmlContent = htmlContent.replace(/localStorage\.removeItem/g, '// localStorage.removeItem');
                     }
                     
-                    // Crear blob y descargar
-                    const blob = new Blob([html], { type: 'text/html' });
+                    // Crear archivo
+                    const blob = new Blob([htmlContent], { type: 'text/html' });
                     const url = URL.createObjectURL(blob);
+                    
+                    // Crear enlace de descarga
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = 'tienda_modastyle_exportada.html';
+                    a.download = `ModaStyle_${new Date().toISOString().split('T')[0]}.html`;
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
+                    
+                    // Liberar URL
                     URL.revokeObjectURL(url);
                     
-                    this.mostrarMensaje('HTML exportado correctamente', 'success');
-                }
-                
-                // ==================== UTILIDADES ====================
-                
-                mostrarMensaje(mensaje, tipo) {
-                    let container = null;
-                    
-                    switch (tipo) {
-                        case 'success':
-                            container = document.getElementById('formMessage') || 
-                                       document.getElementById('categoriesMessage') || 
-                                       document.getElementById('couponsMessage') || 
-                                       document.getElementById('editorMessage');
-                            break;
-                        case 'error':
-                            container = document.getElementById('formMessage') || 
-                                       document.getElementById('categoriesMessage');
-                            break;
-                        case 'info':
-                            container = document.getElementById('reorderMessage') || 
-                                       document.getElementById('categoriesReorderMessage') || 
-                                       document.getElementById('editorInfoMessage');
-                            break;
-                    }
-                    
-                    if (container) {
-                        container.textContent = mensaje;
-                        container.className = `status-message status-${tipo}`;
-                        container.style.display = 'flex';
-                        
-                        setTimeout(() => {
-                            container.style.display = 'none';
-                        }, 3000);
-                    }
+                    alert('HTML exportado correctamente');
                 }
             }
 
             // ==================== INICIALIZACIÓN ====================
-            document.addEventListener('DOMContentLoaded', () => {
-                // Inicializar el carrito (sistema principal)
-                window.carrito = new Carrito();
-                
-                // Inicializar administración
-                window.admin = new Administracion();
-                
-                // Inicializar el gestor de versiones
-                new VersionManager();
-                
-                // Inicializar el buscador
-                window.buscador = new Buscador();
-            });
+            
+            // Inicializar carrito
+            const carrito = new Carrito();
+            
+            // Inicializar administración
+            const admin = new Administracion();
+            
+            // Inicializar gestor de ofertas relámpago
+            const flashSaleManager = new FlashSaleManager();
+            
+            // Hacer disponibles globalmente
+            window.carrito = carrito;
+            window.admin = admin;
+            window.flashSaleManager = flashSaleManager;
+            
+            // Inicializar tabs del admin
+            admin.switchTab('export');
+            
+            // Asegurar que el scroll esté habilitado
+            setTimeout(() => {
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
+            }, 100);
+
         </script>
-    
 </body></html>
