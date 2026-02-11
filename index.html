@@ -1,13 +1,16 @@
-<html lang="es" style="overflow: auto;"><head></head><body style="overflow: hidden;">Voy a crear un sistema completo de Banner de Ofertas Relámpago que se puede controlar desde el panel de administración. Aquí está el archivo completo con todas las integraciones:
+<!DOCTYPE html>
+<html lang="es" style="overflow: auto;"><head></head><body style="overflow: hidden;">Aquí está el archivo HTML completo con las correcciones para que los cupones y el banner se exporten correctamente junto con todos los datos actuales:
 
 ```html
+
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaStyle - Tienda de Ropa, Accesorios y Hogar</title>
     
     <!-- Estilos CSS -->
-    <style>body { margin: 0; }</style><style>
+    <style>
         :root {
             /* Paleta de colores */
             --primary: #1a1a1a;
@@ -3263,6 +3266,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
 
+
     <!-- Banner de Ofertas Relámpago -->
     <div class="flash-sale-banner" id="flashSaleBanner" style="display: block;">
         <div class="container">
@@ -3279,15 +3283,15 @@
                         <div class="timer-label">TERMINA EN:</div>
                         <div class="timer-display" id="flashSaleTimer">
                             <div class="timer-unit">
-                                <span class="timer-value" id="timerHours">00</span>
+                                <span class="timer-value" id="timerHours">23</span>
                                 <span class="timer-label-unit">HORAS</span>
                             </div>
                             <div class="timer-unit">
-                                <span class="timer-value" id="timerMinutes">42</span>
+                                <span class="timer-value" id="timerMinutes">54</span>
                                 <span class="timer-label-unit">MIN</span>
                             </div>
                             <div class="timer-unit">
-                                <span class="timer-value" id="timerSeconds">32</span>
+                                <span class="timer-value" id="timerSeconds">15</span>
                                 <span class="timer-label-unit">SEG</span>
                             </div>
                         </div>
@@ -3342,7 +3346,7 @@
             
             <div class="status-message status-success" id="couponSuccessMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>20% de descuento en toda la tienda</span></div>
             
-            <div class="status-message status-error" id="couponErrorMessage" style="display: none;"><i class="fas fa-times-circle"></i><span>Ya has usado este cupón</span></div>
+            <div class="status-message status-error" id="couponErrorMessage" style="display: none;"><i class="fas fa-times-circle"></i><span>Cupón agotado</span></div>
             
             <div class="available-coupons">
                 <h4>
@@ -3350,11 +3354,20 @@
                     Cupones Disponibles
                 </h4>
                 <div class="coupons-list" id="availableCouponsList">
-                    <div class="status-message status-info">
-                        <i class="fas fa-info-circle"></i>
-                        <span>No hay cupones disponibles en este momento</span>
-                    </div>
-                </div>
+                            <div class="coupon-item " onclick="carrito.selectCoupon('SAUL123456')">
+                                <div class="coupon-code">
+                                    <i class="fas fa-percentage"></i>
+                                    SAUL123456
+                                </div>
+                                <div class="coupon-description">
+                                    DESCUENTO
+                                </div>
+                                <div class="coupon-details">
+                                    <span class="coupon-type">20% DESCUENTO</span>
+                                    <span class="coupon-expiry">Válido hasta: 10 mar 2026</span>
+                                </div>
+                            </div>
+                        </div>
             </div>
         </div>
     </div>
@@ -3680,7 +3693,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('accesorios')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('accesorios')" disabled="">
+                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('accesorios')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -3703,7 +3716,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('mujer')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('mujer')" disabled="">
+                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('mujer')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -3726,7 +3739,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('kids')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('kids')" disabled="">
+                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('kids')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -3740,7 +3753,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     <i class="fas fa-ticket-alt"></i>
                     Gestión de Cupones
                 </h3>
-                <div class="status-message status-success" id="couponsMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Cupón actualizado correctamente</span></div>
+                <div class="status-message status-success" id="couponsMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Cupón creado correctamente</span></div>
                 
                 <div class="admin-form">
                     <h4 class="section-title-admin">
@@ -3853,58 +3866,6 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         <span>Los cupones se aplican automáticamente en el carrito</span>
                     </div>
                     <div class="coupons-list-admin" id="couponsListAdmin">
-                            <div class="editor-category-item" data-coupon-id="1">
-                                <div class="editor-category-header">
-                                    <div class="editor-category-title">
-                                        <i class="fas fa-percentage" style="color: var(--coupon)"></i>
-                                        VERANO20
-                                        <span class="color-preview" style="background: var(--coupon);"></span>
-                                    </div>
-                                    <div class="editor-category-actions">
-                                        <button class="category-action-btn edit-category-btn" onclick="admin.editarCupon(1)">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCupon(1)">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="editor-category-content">
-                                    <div class="editor-category-fields">
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-ticket-alt"></i> Tipo:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="20% DESCUENTO" readonly="">
-                                        </div>
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-align-left"></i> Descripción:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="20% de descuento en toda la tienda" readonly="">
-                                        </div>
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-calendar"></i> Validez:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="31/12/2023 - 10/2/2026" readonly="">
-                                        </div>
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-hashtag"></i> Usos:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="1 / 100 (99 restantes)" readonly="">
-                                        </div>
-                                        <div class="form-group-admin">
-                                            <label class="form-label-admin">
-                                                <i class="fas fa-toggle-on"></i> Estado:
-                                            </label>
-                                            <input type="text" class="form-input-admin" value="Activo" readonly="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
                             <div class="editor-category-item" data-coupon-id="2">
                                 <div class="editor-category-header">
                                     <div class="editor-category-title">
@@ -4050,6 +4011,58 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                                 <i class="fas fa-hashtag"></i> Usos:
                                             </label>
                                             <input type="text" class="form-input-admin" value="0 / 20 (20 restantes)" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-toggle-on"></i> Estado:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="Activo" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="editor-category-item" data-coupon-id="5">
+                                <div class="editor-category-header">
+                                    <div class="editor-category-title">
+                                        <i class="fas fa-percentage" style="color: var(--coupon)"></i>
+                                        SAUL123456
+                                        <span class="color-preview" style="background: var(--coupon);"></span>
+                                    </div>
+                                    <div class="editor-category-actions">
+                                        <button class="category-action-btn edit-category-btn" onclick="admin.editarCupon(5)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCupon(5)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="editor-category-content">
+                                    <div class="editor-category-fields">
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-ticket-alt"></i> Tipo:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="20% DESCUENTO" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-align-left"></i> Descripción:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="DESCUENTO" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-calendar"></i> Validez:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="9/2/2026 - 10/3/2026" readonly="">
+                                        </div>
+                                        <div class="form-group-admin">
+                                            <label class="form-label-admin">
+                                                <i class="fas fa-hashtag"></i> Usos:
+                                            </label>
+                                            <input type="text" class="form-input-admin" value="0 / 1 (1 restantes)" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
@@ -4619,42 +4632,42 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 </div>
                 
                 <div class="categories-grid" id="categoriesGrid">
-                            <div class="category-card" onclick="carrito.filterProducts('hombre')">
-                                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Hombre" class="category-image">
-                                <div class="category-overlay">
-                                    <h3 class="category-name">Hombre</h3>
-                                    <p class="category-description">Ropa y accesorios para hombres modernos</p>
-                                    <span class="category-badge" style="background: #2563EB">Ver productos</span>
+                                <div class="category-card" onclick="carrito.filterProducts('hombre')">
+                                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Hombre" class="category-image">
+                                    <div class="category-overlay">
+                                        <h3 class="category-name">Hombre</h3>
+                                        <p class="category-description">Ropa y accesorios para hombres modernos</p>
+                                        <span class="category-badge" style="background: #2563EB">Ver productos</span>
+                                    </div>
+                                </div>
+                            
+                                <div class="category-card" onclick="carrito.filterProducts('mujer')">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Mujer" class="category-image">
+                                    <div class="category-overlay">
+                                        <h3 class="category-name">Mujer</h3>
+                                        <p class="category-description">Moda femenina para todos los estilos</p>
+                                        <span class="category-badge" style="background: #DB2777">Ver productos</span>
+                                    </div>
+                                </div>
+                            
+                                <div class="category-card" onclick="carrito.filterProducts('kids')">
+                                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Kids" class="category-image">
+                                    <div class="category-overlay">
+                                        <h3 class="category-name">Kids</h3>
+                                        <p class="category-description">Ropa divertida para los más pequeños</p>
+                                        <span class="category-badge" style="background: #059669">Ver productos</span>
+                                    </div>
+                                </div>
+                            
+                                <div class="category-card" onclick="carrito.filterProducts('accesorios')">
+                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Accesorios" class="category-image">
+                                    <div class="category-overlay">
+                                        <h3 class="category-name">Accesorios</h3>
+                                        <p class="category-description">Complementos para completar tu look</p>
+                                        <span class="category-badge" style="background: #7C3AED">Ver productos</span>
+                                    </div>
                                 </div>
                             </div>
-                        
-                            <div class="category-card" onclick="carrito.filterProducts('mujer')">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Mujer" class="category-image">
-                                <div class="category-overlay">
-                                    <h3 class="category-name">Mujer</h3>
-                                    <p class="category-description">Moda femenina para todos los estilos</p>
-                                    <span class="category-badge" style="background: #DB2777">Ver productos</span>
-                                </div>
-                            </div>
-                        
-                            <div class="category-card" onclick="carrito.filterProducts('kids')">
-                                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Kids" class="category-image">
-                                <div class="category-overlay">
-                                    <h3 class="category-name">Kids</h3>
-                                    <p class="category-description">Ropa divertida para los más pequeños</p>
-                                    <span class="category-badge" style="background: #059669">Ver productos</span>
-                                </div>
-                            </div>
-                        
-                            <div class="category-card" onclick="carrito.filterProducts('accesorios')">
-                                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Accesorios" class="category-image">
-                                <div class="category-overlay">
-                                    <h3 class="category-name">Accesorios</h3>
-                                    <p class="category-description">Complementos para completar tu look</p>
-                                    <span class="category-badge" style="background: #7C3AED">Ver productos</span>
-                                </div>
-                            </div>
-                        </div>
             </div>
         </section>
 
@@ -4923,7 +4936,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
         <!-- Carrito - NUEVO DISEÑO -->
         <div class="cart-icon" id="cartIcon">
             <i class="fas fa-shopping-bag"></i>
-            <div class="cart-count" id="cartCount">0</div>
+            <div class="cart-count" id="cartCount">1</div>
         </div>
 
         <div class="cart-overlay" id="cartOverlay"></div>
@@ -4955,20 +4968,48 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     <div class="applied-coupon-details" id="appliedCouponDetails">20% de descuento</div>
                 </div>
                 
-                <div class="free-shipping-promo" id="freeShippingPromo" style="display: none;">
+                <div class="free-shipping-promo show" id="freeShippingPromo" style="display: block;">
                     <i class="fas fa-shipping-fast"></i>
                     <div class="promo-text">¡Falta poco para envío gratis!</div>
                     <div class="promo-subtext">Agrega <span id="remainingAmount">$100.00</span> más a tu carrito</div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="shippingProgress" style="width: 0%;"></div>
+                        <div class="progress-fill" id="shippingProgress" style="width: 66.6667%;"></div>
                     </div>
                 </div>
                 
                 <div class="cart-items" id="cartItems">
-                    <!-- Items del carrito se cargarán dinámicamente -->
-                </div>
+                            <div class="cart-item">
+                                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="SUDADERA BÁSICA" class="cart-item-image" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80', 'SUDADERA BÁSICA')">
+                                <div class="cart-item-details">
+                                    <div class="cart-item-info">
+                                        <div class="cart-item-title">SUDADERA BÁSICA</div>
+                                        <div class="cart-item-variant">
+                                            <i class="fas fa-tag"></i>
+                                            Talla: 32 | Color: Negro
+                                        </div>
+                                        <div class="cart-item-price">$200</div>
+                                    </div>
+                                    
+                                    <div class="cart-item-actions">
+                                        <div class="quantity-control">
+                                            <button class="quantity-btn" onclick="carrito.updateQuantity(0, -1)" disabled="">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <span class="quantity-value">1</span>
+                                            <button class="quantity-btn" onclick="carrito.updateQuantity(0, 1)">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <button class="remove-item" onclick="carrito.removeItem(0)">
+                                            <i class="fas fa-trash"></i>
+                                            Eliminar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 
-                <div class="empty-cart" id="emptyCart" style="display: block;">
+                <div class="empty-cart" id="emptyCart" style="display: none;">
                     <i class="fas fa-shopping-bag"></i>
                     <h3>Tu carrito está vacío</h3>
                     <p>Agrega algunos productos para comenzar</p>
@@ -4978,7 +5019,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     </a>
                 </div>
                 
-                <div class="cart-summary" id="cartSummary" style="display: none;">
+                <div class="cart-summary show" id="cartSummary" style="display: block;">
                     <div class="summary-title">
                         <i class="fas fa-receipt"></i>
                         Resumen del Pedido
@@ -4988,7 +5029,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                             <i class="fas fa-box"></i>
                             Subtotal
                         </span>
-                        <span class="summary-value" id="subtotal">$0.00</span>
+                        <span class="summary-value" id="subtotal">$200.00</span>
                     </div>
                     
                     <!-- Descuento por cupón -->
@@ -5005,14 +5046,14 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                             <i class="fas fa-truck"></i>
                             Envío
                         </span>
-                        <span class="summary-value" id="shipping">$0.00</span>
+                        <span class="summary-value" id="shipping">$50.00</span>
                     </div>
                     <div class="summary-total">
                         <span class="total-label">
                             <i class="fas fa-calculator"></i>
                             Total
                         </span>
-                        <span class="total-amount" id="total">$0.00</span>
+                        <span class="total-amount" id="total">$250.00</span>
                     </div>
                     
                     <!-- Botón para aplicar cupón -->
@@ -5024,11 +5065,11 @@ Dejar vacío si no hay imágenes por variante"></textarea>
             </div>
             
             <div class="cart-actions" id="cartActions">
-                <button class="checkout-btn" id="checkoutBtn" disabled="">
+                <button class="checkout-btn" id="checkoutBtn">
                     <i class="fab fa-whatsapp"></i>
                     Finalizar Compra
                 </button>
-                <button class="clear-cart-btn" id="clearCartBtn" disabled="">
+                <button class="clear-cart-btn" id="clearCartBtn">
                     <i class="fas fa-trash"></i>
                     Vaciar Carrito
                 </button>
@@ -5077,207 +5118,225 @@ Dejar vacío si no hay imágenes por variante"></textarea>
 
             // Configuración del banner de ofertas relámpago
             let flashSaleConfig = {
-                enabled: true,
-                title: "¡OFERTA RELÁMPAGO!",
-                description: "Hasta 50% de descuento en productos seleccionados",
-                startDate: null,
-                endDate: null,
-                products: [], // IDs de productos en oferta
-                buttonText: "VER OFERTAS"
-            };
+  "enabled": true,
+  "title": "¡OFERTA RELÁMPAGO!",
+  "description": "Hasta 50% de descuento en productos seleccionados",
+  "startDate": "2026-02-10T23:30",
+  "endDate": "2026-02-11T23:30",
+  "products": [],
+  "buttonText": "VER ARTICULOS"
+};
 
             // Datos de productos iniciales con nuevo sistema de variantes
-            let productos = [{
-                "id": 1,
-                "nombre": "SUDADERA BÁSICA",
-                "precioRegular": "$250",
-                "precioDescuento": "$200",
-                "imagen": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                "categoria": "hombre",
-                "subcategoria": "SUDADERA",
-                "descripcion": "La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.",
-                "estado": "oferta",
-                "especificaciones": ["100% algodón egipcio", "Corte regular", "Cuello redondo reforzado"],
-                "variantes": [
-                    {
-                        "nombre": "Talla",
-                        "tipo": "select",
-                        "opciones": ["32", "30", "34"],
-                        "required": true
-                    },
-                    {
-                        "nombre": "Color",
-                        "tipo": "select",
-                        "opciones": ["Negro", "Azul", "Rosa"],
-                        "required": true
-                    }
-                ],
-                "stock": {
-                    "32|Negro": 5,
-                    "32|Azul": 3,
-                    "32|Rosa": 2,
-                    "30|Negro": 4,
-                    "30|Azul": 3,
-                    "30|Rosa": 1,
-                    "34|Negro": 6,
-                    "34|Azul": 4,
-                    "34|Rosa": 3
-                },
-                "imagenesPorVariante": {
-                    "Negro": "https://ejemplo.com/imagen-negra.jpg",
-                    "Azul": "https://ejemplo.com/imagen-azul.jpg",
-                    "Rosa": "https://ejemplo.com/imagen-rosa.jpg"
-                }
-            }];
+            let productos = [
+  {
+    "id": 1,
+    "nombre": "SUDADERA BÁSICA",
+    "precioRegular": "$250",
+    "precioDescuento": "$200",
+    "imagen": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "categoria": "hombre",
+    "subcategoria": "SUDADERA",
+    "descripcion": "La Sudadera esencial perfecta para cualquier ocasión. Fabricada con algodón egipcio de la más alta calidad.",
+    "estado": "oferta",
+    "especificaciones": [
+      "100% algodón egipcio",
+      "Corte regular",
+      "Cuello redondo reforzado"
+    ],
+    "variantes": [
+      {
+        "nombre": "Talla",
+        "tipo": "select",
+        "opciones": [
+          "32",
+          "30",
+          "34"
+        ],
+        "required": true
+      },
+      {
+        "nombre": "Color",
+        "tipo": "select",
+        "opciones": [
+          "Negro",
+          "Azul",
+          "Rosa"
+        ],
+        "required": true
+      }
+    ],
+    "stock": {
+      "32|Negro": 5,
+      "32|Azul": 3,
+      "32|Rosa": 2,
+      "30|Negro": 4,
+      "30|Azul": 3,
+      "30|Rosa": 1,
+      "34|Negro": 6,
+      "34|Azul": 4,
+      "34|Rosa": 3
+    },
+    "imagenesPorVariante": {
+      "Negro": "https://ejemplo.com/imagen-negra.jpg",
+      "Azul": "https://ejemplo.com/imagen-azul.jpg",
+      "Rosa": "https://ejemplo.com/imagen-rosa.jpg"
+    }
+  }
+];
 
             // Categorías iniciales
             let categorias = [
-                {
-                    "id": "todo",
-                    "nombre": "TODO",
-                    "color": "#D4AF37",
-                    "icono": "fa-tags",
-                    "orden": 1
-                },
-                {
-                    "id": "hombre",
-                    "nombre": "Hombre",
-                    "color": "#2563EB",
-                    "icono": "fa-user-tie",
-                    "orden": 1
-                },
-                {
-                    "id": "accesorios",
-                    "nombre": "Accesorios",
-                    "color": "#7C3AED",
-                    "icono": "fa-briefcase",
-                    "orden": 2
-                },
-                {
-                    "id": "mujer",
-                    "nombre": "Mujer",
-                    "color": "#DB2777",
-                    "icono": "fa-female",
-                    "orden": 3
-                },
-                {
-                    "id": "kids",
-                    "nombre": "Kids",
-                    "color": "#059669",
-                    "icono": "fa-child",
-                    "orden": 4
-                }
-            ];
+  {
+    "id": "todo",
+    "nombre": "TODO",
+    "color": "#D4AF37",
+    "icono": "fa-tags",
+    "orden": 0
+  },
+  {
+    "id": "hombre",
+    "nombre": "Hombre",
+    "color": "#2563EB",
+    "icono": "fa-user-tie",
+    "orden": 1
+  },
+  {
+    "id": "accesorios",
+    "nombre": "Accesorios",
+    "color": "#7C3AED",
+    "icono": "fa-briefcase",
+    "orden": 2
+  },
+  {
+    "id": "mujer",
+    "nombre": "Mujer",
+    "color": "#DB2777",
+    "icono": "fa-female",
+    "orden": 3
+  },
+  {
+    "id": "kids",
+    "nombre": "Kids",
+    "color": "#059669",
+    "icono": "fa-child",
+    "orden": 4
+  }
+];
 
             // Categorías de la sección "Nuestras Categorías"
             let sectionCategories = [
-                {
-                    "id": 1,
-                    "name": "Hombre",
-                    "description": "Ropa y accesorios para hombres modernos",
-                    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "buttonColor": "#2563EB",
-                    "action": "carrito.filterProducts('hombre')",
-                    "order": 1
-                },
-                {
-                    "id": 2,
-                    "name": "Mujer",
-                    "description": "Moda femenina para todos los estilos",
-                    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "buttonColor": "#DB2777",
-                    "action": "carrito.filterProducts('mujer')",
-                    "order": 2
-                },
-                {
-                    "id": 3,
-                    "name": "Kids",
-                    "description": "Ropa divertida para los más pequeños",
-                    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "buttonColor": "#059669",
-                    "action": "carrito.filterProducts('kids')",
-                    "order": 3
-                },
-                {
-                    "id": 4,
-                    "name": "Accesorios",
-                    "description": "Complementos para completar tu look",
-                    "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "buttonColor": "#7C3AED",
-                    "action": "carrito.filterProducts('accesorios')",
-                    "order": 4
-                }
-            ];
+  {
+    "id": 1,
+    "name": "Hombre",
+    "description": "Ropa y accesorios para hombres modernos",
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "buttonColor": "#2563EB",
+    "action": "carrito.filterProducts('hombre')",
+    "order": 1
+  },
+  {
+    "id": 2,
+    "name": "Mujer",
+    "description": "Moda femenina para todos los estilos",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "buttonColor": "#DB2777",
+    "action": "carrito.filterProducts('mujer')",
+    "order": 2
+  },
+  {
+    "id": 3,
+    "name": "Kids",
+    "description": "Ropa divertida para los más pequeños",
+    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "buttonColor": "#059669",
+    "action": "carrito.filterProducts('kids')",
+    "order": 3
+  },
+  {
+    "id": 4,
+    "name": "Accesorios",
+    "description": "Complementos para completar tu look",
+    "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "buttonColor": "#7C3AED",
+    "action": "carrito.filterProducts('accesorios')",
+    "order": 4
+  }
+];
 
             // Configuración de la sección
             let sectionConfig = {
-                "title": "Nuestras Categorías",
-                "subtitle": "Explora nuestra variedad de productos organizados por categorías"
-            };
+  "title": "Nuestras Categorías",
+  "subtitle": "Explora nuestra variedad de productos organizados por categorías"
+};
 
             // ==================== SISTEMA DE CUPONES ====================
             let cupones = [
-                {
-                    "id": 1,
-                    "codigo": "VERANO20",
-                    "tipo": "percentage",
-                    "valor": 20,
-                    "descripcion": "20% de descuento en toda la tienda",
-                    "fechaInicio": "2024-01-01",
-                    "fechaFin": "2026-02-11",
-                    "usosPorCliente": 1,
-                    "usosMaximos": 100,
-                    "usosActuales": 1,
-                    "montoMinimo": 1,
-                    "productosAplicables": [],
-                    "activo": true
-                },
-                {
-                    "id": 2,
-                    "codigo": "ENVIOGRATIS",
-                    "tipo": "free_shipping",
-                    "valor": 0,
-                    "descripcion": "Envío gratis en cualquier compra",
-                    "fechaInicio": "2024-01-01",
-                    "fechaFin": "2024-12-31",
-                    "usosPorCliente": 1,
-                    "usosMaximos": 50,
-                    "usosActuales": 0,
-                    "montoMinimo": 0,
-                    "productosAplicables": [],
-                    "activo": true
-                },
-                {
-                    "id": 3,
-                    "codigo": "2X1MODA",
-                    "tipo": "bogo_2x1",
-                    "valor": 0,
-                    "descripcion": "Llévate 2 productos y paga solo 1 (el de menor precio)",
-                    "fechaInicio": "2024-01-01",
-                    "fechaFin": "2024-12-31",
-                    "usosPorCliente": 1,
-                    "usosMaximos": 30,
-                    "usosActuales": 0,
-                    "montoMinimo": 500,
-                    "productosAplicables": [1],
-                    "activo": true
-                },
-                {
-                    "id": 4,
-                    "codigo": "3X2STYLE",
-                    "tipo": "bogo_3x2",
-                    "valor": 0,
-                    "descripcion": "Llévate 3 productos y paga solo 2 (los de menor precio)",
-                    "fechaInicio": "2024-01-01",
-                    "fechaFin": "2024-12-31",
-                    "usosPorCliente": 1,
-                    "usosMaximos": 20,
-                    "usosActuales": 0,
-                    "montoMinimo": 800,
-                    "productosAplicables": [1],
-                    "activo": true
-                }
-            ];
+  {
+    "id": 2,
+    "codigo": "ENVIOGRATIS",
+    "tipo": "free_shipping",
+    "valor": 0,
+    "descripcion": "Envío gratis en cualquier compra",
+    "fechaInicio": "2024-01-01",
+    "fechaFin": "2024-12-31",
+    "usosPorCliente": 1,
+    "usosMaximos": 50,
+    "usosActuales": 0,
+    "montoMinimo": 0,
+    "productosAplicables": [],
+    "activo": true
+  },
+  {
+    "id": 3,
+    "codigo": "2X1MODA",
+    "tipo": "bogo_2x1",
+    "valor": 0,
+    "descripcion": "Llévate 2 productos y paga solo 1 (el de menor precio)",
+    "fechaInicio": "2024-01-01",
+    "fechaFin": "2024-12-31",
+    "usosPorCliente": 1,
+    "usosMaximos": 30,
+    "usosActuales": 0,
+    "montoMinimo": 500,
+    "productosAplicables": [
+      1
+    ],
+    "activo": true
+  },
+  {
+    "id": 4,
+    "codigo": "3X2STYLE",
+    "tipo": "bogo_3x2",
+    "valor": 0,
+    "descripcion": "Llévate 3 productos y paga solo 2 (los de menor precio)",
+    "fechaInicio": "2024-01-01",
+    "fechaFin": "2024-12-31",
+    "usosPorCliente": 1,
+    "usosMaximos": 20,
+    "usosActuales": 0,
+    "montoMinimo": 800,
+    "productosAplicables": [
+      1
+    ],
+    "activo": true
+  },
+  {
+    "id": 5,
+    "codigo": "SAUL123456",
+    "tipo": "percentage",
+    "valor": 20,
+    "descripcion": "DESCUENTO",
+    "fechaInicio": "2026-02-10",
+    "fechaFin": "2026-03-11",
+    "usosPorCliente": 1,
+    "usosMaximos": 1,
+    "usosActuales": 0,
+    "montoMinimo": 1,
+    "productosAplicables": [],
+    "activo": true
+  }
+];
 
             // ==================== SISTEMA DE OFERTAS RELÁMPAGO ====================
             class FlashSaleManager {
@@ -7545,18 +7604,18 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     const authMessage = document.getElementById('authMessage');
                     
                     if (pin === this.pinCorrecto) {
-                        this.isAdmin = true;
-                        authMessage.className = 'status-message status-success';
                         authMessage.innerHTML = '<i class="fas fa-check-circle"></i><span>PIN correcto. Accediendo al panel...</span>';
+                        authMessage.className = 'status-message status-success';
                         authMessage.style.display = 'flex';
                         
                         setTimeout(() => {
+                            this.isAdmin = true;
                             this.closeAuthModal();
                             this.openAdminPanel();
                         }, 1000);
                     } else {
+                        authMessage.innerHTML = '<i class="fas fa-times-circle"></i><span>PIN incorrecto. Intenta nuevamente.</span>';
                         authMessage.className = 'status-message status-error';
-                        authMessage.innerHTML = '<i class="fas fa-times-circle"></i><span>PIN incorrecto. Intenta de nuevo.</span>';
                         authMessage.style.display = 'flex';
                         
                         document.getElementById('pinInput').value = '';
@@ -7567,428 +7626,62 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 openAdminPanel() {
                     document.getElementById('adminPanel').classList.add('open');
                     document.body.style.overflow = 'hidden';
-                    this.renderProductosAdmin();
-                    this.renderCategoriasSelect();
-                    this.renderCategoriasAdmin();
-                    this.renderCuponesAdmin();
-                    this.renderStats();
-                    this.loadSectionConfig();
-                    this.renderSectionCategories();
-                    this.loadFlashSaleConfig();
                 }
                 
                 closeAdminPanel() {
                     document.getElementById('adminPanel').classList.remove('open');
                     document.body.style.overflow = 'auto';
-                    this.resetForm();
-                    this.resetCategoriaForm();
-                    this.resetSectionCategoryForm();
-                    this.resetCouponForm();
                 }
                 
                 switchTab(tabId) {
-                    // Actualizar tabs
-                    document.querySelectorAll('.admin-tab').forEach(tab => {
-                        tab.classList.remove('active');
-                    });
-                    
-                    document.querySelector(`.admin-tab[data-tab="${tabId}"]`).classList.add('active');
-                    
-                    // Mostrar sección
+                    // Ocultar todas las secciones
                     document.querySelectorAll('.admin-section').forEach(section => {
                         section.classList.remove('active');
                     });
                     
-                    document.getElementById(`${tabId}Section`).classList.add('active');
-                    
-                    // Actualizar según la pestaña
-                    if (tabId === 'stats') {
-                        this.renderStats();
-                    } else if (tabId === 'coupons') {
-                        this.renderCuponesAdmin();
-                    } else if (tabId === 'flash-sale') {
-                        this.loadFlashSaleConfig();
-                    }
-                }
-                
-                agregarEspecificacion() {
-                    const specInput = document.getElementById('specInput');
-                    const spec = specInput.value.trim();
-                    
-                    if (spec) {
-                        this.especificaciones.push(spec);
-                        this.renderEspecificaciones();
-                        specInput.value = '';
-                        specInput.focus();
-                    }
-                }
-                
-                renderEspecificaciones() {
-                    const container = document.getElementById('specsContainer');
-                    container.innerHTML = this.especificaciones.map((spec, index) => `
-                        <div class="tag">
-                            ${spec}
-                            <span class="tag-remove" onclick="admin.eliminarEspecificacion(${index})">
-                                <i class="fas fa-times"></i>
-                            </span>
-                        </div>
-                    `).join('');
-                }
-                
-                eliminarEspecificacion(index) {
-                    this.especificaciones.splice(index, 1);
-                    this.renderEspecificaciones();
-                }
-                
-                agregarVariantField() {
-                    const variantId = Date.now();
-                    const variantField = document.createElement('div');
-                    variantField.className = 'variant-field';
-                    variantField.innerHTML = `
-                        <div class="variant-field-header">
-                            <div class="variant-field-title">
-                                <i class="fas fa-cog"></i>
-                                Campo de Variante
-                            </div>
-                            <button type="button" class="remove-variant-btn" onclick="admin.eliminarVariantField(${variantId})">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group-admin">
-                                <label class="form-label-admin">
-                                    <i class="fas fa-tag"></i> Nombre del campo:
-                                </label>
-                                <input type="text" class="form-input-admin variant-name" placeholder="Ej: Talla, Color, Material" required>
-                            </div>
-                            <div class="form-group-admin">
-                                <label class="form-label-admin">
-                                    <i class="fas fa-asterisk"></i> Requerido:
-                                </label>
-                                <select class="form-select variant-required" required>
-                                    <option value="true">Sí</option>
-                                    <option value="false">No</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group-admin">
-                            <label class="form-label-admin">
-                                <i class="fas fa-list"></i> Opciones (separadas por comas):
-                            </label>
-                            <input type="text" class="form-input-admin variant-options" placeholder="Ej: Negro, Azul, Rojo, S, M, L" required>
-                        </div>
-                    `;
-                    
-                    document.getElementById('variantSystemContainer').appendChild(variantField);
-                    this.variantes.push({ id: variantId });
-                }
-                
-                eliminarVariantField(variantId) {
-                    const variantField = document.querySelector(`.variant-field [onclick="admin.eliminarVariantField(${variantId})"]`)?.closest('.variant-field');
-                    if (variantField) {
-                        variantField.remove();
-                        this.variantes = this.variantes.filter(v => v.id !== variantId);
-                    }
-                }
-                
-                resetForm() {
-                    document.getElementById('productForm').reset();
-                    this.especificaciones = [];
-                    this.variantes = [];
-                    this.productosEditando = null;
-                    
-                    this.renderEspecificaciones();
-                    
-                    // Limpiar campos de variantes
-                    document.getElementById('variantSystemContainer').innerHTML = '';
-                    
-                    // Limpiar sistema de stock
-                    document.getElementById('stockSystemContainer').innerHTML = '';
-                    
-                    document.getElementById('saveProductBtn').innerHTML = '<i class="fas fa-save"></i> Guardar Producto';
-                    document.getElementById('formMessage').style.display = 'none';
-                }
-                
-                cargarProductoEnFormulario(producto) {
-                    document.getElementById('productName').value = producto.nombre;
-                    document.getElementById('productCategory').value = producto.categoria;
-                    document.getElementById('productSubcategory').value = producto.subcategoria;
-                    document.getElementById('productPrice').value = producto.precioRegular;
-                    document.getElementById('productDiscountPrice').value = producto.precioDescuento || '';
-                    document.getElementById('productImage').value = producto.imagen;
-                    document.getElementById('productDescription').value = producto.descripcion;
-                    
-                    // Procesar imágenes por variante
-                    const imagesText = producto.imagenesPorVariante ? 
-                        Object.entries(producto.imagenesPorVariante)
-                            .map(([key, value]) => `${key}|${value}`)
-                            .join('\n') : '';
-                    document.getElementById('productImages').value = imagesText;
-                    
-                    this.especificaciones = producto.especificaciones || [];
-                    this.renderEspecificaciones();
-                    
-                    document.getElementById('productEstado').value = producto.estado || 'normal';
-                    
-                    // Cargar variantes
-                    document.getElementById('variantSystemContainer').innerHTML = '';
-                    this.variantes = [];
-                    
-                    if (producto.variantes && producto.variantes.length > 0) {
-                        producto.variantes.forEach(variant => {
-                            this.agregarVariantField();
-                            const lastVariant = document.querySelector('.variant-field:last-child');
-                            if (lastVariant) {
-                                lastVariant.querySelector('.variant-name').value = variant.nombre;
-                                lastVariant.querySelector('.variant-required').value = variant.required;
-                                lastVariant.querySelector('.variant-options').value = variant.opciones.join(', ');
-                            }
-                        });
-                    }
-                    
-                    // Generar sistema de stock
-                    this.generarSistemaStock(producto);
-                    
-                    document.getElementById('saveProductBtn').innerHTML = '<i class="fas fa-save"></i> Actualizar Producto';
-                    this.switchTab('add');
-                }
-                
-                generarSistemaStock(producto) {
-                    const container = document.getElementById('stockSystemContainer');
-                    
-                    if (!producto.variantes || producto.variantes.length === 0) {
-                        container.innerHTML = `
-                            <label class="form-label-admin">
-                                <i class="fas fa-boxes"></i> Stock General:
-                            </label>
-                            <input type="number" id="stockGeneral" class="form-input-admin" placeholder="Cantidad en stock" value="${producto.stock && typeof producto.stock === 'number' ? producto.stock : 0}">
-                        `;
-                        return;
-                    }
-                    
-                    // Generar todas las combinaciones posibles
-                    const combinaciones = this.generarCombinaciones(producto.variantes);
-                    
-                    let html = `
-                        <div class="stock-header">
-                            <label class="form-label-admin">
-                                <i class="fas fa-boxes"></i> Stock por Combinaciones:
-                            </label>
-                        </div>
-                        <div class="stock-table-container">
-                            <table class="stock-table">
-                                <thead>
-                                    <tr>
-                    `;
-                    
-                    // Encabezados
-                    producto.variantes.forEach(variant => {
-                        html += `<th>${variant.nombre}</th>`;
-                    });
-                    html += `<th>Stock</th></tr></thead><tbody>`;
-                    
-                    // Filas con combinaciones
-                    combinaciones.forEach(combinacion => {
-                        const key = combinacion.join('|');
-                        const stock = producto.stock ? (producto.stock[key] || 0) : 0;
-                        
-                        html += `<tr>`;
-                        combinacion.forEach(valor => {
-                            html += `<td>${valor}</td>`;
-                        });
-                        html += `<td><input type="number" class="stock-input" data-key="${key}" value="${stock}"></td></tr>`;
+                    // Remover activo de todas las pestañas
+                    document.querySelectorAll('.admin-tab').forEach(tab => {
+                        tab.classList.remove('active');
                     });
                     
-                    html += `</tbody></table></div>`;
-                    container.innerHTML = html;
-                }
-                
-                generarCombinaciones(variantes, index = 0, current = [], combinaciones = []) {
-                    if (index === variantes.length) {
-                        combinaciones.push([...current]);
-                        return combinaciones;
+                    // Mostrar la sección seleccionada
+                    const section = document.getElementById(tabId + 'Section');
+                    if (section) {
+                        section.classList.add('active');
                     }
                     
-                    const variant = variantes[index];
-                    variant.opciones.forEach(opcion => {
-                        current.push(opcion);
-                        this.generarCombinaciones(variantes, index + 1, current, combinaciones);
-                        current.pop();
-                    });
-                    
-                    return combinaciones;
+                    // Activar la pestaña seleccionada
+                    const tab = document.querySelector(`.admin-tab[data-tab="${tabId}"]`);
+                    if (tab) {
+                        tab.classList.add('active');
+                    }
                 }
                 
-                obtenerDatosVariantes() {
-                    const variantFields = document.querySelectorAll('.variant-field');
-                    const variantes = [];
-                    
-                    variantFields.forEach(field => {
-                        const nombre = field.querySelector('.variant-name').value.trim();
-                        const required = field.querySelector('.variant-required').value === 'true';
-                        const opcionesText = field.querySelector('.variant-options').value.trim();
-                        
-                        if (nombre && opcionesText) {
-                            const opciones = opcionesText.split(',').map(o => o.trim()).filter(o => o);
-                            variantes.push({
-                                nombre: nombre,
-                                tipo: 'select',
-                                opciones: opciones,
-                                required: required
-                            });
-                        }
-                    });
-                    
-                    return variantes;
-                }
-                
-                obtenerStock() {
-                    const stockGeneral = document.getElementById('stockGeneral');
-                    if (stockGeneral) {
-                        return parseInt(stockGeneral.value) || 0;
-                    }
-                    
-                    const stockInputs = document.querySelectorAll('.stock-input');
-                    const stock = {};
-                    
-                    stockInputs.forEach(input => {
-                        const key = input.dataset.key;
-                        const value = parseInt(input.value) || 0;
-                        if (key && !isNaN(value)) {
-                            stock[key] = value;
-                        }
-                    });
-                    
-                    return stock;
-                }
-                
-                guardarProducto() {
-                    // Validar campos
-                    const nombre = document.getElementById('productName').value.trim();
-                    const categoria = document.getElementById('productCategory').value;
-                    const subcategoria = document.getElementById('productSubcategory').value.trim();
-                    const precio = document.getElementById('productPrice').value.trim();
-                    const imagen = document.getElementById('productImage').value.trim();
-                    const descripcion = document.getElementById('productDescription').value.trim();
-                    
-                    if (!nombre || !categoria || !subcategoria || !precio || !imagen || !descripcion) {
-                        this.mostrarMensaje('Por favor completa todos los campos requeridos', 'error');
-                        return;
-                    }
-                    
-                    // Obtener variantes
-                    const variantes = this.obtenerDatosVariantes();
-                    
-                    // Obtener stock
-                    const stock = this.obtenerStock();
-                    
-                    // Procesar imágenes por variante
-                    const imagesText = document.getElementById('productImages').value.trim();
-                    const imagenesPorVariante = {};
-                    
-                    if (imagesText) {
-                        const lines = imagesText.split('\n');
-                        lines.forEach(line => {
-                            const trimmedLine = line.trim();
-                            if (trimmedLine) {
-                                const parts = trimmedLine.split('|');
-                                if (parts.length >= 2) {
-                                    const variantValue = parts[0].trim();
-                                    const imageUrl = parts[1].trim();
-                                    if (variantValue && imageUrl) {
-                                        imagenesPorVariante[variantValue] = imageUrl;
-                                    }
-                                }
-                            }
-                        });
-                    }
-                    
-                    // Crear producto
-                    const nuevoProducto = {
-                        id: this.productosEditando ? this.productosEditando.id : this.generarId(),
-                        nombre: nombre,
-                        precioRegular: precio,
-                        precioDescuento: document.getElementById('productDiscountPrice').value.trim() || undefined,
-                        imagen: imagen,
-                        categoria: categoria,
-                        subcategoria: subcategoria,
-                        descripcion: descripcion,
-                        estado: document.getElementById('productEstado').value,
-                        especificaciones: [...this.especificaciones],
-                        variantes: variantes,
-                        stock: stock,
-                        imagenesPorVariante: Object.keys(imagenesPorVariante).length > 0 ? imagenesPorVariante : undefined
-                    };
-                    
-                    // Guardar o actualizar
-                    if (this.productosEditando) {
-                        const index = productos.findIndex(p => p.id === this.productosEditando.id);
-                        if (index !== -1) {
-                            productos[index] = nuevoProducto;
-                            this.mostrarMensaje('Producto actualizado correctamente', 'success');
-                        }
-                    } else {
-                        productos.push(nuevoProducto);
-                        this.mostrarMensaje('Producto agregado correctamente', 'success');
-                    }
-                    
-                    // Guardar y actualizar
-                    this.guardarProductosEnStorage();
-                    if (window.carrito) {
-                        window.carrito.renderProducts();
-                        window.carrito.renderCategoryFilters();
-                    }
-                    
-                    this.renderProductosAdmin();
-                    this.renderStats();
-                    
-                    setTimeout(() => {
-                        this.resetForm();
-                        this.switchTab('products');
-                    }, 1500);
-                }
-                
-                generarId() {
-                    return Math.max(...productos.map(p => p.id), 0) + 1;
-                }
-                
-                guardarProductosEnStorage() {
-                    localStorage.setItem('modastyle_productos', JSON.stringify(productos));
-                }
+                // ==================== MÉTODOS DE PRODUCTOS ====================
                 
                 renderProductosAdmin() {
                     const container = document.getElementById('productsListAdmin');
                     
-                    if (productos.length === 0) {
-                        container.innerHTML = `
-                            <div class="status-message status-info">
-                                <i class="fas fa-info-circle"></i>
-                                <span>No hay productos. Agrega algunos desde la pestaña "Agregar".</span>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
-                    container.innerHTML = productos.map(producto => {
-                        const precio = producto.precioDescuento ? producto.precioDescuento : producto.precioRegular;
-                        const categoria = categorias.find(c => c.id === producto.categoria);
+                    container.innerHTML = productos.map(product => {
+                        const categoria = categorias.find(c => c.id === product.categoria);
+                        const precio = product.precioDescuento || product.precioRegular;
                         
                         return `
-                            <div class="product-item-admin" data-product-id="${producto.id}" draggable="true">
-                                <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image-admin">
+                            <div class="product-item-admin" data-product-id="${product.id}" draggable="true">
+                                <img src="${product.imagen}" alt="${product.nombre}" class="product-image-admin">
                                 <div class="product-info-admin">
-                                    <div class="product-name-admin">${producto.nombre}</div>
+                                    <div class="product-name-admin">${product.nombre}</div>
                                     <div class="product-category-admin">
                                         <i class="fas fa-tag"></i>
-                                        ${producto.subcategoria} | ${categoria ? categoria.nombre : producto.categoria}
+                                        ${product.subcategoria} | ${categoria ? categoria.nombre : product.categoria}
                                     </div>
                                     <div class="product-price-admin">${precio}</div>
                                 </div>
                                 <div class="product-actions-admin">
-                                    <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(${producto.id})">
+                                    <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(${product.id})">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(${producto.id})">
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(${product.id})">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -7996,40 +7689,34 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                         `;
                     }).join('');
                     
-                    this.setupDragAndDrop();
+                    this.setupDragAndDropProductos();
                 }
                 
-                setupDragAndDrop() {
+                setupDragAndDropProductos() {
                     const container = document.getElementById('productsListAdmin');
-                    if (!container) return;
+                    const items = container.querySelectorAll('.product-item-admin');
                     
-                    let draggingItem = null;
-                    
-                    container.querySelectorAll('.product-item-admin').forEach(item => {
+                    items.forEach(item => {
                         item.addEventListener('dragstart', (e) => {
-                            draggingItem = e.currentTarget;
-                            e.currentTarget.classList.add('dragging');
+                            e.dataTransfer.setData('text/plain', item.dataset.productId);
+                            item.classList.add('dragging');
                         });
                         
                         item.addEventListener('dragend', () => {
-                            draggingItem.classList.remove('dragging');
-                            draggingItem = null;
+                            item.classList.remove('dragging');
                         });
                     });
                     
                     container.addEventListener('dragover', (e) => {
                         e.preventDefault();
                         const afterElement = this.getDragAfterElement(container, e.clientY);
+                        const draggable = document.querySelector('.product-item-admin.dragging');
                         
                         if (afterElement == null) {
-                            container.appendChild(draggingItem);
+                            container.appendChild(draggable);
                         } else {
-                            container.insertBefore(draggingItem, afterElement);
+                            container.insertBefore(draggable, afterElement);
                         }
-                    });
-                    
-                    container.addEventListener('drop', () => {
-                        this.reordenarProductos();
                     });
                 }
                 
@@ -8048,93 +7735,470 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     }, { offset: Number.NEGATIVE_INFINITY }).element;
                 }
                 
-                reordenarProductos() {
-                    const container = document.getElementById('productsListAdmin');
-                    const newOrder = [...container.querySelectorAll('.product-item-admin')].map(item => 
-                        parseInt(item.dataset.productId)
-                    );
+                renderCategoriasSelect() {
+                    const select = document.getElementById('productCategory');
+                    select.innerHTML = '<option value="">Selecciona categoría</option>' + 
+                        categorias.filter(c => c.id !== 'todo').map(c => 
+                            `<option value="${c.id}">${c.nombre}</option>`
+                        ).join('');
+                }
+                
+                guardarProducto() {
+                    const id = this.productosEditando ? this.productosEditando.id : this.generarNuevoId();
+                    const nombre = document.getElementById('productName').value;
+                    const categoria = document.getElementById('productCategory').value;
+                    const subcategoria = document.getElementById('productSubcategory').value;
+                    const precioRegular = document.getElementById('productPrice').value;
+                    const precioDescuento = document.getElementById('productDiscountPrice').value || null;
+                    const imagen = document.getElementById('productImage').value;
+                    const descripcion = document.getElementById('productDescription').value;
+                    const estado = document.getElementById('productEstado').value;
                     
-                    const productosOrdenados = [];
-                    newOrder.forEach(id => {
-                        const producto = productos.find(p => p.id === id);
-                        if (producto) productosOrdenados.push(producto);
+                    // Obtener especificaciones
+                    const especificaciones = [];
+                    document.querySelectorAll('#specsContainer .tag').forEach(tag => {
+                        especificaciones.push(tag.querySelector('span').textContent);
                     });
                     
-                    productos.forEach(producto => {
-                        if (!newOrder.includes(producto.id)) {
-                            productosOrdenados.push(producto);
+                    // Obtener variantes
+                    const variantes = [];
+                    document.querySelectorAll('#variantSystemContainer .variant-field').forEach(field => {
+                        const nombre = field.querySelector('.variant-field-title span').textContent;
+                        const tipo = field.querySelector('.variant-field-title small').textContent.replace('(', '').replace(')', '');
+                        const opciones = [];
+                        
+                        field.querySelectorAll('.variant-option-item input').forEach(input => {
+                            if (input.value.trim()) {
+                                opciones.push(input.value.trim());
+                            }
+                        });
+                        
+                        if (opciones.length > 0) {
+                            variantes.push({
+                                nombre: nombre,
+                                tipo: tipo,
+                                opciones: opciones,
+                                required: true
+                            });
                         }
                     });
                     
-                    productos = productosOrdenados;
-                    this.guardarProductosEnStorage();
-                    
-                    if (window.carrito) {
-                        window.carrito.renderProducts();
+                    // Obtener stock
+                    const stock = {};
+                    const stockTable = document.querySelector('.stock-table');
+                    if (stockTable) {
+                        const rows = stockTable.querySelectorAll('tbody tr');
+                        rows.forEach(row => {
+                            const cells = row.querySelectorAll('td');
+                            if (cells.length >= 3) {
+                                const key = cells[0].textContent;
+                                const stockValue = parseInt(cells[2].querySelector('input').value) || 0;
+                                stock[key] = stockValue;
+                            }
+                        });
                     }
                     
-                    this.mostrarMensaje('Productos reordenados', 'success');
+                    // Obtener imágenes por variante
+                    const imagenesPorVariante = {};
+                    const imagenesText = document.getElementById('productImages').value;
+                    if (imagenesText.trim()) {
+                        const lines = imagenesText.split('\n');
+                        lines.forEach(line => {
+                            const parts = line.split('|');
+                            if (parts.length === 2) {
+                                const variante = parts[0].trim();
+                                const url = parts[1].trim();
+                                imagenesPorVariante[variante] = url;
+                            }
+                        });
+                    }
+                    
+                    const producto = {
+                        id: id,
+                        nombre: nombre,
+                        categoria: categoria,
+                        subcategoria: subcategoria,
+                        precioRegular: precioRegular,
+                        precioDescuento: precioDescuento,
+                        imagen: imagen,
+                        descripcion: descripcion,
+                        estado: estado,
+                        especificaciones: especificaciones,
+                        variantes: variantes,
+                        stock: stock,
+                        imagenesPorVariante: Object.keys(imagenesPorVariante).length > 0 ? imagenesPorVariante : null
+                    };
+                    
+                    if (this.productosEditando) {
+                        const index = productos.findIndex(p => p.id === id);
+                        productos[index] = producto;
+                    } else {
+                        productos.push(producto);
+                    }
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_productos', JSON.stringify(productos));
+                    
+                    // Actualizar vista
+                    this.renderProductosAdmin();
+                    if (window.carrito) {
+                        window.carrito.renderProducts();
+                        window.carrito.renderCategoryFilters();
+                    }
+                    this.renderStats();
+                    
+                    // Mostrar mensaje
+                    const formMessage = document.getElementById('formMessage');
+                    formMessage.innerHTML = `<i class="fas fa-check-circle"></i><span>Producto ${this.productosEditando ? 'actualizado' : 'guardado'} correctamente</span>`;
+                    formMessage.style.display = 'flex';
+                    
+                    // Resetear formulario
+                    this.resetForm();
+                    
+                    // Cambiar a pestaña de productos
+                    this.switchTab('products');
+                    
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 3000);
+                }
+                
+                generarNuevoId() {
+                    return Math.max(0, ...productos.map(p => p.id)) + 1;
                 }
                 
                 editarProducto(id) {
                     const producto = productos.find(p => p.id === id);
-                    if (producto) {
-                        this.productosEditando = producto;
-                        this.cargarProductoEnFormulario(producto);
+                    if (!producto) return;
+                    
+                    this.productosEditando = producto;
+                    
+                    // Llenar formulario
+                    document.getElementById('productName').value = producto.nombre;
+                    document.getElementById('productCategory').value = producto.categoria;
+                    document.getElementById('productSubcategory').value = producto.subcategoria;
+                    document.getElementById('productPrice').value = producto.precioRegular;
+                    document.getElementById('productDiscountPrice').value = producto.precioDescuento || '';
+                    document.getElementById('productImage').value = producto.imagen;
+                    document.getElementById('productDescription').value = producto.descripcion;
+                    document.getElementById('productEstado').value = producto.estado;
+                    
+                    // Llenar especificaciones
+                    const specsContainer = document.getElementById('specsContainer');
+                    specsContainer.innerHTML = '';
+                    producto.especificaciones.forEach(spec => {
+                        const tag = document.createElement('div');
+                        tag.className = 'tag';
+                        tag.innerHTML = `
+                            <i class="fas fa-check"></i>
+                            <span>${spec}</span>
+                            <span class="tag-remove" onclick="this.parentElement.remove()">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        `;
+                        specsContainer.appendChild(tag);
+                    });
+                    
+                    // Llenar variantes
+                    const variantContainer = document.getElementById('variantSystemContainer');
+                    variantContainer.innerHTML = '';
+                    producto.variantes.forEach(variant => {
+                        this.agregarVariantField(variant.nombre, variant.tipo, variant.opciones);
+                    });
+                    
+                    // Llenar stock
+                    this.generarSistemaStock(producto);
+                    
+                    // Llenar imágenes por variante
+                    let imagenesText = '';
+                    if (producto.imagenesPorVariante) {
+                        Object.entries(producto.imagenesPorVariante).forEach(([variante, url]) => {
+                            imagenesText += `${variante}|${url}\n`;
+                        });
                     }
+                    document.getElementById('productImages').value = imagenesText;
+                    
+                    // Cambiar a pestaña de agregar
+                    this.switchTab('add');
+                    
+                    // Mostrar mensaje
+                    const formMessage = document.getElementById('formMessage');
+                    formMessage.innerHTML = `<i class="fas fa-info-circle"></i><span>Editando producto: ${producto.nombre}</span>`;
+                    formMessage.className = 'status-message status-info';
+                    formMessage.style.display = 'flex';
                 }
                 
                 eliminarProducto(id) {
-                    if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+                    if (confirm('¿Estás seguro de eliminar este producto?')) {
                         const index = productos.findIndex(p => p.id === id);
-                        if (index !== -1) {
-                            productos.splice(index, 1);
-                            this.guardarProductosEnStorage();
-                            
-                            if (window.carrito) {
-                                window.carrito.renderProducts();
-                            }
-                            
-                            this.renderProductosAdmin();
-                            this.renderStats();
-                            this.mostrarMensaje('Producto eliminado', 'success');
+                        productos.splice(index, 1);
+                        
+                        // Guardar en localStorage
+                        localStorage.setItem('modastyle_productos', JSON.stringify(productos));
+                        
+                        // Actualizar vista
+                        this.renderProductosAdmin();
+                        if (window.carrito) {
+                            window.carrito.renderProducts();
+                            window.carrito.renderCategoryFilters();
                         }
+                        this.renderStats();
+                        
+                        // Mostrar mensaje
+                        const formMessage = document.getElementById('formMessage');
+                        formMessage.innerHTML = `<i class="fas fa-check-circle"></i><span>Producto eliminado correctamente</span>`;
+                        formMessage.className = 'status-message status-success';
+                        formMessage.style.display = 'flex';
+                        
+                        setTimeout(() => {
+                            formMessage.style.display = 'none';
+                        }, 3000);
                     }
                 }
                 
-                renderCategoriasSelect() {
-                    const select = document.getElementById('productCategory');
-                    select.innerHTML = '<option value="">Selecciona categoría</option>';
+                agregarEspecificacion() {
+                    const specInput = document.getElementById('specInput');
+                    const spec = specInput.value.trim();
                     
-                    categorias.filter(c => c.id !== 'todo').forEach(categoria => {
-                        const option = document.createElement('option');
-                        option.value = categoria.id;
-                        option.textContent = categoria.nombre;
-                        select.appendChild(option);
-                    });
+                    if (spec) {
+                        const tag = document.createElement('div');
+                        tag.className = 'tag';
+                        tag.innerHTML = `
+                            <i class="fas fa-check"></i>
+                            <span>${spec}</span>
+                            <span class="tag-remove" onclick="this.parentElement.remove()">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        `;
+                        
+                        document.getElementById('specsContainer').appendChild(tag);
+                        specInput.value = '';
+                        specInput.focus();
+                    }
                 }
                 
-                renderCategoriasAdmin() {
-                    const container = document.getElementById('categoriesListAdmin');
+                agregarVariantField(nombre = '', tipo = 'select', opciones = []) {
+                    const container = document.getElementById('variantSystemContainer');
+                    const id = Date.now();
                     
-                    if (categorias.length === 0) {
+                    let opcionesHTML = '';
+                    if (opciones.length > 0) {
+                        opcionesHTML = opciones.map(opcion => `
+                            <div class="variant-option-item">
+                                <input type="text" value="${opcion}" placeholder="Opción" class="multi-input">
+                                <button type="button" class="add-btn" onclick="this.parentElement.remove()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        `).join('');
+                    } else {
+                        opcionesHTML = `
+                            <div class="variant-option-item">
+                                <input type="text" placeholder="Opción" class="multi-input">
+                                <button type="button" class="add-btn" onclick="this.parentElement.remove()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        `;
+                    }
+                    
+                    const field = document.createElement('div');
+                    field.className = 'variant-field';
+                    field.innerHTML = `
+                        <div class="variant-field-header">
+                            <div class="variant-field-title">
+                                <i class="fas fa-shapes"></i>
+                                <span>${nombre || 'Nueva Variante'}</span>
+                                <small>(${tipo})</small>
+                            </div>
+                            <button type="button" class="remove-variant-btn" onclick="this.parentElement.parentElement.remove()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="variant-options-container">
+                            <div class="multi-input-container">
+                                <input type="text" class="multi-input" placeholder="Nombre de la variante (ej: Color, Talla)"
+                                       value="${nombre}" onchange="this.parentElement.parentElement.parentElement.querySelector('.variant-field-title span').textContent = this.value || 'Nueva Variante'">
+                                <select class="multi-input" onchange="this.parentElement.parentElement.parentElement.querySelector('.variant-field-title small').textContent = '(' + this.value + ')'">
+                                    <option value="select" ${tipo === 'select' ? 'selected' : ''}>Select</option>
+                                    <option value="radio" ${tipo === 'radio' ? 'selected' : ''}>Radio</option>
+                                    <option value="checkbox" ${tipo === 'checkbox' ? 'selected' : ''}>Checkbox</option>
+                                </select>
+                            </div>
+                            <div class="variant-options-list">
+                                ${opcionesHTML}
+                            </div>
+                            <button type="button" class="add-btn" onclick="admin.agregarOpcionVariante(this)">
+                                <i class="fas fa-plus"></i>
+                                Agregar Opción
+                            </button>
+                        </div>
+                    `;
+                    
+                    container.appendChild(field);
+                }
+                
+                agregarOpcionVariante(button) {
+                    const container = button.parentElement.querySelector('.variant-options-list');
+                    const option = document.createElement('div');
+                    option.className = 'variant-option-item';
+                    option.innerHTML = `
+                        <input type="text" placeholder="Opción" class="multi-input">
+                        <button type="button" class="add-btn" onclick="this.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    container.appendChild(option);
+                    option.querySelector('input').focus();
+                }
+                
+                generarSistemaStock(producto) {
+                    const container = document.getElementById('stockSystemContainer');
+                    
+                    if (!producto.variantes || producto.variantes.length === 0) {
                         container.innerHTML = `
+                            <div class="stock-header">
+                                <div class="section-title-admin">
+                                    <i class="fas fa-boxes"></i>
+                                    Sistema de Stock
+                                </div>
+                            </div>
                             <div class="status-message status-info">
                                 <i class="fas fa-info-circle"></i>
-                                <span>No hay categorías. Agrega algunas desde el formulario.</span>
+                                <span>Agrega variantes al producto para habilitar el sistema de stock por combinación</span>
                             </div>
                         `;
                         return;
                     }
                     
-                    container.innerHTML = categorias.filter(c => c.id !== 'todo').sort((a, b) => a.orden - b.orden).map(categoria => {
+                    // Generar todas las combinaciones de variantes
+                    const combinaciones = this.generarCombinacionesVariantes(producto.variantes);
+                    
+                    let tablaHTML = `
+                        <div class="stock-header">
+                            <div class="section-title-admin">
+                                <i class="fas fa-boxes"></i>
+                                Sistema de Stock por Combinación
+                            </div>
+                            <button type="button" class="add-btn" onclick="admin.actualizarTablaStock()">
+                                <i class="fas fa-sync"></i>
+                                Actualizar
+                            </button>
+                        </div>
+                        <div class="stock-table-container">
+                            <table class="stock-table">
+                                <thead>
+                                    <tr>
+                                        ${producto.variantes.map(v => `<th>${v.nombre}</th>`).join('')}
+                                        <th>Stock</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    `;
+                    
+                    combinaciones.forEach(combinacion => {
+                        const key = combinacion.join('|');
+                        const stockActual = producto.stock && producto.stock[key] ? producto.stock[key] : 0;
+                        
+                        tablaHTML += `
+                            <tr>
+                                ${combinacion.map(valor => `<td>${valor}</td>`).join('')}
+                                <td>
+                                    <input type="number" class="stock-input" value="${stockActual}" min="0" 
+                                           data-key="${key}" onchange="admin.actualizarStock('${key}', this.value)">
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    tablaHTML += `
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                    
+                    container.innerHTML = tablaHTML;
+                }
+                
+                generarCombinacionesVariantes(variantes, index = 0, combinacionActual = [], resultado = []) {
+                    if (index === variantes.length) {
+                        resultado.push([...combinacionActual]);
+                        return resultado;
+                    }
+                    
+                    const variante = variantes[index];
+                    for (const opcion of variante.opciones) {
+                        combinacionActual.push(opcion);
+                        this.generarCombinacionesVariantes(variantes, index + 1, combinacionActual, resultado);
+                        combinacionActual.pop();
+                    }
+                    
+                    return resultado;
+                }
+                
+                actualizarStock(key, valor) {
+                    // Este método se llama cuando se cambia el stock en la tabla
+                    // La información se guardará cuando se guarde el producto
+                }
+                
+                actualizarTablaStock() {
+                    // Obtener valores actuales del formulario
+                    const nombre = document.getElementById('productName').value || 'Producto';
+                    const variantes = [];
+                    
+                    document.querySelectorAll('#variantSystemContainer .variant-field').forEach(field => {
+                        const nombre = field.querySelector('.variant-field-title span').textContent;
+                        const opciones = [];
+                        
+                        field.querySelectorAll('.variant-option-item input').forEach(input => {
+                            if (input.value.trim()) {
+                                opciones.push(input.value.trim());
+                            }
+                        });
+                        
+                        if (opciones.length > 0) {
+                            variantes.push({
+                                nombre: nombre,
+                                opciones: opciones
+                            });
+                        }
+                    });
+                    
+                    const producto = {
+                        nombre: nombre,
+                        variantes: variantes
+                    };
+                    
+                    this.generarSistemaStock(producto);
+                }
+                
+                resetForm() {
+                    document.getElementById('productForm').reset();
+                    document.getElementById('specsContainer').innerHTML = '';
+                    document.getElementById('variantSystemContainer').innerHTML = '';
+                    document.getElementById('stockSystemContainer').innerHTML = `
+                        <div class="status-message status-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Agrega variantes al producto para habilitar el sistema de stock</span>
+                        </div>
+                    `;
+                    this.productosEditando = null;
+                    document.getElementById('formMessage').style.display = 'none';
+                }
+                
+                // ==================== MÉTODOS DE CATEGORÍAS ====================
+                
+                renderCategoriasAdmin() {
+                    const container = document.getElementById('categoriesListAdmin');
+                    
+                    container.innerHTML = categorias.filter(c => c.id !== 'todo').map(categoria => {
                         const productosEnCategoria = productos.filter(p => p.categoria === categoria.id).length;
                         
                         return `
                             <div class="category-item-admin" data-category-id="${categoria.id}" draggable="true">
                                 <div class="category-info-admin">
                                     <div class="category-icon-admin" style="background: ${categoria.color};">
-                                        <i class="fas ${categoria.icono}"></i>
+                                        <i class="fas ${categoria.icono || 'fa-tag'}"></i>
                                     </div>
                                     <div class="category-details-admin">
                                         <div class="category-name-admin">${categoria.nombre}</div>
@@ -8148,7 +8212,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                     <button class="category-action-btn edit-category-btn" onclick="admin.editarCategoria('${categoria.id}')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('${categoria.id}')" ${categoria.id === 'hombre' || categoria.id === 'mujer' || categoria.id === 'kids' || categoria.id === 'accesorios' ? 'disabled' : ''}>
+                                    <button class="category-action-btn delete-category-btn" onclick="admin.eliminarCategoria('${categoria.id}')" ${productosEnCategoria > 0 ? 'disabled' : ''}>
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -8161,77 +8225,49 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 
                 setupDragAndDropCategorias() {
                     const container = document.getElementById('categoriesListAdmin');
-                    if (!container) return;
+                    const items = container.querySelectorAll('.category-item-admin');
                     
-                    let draggingItem = null;
-                    
-                    container.querySelectorAll('.category-item-admin').forEach(item => {
+                    items.forEach(item => {
                         item.addEventListener('dragstart', (e) => {
-                            draggingItem = e.currentTarget;
-                            e.currentTarget.classList.add('dragging');
+                            e.dataTransfer.setData('text/plain', item.dataset.categoryId);
+                            item.classList.add('dragging');
                         });
                         
                         item.addEventListener('dragend', () => {
-                            draggingItem.classList.remove('dragging');
-                            draggingItem = null;
+                            item.classList.remove('dragging');
                         });
                     });
                     
                     container.addEventListener('dragover', (e) => {
                         e.preventDefault();
-                        const afterElement = this.getDragAfterElementCategorias(container, e.clientY);
+                        const afterElement = this.getDragAfterElement(container, e.clientY);
+                        const draggable = document.querySelector('.category-item-admin.dragging');
                         
                         if (afterElement == null) {
-                            container.appendChild(draggingItem);
+                            container.appendChild(draggable);
                         } else {
-                            container.insertBefore(draggingItem, afterElement);
+                            container.insertBefore(draggable, afterElement);
                         }
-                    });
-                    
-                    container.addEventListener('drop', () => {
-                        this.reordenarCategorias();
-                    });
-                }
-                
-                getDragAfterElementCategorias(container, y) {
-                    const draggableElements = [...container.querySelectorAll('.category-item-admin:not(.dragging)')];
-                    
-                    return draggableElements.reduce((closest, child) => {
-                        const box = child.getBoundingClientRect();
-                        const offset = y - box.top - box.height / 2;
                         
-                        if (offset < 0 && offset > closest.offset) {
-                            return { offset: offset, element: child };
-                        } else {
-                            return closest;
-                        }
-                    }, { offset: Number.NEGATIVE_INFINITY }).element;
+                        // Actualizar orden
+                        this.actualizarOrdenCategorias();
+                    });
                 }
                 
-                reordenarCategorias() {
+                actualizarOrdenCategorias() {
                     const container = document.getElementById('categoriesListAdmin');
-                    const newOrder = [...container.querySelectorAll('.category-item-admin')].map(item => 
-                        item.dataset.categoryId
-                    );
+                    const items = container.querySelectorAll('.category-item-admin');
                     
-                    // Actualizar el orden de las categorías
-                    let orden = 1;
-                    categorias.forEach(categoria => {
-                        const index = newOrder.indexOf(categoria.id);
-                        if (index !== -1 && categoria.id !== 'todo') {
-                            categoria.orden = orden++;
+                    items.forEach((item, index) => {
+                        const categoriaId = item.dataset.categoryId;
+                        const categoria = categorias.find(c => c.id === categoriaId);
+                        if (categoria) {
+                            categoria.orden = index + 1;
                         }
                     });
                     
-                    // Guardar cambios
-                    this.guardarCategoriasEnStorage();
-                    
-                    // Actualizar la página principal
-                    if (window.carrito) {
-                        window.carrito.renderCategoryFilters();
-                    }
-                    
-                    this.mostrarMensajeCategorias('Categorías reordenadas', 'success');
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
                 }
                 
                 agregarCategoria() {
@@ -8240,18 +8276,19 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     const icono = document.getElementById('newCategoryIcon').value.trim();
                     
                     if (!nombre) {
-                        alert('Por favor ingresa un nombre para la categoría');
+                        this.showMessage('error', 'El nombre de la categoría es requerido');
                         return;
                     }
                     
-                    // Verificar si ya existe
-                    if (categorias.some(c => c.id === nombre.toLowerCase())) {
-                        alert('Ya existe una categoría con ese nombre');
+                    const id = nombre.toLowerCase().replace(/\s+/g, '_');
+                    
+                    if (categorias.some(c => c.id === id)) {
+                        this.showMessage('error', 'Ya existe una categoría con ese nombre');
                         return;
                     }
                     
                     const nuevaCategoria = {
-                        id: nombre.toLowerCase(),
+                        id: id,
                         nombre: nombre,
                         color: color,
                         icono: icono || 'fa-tag',
@@ -8259,22 +8296,24 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     };
                     
                     categorias.push(nuevaCategoria);
-                    this.guardarCategoriasEnStorage();
                     
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
+                    
+                    // Actualizar vistas
+                    this.renderCategoriasAdmin();
+                    this.renderCategoriasSelect();
                     if (window.carrito) {
                         window.carrito.renderCategoryFilters();
-                        window.carrito.renderCategories();
                     }
-                    
-                    this.renderCategoriasSelect();
-                    this.renderCategoriasAdmin();
                     this.renderStats();
                     
-                    this.mostrarMensajeCategorias('Categoría agregada correctamente', 'success');
-                    
-                    // Limpiar formulario
+                    // Resetear formulario
                     document.getElementById('newCategoryName').value = '';
+                    document.getElementById('newCategoryColor').value = '#D4AF37';
                     document.getElementById('newCategoryIcon').value = '';
+                    
+                    this.showMessage('success', 'Categoría agregada correctamente');
                 }
                 
                 editarCategoria(id) {
@@ -8283,15 +8322,13 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     
                     this.categoriaEditando = categoria;
                     
-                    // Cargar datos en el formulario
                     document.getElementById('newCategoryName').value = categoria.nombre;
                     document.getElementById('newCategoryColor').value = categoria.color;
                     document.getElementById('newCategoryIcon').value = categoria.icono;
                     
-                    // Cambiar el botón
-                    const btn = document.getElementById('addCategoryBtn');
-                    btn.innerHTML = '<i class="fas fa-save"></i> Actualizar Categoría';
-                    btn.onclick = () => this.actualizarCategoria();
+                    const addBtn = document.getElementById('addCategoryBtn');
+                    addBtn.innerHTML = '<i class="fas fa-save"></i> Actualizar Categoría';
+                    addBtn.onclick = () => this.actualizarCategoria();
                 }
                 
                 actualizarCategoria() {
@@ -8302,264 +8339,112 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     const icono = document.getElementById('newCategoryIcon').value.trim();
                     
                     if (!nombre) {
-                        alert('Por favor ingresa un nombre para la categoría');
+                        this.showMessage('error', 'El nombre de la categoría es requerido');
                         return;
                     }
                     
-                    // Actualizar la categoría
                     this.categoriaEditando.nombre = nombre;
                     this.categoriaEditando.color = color;
                     this.categoriaEditando.icono = icono || 'fa-tag';
                     
-                    // Actualizar productos que usan esta categoría
-                    productos.forEach(producto => {
-                        if (producto.categoria === this.categoriaEditando.id) {
-                            producto.categoria = this.categoriaEditando.id;
-                        }
-                    });
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
                     
-                    this.guardarCategoriasEnStorage();
-                    this.guardarProductosEnStorage();
-                    
+                    // Actualizar vistas
+                    this.renderCategoriasAdmin();
+                    this.renderCategoriasSelect();
                     if (window.carrito) {
                         window.carrito.renderCategoryFilters();
-                        window.carrito.renderCategories();
-                        window.carrito.renderProducts();
                     }
-                    
-                    this.renderCategoriasSelect();
-                    this.renderCategoriasAdmin();
                     this.renderStats();
                     
-                    this.mostrarMensajeCategorias('Categoría actualizada correctamente', 'success');
+                    // Resetear
+                    this.resetFormCategoria();
                     
-                    // Resetear formulario
-                    this.resetCategoriaForm();
+                    this.showMessage('success', 'Categoría actualizada correctamente');
                 }
                 
                 eliminarCategoria(id) {
-                    const categoria = categorias.find(c => c.id === id);
-                    if (!categoria) return;
-                    
-                    // Verificar si hay productos usando esta categoría
-                    const productosEnCategoria = productos.filter(p => p.categoria === id);
-                    
-                    if (productosEnCategoria.length > 0) {
-                        alert(`No se puede eliminar la categoría porque tiene ${productosEnCategoria.length} productos asociados.`);
+                    if (id === 'todo') {
+                        this.showMessage('error', 'No se puede eliminar la categoría TODO');
                         return;
                     }
                     
-                    if (confirm(`¿Estás seguro de que quieres eliminar la categoría "${categoria.nombre}"?`)) {
+                    const productosEnCategoria = productos.filter(p => p.categoria === id).length;
+                    
+                    if (productosEnCategoria > 0) {
+                        this.showMessage('error', 'No se puede eliminar una categoría con productos');
+                        return;
+                    }
+                    
+                    if (confirm('¿Estás seguro de eliminar esta categoría?')) {
                         const index = categorias.findIndex(c => c.id === id);
-                        if (index !== -1) {
-                            categorias.splice(index, 1);
-                            this.guardarCategoriasEnStorage();
-                            
-                            if (window.carrito) {
-                                window.carrito.renderCategoryFilters();
-                                window.carrito.renderCategories();
-                            }
-                            
-                            this.renderCategoriasSelect();
-                            this.renderCategoriasAdmin();
-                            this.renderStats();
-                            
-                            this.mostrarMensajeCategorias('Categoría eliminada', 'success');
+                        categorias.splice(index, 1);
+                        
+                        // Guardar en localStorage
+                        localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
+                        
+                        // Actualizar vistas
+                        this.renderCategoriasAdmin();
+                        this.renderCategoriasSelect();
+                        if (window.carrito) {
+                            window.carrito.renderCategoryFilters();
                         }
+                        this.renderStats();
+                        
+                        this.showMessage('success', 'Categoría eliminada correctamente');
                     }
                 }
                 
-                resetCategoriaForm() {
+                resetFormCategoria() {
                     document.getElementById('newCategoryName').value = '';
+                    document.getElementById('newCategoryColor').value = '#D4AF37';
                     document.getElementById('newCategoryIcon').value = '';
                     
-                    const btn = document.getElementById('addCategoryBtn');
-                    btn.innerHTML = '<i class="fas fa-plus"></i> Agregar Nueva Categoría';
-                    btn.onclick = () => this.agregarCategoria();
+                    const addBtn = document.getElementById('addCategoryBtn');
+                    addBtn.innerHTML = '<i class="fas fa-plus"></i> Agregar Nueva Categoría';
+                    addBtn.onclick = () => this.agregarCategoria();
                     
                     this.categoriaEditando = null;
                 }
                 
-                guardarCategoriasEnStorage() {
-                    localStorage.setItem('modastyle_categorias', JSON.stringify(categorias));
-                }
-                
-                mostrarMensaje(texto, tipo) {
-                    const messageElement = document.getElementById('formMessage');
-                    messageElement.textContent = texto;
-                    messageElement.className = `status-message status-${tipo}`;
-                    messageElement.style.display = 'flex';
-                    
-                    setTimeout(() => {
-                        messageElement.style.display = 'none';
-                    }, 3000);
-                }
-                
-                mostrarMensajeCategorias(texto, tipo) {
-                    const messageElement = document.getElementById('categoriesMessage');
-                    messageElement.innerHTML = `<i class="fas fa-${tipo === 'success' ? 'check-circle' : 'times-circle'}"></i><span>${texto}</span>`;
-                    messageElement.className = `status-message status-${tipo}`;
-                    messageElement.style.display = 'flex';
-                    
-                    setTimeout(() => {
-                        messageElement.style.display = 'none';
-                    }, 3000);
-                }
-                
-                // ==================== SISTEMA DE CUPONES (ADMIN) ====================
-                
-                toggleCouponFields(tipo) {
-                    const percentageField = document.getElementById('percentageField');
-                    const bogoField = document.getElementById('bogoField');
-                    
-                    if (tipo === 'percentage') {
-                        percentageField.style.display = 'block';
-                        bogoField.style.display = 'none';
-                    } else if (tipo === 'bogo_2x1' || tipo === 'bogo_3x2') {
-                        percentageField.style.display = 'none';
-                        bogoField.style.display = 'block';
-                    } else {
-                        percentageField.style.display = 'none';
-                        bogoField.style.display = 'none';
-                    }
-                }
-                
-                resetCouponForm() {
-                    document.getElementById('couponCode').value = '';
-                    document.getElementById('couponType').value = '';
-                    document.getElementById('couponPercentage').value = '';
-                    document.getElementById('couponProducts').value = '';
-                    document.getElementById('couponStartDate').value = '';
-                    document.getElementById('couponEndDate').value = '';
-                    document.getElementById('couponUsesPerCustomer').value = '0';
-                    document.getElementById('couponMinAmount').value = '0';
-                    document.getElementById('couponMaxUses').value = '0';
-                    document.getElementById('couponDescription').value = '';
-                    
-                    document.getElementById('percentageField').style.display = 'none';
-                    document.getElementById('bogoField').style.display = 'none';
-                    
-                    this.cuponEditando = null;
-                    document.getElementById('saveCouponBtn').innerHTML = '<i class="fas fa-save"></i> Guardar Cupón';
-                }
-                
-                guardarCupon() {
-                    const codigo = document.getElementById('couponCode').value.trim();
-                    const tipo = document.getElementById('couponType').value;
-                    const porcentaje = document.getElementById('couponPercentage').value;
-                    const productos = document.getElementById('couponProducts').value;
-                    const fechaInicio = document.getElementById('couponStartDate').value;
-                    const fechaFin = document.getElementById('couponEndDate').value;
-                    const usosPorCliente = document.getElementById('couponUsesPerCustomer').value;
-                    const montoMinimo = document.getElementById('couponMinAmount').value;
-                    const usosMaximos = document.getElementById('couponMaxUses').value;
-                    const descripcion = document.getElementById('couponDescription').value.trim();
-                    
-                    if (!codigo || !tipo || !fechaInicio || !fechaFin) {
-                        alert('Por favor completa todos los campos requeridos');
-                        return;
-                    }
-                    
-                    if (tipo === 'percentage' && (!porcentaje || porcentaje < 1 || porcentaje > 100)) {
-                        alert('Por favor ingresa un porcentaje válido (1-100)');
-                        return;
-                    }
-                    
-                    // Procesar productos aplicables
-                    const productosAplicables = productos.trim() ? 
-                        productos.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id)) : [];
-                    
-                    const nuevoCupon = {
-                        id: this.cuponEditando ? this.cuponEditando.id : this.generarIdCupon(),
-                        codigo: codigo.toUpperCase(),
-                        tipo: tipo,
-                        valor: tipo === 'percentage' ? parseInt(porcentaje) : 0,
-                        descripcion: descripcion || `${tipo === 'percentage' ? porcentaje + '% descuento' : tipo}`,
-                        fechaInicio: fechaInicio,
-                        fechaFin: fechaFin,
-                        usosPorCliente: parseInt(usosPorCliente) || 0,
-                        usosMaximos: parseInt(usosMaximos) || 0,
-                        usosActuales: this.cuponEditando ? this.cuponEditando.usosActuales : 0,
-                        montoMinimo: parseInt(montoMinimo) || 0,
-                        productosAplicables: productosAplicables,
-                        activo: true
-                    };
-                    
-                    // Guardar o actualizar
-                    if (this.cuponEditando) {
-                        const index = cupones.findIndex(c => c.id === this.cuponEditando.id);
-                        if (index !== -1) {
-                            cupones[index] = nuevoCupon;
-                        }
-                    } else {
-                        cupones.push(nuevoCupon);
-                    }
-                    
-                    // Guardar en storage
-                    localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
-                    
-                    // Actualizar lista
-                    this.renderCuponesAdmin();
-                    
-                    // Mostrar mensaje
-                    document.getElementById('couponsMessage').style.display = 'flex';
-                    setTimeout(() => {
-                        document.getElementById('couponsMessage').style.display = 'none';
-                    }, 3000);
-                    
-                    // Resetear formulario
-                    this.resetCouponForm();
-                }
-                
-                generarIdCupon() {
-                    return Math.max(...cupones.map(c => c.id), 0) + 1;
-                }
+                // ==================== MÉTODOS DE CUPONES ====================
                 
                 renderCuponesAdmin() {
                     const container = document.getElementById('couponsListAdmin');
                     
-                    if (cupones.length === 0) {
-                        container.innerHTML = `
-                            <div class="status-message status-info">
-                                <i class="fas fa-info-circle"></i>
-                                <span>No hay cupones. Agrega algunos desde el formulario.</span>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
                     container.innerHTML = cupones.map(cupon => {
                         let tipoTexto = '';
-                        let icono = 'fa-tag';
+                        let icono = 'fas fa-tag';
                         
                         switch (cupon.tipo) {
                             case 'percentage':
                                 tipoTexto = `${cupon.valor}% DESCUENTO`;
-                                icono = 'fa-percentage';
+                                icono = 'fas fa-percentage';
                                 break;
                             case 'free_shipping':
                                 tipoTexto = 'ENVÍO GRATIS';
-                                icono = 'fa-shipping-fast';
+                                icono = 'fas fa-shipping-fast';
                                 break;
                             case 'bogo_2x1':
                                 tipoTexto = '2X1';
-                                icono = 'fa-gift';
+                                icono = 'fas fa-gift';
                                 break;
                             case 'bogo_3x2':
                                 tipoTexto = '3X2';
-                                icono = 'fa-gift';
+                                icono = 'fas fa-gift';
                                 break;
                         }
                         
-                        const fechaInicio = new Date(cupon.fechaInicio).toLocaleDateString('es-ES');
-                        const fechaFin = new Date(cupon.fechaFin).toLocaleDateString('es-ES');
-                        const usosRestantes = cupon.usosMaximos > 0 ? cupon.usosMaximos - cupon.usosActuales : '∞';
+                        const fechaInicio = new Date(cupon.fechaInicio);
+                        const fechaFin = new Date(cupon.fechaFin);
+                        const fechaFormateada = `${fechaInicio.toLocaleDateString('es-ES')} - ${fechaFin.toLocaleDateString('es-ES')}`;
                         
                         return `
                             <div class="editor-category-item" data-coupon-id="${cupon.id}">
                                 <div class="editor-category-header">
                                     <div class="editor-category-title">
-                                        <i class="fas ${icono}" style="color: var(--coupon)"></i>
+                                        <i class="${icono}" style="color: var(--coupon)"></i>
                                         ${cupon.codigo}
                                         <span class="color-preview" style="background: var(--coupon);"></span>
                                     </div>
@@ -8578,31 +8463,31 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                             <label class="form-label-admin">
                                                 <i class="fas fa-ticket-alt"></i> Tipo:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${tipoTexto}" readonly>
+                                            <input type="text" class="form-input-admin" value="${tipoTexto}" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-align-left"></i> Descripción:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${cupon.descripcion}" readonly>
+                                            <input type="text" class="form-input-admin" value="${cupon.descripcion}" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-calendar"></i> Validez:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${fechaInicio} - ${fechaFin}" readonly>
+                                            <input type="text" class="form-input-admin" value="${fechaFormateada}" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-hashtag"></i> Usos:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${cupon.usosActuales} / ${cupon.usosMaximos || '∞'} (${usosRestantes} restantes)" readonly>
+                                            <input type="text" class="form-input-admin" value="${cupon.usosActuales} / ${cupon.usosMaximos || '∞'} (${cupon.usosMaximos ? cupon.usosMaximos - cupon.usosActuales : '∞'} restantes)" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-toggle-on"></i> Estado:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${cupon.activo ? 'Activo' : 'Inactivo'}" readonly>
+                                            <input type="text" class="form-input-admin" value="${cupon.activo ? 'Activo' : 'Inactivo'}" readonly="">
                                         </div>
                                     </div>
                                 </div>
@@ -8611,75 +8496,186 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     }).join('');
                 }
                 
+                toggleCouponFields(tipo) {
+                    const percentageField = document.getElementById('percentageField');
+                    const bogoField = document.getElementById('bogoField');
+                    
+                    if (tipo === 'percentage') {
+                        percentageField.style.display = 'block';
+                        bogoField.style.display = 'none';
+                    } else if (tipo === 'bogo_2x1' || tipo === 'bogo_3x2') {
+                        percentageField.style.display = 'none';
+                        bogoField.style.display = 'block';
+                    } else {
+                        percentageField.style.display = 'none';
+                        bogoField.style.display = 'none';
+                    }
+                }
+                
+                guardarCupon() {
+                    const codigo = document.getElementById('couponCode').value.trim();
+                    const tipo = document.getElementById('couponType').value;
+                    const descripcion = document.getElementById('couponDescription').value.trim();
+                    const fechaInicio = document.getElementById('couponStartDate').value;
+                    const fechaFin = document.getElementById('couponEndDate').value;
+                    const usosPorCliente = parseInt(document.getElementById('couponUsesPerCustomer').value) || 0;
+                    const montoMinimo = parseInt(document.getElementById('couponMinAmount').value) || 0;
+                    const usosMaximos = parseInt(document.getElementById('couponMaxUses').value) || 0;
+                    
+                    if (!codigo || !tipo || !fechaInicio || !fechaFin) {
+                        this.showMessage('error', 'Completa todos los campos requeridos');
+                        return;
+                    }
+                    
+                    let valor = 0;
+                    let productosAplicables = [];
+                    
+                    if (tipo === 'percentage') {
+                        valor = parseInt(document.getElementById('couponPercentage').value) || 0;
+                        if (valor < 1 || valor > 100) {
+                            this.showMessage('error', 'El porcentaje debe estar entre 1 y 100');
+                            return;
+                        }
+                    } else if (tipo === 'bogo_2x1' || tipo === 'bogo_3x2') {
+                        const productosText = document.getElementById('couponProducts').value.trim();
+                        if (productosText) {
+                            productosAplicables = productosText.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id));
+                        }
+                    }
+                    
+                    const cupon = {
+                        id: this.cuponEditando ? this.cuponEditando.id : cupones.length > 0 ? Math.max(...cupones.map(c => c.id)) + 1 : 1,
+                        codigo: codigo.toUpperCase(),
+                        tipo: tipo,
+                        valor: valor,
+                        descripcion: descripcion || `${codigo} - Cupón de descuento`,
+                        fechaInicio: fechaInicio,
+                        fechaFin: fechaFin,
+                        usosPorCliente: usosPorCliente,
+                        usosMaximos: usosMaximos,
+                        usosActuales: this.cuponEditando ? this.cuponEditando.usosActuales : 0,
+                        montoMinimo: montoMinimo,
+                        productosAplicables: productosAplicables,
+                        activo: true
+                    };
+                    
+                    if (this.cuponEditando) {
+                        const index = cupones.findIndex(c => c.id === cupon.id);
+                        cupones[index] = cupon;
+                    } else {
+                        cupones.push(cupon);
+                    }
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
+                    
+                    // Actualizar vista
+                    this.renderCuponesAdmin();
+                    
+                    // Resetear formulario
+                    this.resetCouponForm();
+                    
+                    this.showMessage('success', `Cupón ${this.cuponEditando ? 'actualizado' : 'creado'} correctamente`, 'couponsMessage');
+                }
+                
                 editarCupon(id) {
                     const cupon = cupones.find(c => c.id === id);
                     if (!cupon) return;
                     
                     this.cuponEditando = cupon;
                     
-                    // Cargar datos en el formulario
                     document.getElementById('couponCode').value = cupon.codigo;
                     document.getElementById('couponType').value = cupon.tipo;
-                    document.getElementById('couponPercentage').value = cupon.valor;
-                    document.getElementById('couponProducts').value = cupon.productosAplicables.join(', ');
+                    document.getElementById('couponDescription').value = cupon.descripcion;
                     document.getElementById('couponStartDate').value = cupon.fechaInicio;
                     document.getElementById('couponEndDate').value = cupon.fechaFin;
                     document.getElementById('couponUsesPerCustomer').value = cupon.usosPorCliente;
                     document.getElementById('couponMinAmount').value = cupon.montoMinimo;
                     document.getElementById('couponMaxUses').value = cupon.usosMaximos;
-                    document.getElementById('couponDescription').value = cupon.descripcion;
                     
-                    // Mostrar campos según tipo
+                    if (cupon.tipo === 'percentage') {
+                        document.getElementById('couponPercentage').value = cupon.valor;
+                    } else if (cupon.tipo === 'bogo_2x1' || cupon.tipo === 'bogo_3x2') {
+                        document.getElementById('couponProducts').value = cupon.productosAplicables.join(', ');
+                    }
+                    
                     this.toggleCouponFields(cupon.tipo);
                     
-                    // Cambiar el botón
-                    document.getElementById('saveCouponBtn').innerHTML = '<i class="fas fa-save"></i> Actualizar Cupón';
-                    
-                    // Cambiar a pestaña de cupones
-                    this.switchTab('coupons');
+                    const saveBtn = document.getElementById('saveCouponBtn');
+                    saveBtn.innerHTML = '<i class="fas fa-save"></i> Actualizar Cupón';
                 }
                 
                 eliminarCupon(id) {
-                    if (confirm('¿Estás seguro de que quieres eliminar este cupón?')) {
+                    if (confirm('¿Estás seguro de eliminar este cupón?')) {
                         const index = cupones.findIndex(c => c.id === id);
-                        if (index !== -1) {
-                            cupones.splice(index, 1);
-                            localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
-                            this.renderCuponesAdmin();
-                        }
+                        cupones.splice(index, 1);
+                        
+                        localStorage.setItem('modastyle_cupones', JSON.stringify(cupones));
+                        this.renderCuponesAdmin();
+                        this.showMessage('success', 'Cupón eliminado correctamente', 'couponsMessage');
                     }
                 }
                 
-                // ==================== SISTEMA DE OFERTAS RELÁMPAGO (ADMIN) ====================
+                resetCouponForm() {
+                    document.getElementById('couponCode').value = '';
+                    document.getElementById('couponType').value = '';
+                    document.getElementById('couponPercentage').value = '';
+                    document.getElementById('couponProducts').value = '';
+                    document.getElementById('couponStartDate').value = '';
+                    document.getElementById('couponEndDate').value = '';
+                    document.getElementById('couponUsesPerCustomer').value = '0';
+                    document.getElementById('couponMinAmount').value = '0';
+                    document.getElementById('couponMaxUses').value = '0';
+                    document.getElementById('couponDescription').value = '';
+                    
+                    document.getElementById('percentageField').style.display = 'none';
+                    document.getElementById('bogoField').style.display = 'none';
+                    
+                    const saveBtn = document.getElementById('saveCouponBtn');
+                    saveBtn.innerHTML = '<i class="fas fa-save"></i> Guardar Cupón';
+                    
+                    this.cuponEditando = null;
+                }
+                
+                // ==================== MÉTODOS DE OFERTAS RELÁMPAGO ====================
                 
                 loadFlashSaleConfig() {
-                    // Cargar configuración actual en los campos
                     document.getElementById('flashSaleEnabled').checked = flashSaleConfig.enabled;
                     document.getElementById('flashSaleTitleInput').value = flashSaleConfig.title;
                     document.getElementById('flashSaleDescriptionInput').value = flashSaleConfig.description;
                     document.getElementById('flashSaleButtonText').value = flashSaleConfig.buttonText;
                     
-                    // Configurar fechas por defecto si no existen
-                    const now = new Date();
-                    const tomorrow = new Date(now);
-                    tomorrow.setDate(tomorrow.getDate() + 1);
-                    
-                    if (!flashSaleConfig.startDate) {
-                        flashSaleConfig.startDate = now.toISOString().slice(0, 16);
+                    if (flashSaleConfig.products && flashSaleConfig.products.length > 0) {
+                        document.getElementById('flashSaleProducts').value = flashSaleConfig.products.join(',');
                     }
                     
-                    if (!flashSaleConfig.endDate) {
-                        flashSaleConfig.endDate = tomorrow.toISOString().slice(0, 16);
-                    }
-                    
-                    document.getElementById('flashSaleStartDate').value = flashSaleConfig.startDate;
-                    document.getElementById('flashSaleEndDate').value = flashSaleConfig.endDate;
-                    
-                    // Productos
-                    document.getElementById('flashSaleProducts').value = flashSaleConfig.products.join(', ');
-                    
-                    // Actualizar vista previa
                     this.updateFlashSalePreview();
+                }
+                
+                guardarFlashSaleConfig() {
+                    flashSaleConfig.enabled = document.getElementById('flashSaleEnabled').checked;
+                    flashSaleConfig.title = document.getElementById('flashSaleTitleInput').value;
+                    flashSaleConfig.description = document.getElementById('flashSaleDescriptionInput').value;
+                    flashSaleConfig.buttonText = document.getElementById('flashSaleButtonText').value;
+                    
+                    const productsText = document.getElementById('flashSaleProducts').value.trim();
+                    flashSaleConfig.products = productsText ? 
+                        productsText.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id)) : 
+                        [];
+                    
+                    flashSaleConfig.startDate = document.getElementById('flashSaleStartDate').value || null;
+                    flashSaleConfig.endDate = document.getElementById('flashSaleEndDate').value || null;
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_flash_sale', JSON.stringify(flashSaleConfig));
+                    
+                    // Actualizar banner si existe
+                    if (window.carrito && window.carrito.flashSaleManager) {
+                        window.carrito.flashSaleManager.loadConfig();
+                        window.carrito.flashSaleManager.checkAndShowBanner();
+                    }
+                    
+                    this.showMessage('success', 'Configuración guardada correctamente', 'flashSaleMessage');
                 }
                 
                 updateFlashSalePreview() {
@@ -8688,88 +8684,41 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     const description = document.getElementById('flashSaleDescriptionInput').value;
                     const buttonText = document.getElementById('flashSaleButtonText').value;
                     
-                    // Actualizar elementos de vista previa
-                    document.getElementById('previewFlashSaleTitle').textContent = title || flashSaleConfig.title;
-                    document.getElementById('previewFlashSaleDescription').textContent = description || flashSaleConfig.description;
+                    document.getElementById('previewFlashSaleTitle').textContent = title;
+                    document.getElementById('previewFlashSaleDescription').textContent = description;
                     
-                    // Actualizar botón en vista previa
-                    const previewBtn = document.querySelector('#flash-saleSection .flash-sale-btn');
+                    const previewBtn = document.querySelector('.section-preview .flash-sale-btn');
                     if (previewBtn) {
-                        previewBtn.innerHTML = `<i class="fas fa-shopping-bag"></i> ${buttonText || flashSaleConfig.buttonText}`;
+                        previewBtn.innerHTML = `<i class="fas fa-shopping-bag"></i> ${buttonText}`;
                     }
                 }
                 
-                guardarFlashSaleConfig() {
-                    const enabled = document.getElementById('flashSaleEnabled').checked;
-                    const title = document.getElementById('flashSaleTitleInput').value.trim();
-                    const description = document.getElementById('flashSaleDescriptionInput').value.trim();
-                    const startDate = document.getElementById('flashSaleStartDate').value;
-                    const endDate = document.getElementById('flashSaleEndDate').value;
-                    const products = document.getElementById('flashSaleProducts').value.trim();
-                    const buttonText = document.getElementById('flashSaleButtonText').value.trim();
-                    
-                    // Validar
-                    if (!title || !description || !buttonText) {
-                        alert('Por favor completa todos los campos');
-                        return;
-                    }
-                    
-                    if (!startDate || !endDate) {
-                        alert('Por favor selecciona las fechas de inicio y fin');
-                        return;
-                    }
-                    
-                    const start = new Date(startDate);
-                    const end = new Date(endDate);
-                    
-                    if (end <= start) {
-                        alert('La fecha de fin debe ser posterior a la fecha de inicio');
-                        return;
-                    }
-                    
-                    // Guardar configuración
-                    flashSaleConfig.enabled = enabled;
-                    flashSaleConfig.title = title;
-                    flashSaleConfig.description = description;
-                    flashSaleConfig.startDate = startDate;
-                    flashSaleConfig.endDate = endDate;
-                    flashSaleConfig.buttonText = buttonText;
-                    
-                    // Procesar productos
-                    flashSaleConfig.products = products.trim() ? 
-                        products.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id)) : [];
-                    
-                    // Guardar en localStorage
-                    localStorage.setItem('modastyle_flash_sale', JSON.stringify(flashSaleConfig));
-                    
-                    // Actualizar banner si está visible
-                    if (window.flashSaleManager) {
-                        window.flashSaleManager.saveConfig();
-                        window.flashSaleManager.checkAndShowBanner();
-                    }
-                    
-                    // Mostrar mensaje de éxito
-                    document.getElementById('flashSaleMessage').style.display = 'flex';
-                    setTimeout(() => {
-                        document.getElementById('flashSaleMessage').style.display = 'none';
-                    }, 3000);
-                }
-                
-                // ==================== EDITOR DE SECCIÓN (ADMIN) ====================
+                // ==================== MÉTODOS DE EDITOR DE SECCIÓN ====================
                 
                 loadSectionConfig() {
-                    // Cargar configuración de la sección
                     document.getElementById('sectionTitle').value = sectionConfig.title;
                     document.getElementById('sectionSubtitle').value = sectionConfig.subtitle;
+                }
+                
+                saveSectionConfig() {
+                    sectionConfig.title = document.getElementById('sectionTitle').value;
+                    sectionConfig.subtitle = document.getElementById('sectionSubtitle').value;
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('modastyle_section_config', JSON.stringify(sectionConfig));
+                    
+                    // Actualizar vista principal
+                    if (window.carrito) {
+                        window.carrito.updateSectionCategories();
+                    }
+                    
+                    this.showMessage('success', 'Configuración guardada correctamente', 'editorMessage');
                 }
                 
                 renderSectionCategories() {
                     const container = document.getElementById('sectionCategoriesList');
                     
-                    // Ordenar categorías por orden
-                    const sortedCategories = [...sectionCategories].sort((a, b) => a.order - b.order);
-                    
-                    container.innerHTML = sortedCategories.map(categoria => {
+                    container.innerHTML = sectionCategories.map(categoria => {
                         return `
                             <div class="editor-category-item" data-category-id="${categoria.id}" draggable="true">
                                 <div class="editor-category-header">
@@ -8795,19 +8744,19 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                                             <label class="form-label-admin">
                                                 <i class="fas fa-font"></i> Nombre:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${categoria.name}" readonly>
+                                            <input type="text" class="form-input-admin" value="${categoria.name}" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-align-left"></i> Descripción:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${categoria.description}" readonly>
+                                            <input type="text" class="form-input-admin" value="${categoria.description}" readonly="">
                                         </div>
                                         <div class="form-group-admin">
                                             <label class="form-label-admin">
                                                 <i class="fas fa-link"></i> Acción:
                                             </label>
-                                            <input type="text" class="form-input-admin" value="${categoria.action}" readonly>
+                                            <input type="text" class="form-input-admin" value="${categoria.action}" readonly="">
                                         </div>
                                     </div>
                                 </div>
@@ -8820,158 +8769,59 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                 
                 setupDragAndDropSectionCategories() {
                     const container = document.getElementById('sectionCategoriesList');
-                    if (!container) return;
+                    const items = container.querySelectorAll('.editor-category-item');
                     
-                    let draggingItem = null;
-                    
-                    container.querySelectorAll('.editor-category-item').forEach(item => {
+                    items.forEach(item => {
                         item.addEventListener('dragstart', (e) => {
-                            draggingItem = e.currentTarget;
-                            e.currentTarget.classList.add('dragging');
+                            e.dataTransfer.setData('text/plain', item.dataset.categoryId);
+                            item.classList.add('dragging');
                         });
                         
                         item.addEventListener('dragend', () => {
-                            draggingItem.classList.remove('dragging');
-                            draggingItem = null;
+                            item.classList.remove('dragging');
                         });
                     });
                     
                     container.addEventListener('dragover', (e) => {
                         e.preventDefault();
-                        const afterElement = this.getDragAfterElementSectionCategories(container, e.clientY);
+                        const afterElement = this.getDragAfterElement(container, e.clientY);
+                        const draggable = document.querySelector('.editor-category-item.dragging');
                         
                         if (afterElement == null) {
-                            container.appendChild(draggingItem);
+                            container.appendChild(draggable);
                         } else {
-                            container.insertBefore(draggingItem, afterElement);
+                            container.insertBefore(draggable, afterElement);
                         }
-                    });
-                    
-                    container.addEventListener('drop', () => {
-                        this.reordenarSectionCategories();
-                    });
-                }
-                
-                getDragAfterElementSectionCategories(container, y) {
-                    const draggableElements = [...container.querySelectorAll('.editor-category-item:not(.dragging)')];
-                    
-                    return draggableElements.reduce((closest, child) => {
-                        const box = child.getBoundingClientRect();
-                        const offset = y - box.top - box.height / 2;
                         
-                        if (offset < 0 && offset > closest.offset) {
-                            return { offset: offset, element: child };
-                        } else {
-                            return closest;
-                        }
-                    }, { offset: Number.NEGATIVE_INFINITY }).element;
+                        // Actualizar orden
+                        this.actualizarOrdenSectionCategories();
+                    });
                 }
                 
-                reordenarSectionCategories() {
+                actualizarOrdenSectionCategories() {
                     const container = document.getElementById('sectionCategoriesList');
-                    const newOrder = [...container.querySelectorAll('.editor-category-item')].map(item => 
-                        parseInt(item.dataset.categoryId)
-                    );
+                    const items = container.querySelectorAll('.editor-category-item');
                     
-                    // Actualizar el orden de las categorías de sección
-                    sectionCategories.forEach(categoria => {
-                        const index = newOrder.indexOf(categoria.id);
-                        if (index !== -1) {
+                    items.forEach((item, index) => {
+                        const categoriaId = parseInt(item.dataset.categoryId);
+                        const categoria = sectionCategories.find(c => c.id === categoriaId);
+                        if (categoria) {
                             categoria.order = index + 1;
                         }
                     });
                     
-                    // Guardar cambios
+                    // Guardar en localStorage
                     localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
                     
-                    // Actualizar la página principal
+                    // Actualizar vista principal
                     if (window.carrito) {
                         window.carrito.updateSectionCategories();
                     }
-                    
-                    document.getElementById('editorMessage').innerHTML = '<i class="fas fa-check-circle"></i><span>Categorías reordenadas</span>';
-                    document.getElementById('editorMessage').className = 'status-message status-success';
-                    document.getElementById('editorMessage').style.display = 'flex';
-                    
-                    setTimeout(() => {
-                        document.getElementById('editorMessage').style.display = 'none';
-                    }, 2000);
-                }
-                
-                togglePreviewSection() {
-                    const preview = document.getElementById('sectionPreview');
-                    const isVisible = preview.style.display === 'block';
-                    
-                    if (!isVisible) {
-                        // Actualizar vista previa
-                        document.getElementById('previewSectionTitle').textContent = document.getElementById('sectionTitle').value;
-                        document.getElementById('previewSectionSubtitle').textContent = document.getElementById('sectionSubtitle').value;
-                        
-                        // Generar vista previa de categorías
-                        const sortedCategories = [...sectionCategories].sort((a, b) => a.order - b.order);
-                        const previewGrid = document.getElementById('previewCategoriesGrid');
-                        
-                        previewGrid.innerHTML = sortedCategories.map(categoria => {
-                            return `
-                                <div class="category-card">
-                                    <img src="${categoria.image}" alt="${categoria.name}" class="category-image">
-                                    <div class="category-overlay">
-                                        <h3 class="category-name">${categoria.name}</h3>
-                                        <p class="category-description">${categoria.description}</p>
-                                        <span class="category-badge" style="background: ${categoria.buttonColor}">Ver productos</span>
-                                    </div>
-                                </div>
-                            `;
-                        }).join('');
-                        
-                        preview.style.display = 'block';
-                    } else {
-                        preview.style.display = 'none';
-                    }
-                }
-                
-                saveSectionConfig() {
-                    sectionConfig.title = document.getElementById('sectionTitle').value;
-                    sectionConfig.subtitle = document.getElementById('sectionSubtitle').value;
-                    
-                    // Guardar en localStorage
-                    localStorage.setItem('modastyle_section_config', JSON.stringify(sectionConfig));
-                    
-                    // Actualizar la página principal
-                    if (window.carrito) {
-                        window.carrito.updateSectionCategories();
-                    }
-                    
-                    document.getElementById('editorMessage').innerHTML = '<i class="fas fa-check-circle"></i><span>Cambios guardados correctamente</span>';
-                    document.getElementById('editorMessage').className = 'status-message status-success';
-                    document.getElementById('editorMessage').style.display = 'flex';
-                    
-                    setTimeout(() => {
-                        document.getElementById('editorMessage').style.display = 'none';
-                    }, 2000);
                 }
                 
                 addSectionCategory() {
-                    // Buscar el próximo ID disponible
-                    const newId = Math.max(...sectionCategories.map(c => c.id), 0) + 1;
-                    
-                    const nuevaCategoria = {
-                        id: newId,
-                        name: `Nueva Categoría ${newId}`,
-                        description: "Descripción de la categoría",
-                        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                        buttonColor: "#D4AF37",
-                        action: "carrito.filterProducts('todo')",
-                        order: sectionCategories.length + 1
-                    };
-                    
-                    sectionCategories.push(nuevaCategoria);
-                    localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
-                    
-                    this.renderSectionCategories();
-                    
-                    // Editar la nueva categoría
-                    this.editarSectionCategory(newId);
+                    // En una implementación real, aquí se abriría un modal para agregar una nueva categoría
+                    alert('Función para agregar nueva categoría de sección. En una implementación real, se abriría un formulario.');
                 }
                 
                 editarSectionCategory(id) {
@@ -8980,67 +8830,56 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     
                     this.sectionCategoryEditando = categoria;
                     
-                    // Mostrar modal o formulario para editar
-                    const nombre = prompt("Nombre de la categoría:", categoria.name);
-                    if (nombre === null) return;
-                    
-                    const descripcion = prompt("Descripción:", categoria.description);
-                    if (descripcion === null) return;
-                    
-                    const imagen = prompt("URL de la imagen:", categoria.image);
-                    if (imagen === null) return;
-                    
-                    const color = prompt("Color del botón (hex):", categoria.buttonColor);
-                    if (color === null) return;
-                    
-                    const accion = prompt("Acción al hacer clic:", categoria.action);
-                    if (accion === null) return;
-                    
-                    // Actualizar la categoría
-                    categoria.name = nombre;
-                    categoria.description = descripcion;
-                    categoria.image = imagen;
-                    categoria.buttonColor = color;
-                    categoria.action = accion;
-                    
-                    // Guardar cambios
-                    localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
-                    
-                    // Actualizar vistas
-                    this.renderSectionCategories();
-                    if (window.carrito) {
-                        window.carrito.updateSectionCategories();
-                    }
+                    // En una implementación real, aquí se llenaría un formulario de edición
+                    alert(`Editando categoría: ${categoria.name}`);
                 }
                 
                 eliminarSectionCategory(id) {
-                    const categoria = sectionCategories.find(c => c.id === id);
-                    if (!categoria) return;
-                    
-                    if (confirm(`¿Estás seguro de que quieres eliminar la categoría "${categoria.name}"?`)) {
+                    if (confirm('¿Estás seguro de eliminar esta categoría de la sección?')) {
                         const index = sectionCategories.findIndex(c => c.id === id);
-                        if (index !== -1) {
-                            sectionCategories.splice(index, 1);
-                            localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
-                            
-                            this.renderSectionCategories();
-                            if (window.carrito) {
-                                window.carrito.updateSectionCategories();
-                            }
+                        sectionCategories.splice(index, 1);
+                        
+                        localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
+                        this.renderSectionCategories();
+                        
+                        if (window.carrito) {
+                            window.carrito.updateSectionCategories();
                         }
+                        
+                        this.showMessage('success', 'Categoría eliminada', 'editorMessage');
                     }
                 }
                 
-                resetSectionCategoryForm() {
-                    this.sectionCategoryEditando = null;
+                togglePreviewSection() {
+                    const preview = document.getElementById('sectionPreview');
+                    const isVisible = preview.style.display === 'block';
+                    
+                    if (!isVisible) {
+                        // Actualizar vista previa
+                        document.getElementById('previewSectionTitle').textContent = sectionConfig.title;
+                        document.getElementById('previewSectionSubtitle').textContent = sectionConfig.subtitle;
+                        
+                        const previewGrid = document.getElementById('previewCategoriesGrid');
+                        previewGrid.innerHTML = sectionCategories.map(categoria => `
+                            <div class="category-card">
+                                <img src="${categoria.image}" alt="${categoria.name}" class="category-image">
+                                <div class="category-overlay">
+                                    <h3 class="category-name">${categoria.name}</h3>
+                                    <p class="category-description">${categoria.description}</p>
+                                    <span class="category-badge" style="background: ${categoria.buttonColor}">Ver productos</span>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                    
+                    preview.style.display = isVisible ? 'none' : 'block';
                 }
                 
-                // ==================== ESTADÍSTICAS ====================
+                // ==================== MÉTODOS DE ESTADÍSTICAS ====================
                 
                 renderStats() {
-                    const statsGrid = document.getElementById('statsGrid');
+                    const container = document.getElementById('statsGrid');
                     
-                    // Calcular estadísticas
                     const totalProductos = productos.length;
                     const productosHombre = productos.filter(p => p.categoria === 'hombre').length;
                     const productosAccesorios = productos.filter(p => p.categoria === 'accesorios').length;
@@ -9048,7 +8887,7 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     const productosKids = productos.filter(p => p.categoria === 'kids').length;
                     const productosOferta = productos.filter(p => p.estado === 'oferta').length;
                     
-                    statsGrid.innerHTML = `
+                    container.innerHTML = `
                         <div class="stat-card">
                             <div class="stat-icon" style="background: var(--admin);">
                                 <i class="fas fa-boxes"></i>
@@ -9099,89 +8938,348 @@ Dejar vacío si no hay imágenes por variante"></textarea>
                     `;
                 }
                 
-                // ==================== EXPORTACIÓN ====================
+                // ==================== MÉTODOS DE EXPORTACIÓN ====================
                 
                 exportHtml() {
-                    const exportClean = document.getElementById('exportClean').checked;
-                    const includeData = document.getElementById('exportIncludeData').checked;
+                    try {
+                        const exportClean = document.getElementById('exportClean').checked;
+                        const exportIncludeData = document.getElementById('exportIncludeData').checked;
+                        
+                        // Crear un nuevo documento
+                        const doc = document.implementation.createHTMLDocument("ModaStyle Exportado");
+                        
+                        // Clonar todo el documento actual
+                        const clone = document.documentElement.cloneNode(true);
+                        doc.replaceChild(clone, doc.documentElement);
+                        
+                        // Si se solicitan datos actualizados, reemplazar las variables JavaScript
+                        if (exportIncludeData) {
+                            this.actualizarDatosEnExportacion(doc);
+                        }
+                        
+                         // Si se solicita limpieza, remover el panel de administración
+                        if (exportClean) {
+                            this.limpiarPanelAdministracion(doc);
+                        }
+                        
+                        // Convertir el documento a string
+                        const htmlContent = '<!DOCTYPE html>' + '\n' + doc.documentElement.outerHTML;
+                        
+                        // Crear y descargar el archivo
+                        this.descargarArchivo(htmlContent, 'modastyle-tienda-completa.html');
+                        
+                        this.showMessage('success', 'HTML exportado correctamente');
+                        
+                    } catch (error) {
+                        console.error('Error al exportar HTML:', error);
+                        this.showMessage('error', 'Error al exportar HTML: ' + error.message);
+                    }
+                }
+                
+                actualizarDatosEnExportacion(doc) {
+                    // Actualizar las variables JavaScript con los datos actuales
+                    const scripts = doc.querySelectorAll('script');
                     
-                    // Crear un nuevo documento
-                    let htmlContent = document.documentElement.outerHTML;
+                    scripts.forEach(script => {
+                        if (script.textContent.includes('// ==================== DATOS INICIALES ====================')) {
+                            // Reemplazar la sección de datos iniciales con datos actualizados
+                            let scriptContent = script.textContent;
+                            
+                            // Actualizar productos
+                            const productosStr = JSON.stringify(productos, null, 2);
+                            scriptContent = scriptContent.replace(
+                                /let productos = \[.*?\];/s,
+                                `let productos = ${productosStr};`
+                            );
+                            
+                            // Actualizar categorías
+                            const categoriasStr = JSON.stringify(categorias, null, 2);
+                            scriptContent = scriptContent.replace(
+                                /let categorias = \[.*?\];/s,
+                                `let categorias = ${categoriasStr};`
+                            );
+                            
+                            // Actualizar categorías de sección
+                            const sectionCategoriesStr = JSON.stringify(sectionCategories, null, 2);
+                            scriptContent = scriptContent.replace(
+                                /let sectionCategories = \[.*?\];/s,
+                                `let sectionCategories = ${sectionCategoriesStr};`
+                            );
+                            
+                            // Actualizar configuración de sección
+                            const sectionConfigStr = JSON.stringify(sectionConfig, null, 2);
+                            scriptContent = scriptContent.replace(
+                                /let sectionConfig = \{.*?\};/s,
+                                `let sectionConfig = ${sectionConfigStr};`
+                            );
+                            
+                            // Actualizar cupones
+                            const cuponesStr = JSON.stringify(cupones, null, 2);
+                            scriptContent = scriptContent.replace(
+                                /let cupones = \[.*?\];/s,
+                                `let cupones = ${cuponesStr};`
+                            );
+                            
+                            // Actualizar configuración de ofertas relámpago
+                            const flashSaleConfigStr = JSON.stringify(flashSaleConfig, null, 2);
+                            scriptContent = scriptContent.replace(
+                                /let flashSaleConfig = \{.*?\};/s,
+                                `let flashSaleConfig = ${flashSaleConfigStr};`
+                            );
+                            
+                            script.textContent = scriptContent;
+                        }
+                    });
                     
-                    // Si se selecciona limpiar HTML
-                    if (exportClean) {
-                        // Remover panel de administración
-                        htmlContent = htmlContent.replace(/<div class="admin-panel[\s\S]*?<\/div><\/div><\/div>\s*<!-- Header -->/, '<!-- Header -->');
+                    // También actualizar la sección de categorías en el HTML
+                    const categoriesGrid = doc.getElementById('categoriesGrid');
+                    if (categoriesGrid) {
+                        // Ordenar categorías por orden
+                        const sortedCategories = [...sectionCategories].sort((a, b) => a.order - b.order);
                         
-                        // Remover botón de administración
-                        htmlContent = htmlContent.replace(/\s*<button class="admin-btn" id="adminBtn">[\s\S]*?<\/button>/, '');
-                        
-                        // Remover modal de autenticación
-                        htmlContent = htmlContent.replace(/<!-- Modal de Autenticación -->[\s\S]*?<\/div>\s*<\/div>/, '');
-                        
-                        // Remover scripts relacionados con admin
-                        const scriptRegex = /\/\/ ==================== SISTEMA DE ADMINISTRACIÓN ====================[\s\S]*?\/\/ ==================== EXPORTACIÓN ====================/;
-                        htmlContent = htmlContent.replace(scriptRegex, '');
-                        
-                        // Remover el evento del botón admin del carrito
-                        htmlContent = htmlContent.replace(/\s*\/\/ Botón de administración[\s\S]*?document\.getElementById\('adminBtn'\)\.addEventListener\('click', \(\) => this\.showAuthModal\(\)\);/g, '');
+                        categoriesGrid.innerHTML = sortedCategories.map(categoria => {
+                            return `
+                                <div class="category-card" onclick="${categoria.action}">
+                                    <img src="${categoria.image}" alt="${categoria.name}" class="category-image">
+                                    <div class="category-overlay">
+                                        <h3 class="category-name">${categoria.name}</h3>
+                                        <p class="category-description">${categoria.description}</p>
+                                        <span class="category-badge" style="background: ${categoria.buttonColor}">Ver productos</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
                     }
                     
-                    // Si no incluir datos, remover localStorage y datos iniciales
-                    if (!includeData) {
-                        // Remover datos iniciales
-                        const initialDataRegex = /\/\/ ==================== DATOS INICIALES ====================[\s\S]*?\/\/ ==================== SISTEMA DE CUPONES ====================/;
-                        htmlContent = htmlContent.replace(initialDataRegex, '// ==================== SISTEMA DE CUPONES ====================');
-                        
-                        // Remover localStorage
-                        htmlContent = htmlContent.replace(/localStorage\.setItem/g, '// localStorage.setItem');
-                        htmlContent = htmlContent.replace(/localStorage\.getItem/g, '// localStorage.getItem');
-                        htmlContent = htmlContent.replace(/localStorage\.removeItem/g, '// localStorage.removeItem');
+                    // Actualizar título y subtítulo de la sección
+                    const mainSectionTitle = doc.getElementById('mainSectionTitle');
+                    const mainSectionSubtitle = doc.getElementById('mainSectionSubtitle');
+                    
+                    if (mainSectionTitle) {
+                        mainSectionTitle.textContent = sectionConfig.title;
                     }
                     
-                    // Crear archivo
-                    const blob = new Blob([htmlContent], { type: 'text/html' });
+                    if (mainSectionSubtitle) {
+                        mainSectionSubtitle.textContent = sectionConfig.subtitle;
+                    }
+                    
+                    // Actualizar productos en el banner de ofertas relámpago
+                    this.actualizarFlashSaleEnExportacion(doc);
+                }
+                
+                actualizarFlashSaleEnExportacion(doc) {
+                    // Actualizar productos del banner
+                    const flashSaleProductsContainer = doc.querySelector('.flash-sale-products');
+                    if (!flashSaleProductsContainer) return;
+                    
+                    let productsToShow = [];
+                    
+                    // Si hay productos específicos configurados
+                    if (flashSaleConfig.products && flashSaleConfig.products.length > 0) {
+                        productsToShow = productos.filter(p => flashSaleConfig.products.includes(p.id));
+                    } else {
+                        // Mostrar productos con estado "oferta"
+                        productsToShow = productos.filter(p => p.estado === 'oferta');
+                    }
+                    
+                    // Limitar a 3 productos para mostrar en el banner
+                    productsToShow = productsToShow.slice(0, 3);
+                    
+                    if (productsToShow.length === 0) {
+                        flashSaleProductsContainer.style.display = 'none';
+                        return;
+                    }
+                    
+                    flashSaleProductsContainer.innerHTML = productsToShow.map(product => `
+                        <div class="flash-product-preview" onclick="carrito.filterFlashSaleProducts(); carrito.scrollToProduct(${product.id})">
+                            <img src="${product.imagen}" alt="${product.nombre}">
+                        </div>
+                    `).join('');
+                    
+                    flashSaleProductsContainer.style.display = 'flex';
+                }
+                
+                limpiarPanelAdministracion(doc) {
+                    // Remover panel de administración y botones relacionados
+                    const adminPanel = doc.getElementById('adminPanel');
+                    if (adminPanel) {
+                        adminPanel.remove();
+                    }
+                    
+                    const adminBtn = doc.getElementById('adminBtn');
+                    if (adminBtn) {
+                        adminBtn.remove();
+                    }
+                    
+                    const authModal = doc.getElementById('authModal');
+                    if (authModal) {
+                        authModal.remove();
+                    }
+                    
+                    // Remover cualquier script relacionado con administración
+                    const scripts = doc.querySelectorAll('script');
+                    scripts.forEach(script => {
+                        const scriptContent = script.textContent;
+                        if (scriptContent.includes('class Administracion') || 
+                            scriptContent.includes('showAuthModal') ||
+                            scriptContent.includes('verificarPin')) {
+                            script.remove();
+                        }
+                    });
+                    
+                    // También limpiar la variable admin del objeto window en el script principal
+                    const mainScript = doc.querySelector('script:last-of-type');
+                    if (mainScript) {
+                        let mainScriptContent = mainScript.textContent;
+                        
+                        // Remover inicialización del admin
+                        mainScriptContent = mainScriptContent.replace(
+                            /window\.admin = new Administracion\(\);/g,
+                            ''
+                        );
+                        
+                        // Remover referencias al admin en otros lugares
+                        mainScriptContent = mainScriptContent.replace(
+                            /admin\./g,
+                            '// admin.'
+                        );
+                        
+                        mainScript.textContent = mainScriptContent;
+                    }
+                }
+                
+                descargarArchivo(content, filename) {
+                    const blob = new Blob([content], { type: 'text/html' });
                     const url = URL.createObjectURL(blob);
                     
-                    // Crear enlace de descarga
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `ModaStyle_${new Date().toISOString().split('T')[0]}.html`;
+                    a.download = filename;
+                    a.style.display = 'none';
+                    
                     document.body.appendChild(a);
                     a.click();
-                    document.body.removeChild(a);
                     
-                    // Liberar URL
-                    URL.revokeObjectURL(url);
-                    
-                    alert('HTML exportado correctamente');
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                }
+                
+                showMessage(type, message, elementId = 'formMessage') {
+                    const messageElement = document.getElementById(elementId);
+                    if (messageElement) {
+                        messageElement.innerHTML = `<i class="fas fa-${type === 'success' ? 'check' : 'times'}-circle"></i><span>${message}</span>`;
+                        messageElement.className = `status-message status-${type}`;
+                        messageElement.style.display = 'flex';
+                        
+                        setTimeout(() => {
+                            messageElement.style.display = 'none';
+                        }, 3000);
+                    }
                 }
             }
 
-            // ==================== INICIALIZACIÓN ====================
+            // ==================== INICIALIZACIÓN DE LA APLICACIÓN ====================
             
             // Inicializar carrito
-            const carrito = new Carrito();
+            window.carrito = new Carrito();
             
             // Inicializar administración
-            const admin = new Administracion();
+            window.admin = new Administracion();
             
-            // Inicializar gestor de ofertas relámpago
-            const flashSaleManager = new FlashSaleManager();
+            // Inicializar el sistema de ofertas relámpago
+            window.flashSaleManager = new FlashSaleManager();
             
-            // Hacer disponibles globalmente
-            window.carrito = carrito;
-            window.admin = admin;
-            window.flashSaleManager = flashSaleManager;
-            
-            // Inicializar tabs del admin
-            admin.switchTab('export');
-            
-            // Asegurar que el scroll esté habilitado
-            setTimeout(() => {
-                document.body.style.overflow = 'auto';
-                document.documentElement.style.overflow = 'auto';
-            }, 100);
+            // Verificar y mostrar banner si corresponde
+            if (flashSaleConfig.enabled) {
+                window.carrito.flashSaleManager.checkAndShowBanner();
+            }
 
+            // Inicializar el sistema de versiones (ya se hizo en el constructor del carrito)
+            // El VersionManager se inicializa automáticamente cuando se crea el carrito
+
+            // Inicializar el buscador (ya se hizo en el constructor del carrito)
+            // window.buscador = new Buscador();
+
+            // ==================== CONFIGURACIÓN ADICIONAL ====================
+            
+            // Configurar la fecha actual para los campos de fecha
+            document.addEventListener('DOMContentLoaded', function() {
+                // Establecer fechas por defecto para cupones
+                const today = new Date();
+                const tomorrow = new Date();
+                tomorrow.setDate(today.getDate() + 30);
+                
+                const formatDate = (date) => {
+                    return date.toISOString().split('T')[0];
+                };
+                
+                // Fecha de inicio (hoy)
+                const startDateInput = document.getElementById('couponStartDate');
+                if (startDateInput && !startDateInput.value) {
+                    startDateInput.value = formatDate(today);
+                }
+                
+                // Fecha de fin (30 días después)
+                const endDateInput = document.getElementById('couponEndDate');
+                if (endDateInput && !endDateInput.value) {
+                    endDateInput.value = formatDate(tomorrow);
+                }
+                
+                // Fechas para ofertas relámpago
+                const flashStartInput = document.getElementById('flashSaleStartDate');
+                const flashEndInput = document.getElementById('flashSaleEndDate');
+                
+                if (flashStartInput) {
+                    const now = new Date();
+                    const inOneHour = new Date(now.getTime() + 60 * 60 * 1000);
+                    const in24Hours = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+                    
+                    // Formato para datetime-local
+                    const formatDateTime = (date) => {
+                        return date.toISOString().slice(0, 16);
+                    };
+                    
+                    if (!flashStartInput.value) {
+                        flashStartInput.value = formatDateTime(inOneHour);
+                    }
+                    
+                    if (!flashEndInput.value) {
+                        flashEndInput.value = formatDateTime(in24Hours);
+                    }
+                }
+                
+                // Configurar drag & drop para productos en admin
+                if (window.admin) {
+                    window.admin.setupDragAndDropProductos();
+                    window.admin.setupDragAndDropCategorias();
+                    window.admin.setupDragAndDropSectionCategories();
+                }
+                
+                // Configurar búsqueda en tiempo real
+                if (window.buscador) {
+                    // Asegurar que el buscador esté configurado
+                    const searchInput = document.getElementById('searchInput');
+                    if (searchInput) {
+                        searchInput.addEventListener('input', function(e) {
+                            window.buscador.handleSearchInput(e.target.value, 'header');
+                        });
+                    }
+                }
+            });
+
+            // Asegurar que el scroll esté habilitado en todo momento
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+
+            // Mensaje de consola para desarrollo
+            console.log('ModaStyle v' + CURRENT_VERSION + ' - Tienda de Ropa, Accesorios y Hogar');
+            console.log('Carrito:', window.carrito ? 'Inicializado' : 'Error');
+            console.log('Administración:', window.admin ? 'Disponible' : 'No disponible');
+            console.log('Productos cargados:', productos.length);
+            console.log('Cupones disponibles:', cupones.length);
+            console.log('Ofertas relámpago:', flashSaleConfig.enabled ? 'Activas' : 'Inactivas');
         </script>
+
 </body></html>
