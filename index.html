@@ -3986,6 +3986,27 @@
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
+                    </div><div class="product-item-admin" data-product-id="10" draggable="true">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="PANS (Copia)" class="product-image-admin">
+                        <div class="product-info-admin">
+                            <div class="product-name-admin">PANS (Copia)</div>
+                            <div class="product-category-admin">
+                                <i class="fas fa-tag"></i>
+                                PANS DEPORTIVO | Hombre
+                            </div>
+                            <div class="product-price-admin">$100</div>
+                        </div>
+                        <div class="product-actions-admin">
+                            <button class="product-action-btn edit-btn-admin" onclick="admin.editarProducto(10)" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="product-action-btn clone-btn-admin" onclick="admin.clonarProducto(10)" title="Clonar">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarProducto(10)" title="Eliminar">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
                     </div></div>
             </div>
 
@@ -3995,7 +4016,7 @@
                     <i class="fas fa-plus-circle"></i>
                     Agregar Nuevo Producto
                 </h3>
-                <div class="status-message status-success" id="formMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Producto eliminado</span></div>
+                <div class="status-message status-success" id="formMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Producto actualizado</span></div>
                 <form class="admin-form" id="productForm">
                     <div class="form-row">
                         <div class="form-group-admin">
@@ -6029,6 +6050,105 @@ Ej: Negro|https://ejemplo.com/negro.jpg" style="height: 365px;"></textarea>
                                 </div>
                             </div>
                         </div>
+                    
+                        <div class="product-card" data-product-id="10" style="animation-delay: 0.45s">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="PANS (Copia)" class="product-image" onclick="carrito.openImageModal('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80', 'PANS (Copia)')" data-original-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-badge nuevo">NUEVO</div>
+                            </div>
+                            
+                            <div class="product-info">
+                                <div class="product-category" style="color: #2563EB">
+                                    <i class="fas fa-tag"></i>
+                                    PANS DEPORTIVO
+                                </div>
+                                
+                                <h3 class="product-title">PANS (Copia)</h3>
+                                
+                                <div class="product-price-container">
+                                    
+                                        <div class="regular-price">$100</div>
+                                    
+                                </div>
+                                
+                                <p class="product-description">
+                                    Diseñados para moverte. Ideales para crossfit, running, pilates o gym. Libertad de movimiento garantizada.
+                                </p>
+                                
+                                
+                                    <div class="product-features">
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #2563EB"></i>
+                                                <span>Tela de algodón de alta calidad.</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #2563EB"></i>
+                                                <span>Cintura elástica.</span>
+                                            </div>
+                                        
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: #2563EB"></i>
+                                                <span>Básicos cómodos y modernos.</span>
+                                            </div>
+                                        
+                                    </div>
+                                
+                                
+                                
+                            <div class="variant-selector" data-variant-name="talla">
+                                <div class="variant-label">talla:</div>
+                                <div class="variant-options">
+                                    
+                                        <button class="variant-btn" data-value="S" style="border-color: #2563EB" onclick="carrito.selectVariant(this, 'talla', true)">
+                                            S
+                                        </button>
+                                    
+                                        <button class="variant-btn" data-value="M" style="border-color: #2563EB" onclick="carrito.selectVariant(this, 'talla', true)">
+                                            M
+                                        </button>
+                                    
+                                </div>
+                            </div>
+                        
+                            <div class="variant-selector" data-variant-name="Color">
+                                <div class="variant-label">Color:</div>
+                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                    
+                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="Negro">
+                                            </button>
+                                        
+                                            <button class="variant-btn color-swatch" data-value="Gris Oxford" style="background-color: #7F8C8D; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="Gris Oxford">
+                                            </button>
+                                        
+                                            <button class="variant-btn color-swatch" data-value="Azul rey" style="background-color: #4169E1; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="Azul rey">
+                                            </button>
+                                        
+                                            <button class="variant-btn color-swatch" data-value="Cafe" style="background-color: #8B4513; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="Cafe">
+                                            </button>
+                                        
+                                            <button class="variant-btn color-swatch" data-value="verde militar" style="background-color: #4A5D23; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="verde militar">
+                                            </button>
+                                        
+                                            <button class="variant-btn color-swatch" data-value="Gris claro" style="background-color: #CCCCCC; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="Gris claro">
+                                            </button>
+                                        
+                                            <button class="variant-btn color-swatch" data-value="Azul marino" style="background-color: #000080; border-color: #2563EB;" onclick="carrito.selectVariant(this, 'Color', true)" title="Azul marino">
+                                            </button>
+                                        
+                                </div>
+                            </div>
+                        
+                                
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" data-product-id="10" style="background: linear-gradient(135deg, #2563EB, #1d4fbc);" onclick="carrito.handleAddToCart(10)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        AGREGAR
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
         </div>
     </section>
@@ -6167,7 +6287,7 @@ Ej: Negro|https://ejemplo.com/negro.jpg" style="height: 365px;"></textarea>
                                 <div class="coupon-description">
                                     Camisetas básicas
                                 </div>
-                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 14h 58m</span></div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 23h 24m</span></div>
                             </div>
                         </div>
                     
@@ -6182,7 +6302,7 @@ Ej: Negro|https://ejemplo.com/negro.jpg" style="height: 365px;"></textarea>
                                 <div class="coupon-description">
                                     Descuento en toda la tienda
                                 </div>
-                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 14h 58m</span></div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 23h 24m</span></div>
                             </div>
                         </div>
                     </div>
@@ -6667,15 +6787,15 @@ Ej: Negro|https://ejemplo.com/negro.jpg" style="height: 365px;"></textarea>
         };
 
         // Cargar datos desde localStorage (si existen) o usar valores por defecto
-        let productos = [{"id":1,"nombre":"PANS","precioRegular":"$100","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"hombre","subcategoria":"PANS DEPORTIVO","descripcion":"Diseñados para moverte. Ideales para crossfit, running, pilates o gym. Libertad de movimiento garantizada.","estado":"nuevo","especificaciones":["Tela de algodón de alta calidad.","Cintura elástica.","Básicos cómodos y modernos."],"variantes":[{"nombre":"talla","tipo":"select","opciones":["S","M"],"required":true},{"nombre":"Color","tipo":"select","opciones":["Negro","Gris Oxford","Azul rey","Cafe","verde militar","Gris claro","Azul marino","Negro"],"required":true}],"stock":{"S|Negro":1,"S|Gris Oxford":1,"S|Azul rey":1,"S|Cafe":1,"S|verde militar":1,"S|Gris claro":1,"S|Azul marino":1,"M|Negro":1,"M|Gris Oxford":1,"M|Azul rey":1,"M|Cafe":0,"M|verde militar":0,"M|Gris claro":0,"M|Azul marino":0},"galeriaPorVariante":{"Negro":["https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500","https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"]}},{"id":2,"nombre":"SUDADERA","precioRegular":"130","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","categoria":"hombre","subcategoria":"SUDADERA","descripcion":"jhgfdcfgyuhiuy","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Talla","tipo":"select","opciones":["S","M"],"required":true},{"nombre":"Color","tipo":"select","opciones":["Negro","Gris Oxford","Azul rey","Cafe","verde militar","Gris claro","Azul marino"],"required":true}],"stock":{"S|Negro":1,"S|Gris Oxford":1,"S|Azul rey":1,"S|Cafe":1,"S|verde militar":1,"S|Gris claro":1,"S|Azul marino":1,"M|Negro":1,"M|Gris Oxford":1,"M|Azul rey":1,"M|Cafe":0,"M|verde militar":0,"M|Gris claro":0,"M|Azul marino":0},"galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]},{"id":3,"nombre":"MOCHIL","precioRegular":"$250","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"accesorios","subcategoria":"MOCHILA","descripcion":"mkpjkihuhji","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"color","tipo":"select","opciones":["Negro","Nude","Palo de rosa"],"required":true}],"stock":{"Negro":1,"Nude":1,"Palo de rosa":1},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":4,"nombre":"GORRA","precioRegular":"90","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"accesorios","subcategoria":"GORRA","descripcion":"kj","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Lila","Gris claro","Verde militar","Verde pato"],"required":true}],"stock":{"Negro":2,"Lila":1,"Gris claro":1,"Verde militar":1,"Verde pato":1},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":5,"nombre":"CINTURO","precioRegular":"85","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"accesorios","subcategoria":"CINTURON","descripcion":"OPIHU","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Gris","Verde agua","Cafe"],"required":true},{"nombre":"Talla","tipo":"select","opciones":["CH","M"],"required":true}],"stock":{"Negro|CH":0,"Negro|M":2,"Gris|CH":1,"Gris|M":1,"Verde agua|CH":0,"Verde agua|M":2,"Cafe|CH":0,"Cafe|M":2},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":6,"nombre":"CALCETAS MULAYA'S","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"hombre","subcategoria":"CALCETAS FASHION","descripcion":"KJHJ","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Gris rata","Gris claro","Azul marino"],"required":true}],"stock":{"Negro":2,"Gris rata":3,"Gris claro":3,"Azul marino":4},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":7,"nombre":"CALCETIN SPORT","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","categoria":"hombre","subcategoria":"CALCETIN SPORT SOCKS","descripcion":"MKNLJHGV","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Azul marino","Gris claro","Gris rata"],"required":true}],"stock":{"Negro":15,"Azul marino":3,"Gris claro":3,"Gris rata":3},"galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]},{"id":8,"nombre":"CALCETIN SPORT SOCKS","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","categoria":"mujer","subcategoria":"CALCETIN NIKE","descripcion":"HUIOUYIFUGI","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Azul marino","Blanco","Gris oscuro","Azul cielo","Lila","Beg","Rosa","Gris","Verde pastel"],"required":true}],"stock":{"Negro":3,"Azul marino":3,"Blanco":3,"Gris oscuro":3,"Azul cielo":2,"Lila":2,"Beg":2,"Rosa":2,"Gris":2,"Verde pastel":2},"galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]},{"id":9,"nombre":"CALCETIN SPORT","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500","https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500","https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500&h=600","https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500","https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500&h=600"],"categoria":"mujer","subcategoria":"CALCETIN ADIDAS","descripcion":"MKUIYUCVYB","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Gris","Blanco","Azul marino"],"required":true}],"stock":{"Negro":3,"Gris":3,"Blanco":3,"Azul marino":3},"imagenesPorVariante":{"Negro":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500","Azul":"https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500","Rojo":"https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500","Verde":"https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500","Gris":"https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500&h=600"}}];
+        let productos = [{"id":1,"nombre":"PANS","precioRegular":"$100","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"hombre","subcategoria":"PANS DEPORTIVO","descripcion":"Diseñados para moverte. Ideales para crossfit, running, pilates o gym. Libertad de movimiento garantizada.","estado":"nuevo","especificaciones":["Tela de algodón de alta calidad.","Cintura elástica.","Básicos cómodos y modernos."],"variantes":[{"nombre":"talla","tipo":"select","opciones":["S","M"],"required":true},{"nombre":"Color","tipo":"select","opciones":["Negro","Gris Oxford","Azul rey","Cafe","verde militar","Gris claro","Azul marino","Negro"],"required":true}],"stock":{"S|Negro":1,"S|Gris Oxford":1,"S|Azul rey":1,"S|Cafe":1,"S|verde militar":1,"S|Gris claro":1,"S|Azul marino":1,"M|Negro":1,"M|Gris Oxford":1,"M|Azul rey":1,"M|Cafe":0,"M|verde militar":0,"M|Gris claro":0,"M|Azul marino":0},"galeriaPorVariante":{"Negro":["https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500","https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"]}},{"id":2,"nombre":"SUDADERA","precioRegular":"130","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","categoria":"hombre","subcategoria":"SUDADERA","descripcion":"jhgfdcfgyuhiuy","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Talla","tipo":"select","opciones":["S","M"],"required":true},{"nombre":"Color","tipo":"select","opciones":["Negro","Gris Oxford","Azul rey","Cafe","verde militar","Gris claro","Azul marino"],"required":true}],"stock":{"S|Negro":1,"S|Gris Oxford":1,"S|Azul rey":1,"S|Cafe":1,"S|verde militar":1,"S|Gris claro":1,"S|Azul marino":1,"M|Negro":1,"M|Gris Oxford":1,"M|Azul rey":1,"M|Cafe":0,"M|verde militar":0,"M|Gris claro":0,"M|Azul marino":0},"galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]},{"id":3,"nombre":"MOCHIL","precioRegular":"$250","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"accesorios","subcategoria":"MOCHILA","descripcion":"mkpjkihuhji","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"color","tipo":"select","opciones":["Negro","Nude","Palo de rosa"],"required":true}],"stock":{"Negro":1,"Nude":1,"Palo de rosa":1},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":4,"nombre":"GORRA","precioRegular":"90","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"accesorios","subcategoria":"GORRA","descripcion":"kj","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Lila","Gris claro","Verde militar","Verde pato"],"required":true}],"stock":{"Negro":2,"Lila":1,"Gris claro":1,"Verde militar":1,"Verde pato":1},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":5,"nombre":"CINTURO","precioRegular":"85","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"accesorios","subcategoria":"CINTURON","descripcion":"OPIHU","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Gris","Verde agua","Cafe"],"required":true},{"nombre":"Talla","tipo":"select","opciones":["CH","M"],"required":true}],"stock":{"Negro|CH":0,"Negro|M":2,"Gris|CH":1,"Gris|M":1,"Verde agua|CH":0,"Verde agua|M":2,"Cafe|CH":0,"Cafe|M":2},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":6,"nombre":"CALCETAS MULAYA'S","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"hombre","subcategoria":"CALCETAS FASHION","descripcion":"KJHJ","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Gris rata","Gris claro","Azul marino"],"required":true}],"stock":{"Negro":2,"Gris rata":3,"Gris claro":3,"Azul marino":4},"galeria":["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"]},{"id":7,"nombre":"CALCETIN SPORT","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","categoria":"hombre","subcategoria":"CALCETIN SPORT SOCKS","descripcion":"MKNLJHGV","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Azul marino","Gris claro","Gris rata"],"required":true}],"stock":{"Negro":15,"Azul marino":3,"Gris claro":3,"Gris rata":3},"galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]},{"id":8,"nombre":"CALCETIN SPORT SOCKS","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","categoria":"mujer","subcategoria":"CALCETIN NIKE","descripcion":"HUIOUYIFUGI","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Azul marino","Blanco","Gris oscuro","Azul cielo","Lila","Beg","Rosa","Gris","Verde pastel"],"required":true}],"stock":{"Negro":3,"Azul marino":3,"Blanco":3,"Gris oscuro":3,"Azul cielo":2,"Lila":2,"Beg":2,"Rosa":2,"Gris":2,"Verde pastel":2},"galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]},{"id":9,"nombre":"CALCETIN SPORT","precioRegular":"25","imagen":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","galeria":["https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500","https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500","https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500&h=600","https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500","https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500&h=600"],"categoria":"mujer","subcategoria":"CALCETIN ADIDAS","descripcion":"MKUIYUCVYB","estado":"nuevo","especificaciones":[],"variantes":[{"nombre":"Color","tipo":"select","opciones":["Negro","Gris","Blanco","Azul marino"],"required":true}],"stock":{"Negro":3,"Gris":3,"Blanco":3,"Azul marino":3},"imagenesPorVariante":{"Negro":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500","Azul":"https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500","Rojo":"https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500","Verde":"https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500","Gris":"https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500&h=600"}},{"id":10,"nombre":"PANS (Copia)","precioRegular":"$100","imagen":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","categoria":"hombre","subcategoria":"PANS DEPORTIVO","descripcion":"Diseñados para moverte. Ideales para crossfit, running, pilates o gym. Libertad de movimiento garantizada.","estado":"nuevo","especificaciones":["Tela de algodón de alta calidad.","Cintura elástica.","Básicos cómodos y modernos."],"variantes":[{"nombre":"talla","tipo":"select","opciones":["S","M"],"required":true},{"nombre":"Color","tipo":"select","opciones":["Negro","Gris Oxford","Azul rey","Cafe","verde militar","Gris claro","Azul marino"],"required":true}],"stock":{"S|Negro":1,"S|Gris Oxford":1,"S|Azul rey":1,"S|Cafe":1,"S|verde militar":1,"S|Gris claro":1,"S|Azul marino":1,"M|Negro":1,"M|Gris Oxford":1,"M|Azul rey":1,"M|Cafe":0,"M|verde militar":0,"M|Gris claro":0,"M|Azul marino":0},"imagenesPorVariante":{"Negro":"https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=500","Beige":"https://images.unsplash.com/photo-1556905200-003b4c9be0f7?w=500","Azul Marino":"https://images.unsplash.com/photo-1556905200-003b4c9be0f7?w=500"}}];
         let categorias = [{"id":"todo","nombre":"TODO","color":"#D4AF37","icono":"fa-tags","orden":0},{"id":"hombre","nombre":"Hombre","color":"#2563EB","icono":"fa-user-tie","orden":1},{"id":"mujer","nombre":"Mujer","color":"#DB2777","icono":"fa-female","orden":2},{"id":"accesorios","nombre":"Accesorios","color":"#7C3AED","icono":"fa-briefcase","orden":3}];
         let sectionCategories = [{"id":1,"name":"Hombre","description":"Ropa y accesorios para hombres modernos","image":"https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","buttonColor":"#2563EB","action":"carrito.filterProducts('hombre')","order":1},{"id":2,"name":"Mujer","description":"Moda femenina para todos los estilos","image":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","buttonColor":"#DB2777","action":"carrito.filterProducts('mujer')","order":2},{"id":4,"name":"Accesorios","description":"Complementos para completar tu look","image":"https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80","buttonColor":"#7C3AED","action":"carrito.filterProducts('accesorios')","order":3}];
         let sectionConfig = {"title":"Nuestras Categorías","subtitle":"Explora nuestra variedad de productos organizados por categorías"};
         
         // SOLO CUPONES: Cargar cupones desde localStorage o usar valores por defecto
-        let cuponesDisponibles = [{"id":"cupon1771482861738","codigo":"2X1CAMISETAS","descripcion":"Camisetas básicas","tipo":"2x1","valor":"2x1","minimo":0,"color":"#3b82f6","usado":false,"expirado":false,"fechaExpiracion":"2026-02-26T23:59:00","icono":"fa-gift"},{"id":"cupon1771482864192","codigo":"$50 OFF","descripcion":"Descuento en toda la tienda","tipo":"fijo","valor":50,"minimo":0,"color":"#8b5cf6","usado":false,"expirado":false,"fechaExpiracion":"2026-02-26T23:59:00","icono":"fa-dollar-sign"}];
-        let cuponesUsados = [];
-        let cuponesExpirados = ["cupon1770918868389"];
+        let cuponesDisponibles = loadFromStorage('modastyle_cupones', defaultCuponesDisponibles);
+        let cuponesUsados = loadFromStorage('modastyle_cupones_usados', defaultCuponesUsados);
+        let cuponesExpirados = loadFromStorage('modastyle_cupones_expirados', defaultCuponesExpirados);
         
         let bannersDisponibles = [{"id":"banner1771482838847","tipo":"flash","titulo":"¡Ofertas de Verano!","subtitulo":"Hasta 50% de descuento","buttonText":"Comprar Ahora","actionType":"category","actionValue":"todo","backgroundColor":"linear-gradient(135deg, #1a1a1a 0%, #D4AF37 100%)","textColor":"#ffffff","expiryDate":null,"active":true,"fechaCreacion":"2026-02-19T06:33:58.847Z"}];
         let deliveryConfig = {"points":[{"id":"xhala","name":"San Sebastián Xhala","address":"San Sebastián, enfrente de la universidad","map":"https://maps.app.goo.gl/nKi4gyiDY1KikZPQ6"},{"id":"socorro","name":"El Socorro","address":"Colonia El Socorro, en los Arcos en frente del oxxo","map":"https://maps.app.goo.gl/BYYZWmaa9TbtjWvD8"},{"id":"mateo","name":"San Mateo","address":"San Mateo, en frente de la iglesia","map":"https://maps.app.goo.gl/q1KoquLtgrTEnuCo6"}],"times":[{"id":"time1771356290191","value":"11:30","label":"11:30 AM"},{"id":"time1771356300623","value":"19:30","label":"7:30 PM"}],"transfer":{"nombre":"Saul Flores","banco":"STP","clabe":"721180100001101243"}};
