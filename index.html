@@ -39,10 +39,12 @@
             --banner-info: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --banner-flash: linear-gradient(135deg, #f43b47 0%, #453a94 100%);
             
-            --border-radius: 8px;
-            --border-radius-sm: 4px;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 20px;
+            --border-radius-xl: 30px;
             --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 16px rgba(139, 92, 246, 0.15);
             --transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             --container-width: 1200px;
             --header-height: 60px;
@@ -171,7 +173,7 @@
             width: 100%;
             padding: 10px 15px 10px 40px;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             background: rgba(26, 26, 26, 0.8);
             font-size: 0.85rem;
             transition: var(--transition);
@@ -206,7 +208,7 @@
             right: 0;
             background: rgba(20, 20, 20, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-hover);
             margin-top: 5px;
             z-index: 1001;
@@ -331,7 +333,7 @@
             background: linear-gradient(135deg, var(--admin), #7C3AED);
             color: white;
             border: none;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             width: 40px;
             height: 40px;
             font-weight: 600;
@@ -404,7 +406,7 @@
         }
 
         .banner-card {
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
             transition: var(--transition);
@@ -448,7 +450,7 @@
             padding: 10px 25px;
             background: rgba(255, 255, 255, 0.2);
             color: white;
-            border-radius: 30px;
+            border-radius: var(--border-radius-xl);
             font-weight: 700;
             text-decoration: none;
             transition: var(--transition);
@@ -546,7 +548,7 @@
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             padding: 30px;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             border: 1px solid rgba(139, 92, 246, 0.3);
         }
 
@@ -577,7 +579,7 @@
             padding: 6px 12px;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             font-size: 0.8rem;
             font-weight: 600;
             display: flex;
@@ -599,6 +601,207 @@
             color: #D4AF37;
             font-size: 0.85rem;
         }
+
+        /* Carrusel de imágenes - NUEVO DISEÑO MINIMALISTA CON BARRA DE PROGRESO */
+        .carousel-section {
+            padding: 40px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-carousel {
+            position: relative;
+            width: 100%;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            color: white;
+            text-align: left;
+            z-index: 3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none; /* El texto no bloquea clics */
+        }
+
+        .carousel-caption h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .carousel-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .carousel-caption .carousel-button {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(5px);
+            border: 2px solid white;
+            border-radius: var(--border-radius-xl);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            pointer-events: auto; /* El botón sí recibe clics */
+        }
+
+        .carousel-caption .carousel-button:hover {
+            background: #8B5CF6;
+            transform: translateY(-2px);
+        }
+
+        /* NUEVOS ESTILOS PARA EL CARRUSEL MINIMALISTA */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
+        }
+
+        .carousel-nav-btn:hover {
+            background: #8B5CF6;
+            transform: translateY(-50%) scale(1.15);
+            border-color: white;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+            opacity: 1;
+        }
+
+        .carousel-nav-btn.prev {
+            left: -25px; /* Exterior a la izquierda */
+        }
+
+        .carousel-nav-btn.next {
+            right: -25px; /* Exterior a la derecha */
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 8px 20px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot:hover {
+            background: #D4AF37;
+            transform: scale(1.2);
+            border-color: #D4AF37;
+        }
+
+        .carousel-dot.active {
+            background: #8B5CF6;
+            transform: scale(1.4);
+            border-color: #8B5CF6;
+            box-shadow: 0 0 15px #8B5CF6;
+        }
+
+        /* Barra de progreso para autoplay */
+        .carousel-progress-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+
+        .carousel-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #8B5CF6, #D4AF37);
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px #8B5CF6;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-nav-btn.prev {
+                left: 10px; /* En móvil, se mueven hacia adentro */
+            }
+            .carousel-nav-btn.next {
+                right: 10px;
+            }
+        }
+        /* FIN NUEVOS ESTILOS CARRUSEL */
 
         .categories-section {
             padding: 40px 0;
@@ -647,7 +850,7 @@
 
         .category-card {
             position: relative;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
             height: 250px;
             cursor: pointer;
@@ -705,7 +908,7 @@
             padding: 4px 10px;
             background: #8B5CF6;
             color: white;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             font-weight: 600;
             font-size: 0.75rem;
         }
@@ -728,7 +931,7 @@
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
@@ -773,7 +976,7 @@
         .product-card {
             background: rgba(20, 20, 20, 0.8);
             backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             transition: var(--transition);
@@ -934,7 +1137,7 @@
             padding: 3px 8px;
             font-size: 0.65rem;
             font-weight: 700;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             text-transform: uppercase;
             letter-spacing: 0.3px;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -1066,7 +1269,7 @@
             border: 1px solid rgba(139, 92, 246, 0.3);
             background: rgba(0, 0, 0, 0.3);
             color: white;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
@@ -1132,7 +1335,7 @@
             background: linear-gradient(135deg, #8B5CF6, #6D28D9);
             color: white;
             border: none;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
@@ -1187,7 +1390,7 @@
             max-width: 100%;
             max-height: 85vh;
             object-fit: contain;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             box-shadow: 0 5px 30px rgba(139, 92, 246, 0.5);
             border: 2px solid rgba(139, 92, 246, 0.3);
         }
@@ -1674,7 +1877,7 @@
             gap: 6px;
             background: rgba(0, 0, 0, 0.5);
             padding: 3px 6px;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
@@ -1683,7 +1886,7 @@
             height: 20px;
             border: none;
             background: rgba(139, 92, 246, 0.2);
-            border-radius: 4px;
+            border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -1714,7 +1917,7 @@
             background: linear-gradient(135deg, #ff6b6b, #ff5252);
             color: white;
             border: none;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             cursor: pointer;
             font-size: 0.75rem;
             font-weight: 600;
@@ -1756,7 +1959,7 @@
             background: rgba(139, 92, 246, 0.2);
             color: #ffffff;
             text-decoration: none;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             font-weight: 600;
             transition: var(--transition);
             border: 1px solid rgba(139, 92, 246, 0.3);
@@ -1886,7 +2089,7 @@
             background: linear-gradient(135deg, #8B5CF6, #6D28D9);
             color: white;
             border: none;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
@@ -1907,7 +2110,7 @@
             background: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-xl);
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -1946,7 +2149,7 @@
         .modal-content {
             background: rgba(20, 20, 20, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             padding: 15px;
             max-width: 400px;
             width: 100%;
@@ -2011,7 +2214,7 @@
             width: 100%;
             padding: 8px 10px;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             font-family: inherit;
             font-size: 0.85rem;
             transition: var(--transition);
@@ -2033,7 +2236,7 @@
             width: 100%;
             padding: 8px 10px;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             font-family: inherit;
             font-size: 0.85rem;
             transition: var(--transition);
@@ -2077,7 +2280,7 @@
         .delivery-option {
             padding: 10px;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             cursor: pointer;
             transition: var(--transition);
             display: flex;
@@ -2139,7 +2342,7 @@
         .payment-option {
             padding: 10px;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
@@ -2204,7 +2407,7 @@
             background: rgba(0, 0, 0, 0.3);
             color: #ffffff;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -2222,7 +2425,7 @@
             background: linear-gradient(135deg, #8B5CF6, #6D28D9);
             color: white;
             border: none;
-            border-radius: var(--border-radius-sm);
+            border-radius: var(--border-radius-lg);
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -2260,7 +2463,7 @@
         .auth-content {
             background: rgba(20, 20, 20, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             padding: 20px;
             max-width: 400px;
             width: 100%;
@@ -4177,7 +4380,7 @@
         .confirm-content {
             background: rgba(20, 20, 20, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             padding: 20px;
             max-width: 350px;
             width: 100%;
@@ -4429,7 +4632,7 @@
 </head>
 <body style="overflow: hidden; margin: 0px;">
     <!-- Fondo de partículas morado y negro -->
-    <canvas id="particlesCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; background: radial-gradient(circle at 30% 30%, #1a0b2e, #0a0a0a 80%);" width="767" height="695"></canvas>
+    <canvas id="particlesCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; background: radial-gradient(circle at 30% 30%, #1a0b2e, #0a0a0a 80%);" width="1536" height="695"></canvas>
 
     <!-- Image Modal con Carrusel (Integrado) -->
     <div class="image-modal-overlay" id="imageModal" data-gallery="[&quot;https://i.postimg.cc/PJLXL6vn/3_AZUL_MARINO.png&quot;]" data-current-index="0" data-product-id="1" data-color="Azul marino">
@@ -4521,6 +4724,9 @@
                 </button>
                 <button class="admin-tab" data-tab="banners">
                     <i class="fas fa-images"></i> Banners
+                </button>
+                <button class="admin-tab" data-tab="carousel">
+                    <i class="fas fa-images"></i> Carrusel
                 </button>
                 <button class="admin-tab" data-tab="section-editor">
                     <i class="fas fa-edit"></i> Editor de Sección
@@ -5179,7 +5385,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     <span>Los banners se muestran en la parte superior de la página. Puedes crear banners con diferentes estilos y enlaces.</span>
                 </div>
                 
-                <div class="status-message status-success" id="bannerMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Banner eliminado</span></div>
+                <div class="status-message status-success" id="bannerMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Banner guardado correctamente</span></div>
                 
                 <div class="admin-form">
                     <h4 class="section-title-admin" style="margin-top: 0; margin-bottom: 15px;">
@@ -5188,7 +5394,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     </h4>
                     
                     <div class="banner-type-selector" style="display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div class="coupon-type-option selected" data-banner-type="hero" onclick="admin.seleccionarTipoBanner('hero')" style="background: rgb(139, 92, 246); color: white;">
+                        <div class="coupon-type-option" data-banner-type="hero" onclick="admin.seleccionarTipoBanner('hero')" style="background: rgb(139, 92, 246); color: white;">
                             <i class="fas fa-star"></i> Hero
                         </div>
                         <div class="coupon-type-option" data-banner-type="oferta" onclick="admin.seleccionarTipoBanner('oferta')">
@@ -5316,10 +5522,227 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     Banners Activos
                 </h4>
                 
-                <div class="banners-list-admin" id="bannersListAdmin">
-                        <div class="status-message status-info">
-                            <i class="fas fa-info-circle"></i>
-                            <span>No hay banners creados. Crea tu primer banner con el formulario de arriba.</span>
+                <div class="banners-list-admin" id="bannersListAdmin"><h5 style="margin: 10px 0; color: var(--success);">Banners Activos</h5>
+                    <div class="banner-item-admin" style="border-left: 4px solid #2e8b57;">
+                        <div class="banner-header-admin">
+                            <div class="banner-title-admin">
+                                <i class="fas fa-star"></i> ¡Ofertas de Verano!
+                                <span class="banner-badge-admin" style="background: var(--success);">Hero</span>
+                            </div>
+                            <div class="banner-actions-admin">
+                                <button class="product-action-btn edit-btn-admin" onclick="admin.editarBanner('banner1772471973655')" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarBanner('banner1772471973655')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="banner-preview">
+                            <div class="banner-preview-color" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);"></div>
+                            <div class="banner-preview-info">
+                                <div><strong>Subtítulo:</strong> Hasta 50% de descuento</div>
+                                <div><strong>Botón:</strong> Comprar Ahora → Ir a categoría: TODO</div>
+                                <div>
+                                    <strong>Estado:</strong> 
+                                    <span style="color: #2e8b57;">
+                                        Activo
+                                    </span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVA SECCIÓN: CARRUSEL DE IMÁGENES -->
+            <div class="admin-section" id="carouselSection">
+                <h3 class="section-title-admin">
+                    <i class="fas fa-images"></i>
+                    Gestión del Carrusel de Imágenes
+                </h3>
+                
+                <div class="status-message status-info" id="carouselInfoMessage">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Administra las imágenes del carrusel principal que aparece antes de los productos. Cada imagen puede enlazar a una categoría específica.</span>
+                </div>
+                
+                <div class="status-message status-success" id="carouselMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Imagen actualizada correctamente</span></div>
+                
+                <div class="admin-form">
+                    <h4 class="section-title-admin" style="margin-top: 0; margin-bottom: 15px;">
+                        <i class="fas fa-plus-circle"></i>
+                        Agregar Nueva Imagen al Carrusel
+                    </h4>
+                    
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">
+                            <i class="fas fa-image"></i> URL de la Imagen:
+                        </label>
+                        <input type="url" id="carouselImageUrl" class="form-input-admin" placeholder="https://ejemplo.com/imagen.jpg" required="">
+                    </div>
+                    
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">
+                            <i class="fas fa-heading"></i> Título (opcional):
+                        </label>
+                        <input type="text" id="carouselTitle" class="form-input-admin" placeholder="Ej: Colección Verano 2026">
+                    </div>
+                    
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">
+                            <i class="fas fa-align-left"></i> Descripción (opcional):
+                        </label>
+                        <input type="text" id="carouselDescription" class="form-input-admin" placeholder="Ej: Descubre las nuevas tendencias">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">
+                                <i class="fas fa-link"></i> Enlace a:
+                            </label>
+                            <select id="carouselLinkType" class="form-select" onchange="admin.cambiarEnlaceCarrusel(this.value)">
+                                <option value="category">Categoría</option>
+                                <option value="url">URL personalizada</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group-admin" id="carouselCategoryContainer" style="display: block;">
+                            <label class="form-label-admin">
+                                <i class="fas fa-tags"></i> Seleccionar Categoría:
+                            </label>
+                            <select id="carouselCategory" class="form-select"><option value="todo">TODOS los productos</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="accesorios">Accesorios</option></select>
+                        </div>
+                        
+                        <div class="form-group-admin" id="carouselUrlContainer" style="display: none;">
+                            <label class="form-label-admin">
+                                <i class="fas fa-link"></i> URL personalizada:
+                            </label>
+                            <input type="url" id="carouselUrl" class="form-input-admin" placeholder="https://ejemplo.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">
+                                <i class="fas fa-sort-numeric-up"></i> Orden:
+                            </label>
+                            <input type="number" id="carouselOrder" class="form-input-admin" placeholder="Posición" min="1" value="1">
+                        </div>
+                        
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">
+                                <i class="fas fa-toggle-on"></i> Activo:
+                            </label>
+                            <select id="carouselActive" class="form-select">
+                                <option value="true" selected="">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions" style="margin-top: 15px;">
+                        <input type="hidden" id="editingCarouselId" value="">
+                        <button type="button" class="btn-cancel" onclick="admin.resetCarouselForm()">
+                            <i class="fas fa-redo"></i>
+                            Limpiar
+                        </button>
+                        <button type="button" class="btn-save" onclick="admin.guardarImagenCarrusel()">
+                            <i class="fas fa-save"></i>
+                            Guardar Imagen
+                        </button>
+                    </div>
+                </div>
+                
+                <h4 class="section-title-admin" style="margin-top: 20px;">
+                    <i class="fas fa-list"></i>
+                    Imágenes del Carrusel
+                </h4>
+                
+                <div class="status-message status-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Arrastra y suelta para reordenar las imágenes</span>
+                </div>
+                
+                <div class="banners-list-admin" id="carouselImagesList">
+                        <div class="banner-item-admin" style="border-left: 4px solid #2e8b57;" draggable="true">
+                            <div class="banner-header-admin">
+                                <div class="banner-title-admin">
+                                    <i class="fas fa-image"></i> Hombre
+                                    <span class="banner-badge-admin" style="background: var(--success);">Activo</span>
+                                </div>
+                                <div class="banner-actions-admin">
+                                    <button class="product-action-btn edit-btn-admin" onclick="admin.editarImagenCarrusel('carousel1772471869113')" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarImagenCarrusel('carousel1772471869113')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="banner-preview">
+                                <img src="https://i.postimg.cc/QtnW4QCb/1.jpg" alt="Hombre" style="width: 60px; height: 40px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                                <div class="banner-preview-info">
+                                    <div><strong>Ropa para hombres para todos los estilos</strong></div>
+                                    <div><strong>Enlace:</strong> Categoría: Hombre</div>
+                                    <div><strong>Orden:</strong> 1</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="banner-item-admin" style="border-left: 4px solid #2e8b57;" draggable="true">
+                            <div class="banner-header-admin">
+                                <div class="banner-title-admin">
+                                    <i class="fas fa-image"></i> Mujer
+                                    <span class="banner-badge-admin" style="background: var(--success);">Activo</span>
+                                </div>
+                                <div class="banner-actions-admin">
+                                    <button class="product-action-btn edit-btn-admin" onclick="admin.editarImagenCarrusel('carousel1772471900995')" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarImagenCarrusel('carousel1772471900995')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="banner-preview">
+                                <img src="https://i.postimg.cc/mD6FXYkm/8.jpg" alt="Mujer" style="width: 60px; height: 40px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                                <div class="banner-preview-info">
+                                    <div><strong>Moda femenina para todos los estilos</strong></div>
+                                    <div><strong>Enlace:</strong> Categoría: Mujer</div>
+                                    <div><strong>Orden:</strong> 2</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="banner-item-admin" style="border-left: 4px solid #2e8b57;" draggable="true">
+                            <div class="banner-header-admin">
+                                <div class="banner-title-admin">
+                                    <i class="fas fa-image"></i> Accesorios
+                                    <span class="banner-badge-admin" style="background: var(--success);">Activo</span>
+                                </div>
+                                <div class="banner-actions-admin">
+                                    <button class="product-action-btn edit-btn-admin" onclick="admin.editarImagenCarrusel('carousel1772471929533')" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarImagenCarrusel('carousel1772471929533')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="banner-preview">
+                                <img src="https://i.postimg.cc/mrSbCH7D/Mochilas_20260220_171827_0000.jpg" alt="Accesorios" style="width: 60px; height: 40px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                                <div class="banner-preview-info">
+                                    <div><strong>Complementos para elevar tu look</strong></div>
+                                    <div><strong>Enlace:</strong> Categoría: Accesorios</div>
+                                    <div><strong>Orden:</strong> 3</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -5714,7 +6137,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     <span>Los cupones aparecerán en el carrito con un cronómetro en días, horas y minutos. Se desactivan automáticamente al expirar.</span>
                 </div>
                 
-                <div class="status-message status-success" id="couponMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Cupón eliminado</span></div>
+                <div class="status-message status-success" id="couponMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Cupón guardado correctamente con cronómetro</span></div>
                 
                 <div class="coupon-admin-container">
                     <h4 class="section-title-admin" style="margin-top: 0; margin-bottom: 15px;">
@@ -5866,7 +6289,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                     <label class="form-label-admin">
                                         <i class="fas fa-tag"></i> Categoría aplicable:
                                     </label>
-                                    <select id="couponPromoCategory" class="coupon-input"></select>
+                                    <select id="couponPromoCategory" class="coupon-input"><option value="">Todas las categorías</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="accesorios">Accesorios</option></select>
                                 </div>
                                 <div class="form-group-admin">
                                     <label class="form-label-admin">
@@ -5944,14 +6367,149 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 </h4>
                 
                 <div class="coupons-list-admin" id="couponsListAdmin">
-                        <div class="status-message status-info">
-                            <i class="fas fa-info-circle"></i>
-                            <span>No hay cupones creados. Agrega cupones con cronómetro desde el formulario.</span>
+                        <div class="coupon-item-admin" style="">
+                            <div class="coupon-header-admin">
+                                <span class="coupon-code-admin" style="background: #10b98120; color: #10b981;">
+                                    <i class="fas fa-truck"></i> 🚚 ENVÍO GRATIS
+                                </span>
+                                <div class="coupon-actions-admin">
+                                    <span class="status-message status-success" style="display: inline-flex; margin: 0; padding: 2px 8px; font-size: 0.7rem;"><i class="fas fa-check-circle"></i> Disponible</span>
+                                    <span class="coupon-expiry-badge"><i class="fas fa-hourglass-half"></i> 7d</span>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarCupon('cupon1772471995888')" style="width: 26px; height: 26px; margin-left: 5px;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="coupon-details-admin">
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Descripción:</span>
+                                    <span class="coupon-detail-value">Compras +$399</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Tipo:</span>
+                                    <span class="coupon-detail-value">🚚 Envío gratis</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Condición:</span>
+                                    <span class="coupon-detail-value">Mínimo $399</span>
+                                </div>
+                                
+                            <div class="coupon-detail-item">
+                                <span class="coupon-detail-label"><i class="fas fa-clock"></i> Expira:</span>
+                                <span class="coupon-detail-value">9/3/2026 11:59 p.m.</span>
+                            </div>
+                        
+                            </div>
+                        </div>
+                    
+                        <div class="coupon-item-admin" style="">
+                            <div class="coupon-header-admin">
+                                <span class="coupon-code-admin" style="background: #05966920; color: #059669;">
+                                    <i class="fas fa-percent"></i> 💰 20% OFF
+                                </span>
+                                <div class="coupon-actions-admin">
+                                    <span class="status-message status-success" style="display: inline-flex; margin: 0; padding: 2px 8px; font-size: 0.7rem;"><i class="fas fa-check-circle"></i> Disponible</span>
+                                    <span class="coupon-expiry-badge"><i class="fas fa-hourglass-half"></i> 7d</span>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarCupon('cupon1772471999413')" style="width: 26px; height: 26px; margin-left: 5px;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="coupon-details-admin">
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Descripción:</span>
+                                    <span class="coupon-detail-value">Toda la tienda</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Tipo:</span>
+                                    <span class="coupon-detail-value">20% OFF</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Condición:</span>
+                                    <span class="coupon-detail-value">Sin mínimo</span>
+                                </div>
+                                
+                            <div class="coupon-detail-item">
+                                <span class="coupon-detail-label"><i class="fas fa-clock"></i> Expira:</span>
+                                <span class="coupon-detail-value">9/3/2026 11:59 p.m.</span>
+                            </div>
+                        
+                            </div>
+                        </div>
+                    
+                        <div class="coupon-item-admin" style="">
+                            <div class="coupon-header-admin">
+                                <span class="coupon-code-admin" style="background: #8b5cf620; color: #8b5cf6;">
+                                    <i class="fas fa-dollar-sign"></i> $50 OFF
+                                </span>
+                                <div class="coupon-actions-admin">
+                                    <span class="status-message status-success" style="display: inline-flex; margin: 0; padding: 2px 8px; font-size: 0.7rem;"><i class="fas fa-check-circle"></i> Disponible</span>
+                                    <span class="coupon-expiry-badge"><i class="fas fa-hourglass-half"></i> 7d</span>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarCupon('cupon1772472003539')" style="width: 26px; height: 26px; margin-left: 5px;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="coupon-details-admin">
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Descripción:</span>
+                                    <span class="coupon-detail-value">Descuento en toda la tienda</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Tipo:</span>
+                                    <span class="coupon-detail-value">$50 OFF</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Condición:</span>
+                                    <span class="coupon-detail-value">Sin mínimo</span>
+                                </div>
+                                
+                            <div class="coupon-detail-item">
+                                <span class="coupon-detail-label"><i class="fas fa-clock"></i> Expira:</span>
+                                <span class="coupon-detail-value">9/3/2026 11:59 p.m.</span>
+                            </div>
+                        
+                            </div>
+                        </div>
+                    
+                        <div class="coupon-item-admin" style="">
+                            <div class="coupon-header-admin">
+                                <span class="coupon-code-admin" style="background: #3b82f620; color: #3b82f6;">
+                                    <i class="fas fa-gift"></i> 2X1CAMISETAS
+                                </span>
+                                <div class="coupon-actions-admin">
+                                    <span class="status-message status-success" style="display: inline-flex; margin: 0; padding: 2px 8px; font-size: 0.7rem;"><i class="fas fa-check-circle"></i> Disponible</span>
+                                    <span class="coupon-expiry-badge"><i class="fas fa-hourglass-half"></i> 7d</span>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarCupon('cupon1772472006436')" style="width: 26px; height: 26px; margin-left: 5px;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="coupon-details-admin">
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Descripción:</span>
+                                    <span class="coupon-detail-value">Camisetas básicas</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Tipo:</span>
+                                    <span class="coupon-detail-value">2X1</span>
+                                </div>
+                                <div class="coupon-detail-item">
+                                    <span class="coupon-detail-label">Condición:</span>
+                                    <span class="coupon-detail-value">Todos los productos</span>
+                                </div>
+                                
+                            <div class="coupon-detail-item">
+                                <span class="coupon-detail-label"><i class="fas fa-clock"></i> Expira:</span>
+                                <span class="coupon-detail-value">9/3/2026 11:59 p.m.</span>
+                            </div>
+                        
+                            </div>
                         </div>
                     </div>
             </div>
 
-            <!-- ==================== NUEVA SECCIÓN: CONFIGURACIÓN GENERAL ==================== -->
+            <!-- SECCIÓN: CONFIGURACIÓN GENERAL -->
             <div class="admin-section" id="generalSection">
                 <h3 class="section-title-admin">
                     <i class="fas fa-cog"></i>
@@ -5963,7 +6521,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     <span>Administra las redes sociales, configuración de envíos, información de contacto y otros ajustes generales de la tienda.</span>
                 </div>
                 
-                <div class="status-message status-success" id="generalMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Cambios guardados</span></div>
+                <div class="status-message status-success" id="generalMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Toda la configuración ha sido guardada</span></div>
                 
                 <!-- CONFIGURACIÓN DE ENVÍOS -->
                 <div class="delivery-editor-section">
@@ -6289,7 +6847,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                             </button>
                         </div>
                         <div style="font-size: 0.7rem; color: var(--text-light); margin-top: 5px;">
-                            <i class="fas fa-info-circle"></i> Exporta todos los productos, categorías, cupones, banners, configuración de entrega y configuración general
+                            <i class="fas fa-info-circle"></i> Exporta todos los productos, categorías, cupones, banners, carrusel, configuración de entrega y configuración general
                         </div>
                     </div>
                     
@@ -6322,7 +6880,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" id="exportIncludeData" checked="">
-                                <span>Incluir datos de productos, cupones, banners, fechas de expiración, datos de entrega y configuración general</span>
+                                <span>Incluir datos de productos, cupones, banners, carrusel, fechas de expiración, datos de entrega y configuración general</span>
                             </label>
                         </div>
                         
@@ -6371,9 +6929,22 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         </div>
     </header>
 
-    <section class="banner-section" id="bannerSection" style="display: none;">
+    <section class="banner-section" id="bannerSection" style="display: block;">
         <div class="container">
-            <div class="banner-container" id="bannerContainer"></div>
+            <div class="banner-container" id="bannerContainer">
+                        <div class="banner-card" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); color: #ffffff;" onclick="admin.ejecutarAccionBanner('category', 'todo')">
+                            <div class="banner-content">
+                                <h2 class="banner-title">¡Ofertas de Verano!</h2>
+                                <p class="banner-subtitle">Hasta 50% de descuento</p>
+                                <span class="banner-button" style="color: #ffffff; background: rgba(255,255,255,0.2); border: 2px solid #ffffff;">Comprar Ahora</span>
+                            </div>
+                            <span class="banner-badge">HERO</span>
+                            
+                            <button class="banner-close" onclick="event.stopPropagation(); admin.desactivarBanner('banner1772471973655')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
         </div>
     </section>
 
@@ -6397,6 +6968,37 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                         <i class="fas fa-gem"></i>
                         Productos premium
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARRUSEL PRINCIPAL - NUEVO DISEÑO -->
+    <section class="carousel-section" id="carouselSectionFront" style="display: block;">
+        <div class="container" style="position: relative;">
+            <div class="main-carousel" id="mainCarousel">
+                <div class="carousel-slides" id="carouselSlides"><div class="carousel-slide" style="background-image: url('https://i.postimg.cc/QtnW4QCb/1.jpg');"><div class="carousel-caption"><h3>Hombre</h3><p>Ropa para hombres para todos los estilos</p><span class="carousel-button" onclick="event.stopPropagation(); carrito.filterProducts('hombre')">Ver más</span></div></div><div class="carousel-slide active" style="background-image: url('https://i.postimg.cc/mD6FXYkm/8.jpg');"><div class="carousel-caption"><h3>Mujer</h3><p>Moda femenina para todos los estilos</p><span class="carousel-button" onclick="event.stopPropagation(); carrito.filterProducts('mujer')">Ver más</span></div></div><div class="carousel-slide" style="background-image: url('https://i.postimg.cc/mrSbCH7D/Mochilas_20260220_171827_0000.jpg');"><div class="carousel-caption"><h3>Accesorios</h3><p>Complementos para elevar tu look</p><span class="carousel-button" onclick="event.stopPropagation(); carrito.filterProducts('accesorios')">Ver más</span></div></div></div>
+                
+                <!-- NUEVOS BOTONES EXTERIORES -->
+                <button class="carousel-nav-btn prev" id="carouselPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" id="carouselNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- NUEVOS DOTS CON EFECTO -->
+                <div class="carousel-dots" id="carouselDots">
+                    <span class="carousel-dot" onclick="admin.goToCarouselSlide(0)"></span>
+                
+                    <span class="carousel-dot active" onclick="admin.goToCarouselSlide(1)"></span>
+                
+                    <span class="carousel-dot" onclick="admin.goToCarouselSlide(2)"></span>
+                </div>
+
+                <!-- NUEVA BARRA DE PROGRESO -->
+                <div class="carousel-progress-container">
+                    <div class="carousel-progress-bar" id="carouselProgressBar" style="width: 97%;"></div>
                 </div>
             </div>
         </div>
@@ -6452,15 +7054,15 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                             TODO
                         </button>
                     
-                        <button class="category-filter " onclick="carrito.filterProducts('hombre')" data-color="#2563EB">
+                        <button class="category-filter" onclick="carrito.filterProducts('hombre')" data-color="#2563EB" style="">
                             Hombre
                         </button>
                     
-                        <button class="category-filter " onclick="carrito.filterProducts('mujer')" data-color="#DB2777">
+                        <button class="category-filter" onclick="carrito.filterProducts('mujer')" data-color="#DB2777">
                             Mujer
                         </button>
                     
-                        <button class="category-filter " onclick="carrito.filterProducts('accesorios')" data-color="#7C3AED">
+                        <button class="category-filter" onclick="carrito.filterProducts('accesorios')" data-color="#7C3AED" style="">
                             Accesorios
                         </button>
                     </div>
@@ -8544,7 +9146,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     <select id="deliveryDay" class="form-select" style="display: none;" required=""></select>
                     
                     <div class="date-selector-container">
-                        <input type="date" id="deliveryDate" class="form-input" required="" min="2026-02-27">
+                        <input type="date" id="deliveryDate" class="form-input" required="" min="2026-03-02">
                         <div class="date-hint" style="color: var(--text-light);">
                             <i class="fas fa-info-circle"></i> 
                             Solo disponible de <strong>Lunes a Sábado</strong> (los domingos no hay entregas)
@@ -8709,7 +9311,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
 
     <div class="cart-icon" id="cartIcon">
         <i class="fas fa-shopping-bag"></i>
-        <div class="cart-count" id="cartCount">1</div>
+        <div class="cart-count" id="cartCount">0</div>
     </div>
 
     <div class="cart-overlay" id="cartOverlay"></div>
@@ -8726,15 +9328,75 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         </div>
         
         <div class="cart-content">
-            <div class="coupon-section" id="couponSection" style="display: none;">
+            <div class="coupon-section" id="couponSection" style="display: block;">
                 <div class="coupon-title">
                     <i class="fas fa-ticket-alt"></i>
                     Cupones disponibles
                 </div>
-                <div class="coupon-grid" id="couponGrid"></div>
+                <div class="coupon-grid" id="couponGrid">
+                        <div class="coupon-item" data-coupon-id="cupon1772471995888" onclick="carrito.aplicarCupon('cupon1772471995888')" style="border-color: #10b981; background: linear-gradient(135deg, #10b98115, #10b98105);">
+                            <div class="coupon-icon" style="background: #10b981; color: white;">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="coupon-info">
+                                <div class="coupon-code" style="color: #10b981;">
+                                    🚚 ENVÍO GRATIS
+                                </div>
+                                <div class="coupon-description">
+                                    Compras +$399
+                                </div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 12h 37m</span></div>
+                            </div>
+                        </div>
+                    
+                        <div class="coupon-item" data-coupon-id="cupon1772471999413" onclick="carrito.aplicarCupon('cupon1772471999413')" style="border-color: #059669; background: linear-gradient(135deg, #05966915, #05966905);">
+                            <div class="coupon-icon" style="background: #059669; color: white;">
+                                <i class="fas fa-percent"></i>
+                            </div>
+                            <div class="coupon-info">
+                                <div class="coupon-code" style="color: #059669;">
+                                    💰 20% OFF
+                                </div>
+                                <div class="coupon-description">
+                                    Toda la tienda
+                                </div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 12h 37m</span></div>
+                            </div>
+                        </div>
+                    
+                        <div class="coupon-item" data-coupon-id="cupon1772472003539" onclick="carrito.aplicarCupon('cupon1772472003539')" style="border-color: #8b5cf6; background: linear-gradient(135deg, #8b5cf615, #8b5cf605);">
+                            <div class="coupon-icon" style="background: #8b5cf6; color: white;">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="coupon-info">
+                                <div class="coupon-code" style="color: #8b5cf6;">
+                                    $50 OFF
+                                </div>
+                                <div class="coupon-description">
+                                    Descuento en toda la tienda
+                                </div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 12h 37m</span></div>
+                            </div>
+                        </div>
+                    
+                        <div class="coupon-item" data-coupon-id="cupon1772472006436" onclick="carrito.aplicarCupon('cupon1772472006436')" style="border-color: #3b82f6; background: linear-gradient(135deg, #3b82f615, #3b82f605);">
+                            <div class="coupon-icon" style="background: #3b82f6; color: white;">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="coupon-info">
+                                <div class="coupon-code" style="color: #3b82f6;">
+                                    2X1CAMISETAS
+                                </div>
+                                <div class="coupon-description">
+                                    Camisetas básicas
+                                </div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 12h 37m</span></div>
+                            </div>
+                        </div>
+                    </div>
             </div>
             
-            <div class="free-shipping-promo" id="freeShippingPromo">
+            <div class="free-shipping-promo" id="freeShippingPromo" style="display: none;">
                 <i class="fas fa-shipping-fast"></i>
                 <div class="promo-text">¡Falta poco para envío gratis!</div>
                 <div class="promo-subtext">Agrega <span id="remainingAmount">$210.00</span> más a tu carrito</div>
@@ -8745,7 +9407,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
             
             <div class="cart-items" id="cartItems"></div>
             
-            <div class="empty-cart" id="emptyCart">
+            <div class="empty-cart" id="emptyCart" style="display: block;">
                 <i class="fas fa-shopping-bag"></i>
                 <h3>Tu carrito está vacío</h3>
                 <p>Agrega algunos productos para comenzar</p>
@@ -8755,7 +9417,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 </a>
             </div>
             
-            <div class="cart-summary" id="cartSummary">
+            <div class="cart-summary" id="cartSummary" style="display: none;">
                 <div class="summary-title">
                     <i class="fas fa-receipt"></i>
                     Resumen del Pedido
@@ -8788,17 +9450,17 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                         <i class="fas fa-calculator"></i>
                         Total
                     </span>
-                    <span class="total-amount" id="total">$0.00</span>
+                    <span class="total-amount" id="total">$50.00</span>
                 </div>
             </div>
         </div>
         
-        <div class="cart-actions" id="cartActions">
-            <button class="checkout-btn" id="checkoutBtn">
+        <div class="cart-actions disabled" id="cartActions">
+            <button class="checkout-btn" id="checkoutBtn" disabled="">
                 <i class="fab fa-whatsapp"></i>
                 Finalizar Compra
             </button>
-            <button class="clear-cart-btn" id="clearCartBtn">
+            <button class="clear-cart-btn" id="clearCartBtn" disabled="">
                 <i class="fas fa-trash"></i>
                 Vaciar Carrito
             </button>
@@ -8837,7 +9499,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 <div class="footer-section">
                     <h3>Contacto</h3>
                     <ul class="footer-links" id="footerContact">
-                        <li><a href="#" id="footerPhone"><i class="fas fa-phone"></i> (55) 1234-5678</a></li>
+                        <li><a href="#" id="footerPhone"><i class="fas fa-phone"></i> (55) 5567416073</a></li>
                         <li><a href="#" id="footerEmail"><i class="fas fa-envelope"></i> info@modastyle.com</a></li>
                         <li><a href="#" id="footerAddress"><i class="fas fa-map-marker-alt"></i> Ciudad de México</a></li>
                         <li><span id="footerHours"><i class="fas fa-clock"></i> Lunes a Viernes 9:00 - 18:00</span></li>
@@ -9116,13 +9778,16 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         
         let deliveryConfig = {"points":[{"id":"xhala","name":"San Sebastián Xhala","address":"San Sebastián, enfrente de la universidad","map":"https://maps.app.goo.gl/nKi4gyiDY1KikZPQ6"},{"id":"socorro","name":"El Socorro","address":"Colonia El Socorro, en los Arcos en frente del oxxo","map":"https://maps.app.goo.gl/BYYZWmaa9TbtjWvD8"},{"id":"mateo","name":"San Mateo","address":"San Mateo, en frente de la iglesia","map":"https://maps.app.goo.gl/q1KoquLtgrTEnuCo6"}],"times":[{"id":"time1771356290191","value":"11:30","label":"11:30 AM"},{"id":"time1771356300623","value":"19:30","label":"7:30 PM"}],"transfer":{"nombre":"Saul Flores","banco":"STP","clabe":"721180100001101243"}};
 
-        let cuponesDisponibles = [];
+        let cuponesDisponibles = [{"id":"cupon1772471995888","codigo":"🚚 ENVÍO GRATIS","descripcion":"Compras +$399","tipo":"envio","valor":0,"minimo":399,"color":"#10b981","usado":false,"expirado":false,"fechaExpiracion":"2026-03-09T23:59:00","icono":"fa-truck"},{"id":"cupon1772471999413","codigo":"💰 20% OFF","descripcion":"Toda la tienda","tipo":"porcentaje","valor":20,"minimo":0,"color":"#059669","usado":false,"expirado":false,"fechaExpiracion":"2026-03-09T23:59:00","icono":"fa-percent"},{"id":"cupon1772472003539","codigo":"$50 OFF","descripcion":"Descuento en toda la tienda","tipo":"fijo","valor":50,"minimo":0,"color":"#8b5cf6","usado":false,"expirado":false,"fechaExpiracion":"2026-03-09T23:59:00","icono":"fa-dollar-sign"},{"id":"cupon1772472006436","codigo":"2X1CAMISETAS","descripcion":"Camisetas básicas","tipo":"2x1","valor":"2x1","minimo":0,"color":"#3b82f6","usado":false,"expirado":false,"fechaExpiracion":"2026-03-09T23:59:00","icono":"fa-gift"}];
         let cuponesUsados = ["cupon1771391296288","cupon1771391284156","cupon1771607993717","cupon1771607991071","cupon1771607988171","cupon1771607984559","cupon1771688064843","cupon1771688072907","cupon1771784636834","cupon1771878474485","cupon1771878472026"];
         let cuponesExpirados = ["cupon1770918868389"];
-        let bannersDisponibles = [];
+        let bannersDisponibles = [{"id":"banner1772471973655","tipo":"hero","titulo":"¡Ofertas de Verano!","subtitulo":"Hasta 50% de descuento","buttonText":"Comprar Ahora","actionType":"category","actionValue":"todo","backgroundColor":"linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)","textColor":"#ffffff","expiryDate":null,"active":true,"fechaCreacion":"2026-03-02T17:19:33.655Z"}];
+
+        // ==================== NUEVA VARIABLE PARA CARRUSEL DE IMÁGENES ====================
+        let imagenesCarrusel = [{"id":"carousel1772471869113","url":"https://i.postimg.cc/QtnW4QCb/1.jpg","titulo":"Hombre","descripcion":"Ropa para hombres para todos los estilos","action":"carrito.filterProducts('hombre')","linkType":"category","linkValue":"hombre","orden":1,"activo":true},{"id":"carousel1772471900995","url":"https://i.postimg.cc/mD6FXYkm/8.jpg","titulo":"Mujer","descripcion":"Moda femenina para todos los estilos","action":"carrito.filterProducts('mujer')","linkType":"category","linkValue":"mujer","orden":2,"activo":true},{"id":"carousel1772471929533","url":"https://i.postimg.cc/mrSbCH7D/Mochilas_20260220_171827_0000.jpg","titulo":"Accesorios","descripcion":"Complementos para elevar tu look","action":"carrito.filterProducts('accesorios')","linkType":"category","linkValue":"accesorios","orden":3,"activo":true}];
 
         // ==================== NUEVA CONFIGURACIÓN GENERAL ====================
-        let generalConfig = {"shipping":{"freeMinimum":300,"cost":50,"estimatedTime":"24-48 horas"},"contact":{"phone":"(55) 1234-5678","whatsapp":"5567416073","email":"info@modastyle.com","address":"Ciudad de México","hours":"Lunes a Viernes 9:00 - 18:00"},"socialMedia":[{"id":"fb1","name":"facebook","url":"https://facebook.com/","icon":"fa-facebook","color":"#1877f2","active":true},{"id":"ig1","name":"instagram","url":"https://instagram.com/","icon":"fa-instagram","color":"#e4405f","active":true}],"store":{"name":"ModaStyle","slogan":"Tienda de Ropa, Accesorios y Hogar","currency":"MXN","language":"es","maintenance":false,"trackingNotifications":true}};
+        let generalConfig = {"shipping":{"freeMinimum":300,"cost":50,"estimatedTime":"24-48 horas"},"contact":{"phone":"(55) 5567416073","whatsapp":"5567416073","email":"info@modastyle.com","address":"Ciudad de México","hours":"Lunes a Viernes 9:00 - 18:00"},"socialMedia":[{"id":"fb1","name":"facebook","url":"https://facebook.com/","icon":"fa-facebook","color":"#1877f2","active":true},{"id":"ig1","name":"instagram","url":"https://instagram.com/","icon":"fa-instagram","color":"#e4405f","active":true}],"store":{"name":"ModaStyle","slogan":"Tienda de Ropa, Accesorios y Hogar","currency":"MXN","language":"es","maintenance":false,"trackingNotifications":true}};
 
         // ==================== SISTEMA DE CONFIRMACIÓN MODAL ====================
         class ConfirmModal {
@@ -9615,6 +10280,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     window.admin.renderDeliveryTimes();
                     window.admin.cargarTransferencia();
                     window.admin.cargarConfiguracionGeneral();
+                    window.admin.renderImagenesCarrusel();
                 }
 
                 window.validadorFechas = new ValidadorFechas();
@@ -12297,6 +12963,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 localStorage.setItem('modastyle_section_categories', JSON.stringify(sectionCategories));
                 localStorage.setItem('modastyle_section_config', JSON.stringify(sectionConfig));
                 localStorage.setItem('modastyle_banners', JSON.stringify(bannersDisponibles));
+                localStorage.setItem('modastyle_carousel', JSON.stringify(imagenesCarrusel));
                 localStorage.setItem('modastyle_delivery_config', JSON.stringify(deliveryConfig));
                 localStorage.setItem('modastyle_general_config', JSON.stringify(generalConfig));
                 localStorage.setItem('modastyle_version', CURRENT_VERSION);
@@ -12343,6 +13010,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 this.editingTimeId = null;
                 this.currentProductView = 'list';
                 this.editingSocialId = null;
+                this.carouselEditando = null;
                 
                 this.generadorDescripciones = new GeneradorDescripciones();
                 this.bannerTimers = [];
@@ -12372,6 +13040,440 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 
                 this.iniciarContadorFlashBanners();
                 this.actualizarFooter();
+                
+                // Cargar imágenes del carrusel
+                this.cargarImagenesCarrusel();
+                this.renderImagenesCarrusel();
+            }
+
+            cargarImagenesCarrusel() {
+                const stored = localStorage.getItem('modastyle_carousel');
+                if (stored) {
+                    try {
+                        imagenesCarrusel = JSON.parse(stored);
+                    } catch (e) {
+                        console.error('Error al cargar carrusel:', e);
+                    }
+                }
+            }
+
+            guardarImagenesCarrusel() {
+                localStorage.setItem('modastyle_carousel', JSON.stringify(imagenesCarrusel));
+            }
+
+            cambiarEnlaceCarrusel(tipo) {
+                document.getElementById('carouselCategoryContainer').style.display = tipo === 'category' ? 'block' : 'none';
+                document.getElementById('carouselUrlContainer').style.display = tipo === 'url' ? 'block' : 'none';
+            }
+
+            resetCarouselForm() {
+                this.carouselEditando = null;
+                document.getElementById('carouselImageUrl').value = '';
+                document.getElementById('carouselTitle').value = '';
+                document.getElementById('carouselDescription').value = '';
+                document.getElementById('carouselLinkType').value = 'category';
+                document.getElementById('carouselCategory').value = 'todo';
+                document.getElementById('carouselUrl').value = '';
+                document.getElementById('carouselOrder').value = (imagenesCarrusel.length + 1);
+                document.getElementById('carouselActive').value = 'true';
+                document.getElementById('editingCarouselId').value = '';
+                
+                this.cambiarEnlaceCarrusel('category');
+            }
+
+            guardarImagenCarrusel() {
+                const url = document.getElementById('carouselImageUrl').value.trim();
+                const titulo = document.getElementById('carouselTitle').value.trim();
+                const descripcion = document.getElementById('carouselDescription').value.trim();
+                const linkType = document.getElementById('carouselLinkType').value;
+                const category = document.getElementById('carouselCategory').value;
+                const customUrl = document.getElementById('carouselUrl').value.trim();
+                const orden = parseInt(document.getElementById('carouselOrder').value) || imagenesCarrusel.length + 1;
+                const activo = document.getElementById('carouselActive').value === 'true';
+                const editingId = document.getElementById('editingCarouselId').value;
+
+                if (!url) {
+                    this.mostrarMensajeCarousel('La URL de la imagen es requerida', 'error');
+                    return;
+                }
+
+                // Determinar la acción basada en el tipo de enlace
+                let action = '';
+                if (linkType === 'category') {
+                    if (category === 'todo') {
+                        action = 'carrito.filterProducts("todo")';
+                    } else {
+                        action = `carrito.filterProducts('${category}')`;
+                    }
+                } else {
+                    action = `window.location.href='${customUrl}'`;
+                }
+
+                const nuevaImagen = {
+                    id: editingId || 'carousel' + Date.now(),
+                    url: url,
+                    titulo: titulo || null,
+                    descripcion: descripcion || null,
+                    action: action,
+                    linkType: linkType,
+                    linkValue: linkType === 'category' ? category : customUrl,
+                    orden: orden,
+                    activo: activo
+                };
+
+                if (editingId) {
+                    const index = imagenesCarrusel.findIndex(img => img.id === editingId);
+                    if (index !== -1) {
+                        imagenesCarrusel[index] = nuevaImagen;
+                        this.mostrarMensajeCarousel('Imagen actualizada correctamente', 'success');
+                    }
+                } else {
+                    imagenesCarrusel.push(nuevaImagen);
+                    this.mostrarMensajeCarousel('Imagen guardada correctamente', 'success');
+                }
+
+                // Reordenar según el campo orden
+                imagenesCarrusel.sort((a, b) => a.orden - b.orden);
+
+                this.guardarImagenesCarrusel();
+                this.renderImagenesCarrusel();
+                this.renderCarouselFrontend();
+                this.resetCarouselForm();
+            }
+
+            editarImagenCarrusel(imagenId) {
+                const imagen = imagenesCarrusel.find(img => img.id === imagenId);
+                if (!imagen) return;
+
+                this.carouselEditando = imagen;
+                document.getElementById('carouselImageUrl').value = imagen.url;
+                document.getElementById('carouselTitle').value = imagen.titulo || '';
+                document.getElementById('carouselDescription').value = imagen.descripcion || '';
+                document.getElementById('carouselLinkType').value = imagen.linkType || 'category';
+                document.getElementById('carouselCategory').value = imagen.linkValue && imagen.linkType === 'category' ? imagen.linkValue : 'todo';
+                document.getElementById('carouselUrl').value = imagen.linkType === 'url' ? (imagen.linkValue || '') : '';
+                document.getElementById('carouselOrder').value = imagen.orden;
+                document.getElementById('carouselActive').value = imagen.activo ? 'true' : 'false';
+                document.getElementById('editingCarouselId').value = imagen.id;
+
+                this.cambiarEnlaceCarrusel(imagen.linkType || 'category');
+                this.switchTab('carousel');
+            }
+
+            eliminarImagenCarrusel(imagenId) {
+                if (confirm('¿Eliminar esta imagen del carrusel?')) {
+                    imagenesCarrusel = imagenesCarrusel.filter(img => img.id !== imagenId);
+                    this.guardarImagenesCarrusel();
+                    this.renderImagenesCarrusel();
+                    this.renderCarouselFrontend();
+                    this.mostrarMensajeCarousel('Imagen eliminada', 'success');
+                }
+            }
+
+            renderImagenesCarrusel() {
+                const container = document.getElementById('carouselImagesList');
+                if (!container) return;
+
+                if (imagenesCarrusel.length === 0) {
+                    container.innerHTML = `
+                        <div class="status-message status-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>No hay imágenes en el carrusel. Agrega una desde el formulario.</span>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = imagenesCarrusel.map(imagen => {
+                    const activo = imagen.activo !== false;
+                    
+                    // Determinar el texto del enlace
+                    let linkText = '';
+                    if (imagen.linkType === 'category') {
+                        const categoria = categorias.find(c => c.id === imagen.linkValue);
+                        linkText = `Categoría: ${categoria ? categoria.nombre : imagen.linkValue}`;
+                    } else {
+                        linkText = `URL: ${imagen.linkValue}`;
+                    }
+
+                    return `
+                        <div class="banner-item-admin" style="border-left: 4px solid ${activo ? '#2e8b57' : '#64748b'};">
+                            <div class="banner-header-admin">
+                                <div class="banner-title-admin">
+                                    <i class="fas fa-image"></i> ${imagen.titulo || 'Sin título'}
+                                    <span class="banner-badge-admin" style="background: ${activo ? 'var(--success)' : '#64748b'};">${activo ? 'Activo' : 'Inactivo'}</span>
+                                </div>
+                                <div class="banner-actions-admin">
+                                    <button class="product-action-btn edit-btn-admin" onclick="admin.editarImagenCarrusel('${imagen.id}')" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarImagenCarrusel('${imagen.id}')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="banner-preview">
+                                <img src="${imagen.url}" alt="${imagen.titulo || 'Imagen'}" style="width: 60px; height: 40px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                                <div class="banner-preview-info">
+                                    <div><strong>${imagen.descripcion || 'Sin descripción'}</strong></div>
+                                    <div><strong>Enlace:</strong> ${linkText}</div>
+                                    <div><strong>Orden:</strong> ${imagen.orden}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                // Configurar drag & drop para reordenar
+                this.setupCarouselDragAndDrop();
+            }
+
+            setupCarouselDragAndDrop() {
+                const container = document.getElementById('carouselImagesList');
+                if (!container) return;
+
+                let draggingItem = null;
+
+                container.querySelectorAll('.banner-item-admin').forEach(item => {
+                    item.setAttribute('draggable', 'true');
+                    
+                    item.addEventListener('dragstart', (e) => {
+                        draggingItem = e.currentTarget;
+                        e.currentTarget.classList.add('dragging');
+                    });
+
+                    item.addEventListener('dragend', () => {
+                        draggingItem.classList.remove('dragging');
+                        draggingItem = null;
+                    });
+                });
+
+                container.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    const afterElement = this.getDragAfterElement(container, e.clientY);
+
+                    if (afterElement == null) {
+                        container.appendChild(draggingItem);
+                    } else {
+                        container.insertBefore(draggingItem, afterElement);
+                    }
+                });
+
+                container.addEventListener('drop', () => {
+                    this.reordenarImagenesCarrusel();
+                });
+            }
+
+            reordenarImagenesCarrusel() {
+                const container = document.getElementById('carouselImagesList');
+                const newOrder = [...container.querySelectorAll('.banner-item-admin')].map(item => {
+                    const id = item.querySelector('[onclick*="editarImagenCarrusel"]')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                    return id;
+                }).filter(id => id);
+
+                const imagenesOrdenadas = [];
+                newOrder.forEach(id => {
+                    const imagen = imagenesCarrusel.find(img => img.id === id);
+                    if (imagen) imagenesOrdenadas.push(imagen);
+                });
+
+                // Agregar las que no estaban en el orden (por si acaso)
+                imagenesCarrusel.forEach(imagen => {
+                    if (!newOrder.includes(imagen.id)) {
+                        imagenesOrdenadas.push(imagen);
+                    }
+                });
+
+                // Actualizar el orden
+                imagenesOrdenadas.forEach((img, index) => {
+                    img.orden = index + 1;
+                });
+
+                imagenesCarrusel = imagenesOrdenadas;
+                this.guardarImagenesCarrusel();
+                this.renderCarouselFrontend();
+                this.mostrarMensajeCarousel('Imágenes reordenadas', 'success');
+            }
+
+            renderCarouselFrontend() {
+                const slidesContainer = document.getElementById('carouselSlides');
+                const dotsContainer = document.getElementById('carouselDots');
+                const progressBar = document.getElementById('carouselProgressBar');
+                
+                const imagenesActivas = imagenesCarrusel.filter(img => img.activo !== false).sort((a, b) => a.orden - b.orden);
+
+                if (imagenesActivas.length === 0) {
+                    document.getElementById('carouselSectionFront').style.display = 'none';
+                    return;
+                }
+
+                document.getElementById('carouselSectionFront').style.display = 'block';
+
+                // Render slides
+                slidesContainer.innerHTML = imagenesActivas.map((img, index) => {
+                    // Construir el HTML de la diapositiva
+                    let slideHTML = `<div class="carousel-slide ${index === 0 ? 'active' : ''}" style="background-image: url('${img.url}');">`;
+                    
+                    // Agregar la superposición con el botón
+                    slideHTML += `<div class="carousel-caption">`;
+                    
+                    if (img.titulo) {
+                        slideHTML += `<h3>${img.titulo}</h3>`;
+                    }
+                    
+                    if (img.descripcion) {
+                        slideHTML += `<p>${img.descripcion}</p>`;
+                    }
+                    
+                    // Botón "Ver más" con su propio evento que NO se propaga
+                    slideHTML += `<span class="carousel-button" onclick="event.stopPropagation(); ${img.action}">Ver más</span>`;
+                    
+                    slideHTML += `</div></div>`;
+                    
+                    return slideHTML;
+                }).join('');
+
+                // Hacer que el contenedor de la diapositiva tenga su propio evento de clic
+                setTimeout(() => {
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    slides.forEach((slide, index) => {
+                        slide.onclick = (e) => {
+                            // Solo ejecutar si el clic NO fue en el botón
+                            if (!e.target.classList.contains('carousel-button') && !e.target.closest('.carousel-button')) {
+                                const img = imagenesActivas[index];
+                                if (img && img.action) {
+                                    eval(img.action);
+                                }
+                            }
+                        };
+                    });
+                }, 100);
+
+                // Render dots
+                dotsContainer.innerHTML = imagenesActivas.map((_, index) => `
+                    <span class="carousel-dot ${index === 0 ? 'active' : ''}" onclick="admin.goToCarouselSlide(${index})"></span>
+                `).join('');
+
+                this.currentCarouselIndex = 0;
+                this.startCarouselAutoplay(progressBar);
+            }
+
+            startCarouselAutoplay(progressBar) {
+                if (this.carouselInterval) clearInterval(this.carouselInterval);
+                
+                const intervalTime = 5000; // 5 segundos
+                const updateInterval = 50; // Actualizar cada 50ms para una animación suave
+                let timeElapsed = 0;
+                
+                if (progressBar) {
+                    progressBar.style.width = '0%';
+                }
+                
+                this.carouselInterval = setInterval(() => {
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    
+                    if (slides.length === 0) return;
+                    
+                    slides[this.currentCarouselIndex].classList.remove('active');
+                    dots[this.currentCarouselIndex].classList.remove('active');
+                    
+                    this.currentCarouselIndex = (this.currentCarouselIndex + 1) % slides.length;
+                    
+                    slides[this.currentCarouselIndex].classList.add('active');
+                    dots[this.currentCarouselIndex].classList.add('active');
+                    
+                    // Reiniciar barra de progreso
+                    if (progressBar) {
+                        progressBar.style.width = '0%';
+                        timeElapsed = 0;
+                    }
+                }, intervalTime);
+                
+                // Animación de la barra de progreso
+                if (progressBar) {
+                    const progressInterval = setInterval(() => {
+                        timeElapsed += updateInterval;
+                        const progress = (timeElapsed / intervalTime) * 100;
+                        progressBar.style.width = `${progress}%`;
+                        
+                        if (timeElapsed >= intervalTime) {
+                            timeElapsed = 0;
+                        }
+                    }, updateInterval);
+                    
+                    this.progressInterval = progressInterval;
+                }
+
+                // Botones de navegación
+                document.getElementById('carouselPrev').onclick = () => {
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    
+                    slides[this.currentCarouselIndex].classList.remove('active');
+                    dots[this.currentCarouselIndex].classList.remove('active');
+                    
+                    this.currentCarouselIndex = (this.currentCarouselIndex - 1 + slides.length) % slides.length;
+                    
+                    slides[this.currentCarouselIndex].classList.add('active');
+                    dots[this.currentCarouselIndex].classList.add('active');
+                    
+                    // Reiniciar barra de progreso
+                    if (progressBar) {
+                        progressBar.style.width = '0%';
+                        timeElapsed = 0;
+                    }
+                };
+
+                document.getElementById('carouselNext').onclick = () => {
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    
+                    slides[this.currentCarouselIndex].classList.remove('active');
+                    dots[this.currentCarouselIndex].classList.remove('active');
+                    
+                    this.currentCarouselIndex = (this.currentCarouselIndex + 1) % slides.length;
+                    
+                    slides[this.currentCarouselIndex].classList.add('active');
+                    dots[this.currentCarouselIndex].classList.add('active');
+                    
+                    // Reiniciar barra de progreso
+                    if (progressBar) {
+                        progressBar.style.width = '0%';
+                        timeElapsed = 0;
+                    }
+                };
+            }
+
+            goToCarouselSlide(index) {
+                const slides = document.querySelectorAll('.carousel-slide');
+                const dots = document.querySelectorAll('.carousel-dot');
+                
+                slides[this.currentCarouselIndex].classList.remove('active');
+                dots[this.currentCarouselIndex].classList.remove('active');
+                
+                this.currentCarouselIndex = index;
+                
+                slides[this.currentCarouselIndex].classList.add('active');
+                dots[this.currentCarouselIndex].classList.add('active');
+                
+                // Reiniciar barra de progreso
+                const progressBar = document.getElementById('carouselProgressBar');
+                if (progressBar) {
+                    progressBar.style.width = '0%';
+                }
+            }
+
+            mostrarMensajeCarousel(texto, tipo) {
+                const mensaje = document.getElementById('carouselMessage');
+                mensaje.className = `status-message status-${tipo}`;
+                mensaje.innerHTML = `<i class="fas fa-${tipo === 'success' ? 'check' : 'exclamation'}-circle"></i><span>${texto}</span>`;
+                mensaje.style.display = 'flex';
+                
+                setTimeout(() => {
+                    mensaje.style.display = 'none';
+                }, 3000);
             }
 
             setupGeneradorDescripciones() {
@@ -12508,6 +13610,11 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 document.getElementById('addSectionCategoryBtn').addEventListener('click', () => this.addSectionCategory());
                 
                 document.getElementById('exportHtmlBtn').addEventListener('click', () => this.exportHtml());
+
+                // Eventos del carrusel
+                document.getElementById('carouselLinkType')?.addEventListener('change', (e) => {
+                    this.cambiarEnlaceCarrusel(e.target.value);
+                });
             }
             
             showAuthModal() {
@@ -12562,6 +13669,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 this.cargarTransferencia();
                 this.cargarConfiguracionGeneral();
                 this.renderSocialMedia();
+                this.renderImagenesCarrusel();
             }
             
             closeAdminPanel() {
@@ -12571,6 +13679,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 this.resetCategoriaForm();
                 this.resetSectionCategoryForm();
                 this.resetBannerForm();
+                this.resetCarouselForm();
                 this.cancelarPuntoEntrega();
                 this.cancelarHorarioEntrega();
                 this.cancelarRedSocial();
@@ -12596,6 +13705,8 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     this.renderDeliveryTimes();
                 } else if (tabId === 'general') {
                     this.renderSocialMedia();
+                } else if (tabId === 'carousel') {
+                    this.renderImagenesCarrusel();
                 }
             }
             
@@ -14220,6 +15331,30 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     option.textContent = categoria.nombre;
                     select.appendChild(option);
                 });
+
+                // También actualizar el selector de categorías del carrusel
+                const carouselCategory = document.getElementById('carouselCategory');
+                if (carouselCategory) {
+                    carouselCategory.innerHTML = '<option value="todo">TODOS los productos</option>';
+                    categorias.filter(c => c.id !== 'todo').forEach(categoria => {
+                        const option = document.createElement('option');
+                        option.value = categoria.id;
+                        option.textContent = categoria.nombre;
+                        carouselCategory.appendChild(option);
+                    });
+                }
+
+                // Actualizar el selector de categorías del cupón de promoción
+                const promoCategory = document.getElementById('couponPromoCategory');
+                if (promoCategory) {
+                    promoCategory.innerHTML = '<option value="">Todas las categorías</option>';
+                    categorias.filter(c => c.id !== 'todo').forEach(categoria => {
+                        const option = document.createElement('option');
+                        option.value = categoria.id;
+                        option.textContent = categoria.nombre;
+                        promoCategory.appendChild(option);
+                    });
+                }
             }
             
             renderCategoriasAdmin() {
@@ -15148,6 +16283,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     cuponesUsados: cuponesUsados,
                     cuponesExpirados: cuponesExpirados,
                     bannersDisponibles: bannersDisponibles,
+                    imagenesCarrusel: imagenesCarrusel,
                     deliveryConfig: deliveryConfig,
                     generalConfig: generalConfig,
                     version: CURRENT_VERSION,
@@ -15176,6 +16312,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     categorias: this.comprimirArray(categorias, ['id', 'nombre', 'color', 'icono']),
                     cupones: this.comprimirArray(cuponesDisponibles, ['id', 'codigo', 'tipo', 'valor', 'minimo', 'descripcion', 'fechaExpiracion']),
                     banners: this.comprimirArray(bannersDisponibles, ['id', 'titulo', 'subtitulo', 'tipo', 'buttonText', 'actionType', 'actionValue', 'expiryDate']),
+                    carrusel: this.comprimirArray(imagenesCarrusel, ['id', 'url', 'titulo', 'descripcion', 'action', 'linkType', 'linkValue', 'orden', 'activo']),
                     delivery: {
                         points: this.comprimirArray(deliveryConfig.points, ['id', 'name', 'address', 'map']),
                         times: deliveryConfig.times,
@@ -15237,7 +16374,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 throw new Error('El archivo no tiene el formato correcto');
                             }
                             
-                            if (confirm(`¿Estás seguro de importar estos datos?\n\nSe reemplazarán:\n- ${datos.productos.length} productos\n- ${datos.categorias.length} categorías\n- ${datos.cupones?.length || 0} cupones\n- ${datos.banners?.length || 0} banners`)) {
+                            if (confirm(`¿Estás seguro de importar estos datos?\n\nSe reemplazarán:\n- ${datos.productos.length} productos\n- ${datos.categorias.length} categorías\n- ${datos.cupones?.length || 0} cupones\n- ${datos.banners?.length || 0} banners\n- ${datos.carrusel?.length || 0} imágenes en carrusel`)) {
                                 
                                 productos = datos.productos || [];
                                 categorias = datos.categorias || [];
@@ -15247,6 +16384,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 cuponesUsados = datos.cuponesUsados || [];
                                 cuponesExpirados = datos.cuponesExpirados || [];
                                 bannersDisponibles = datos.bannersDisponibles || [];
+                                imagenesCarrusel = datos.imagenesCarrusel || [];
                                 deliveryConfig = datos.deliveryConfig || { points: [], times: [], transfer: { nombre: "Saul Flores", banco: "STP", clabe: "721180100001101243" } };
                                 generalConfig = datos.generalConfig || generalConfig;
                                 
@@ -15258,6 +16396,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 localStorage.setItem('modastyle_cupones_usados', JSON.stringify(cuponesUsados));
                                 localStorage.setItem('modastyle_cupones_expirados', JSON.stringify(cuponesExpirados));
                                 localStorage.setItem('modastyle_banners', JSON.stringify(bannersDisponibles));
+                                localStorage.setItem('modastyle_carousel', JSON.stringify(imagenesCarrusel));
                                 localStorage.setItem('modastyle_delivery_config', JSON.stringify(deliveryConfig));
                                 localStorage.setItem('modastyle_general_config', JSON.stringify(generalConfig));
                                 
@@ -15276,6 +16415,8 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 this.renderCuponesAdmin();
                                 this.renderBanners();
                                 this.renderBannersFrontend();
+                                this.renderImagenesCarrusel();
+                                this.renderCarouselFrontend();
                                 this.renderDeliveryPoints();
                                 this.renderDeliveryTimes();
                                 this.cargarTransferencia();
@@ -15347,6 +16488,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                         const cuponesUsadosJson = JSON.stringify(cuponesUsados);
                         const cuponesExpiradosJson = JSON.stringify(cuponesExpirados);
                         const bannersJson = JSON.stringify(bannersDisponibles);
+                        const carruselJson = JSON.stringify(imagenesCarrusel);
                         const deliveryJson = JSON.stringify(deliveryConfig);
                         const generalJson = JSON.stringify(generalConfig);
                         
@@ -15359,6 +16501,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                         scriptContent = scriptContent.replace(/let cuponesUsados = \[[\s\S]*?\];/, `let cuponesUsados = ${cuponesUsadosJson};`);
                         scriptContent = scriptContent.replace(/let cuponesExpirados = \[[\s\S]*?\];/, `let cuponesExpirados = ${cuponesExpiradosJson};`);
                         scriptContent = scriptContent.replace(/let bannersDisponibles = \[[\s\S]*?\];/, `let bannersDisponibles = ${bannersJson};`);
+                        scriptContent = scriptContent.replace(/let imagenesCarrusel = \[[\s\S]*?\];/, `let imagenesCarrusel = ${carruselJson};`);
                         scriptContent = scriptContent.replace(/let deliveryConfig = \{[\s\S]*?\};/, `let deliveryConfig = ${deliveryJson};`);
                         scriptContent = scriptContent.replace(/let generalConfig = \{[\s\S]*?\};/, `let generalConfig = ${generalJson};`);
                         
@@ -15396,14 +16539,17 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         
         setTimeout(() => {
             admin.renderBannersFrontend();
+            admin.renderCarouselFrontend();
             admin.actualizarFooter();
         }, 100);
         
-        console.log('✅ Sistema de tienda ModaStyle con CONFIGURACIÓN GENERAL');
-        console.log('✅ Versión 3.14.0 - Configuración de envíos, contacto y redes sociales');
+        console.log('✅ Sistema de tienda ModaStyle con CONFIGURACIÓN GENERAL Y CARRUSEL');
+        console.log('✅ Versión 3.15.0 - Configuración de envíos, contacto, redes sociales y carrusel');
         console.log('✅ Las redes sociales se muestran en el footer con colores personalizados');
-        console.log('✅ El cliente puede agregar, editar y eliminar redes sociales');
+        console.log('✅ El carrusel se muestra antes de los productos con navegación automática');
+        console.log('✅ El cliente puede agregar, editar y eliminar imágenes del carrusel');
         console.log('✅ La configuración se guarda en localStorage y se exporta en el backup');
     </script>
+
 
 </body></html>
