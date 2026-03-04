@@ -1,7 +1,7 @@
 <html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModaStyle - Tienda de Ropa, Accesorios y Hogar (Configuración General)</title>
+    <title>ModaStyle - Tienda de Ropa, Accesorios y Hogar (Configuración General + Lazy Loading)</title>
     
     <!-- Estilos CSS -->
     <style>body { margin: 0; }</style>
@@ -4632,7 +4632,7 @@
 </head>
 <body style="overflow: hidden; margin: 0px;">
     <!-- Fondo de partículas morado y negro -->
-    <canvas id="particlesCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; background: radial-gradient(circle at 30% 30%, #1a0b2e, #0a0a0a 80%);" width="1536" height="695"></canvas>
+    <canvas id="particlesCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; background: radial-gradient(circle at 30% 30%, #1a0b2e, #0a0a0a 80%);" width="767" height="695"></canvas>
 
     <!-- Image Modal con Carrusel (Integrado) -->
     <div class="image-modal-overlay" id="imageModal" data-gallery="[&quot;https://i.postimg.cc/PJLXL6vn/3_AZUL_MARINO.png&quot;]" data-current-index="0" data-product-id="1" data-color="Azul marino">
@@ -5464,7 +5464,7 @@
                     <i class="fas fa-plus-circle"></i>
                     Agregar Nuevo Producto
                 </h3>
-                <div class="status-message status-success" id="formMessage" style="display: none;"><i class="fas fa-check-circle"></i><span>Producto actualizado correctamente</span></div>
+                <div class="status-message status-success" id="formMessage" style="display: flex;"><i class="fas fa-check-circle"></i><span>Datos importados correctamente. La página se recargará en 3 segundos...</span></div>
                 <form class="admin-form" id="productForm">
                     <div class="form-row">
                         <div class="form-group-admin">
@@ -6624,39 +6624,9 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 </h4>
                 
                 <div class="coupons-list-admin" id="couponsListAdmin">
-                        <div class="coupon-item-admin" style="">
-                            <div class="coupon-header-admin">
-                                <span class="coupon-code-admin" style="background: #10b98120; color: #10b981;">
-                                    <i class="fas fa-truck"></i> 🚚 ENVÍO GRATIS
-                                </span>
-                                <div class="coupon-actions-admin">
-                                    <span class="status-message status-success" style="display: inline-flex; margin: 0; padding: 2px 8px; font-size: 0.7rem;"><i class="fas fa-check-circle"></i> Disponible</span>
-                                    <span class="coupon-expiry-badge"><i class="fas fa-hourglass-half"></i> 7d</span>
-                                    <button class="product-action-btn delete-btn-admin" onclick="admin.eliminarCupon('cupon1772595472810')" style="width: 26px; height: 26px; margin-left: 5px;">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="coupon-details-admin">
-                                <div class="coupon-detail-item">
-                                    <span class="coupon-detail-label">Descripción:</span>
-                                    <span class="coupon-detail-value">Cupón de descuento</span>
-                                </div>
-                                <div class="coupon-detail-item">
-                                    <span class="coupon-detail-label">Tipo:</span>
-                                    <span class="coupon-detail-value">🚚 Envío gratis</span>
-                                </div>
-                                <div class="coupon-detail-item">
-                                    <span class="coupon-detail-label">Condición:</span>
-                                    <span class="coupon-detail-value">Sin mínimo</span>
-                                </div>
-                                
-                            <div class="coupon-detail-item">
-                                <span class="coupon-detail-label"><i class="fas fa-clock"></i> Expira:</span>
-                                <span class="coupon-detail-value">10/3/2026 11:59 p.m.</span>
-                            </div>
-                        
-                            </div>
+                        <div class="status-message status-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>No hay cupones creados. Agrega cupones con cronómetro desde el formulario.</span>
                         </div>
                     </div>
             </div>
@@ -8281,2061 +8251,16 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 </div>
                             </div>
                         </div>
-                    
-                        <div class="product-card" data-product-id="17" style="animation-delay: 0.4s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/RFbns7hX/7.jpg&quot;,&quot;https://i.postimg.cc/NMHPCVVv/1_NEGRO.jpg&quot;,&quot;https://i.postimg.cc/SsMt155F/2_GRIS.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/RFbns7hX/7.jpg" alt="CONJUNTO LEGINS MUJER" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/NMHPCVVv/1_NEGRO.jpg" alt="CONJUNTO LEGINS MUJER" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/SsMt155F/2_GRIS.jpg" alt="CONJUNTO LEGINS MUJER" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/RFbns7hX/7.jpg', 'CONJUNTO LEGINS MUJER')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    CONJUNTO LEGINS
-                                </div>
-                                
-                                <h3 class="product-title">CONJUNTO LEGINS MUJER</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$490</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Siente la diferencia con nuestra CONJUNTO LEGINS MUJER de tendencia actual, diseño resistente. Ideal para el gym o actividades al aire libre.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Material grueso</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Bolsas laterales</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Realza tu figura</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris" style="background-color: #808080;" title="Gris" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                            <div class="variant-selector" data-variant-name="Talla">
-                                <div class="variant-label">Talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="M" style="border-color: #DB2777" onclick="carrito.selectVariant(this, 'Talla', true)">
-                                            M
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="17" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(17)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="12" style="animation-delay: 0.45s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/631GjrqP/9.jpg&quot;,&quot;https://i.postimg.cc/tCb64tww/1.jpg&quot;,&quot;https://i.postimg.cc/hP0dzQRs/1_(2).jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/631GjrqP/9.jpg" alt="TOP" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/tCb64tww/1.jpg" alt="TOP" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/hP0dzQRs/1_(2).jpg" alt="TOP" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/631GjrqP/9.jpg', 'TOP')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    Top
-                                </div>
-                                
-                                <h3 class="product-title">TOP</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$185</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Fabricado para brindar la máxima comodidad, calidad y diseño resistente. ¡Perfecto para actividaddes al aire libre!
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Copa includa</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Grueso</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Comodos</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                            <div class="variant-selector" data-variant-name="Talla">
-                                <div class="variant-label">Talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="M" style="border-color: #DB2777" onclick="carrito.selectVariant(this, 'Talla', true)">
-                                            M
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="12" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(12)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="11" style="animation-delay: 0.5s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/mD6FXYkm/8.jpg&quot;,&quot;https://i.postimg.cc/C16gGjbj/1_NEGRO.jpg&quot;,&quot;https://i.postimg.cc/hj3BL9V8/2_GRIS.png&quot;,&quot;https://i.postimg.cc/MTrS7y1B/3_BLANCO.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/mD6FXYkm/8.jpg" alt="FALDA SORT" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/C16gGjbj/1_NEGRO.jpg" alt="FALDA SORT" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/hj3BL9V8/2_GRIS.png" alt="FALDA SORT" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/MTrS7y1B/3_BLANCO.png" alt="FALDA SORT" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 3 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/mD6FXYkm/8.jpg', 'FALDA SORT')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    FALDAS
-                                </div>
-                                
-                                <h3 class="product-title">FALDA SORT</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$180</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Atrévete a lucir nuestras  FALDAS. Creada para brindar la máxima comodidad, con diseño favorecedor y alta calidad para un uso deprtivo  ¡Descubre la diferencia!.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Skort</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Comodas</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Elasticas</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris" style="background-color: #808080;" title="Gris" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Blanco" style="background-color: #FFFFFF;" title="Blanco" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                            <div class="variant-selector" data-variant-name="Talla">
-                                <div class="variant-label">Talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="CH" style="border-color: #DB2777" onclick="carrito.selectVariant(this, 'Talla', true)">
-                                            CH
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-value="M" style="border-color: #DB2777" onclick="carrito.selectVariant(this, 'Talla', true)">
-                                            M
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="11" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(11)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="14" style="animation-delay: 0.55s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/pTdFJGW7/4.jpg&quot;,&quot;https://i.postimg.cc/13zbHg5f/1_NEGRO_ACAMPANADO.png&quot;,&quot;https://i.postimg.cc/RZ02R3Vq/2_BLANCO_ACAMPANADO.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/pTdFJGW7/4.jpg" alt="LEGINS ACAMPANADOS" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/13zbHg5f/1_NEGRO_ACAMPANADO.png" alt="LEGINS ACAMPANADOS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/RZ02R3Vq/2_BLANCO_ACAMPANADO.png" alt="LEGINS ACAMPANADOS" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/pTdFJGW7/4.jpg', 'LEGINS ACAMPANADOS')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    LEGINS
-                                </div>
-                                
-                                <h3 class="product-title">LEGINS ACAMPANADOS</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$230</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Vive la experiencia de nuestros cómodos LEGINS ACAMPANADOS. Diseñado para mantener su forma original, con licra de alta calidad. Perfecto para sentirte única. ¡Hazlo tuyo hoy mismo!
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Licra gruesa</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Amolda tu figura</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Blanco" style="background-color: #FFFFFF;" title="Blanco" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                            <div class="variant-selector" data-variant-name="Talla">
-                                <div class="variant-label">Talla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="CH" style="border-color: #DB2777" onclick="carrito.selectVariant(this, 'Talla', true)">
-                                            CH
-                                        </button>
-                                    
-                                        <button class="variant-btn" data-value="M" style="border-color: #DB2777" onclick="carrito.selectVariant(this, 'Talla', true)">
-                                            M
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="14" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(14)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="16" style="animation-delay: 0.6000000000000001s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/d1STH236/5.jpg&quot;,&quot;https://i.postimg.cc/SKRY7b5F/1_NEGRO.png&quot;,&quot;https://i.postimg.cc/XvPGsDM2/2_AZUL_MARINO.png&quot;,&quot;https://i.postimg.cc/7LRGKQvK/4_VERDE.png&quot;,&quot;https://i.postimg.cc/3wN0CQ6M/3_ROSA.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/d1STH236/5.jpg" alt="LEGINS" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/SKRY7b5F/1_NEGRO.png" alt="LEGINS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/XvPGsDM2/2_AZUL_MARINO.png" alt="LEGINS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/7LRGKQvK/4_VERDE.png" alt="LEGINS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/3wN0CQ6M/3_ROSA.png" alt="LEGINS" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 3 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 4 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/d1STH236/5.jpg', 'LEGINS')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    LEGINS
-                                </div>
-                                
-                                <h3 class="product-title">LEGINS</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$110</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Ideal para facilitar tu día a día, ya que son lijeros y comodos.  Perfecto para actividades al aire libre. ¡Añádelo a tu colección ahora!
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Bolsa laterales</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Tranparencias laterales</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #DB2777"></i>
-                                                <span>Ligeros.</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Azul marino" style="background-color: #000080;" title="Azul marino" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Verde militar" style="background-color: #4B5320;" title="Verde militar" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Rosa" style="background-color: #FFC0CB;" title="Rosa" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="16" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(16)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="6" style="animation-delay: 0.65s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/4y8Cxvkn/HOMBRE_2_20260220_174822_0000.jpg&quot;,&quot;https://i.postimg.cc/3NLMxj58/HOMBRE_2_20260220_174822_0001.jpg&quot;,&quot;https://i.postimg.cc/nrd8hKbp/HOMBRE_2_20260220_174823_0004.jpg&quot;,&quot;https://i.postimg.cc/j28VS60q/HOMBRE_2_20260220_174822_0002.jpg&quot;,&quot;https://i.postimg.cc/fyH4R7nM/HOMBRE_2_20260220_174823_0003.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/4y8Cxvkn/HOMBRE_2_20260220_174822_0000.jpg" alt="CALCETAS MULAYA'S" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/3NLMxj58/HOMBRE_2_20260220_174822_0001.jpg" alt="CALCETAS MULAYA'S" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/nrd8hKbp/HOMBRE_2_20260220_174823_0004.jpg" alt="CALCETAS MULAYA'S" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/j28VS60q/HOMBRE_2_20260220_174822_0002.jpg" alt="CALCETAS MULAYA'S" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/fyH4R7nM/HOMBRE_2_20260220_174823_0003.jpg" alt="CALCETAS MULAYA'S" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 3 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 4 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/4y8Cxvkn/HOMBRE_2_20260220_174822_0000.jpg', 'CALCETAS MULAYA'S')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #2563EB">
-                                    <i class="fas fa-tag"></i>
-                                    CALCETAS FASHION
-                                </div>
-                                
-                                <h3 class="product-title">CALCETAS MULAYA'S</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">25</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Siente la diferencia con esta práctica CALCETAS MULAYA'S. Fabricado para brindar la máxima comodidad gracias a su materiales, funcional para combinar fácilmente. ¡Ideal para regalar o darte un gusto!
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #2563EB"></i>
-                                                <span>Elasticos</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #2563EB"></i>
-                                                <span>Gruesos</span>
-                                            </div>
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #2563EB"></i>
-                                                <span>Comodos</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris rata" style="background-color: #7E7E7E;" title="Gris rata" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris claro" style="background-color: #D3D3D3;" title="Gris claro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Azul marino" style="background-color: #000080;" title="Azul marino" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="6" style="background: linear-gradient(135deg, #2563EB, #1d4fbc);" onclick="carrito.handleAddToCart(6)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="7" style="animation-delay: 0.7000000000000001s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/RZdtVNqG/HOMBRE_1_20260220_174351_0000.jpg&quot;,&quot;https://i.postimg.cc/JzxX4Gtx/HOMBRE_1_20260220_174351_0001.jpg&quot;,&quot;https://i.postimg.cc/P5yDrPNM/HOMBRE_1_20260220_174352_0004.jpg&quot;,&quot;https://i.postimg.cc/fRCdTJkj/HOMBRE_1_20260220_174352_0003.jpg&quot;,&quot;https://i.postimg.cc/sgmWDv1n/HOMBRE_1_20260220_174351_0002.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/RZdtVNqG/HOMBRE_1_20260220_174351_0000.jpg" alt="CALCETIN SPORT" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/JzxX4Gtx/HOMBRE_1_20260220_174351_0001.jpg" alt="CALCETIN SPORT" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/P5yDrPNM/HOMBRE_1_20260220_174352_0004.jpg" alt="CALCETIN SPORT" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/fRCdTJkj/HOMBRE_1_20260220_174352_0003.jpg" alt="CALCETIN SPORT" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/sgmWDv1n/HOMBRE_1_20260220_174351_0002.jpg" alt="CALCETIN SPORT" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 3 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 4 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/RZdtVNqG/HOMBRE_1_20260220_174351_0000.jpg', 'CALCETIN SPORT')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #2563EB">
-                                    <i class="fas fa-tag"></i>
-                                    CALCETIN SPORT SOCKS
-                                </div>
-                                
-                                <h3 class="product-title">CALCETIN SPORT</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">25</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Destaca con nuestra CALCETIN SPORT de acabados impecables. Perfecto para mantener su forma origina. Ideal para el día a día. ¡Te va a encantar!
-                                </p>
-                                
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Azul marino" style="background-color: #000080;" title="Azul marino" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris claro" style="background-color: #D3D3D3;" title="Gris claro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris rata" style="background-color: #7E7E7E;" title="Gris rata" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="7" style="background: linear-gradient(135deg, #2563EB, #1d4fbc);" onclick="carrito.handleAddToCart(7)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="9" style="animation-delay: 0.75s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/XJ3k1TGW/MUJER_2_20260220_173613_0000.jpg&quot;,&quot;https://i.postimg.cc/d1vjNzkM/MUJER_2_20260220_173613_0001.jpg&quot;,&quot;https://i.postimg.cc/qR0xD9hd/MUJER_2_20260220_173613_0002.jpg&quot;,&quot;https://i.postimg.cc/ydBypwgC/MUJER_2_20260220_173613_0004.jpg&quot;,&quot;https://i.postimg.cc/k49vYkV0/MUJER_2_20260220_173613_0003.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/XJ3k1TGW/MUJER_2_20260220_173613_0000.jpg" alt="CALCETIN NIKE" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/d1vjNzkM/MUJER_2_20260220_173613_0001.jpg" alt="CALCETIN NIKE" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/qR0xD9hd/MUJER_2_20260220_173613_0002.jpg" alt="CALCETIN NIKE" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/ydBypwgC/MUJER_2_20260220_173613_0004.jpg" alt="CALCETIN NIKE" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/k49vYkV0/MUJER_2_20260220_173613_0003.jpg" alt="CALCETIN NIKE" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 3 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 4 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/XJ3k1TGW/MUJER_2_20260220_173613_0000.jpg', 'CALCETIN NIKE')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    CALCETIN
-                                </div>
-                                
-                                <h3 class="product-title">CALCETIN NIKE</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$25</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Estrena esta resistente CALCETIN NIKE. Fabricado para complementar cualquier ocasión. Confeccionada con look sofisticado, es práctica y funcional. ¡Un básico que no puede faltar en tu armario!
-                                </p>
-                                
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris" style="background-color: #808080;" title="Gris" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Blanco" style="background-color: #FFFFFF;" title="Blanco" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Azul marino" style="background-color: #000080;" title="Azul marino" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="9" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(9)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="10" style="animation-delay: 0.8s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/Hxs7yH8k/MUJER_3_20260220_173842_0000.jpg&quot;,&quot;https://i.postimg.cc/268BZmLj/MUJER_3_20260220_173842_0001.jpg&quot;,&quot;https://i.postimg.cc/85Pr6DfD/MUJER_3_20260220_173842_0003.jpg&quot;,&quot;https://i.postimg.cc/d1tTyvZt/MUJER_3_20260220_173842_0002.jpg&quot;,&quot;https://i.postimg.cc/W3bJkjqz/MUJER_3_20260220_173842_0004.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/Hxs7yH8k/MUJER_3_20260220_173842_0000.jpg" alt="CALCETIN ADIDAS" class="carousel-image active">
-                                
-                                    <img src="https://i.postimg.cc/268BZmLj/MUJER_3_20260220_173842_0001.jpg" alt="CALCETIN ADIDAS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/85Pr6DfD/MUJER_3_20260220_173842_0003.jpg" alt="CALCETIN ADIDAS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/d1tTyvZt/MUJER_3_20260220_173842_0002.jpg" alt="CALCETIN ADIDAS" class="carousel-image ">
-                                
-                                    <img src="https://i.postimg.cc/W3bJkjqz/MUJER_3_20260220_173842_0004.jpg" alt="CALCETIN ADIDAS" class="carousel-image ">
-                                
-                            </div>
-                            
-                            
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    
-                                        <span class="indicator-dot active" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 0 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 2 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 3 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                        <span class="indicator-dot " onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 4 - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    
-                                </div>
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/Hxs7yH8k/MUJER_3_20260220_173842_0000.jpg', 'CALCETIN ADIDAS')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #DB2777">
-                                    <i class="fas fa-tag"></i>
-                                    CALCETIN
-                                </div>
-                                
-                                <h3 class="product-title">CALCETIN ADIDAS</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$25</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Conoce esta cómoda CALCETIN ADIDAS. Diseñado para garantizar la mejor calidad. Confeccionada con acabados impecables, es moderna y funcional. ¡Añádelo a tu colección ahora!
-                                </p>
-                                
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Color">
-                                <div class="variant-label">Color:</div>
-                                <div class="variant-options" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    
-                                            <button class="variant-btn color-swatch" data-value="Negro" style="background-color: #000000;" title="Negro" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Gris" style="background-color: #808080;" title="Gris" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Blanco" style="background-color: #FFFFFF;" title="Blanco" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                            <button class="variant-btn color-swatch" data-value="Azul marino" style="background-color: #000080;" title="Azul marino" onclick="carrito.selectVariant(this, 'Color', true)">
-                                            </button>
-                                        
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="10" style="background: linear-gradient(135deg, #DB2777, #af1f5f);" onclick="carrito.handleAddToCart(10)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="18" style="animation-delay: 0.8500000000000001s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/02XZ2Vqk/1.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/02XZ2Vqk/1.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/02XZ2Vqk/1.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #1
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#1" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #1
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="18" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(18)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="19" style="animation-delay: 0.9s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/GhgzhX1b/2.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/GhgzhX1b/2.jpg" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/GhgzhX1b/2.jpg', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #2
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#2" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #2
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="19" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(19)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="20" style="animation-delay: 0.9500000000000001s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/TYNQYtXG/3.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/TYNQYtXG/3.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/TYNQYtXG/3.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #3
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#3" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #3
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="20" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(20)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="21" style="animation-delay: 1s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/FsCGsTQN/4.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/FsCGsTQN/4.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/FsCGsTQN/4.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #4
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#4" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #4
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="21" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(21)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="22" style="animation-delay: 1.05s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/VLZ4LKcY/5.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/VLZ4LKcY/5.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/VLZ4LKcY/5.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #5
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#5" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #5
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="22" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(22)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="23" style="animation-delay: 1.1s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/SN1VNgpQ/6.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/SN1VNgpQ/6.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/SN1VNgpQ/6.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #6
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#6" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #6
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="23" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(23)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="25" style="animation-delay: 1.1500000000000001s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/tCvDCBHC/7.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/tCvDCBHC/7.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/tCvDCBHC/7.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #7
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#7" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #7
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="25" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(25)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="24" style="animation-delay: 1.2000000000000002s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/Dyp5yxKw/8.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/Dyp5yxKw/8.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/Dyp5yxKw/8.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #8
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#8" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #8
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="24" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(24)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="26" style="animation-delay: 1.25s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/c4kT4FNJ/9.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/c4kT4FNJ/9.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/c4kT4FNJ/9.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #9
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#9" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #9
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="26" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(26)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="27" style="animation-delay: 1.3s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/xTpgT6SC/10.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/xTpgT6SC/10.png" alt="Aretes" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/xTpgT6SC/10.png', 'Aretes')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #10
-                                </div>
-                                
-                                <h3 class="product-title">Aretes</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$55</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Fantacia</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#10" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #10
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="27" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(27)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="28" style="animation-delay: 1.35s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/dtNnt5K3/11.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/dtNnt5K3/11.png" alt="Aretes de Gota" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/dtNnt5K3/11.png', 'Aretes de Gota')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #11
-                                </div>
-                                
-                                <h3 class="product-title">Aretes de Gota</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$140</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Laminado 18k</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#11" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #11
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="28" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(28)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="29" style="animation-delay: 1.4000000000000001s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/yYpnYLzW/12.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/yYpnYLzW/12.png" alt="Arracadas Trenzadas" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/yYpnYLzW/12.png', 'Arracadas Trenzadas')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #12
-                                </div>
-                                
-                                <h3 class="product-title">Arracadas Trenzadas</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$140</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Laminado 18k</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#12" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #12
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="29" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(29)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="30" style="animation-delay: 1.4500000000000002s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/wT4FTwd1/13.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/wT4FTwd1/13.png" alt="Aretes de Cadena" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/wT4FTwd1/13.png', 'Aretes de Cadena')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #13
-                                </div>
-                                
-                                <h3 class="product-title">Aretes de Cadena</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$90</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Laminado 18k</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#13" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #13
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="30" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(30)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="31" style="animation-delay: 1.5s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/wT4FTwd1/13.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/wT4FTwd1/13.png" alt="Arracadas de Argolla" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/wT4FTwd1/13.png', 'Arracadas de Argolla')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #14
-                                </div>
-                                
-                                <h3 class="product-title">Arracadas de Argolla</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$70</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Laminado 18k</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#14" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #14
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="31" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(31)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="32" style="animation-delay: 1.55s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/qMDQM1d3/15.jpg&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/qMDQM1d3/15.jpg" alt="Arracadas trenzadas" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/qMDQM1d3/15.jpg', 'Arracadas trenzadas')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #15
-                                </div>
-                                
-                                <h3 class="product-title">Arracadas trenzadas</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$70</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Laminado 18k</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#15" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #15
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="32" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(32)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="product-card" data-product-id="33" style="animation-delay: 1.6s">
-                            
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery="[&quot;https://i.postimg.cc/hPZMP2qQ/16.png&quot;]">
-                                
-                                    <img src="https://i.postimg.cc/hPZMP2qQ/16.png" alt="Arracadas Clasicas" class="carousel-image active">
-                                
-                            </div>
-                            
-                            
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('https://i.postimg.cc/hPZMP2qQ/16.png', 'Arracadas Clasicas')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge normal">NORMAL</div>
-                        </div>
-                    
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: #ff0000">
-                                    <i class="fas fa-tag"></i>
-                                    #16
-                                </div>
-                                
-                                <h3 class="product-title">Arracadas Clasicas</h3>
-                                
-                                <div class="product-price-container">
-                                    
-                                        <div class="regular-price">$70</div>
-                                    
-                                </div>
-                                
-                                <p class="product-description">
-                                    Aretes modernos.
-                                </p>
-                                
-                                
-                                    <div class="product-features">
-                                        
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: #ff0000"></i>
-                                                <span>Laminado 18k</span>
-                                            </div>
-                                        
-                                    </div>
-                                
-                                
-                                
-                            <div class="variant-selector" data-variant-name="Unitalla">
-                                <div class="variant-label">Unitalla:</div>
-                                <div class="variant-options">
-                                    
-                                        <button class="variant-btn" data-value="#16" style="border-color: #ff0000" onclick="carrito.selectVariant(this, 'Unitalla', true)">
-                                            #16
-                                        </button>
-                                    
-                                </div>
-                            </div>
-                        
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" data-product-id="33" style="background: linear-gradient(135deg, #ff0000, #cc0000);" onclick="carrito.handleAddToCart(33)" disabled=""><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+            <!-- Indicador de carga para lazy loading -->
+            <div id="loading-spinner" style="text-align: center; padding: 20px; display: none;">
+                <i class="fas fa-spinner fa-pulse fa-2x" style="color: #8B5CF6;"></i>
+                <p style="color: #ffffff; margin-top: 10px;">Cargando más productos...</p>
+            </div>
+            <!-- Mensaje de fin de catálogo -->
+            <div id="end-of-catalog" style="text-align: center; padding: 20px; color: #cccccc; display: none;">
+                <i class="fas fa-check-circle" style="color: #8B5CF6;"></i> Has visto todos los productos
+            </div>
         </div>
     </section>
 
@@ -10539,7 +8464,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
 
     <div class="cart-icon" id="cartIcon">
         <i class="fas fa-shopping-bag"></i>
-        <div class="cart-count" id="cartCount">1</div>
+        <div class="cart-count" id="cartCount">0</div>
     </div>
 
     <div class="cart-overlay" id="cartOverlay"></div>
@@ -10556,7 +8481,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         </div>
         
         <div class="cart-content">
-            <div class="coupon-section" id="couponSection" style="display: block;">
+            <div class="coupon-section" id="couponSection" style="display: none;">
                 <div class="coupon-title">
                     <i class="fas fa-ticket-alt"></i>
                     Cupones disponibles
@@ -10573,7 +8498,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 <div class="coupon-description">
                                     Cupón de descuento
                                 </div>
-                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 2h 20m</span></div>
+                                <div class="coupon-timer"><i class="fas fa-hourglass-half"></i> <span class="timer-numbers">7d 0h 30m</span></div>
                             </div>
                         </div>
                     </div>
@@ -10669,11 +8594,11 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         </div>
         
         <div class="cart-actions" id="cartActions">
-            <button class="checkout-btn" id="checkoutBtn">
+            <button class="checkout-btn" id="checkoutBtn" disabled="">
                 <i class="fab fa-whatsapp"></i>
                 Finalizar Compra
             </button>
-            <button class="clear-cart-btn" id="clearCartBtn">
+            <button class="clear-cart-btn" id="clearCartBtn" disabled="">
                 <i class="fas fa-trash"></i>
                 Vaciar Carrito
             </button>
@@ -10991,7 +8916,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         
         let deliveryConfig = {"points":[{"id":"xhala","name":"San Sebastián Xhala","address":"San Sebastián, enfrente de la universidad","map":"https://maps.app.goo.gl/nKi4gyiDY1KikZPQ6"},{"id":"socorro","name":"El Socorro","address":"Colonia El Socorro, en los Arcos en frente del oxxo","map":"https://maps.app.goo.gl/BYYZWmaa9TbtjWvD8"},{"id":"mateo","name":"San Mateo","address":"San Mateo, en frente de la iglesia","map":"https://maps.app.goo.gl/q1KoquLtgrTEnuCo6"}],"times":[{"id":"time1771356290191","value":"11:30","label":"11:30 AM"},{"id":"time1771356300623","value":"19:30","label":"7:30 PM"}],"transfer":{"nombre":"Saul Flores","banco":"STP","clabe":"721180100001101243"}};
 
-        let cuponesDisponibles = [{"id":"cupon1772595472810","codigo":"🚚 ENVÍO GRATIS","descripcion":"Cupón de descuento","tipo":"envio","valor":0,"minimo":0,"color":"#10b981","usado":false,"expirado":false,"fechaExpiracion":"2026-03-10T23:59:00","icono":"fa-truck"}];
+        let cuponesDisponibles = [];
         let cuponesUsados = ["cupon1771391296288","cupon1771391284156","cupon1771607993717","cupon1771607991071","cupon1771607988171","cupon1771607984559","cupon1771688064843","cupon1771688072907","cupon1771784636834","cupon1771878474485","cupon1771878472026"];
         let cuponesExpirados = ["cupon1770918868389"];
         let bannersDisponibles = [];
@@ -11468,6 +9393,12 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 this.cuponAplicado = null;
                 this.couponTimers = [];
                 
+                // Variables para lazy loading
+                this.allProducts = productos;
+                this.visibleProducts = 8; // Número de productos a cargar por lote
+                this.loadedProducts = 0; // Cuántos productos se han cargado hasta ahora
+                this.isLoading = false; // Para evitar múltiples cargas simultáneas
+                
                 document.body.style.overflow = 'auto';
                 
                 this.init();
@@ -11476,7 +9407,6 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
             init() {
                 this.renderCartCount();
                 this.setupEventListeners();
-                this.renderProducts();
                 this.renderCategories();
                 this.renderCategoryFilters();
                 this.updateCartButtons();
@@ -11486,6 +9416,9 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 
                 this.updateSectionCategories();
                 this.cargarCupones();
+                
+                // Render inicial de productos (primer lote)
+                this.resetLazyLoading();
                 
                 if (window.admin) {
                     window.admin.renderBanners();
@@ -11497,6 +9430,236 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 }
 
                 window.validadorFechas = new ValidadorFechas();
+            }
+
+            // Nuevo método para resetear lazy loading (cuando se cambia de categoría o se busca)
+            resetLazyLoading() {
+                this.loadedProducts = 0;
+                this.isLoading = false;
+                this.renderProductBatch();
+                this.setupInfiniteScroll();
+            }
+
+            // Método para renderizar el siguiente lote de productos
+            renderProductBatch() {
+                const productsGrid = document.getElementById('productsGrid');
+                const filteredProducts = this.currentFilter === 'todo' 
+                    ? this.allProducts 
+                    : this.allProducts.filter(p => p.categoria === this.currentFilter);
+                
+                // Si es la primera carga (loadedProducts = 0), limpiamos el grid
+                if (this.loadedProducts === 0) {
+                    productsGrid.innerHTML = '';
+                    document.getElementById('end-of-catalog').style.display = 'none';
+                }
+
+                const nextBatch = filteredProducts.slice(this.loadedProducts, this.loadedProducts + this.visibleProducts);
+                
+                if (nextBatch.length === 0) {
+                    // No hay más productos para cargar
+                    if (this.loadedProducts === 0) {
+                        // No hay ningún producto en absoluto
+                        productsGrid.innerHTML = `
+                            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-light);">
+                                <i class="fas fa-box-open" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                                <h3>No hay productos en esta categoría</h3>
+                                <p>Prueba con otra categoría o vuelve más tarde</p>
+                            </div>
+                        `;
+                        document.getElementById('end-of-catalog').style.display = 'none';
+                    } else {
+                        // Ya cargamos todos los productos
+                        document.getElementById('end-of-catalog').style.display = 'block';
+                    }
+                    return;
+                }
+
+                // Añadir el nuevo lote de productos al grid
+                const newProductsHTML = nextBatch.map((product, index) => {
+                    const precio = product.precioDescuento || product.precioRegular;
+                    const categoria = categorias.find(c => c.id === product.categoria);
+                    const colorCategoria = categoria ? categoria.color : '#8B5CF6';
+                    
+                    let carouselImages = [];
+                    if (product.galeriaPorVariante && Object.keys(product.galeriaPorVariante).length > 0) {
+                        const allImages = new Set();
+                        allImages.add(product.imagen);
+                        Object.values(product.galeriaPorVariante).forEach(gallery => {
+                            gallery.forEach(img => allImages.add(img));
+                        });
+                        carouselImages = Array.from(allImages);
+                    } else {
+                        carouselImages = [product.imagen];
+                    }
+                    
+                    const carouselHTML = `
+                        <div class="product-image-carousel">
+                            <div class="carousel-container" data-current-index="0" data-gallery='${JSON.stringify(carouselImages)}'>
+                                ${carouselImages.map((imgUrl, idx) => `
+                                    <img src="${imgUrl}" alt="${product.nombre}" class="carousel-image ${idx === 0 ? 'active' : ''}">
+                                `).join('')}
+                            </div>
+                            
+                            ${carouselImages.length > 1 ? `
+                                <div class="carousel-nav">
+                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="carousel-indicators">
+                                    ${carouselImages.map((_, idx) => `
+                                        <span class="indicator-dot ${idx === 0 ? 'active' : ''}" 
+                                              onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), ${idx} - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                            
+                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('${product.imagen}', '${product.nombre}')" title="Ver en pantalla completa">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            
+                            <div class="product-badge ${product.estado}">${product.estado.toUpperCase()}</div>
+                        </div>
+                    `;
+                    
+                    return `
+                        <div class="product-card" data-product-id="${product.id}" style="animation-delay: ${(this.loadedProducts + index) * 0.05}s">
+                            ${carouselHTML}
+                            
+                            <div class="product-info">
+                                <div class="product-category" style="color: ${colorCategoria}">
+                                    <i class="fas fa-tag"></i>
+                                    ${product.subcategoria}
+                                </div>
+                                
+                                <h3 class="product-title">${product.nombre}</h3>
+                                
+                                <div class="product-price-container">
+                                    ${product.precioDescuento ? `
+                                        <div class="sale-price-container">
+                                            <div class="original-price">${product.precioRegular}</div>
+                                            <div class="sale-price" style="color: ${colorCategoria}">${product.precioDescuento}</div>
+                                            <div class="discount-badge">OFERTA</div>
+                                        </div>
+                                    ` : `
+                                        <div class="regular-price">${product.precioRegular}</div>
+                                    `}
+                                </div>
+                                
+                                <p class="product-description">
+                                    ${product.descripcion || 'Producto de alta calidad'}
+                                </p>
+                                
+                                ${product.especificaciones && product.especificaciones.length > 0 ? `
+                                    <div class="product-features">
+                                        ${product.especificaciones.map(spec => `
+                                            <div class="feature">
+                                                <i class="fas fa-check" style="color: ${colorCategoria}"></i>
+                                                <span>${spec}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                ` : ''}
+                                
+                                ${this.renderProductVariants(product, colorCategoria)}
+                                
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" 
+                                            data-product-id="${product.id}"
+                                            style="background: linear-gradient(135deg, ${colorCategoria}, ${this.darkenColor(colorCategoria)});"
+                                            onclick="carrito.handleAddToCart(${product.id})">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        AGREGAR AL CARRITO
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                productsGrid.insertAdjacentHTML('beforeend', newProductsHTML);
+                this.loadedProducts += nextBatch.length;
+
+                // Configurar los event listeners para los nuevos productos
+                setTimeout(() => {
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        this.updateAddToCartButton(card);
+                        
+                        const fullscreenBtn = card.querySelector('.view-fullscreen-btn');
+                        const carouselContainer = card.querySelector('.carousel-container');
+                        if (fullscreenBtn && carouselContainer) {
+                            const activeImg = carouselContainer.querySelector('.carousel-image.active');
+                            if (activeImg) {
+                                const productId = card.dataset.productId;
+                                const product = this.allProducts.find(p => p.id == productId);
+                                
+                                let selectedColor = null;
+                                const colorVariant = card.querySelector('.variant-selector[data-variant-name="Color"]');
+                                if (colorVariant) {
+                                    const selectedBtn = colorVariant.querySelector('.variant-btn.selected');
+                                    if (selectedBtn) {
+                                        selectedColor = selectedBtn.dataset.value;
+                                    }
+                                }
+                                
+                                if (selectedColor && product && product.galeriaPorVariante) {
+                                    const currentIndex = parseInt(carouselContainer.dataset.currentIndex || '0');
+                                    fullscreenBtn.setAttribute('onclick', `event.stopPropagation(); carrito.openImageModalWithGallery(${productId}, '${selectedColor}', ${currentIndex})`);
+                                } else {
+                                    fullscreenBtn.setAttribute('onclick', `event.stopPropagation(); carrito.openImageModal('${activeImg.src}', '${product ? product.nombre : ''}')`);
+                                }
+                            }
+                        }
+                        
+                        const indicators = card.querySelectorAll('.indicator-dot');
+                        indicators.forEach(dot => {
+                            dot.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                const productCard = e.currentTarget.closest('.product-card');
+                                const carouselContainer = productCard.querySelector('.carousel-container');
+                                const targetIndex = Array.from(indicators).indexOf(e.currentTarget);
+                                const currentIndex = parseInt(carouselContainer.dataset.currentIndex || '0');
+                                const direction = targetIndex - currentIndex;
+                                this.navigateCarousel(productCard, direction);
+                            });
+                        });
+                    });
+                }, 100);
+
+                // Ocultar spinner si está visible
+                document.getElementById('loading-spinner').style.display = 'none';
+                this.isLoading = false;
+            }
+
+            // Método para configurar el scroll infinito
+            setupInfiniteScroll() {
+                const handleScroll = () => {
+                    if (this.isLoading) return;
+
+                    const scrollY = window.scrollY;
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    
+                    // Si estamos cerca del final de la página (100px antes)
+                    if (scrollY + windowHeight >= documentHeight - 100) {
+                        this.isLoading = true;
+                        document.getElementById('loading-spinner').style.display = 'block';
+                        
+                        // Pequeño delay para evitar múltiples llamadas
+                        setTimeout(() => {
+                            this.renderProductBatch();
+                        }, 300);
+                    }
+                };
+
+                // Remover listener anterior si existe
+                window.removeEventListener('scroll', this.scrollHandler);
+                this.scrollHandler = handleScroll;
+                window.addEventListener('scroll', this.scrollHandler);
             }
             
             cargarCupones() {
@@ -12576,7 +10739,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 const fullscreenBtn = productCard.querySelector('.view-fullscreen-btn');
                 if (fullscreenBtn) {
                     const productId = productCard.dataset.productId;
-                    const product = productos.find(p => p.id == productId);
+                    const product = this.allProducts.find(p => p.id == productId);
                     
                     let selectedColor = null;
                     const colorVariant = productCard.querySelector('.variant-selector[data-variant-name="Color"]');
@@ -12640,7 +10803,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
             restoreOriginalCarousel(productCard, product) {
                 if (!product) {
                     const productId = parseInt(productCard.dataset.productId);
-                    product = productos.find(p => p.id === productId);
+                    product = this.allProducts.find(p => p.id === productId);
                 }
                 
                 if (!product) return;
@@ -12686,7 +10849,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                     if (currentProductCard && card === currentProductCard) return;
                     
                     const productId = parseInt(card.dataset.productId);
-                    const product = productos.find(p => p.id === productId);
+                    const product = this.allProducts.find(p => p.id === productId);
                     if (!product) return;
                     
                     const colorVariant = card.querySelector('.variant-selector[data-variant-name="Color"]');
@@ -12704,7 +10867,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
             
             getSelectedVariants(productCard) {
                 const productId = parseInt(productCard.dataset.productId);
-                const product = productos.find(p => p.id === productId);
+                const product = this.allProducts.find(p => p.id === productId);
                 if (!product) return [];
                 
                 return product.variantes
@@ -12729,7 +10892,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
                 if (!productCard) return;
                 
-                const product = productos.find(p => p.id === productId);
+                const product = this.allProducts.find(p => p.id === productId);
                 if (!product) return;
                 
                 const selectedVariants = this.getSelectedVariants(productCard);
@@ -12767,7 +10930,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
             
             updateAddToCartButton(productCard) {
                 const productId = parseInt(productCard.dataset.productId);
-                const product = productos.find(p => p.id === productId);
+                const product = this.allProducts.find(p => p.id === productId);
                 if (!product) return;
                 
                 const addToCartBtn = productCard.querySelector('.add-to-cart-btn');
@@ -12855,6 +11018,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 if (window.buscador) window.buscador.clearSearch('header');
                 
                 this.currentFilter = categoriaId;
+                this.allProducts = productos.filter(p => categoriaId === 'todo' ? true : p.categoria === categoriaId);
                 
                 document.querySelectorAll('.category-filter').forEach(filter => {
                     filter.classList.remove('active');
@@ -12864,7 +11028,10 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 if (activeFilter) activeFilter.classList.add('active');
                 
                 this.updateFilterColors();
-                this.renderProducts();
+                
+                // Reiniciar lazy loading con los nuevos productos filtrados
+                this.resetLazyLoading();
+                
                 document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
             }
             
@@ -12884,177 +11051,14 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
             }
             
             renderProducts() {
+                // Este método ahora solo resetea el lazy loading
                 if (window.buscador && window.buscador.isActive()) return;
-                
-                const productsGrid = document.getElementById('productsGrid');
-                const filteredProducts = this.currentFilter === 'todo' 
-                    ? productos 
-                    : productos.filter(p => p.categoria === this.currentFilter);
-                
-                if (filteredProducts.length === 0) {
-                    productsGrid.innerHTML = `
-                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-light);">
-                            <i class="fas fa-box-open" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
-                            <h3>No hay productos en esta categoría</h3>
-                            <p>Prueba con otra categoría o vuelve más tarde</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                productsGrid.innerHTML = filteredProducts.map((product, index) => {
-                    const precio = product.precioDescuento || product.precioRegular;
-                    const categoria = categorias.find(c => c.id === product.categoria);
-                    const colorCategoria = categoria ? categoria.color : '#8B5CF6';
-                    
-                    let carouselImages = [];
-                    if (product.galeriaPorVariante && Object.keys(product.galeriaPorVariante).length > 0) {
-                        const allImages = new Set();
-                        allImages.add(product.imagen);
-                        Object.values(product.galeriaPorVariante).forEach(gallery => {
-                            gallery.forEach(img => allImages.add(img));
-                        });
-                        carouselImages = Array.from(allImages);
-                    } else {
-                        carouselImages = [product.imagen];
-                    }
-                    
-                    const carouselHTML = `
-                        <div class="product-image-carousel">
-                            <div class="carousel-container" data-current-index="0" data-gallery='${JSON.stringify(carouselImages)}'>
-                                ${carouselImages.map((imgUrl, idx) => `
-                                    <img src="${imgUrl}" alt="${product.nombre}" class="carousel-image ${idx === 0 ? 'active' : ''}">
-                                `).join('')}
-                            </div>
-                            
-                            ${carouselImages.length > 1 ? `
-                                <div class="carousel-nav">
-                                    <button class="carousel-btn prev-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), -1)">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-btn next-btn" onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), 1)">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="carousel-indicators">
-                                    ${carouselImages.map((_, idx) => `
-                                        <span class="indicator-dot ${idx === 0 ? 'active' : ''}" 
-                                              onclick="event.stopPropagation(); carrito.navigateCarousel(this.closest('.product-card'), ${idx} - parseInt(this.closest('.carousel-container').dataset.currentIndex || '0'))"></span>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-                            
-                            <button class="view-fullscreen-btn" onclick="event.stopPropagation(); carrito.openImageModal('${product.imagen}', '${product.nombre}')" title="Ver en pantalla completa">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                            
-                            <div class="product-badge ${product.estado}">${product.estado.toUpperCase()}</div>
-                        </div>
-                    `;
-                    
-                    return `
-                        <div class="product-card" data-product-id="${product.id}" style="animation-delay: ${index * 0.05}s">
-                            ${carouselHTML}
-                            
-                            <div class="product-info">
-                                <div class="product-category" style="color: ${colorCategoria}">
-                                    <i class="fas fa-tag"></i>
-                                    ${product.subcategoria}
-                                </div>
-                                
-                                <h3 class="product-title">${product.nombre}</h3>
-                                
-                                <div class="product-price-container">
-                                    ${product.precioDescuento ? `
-                                        <div class="sale-price-container">
-                                            <div class="original-price">${product.precioRegular}</div>
-                                            <div class="sale-price" style="color: ${colorCategoria}">${product.precioDescuento}</div>
-                                            <div class="discount-badge">OFERTA</div>
-                                        </div>
-                                    ` : `
-                                        <div class="regular-price">${product.precioRegular}</div>
-                                    `}
-                                </div>
-                                
-                                <p class="product-description">
-                                    ${product.descripcion || 'Producto de alta calidad'}
-                                </p>
-                                
-                                ${product.especificaciones && product.especificaciones.length > 0 ? `
-                                    <div class="product-features">
-                                        ${product.especificaciones.map(spec => `
-                                            <div class="feature">
-                                                <i class="fas fa-check" style="color: ${colorCategoria}"></i>
-                                                <span>${spec}</span>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                ` : ''}
-                                
-                                ${this.renderProductVariants(product, colorCategoria)}
-                                
-                                <div class="product-actions">
-                                    <button class="add-to-cart-btn" 
-                                            data-product-id="${product.id}"
-                                            style="background: linear-gradient(135deg, ${colorCategoria}, ${this.darkenColor(colorCategoria)});"
-                                            onclick="carrito.handleAddToCart(${product.id})">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        AGREGAR AL CARRITO
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-                
-                setTimeout(() => {
-                    document.querySelectorAll('.product-card').forEach(card => {
-                        this.updateAddToCartButton(card);
-                        
-                        const fullscreenBtn = card.querySelector('.view-fullscreen-btn');
-                        const carouselContainer = card.querySelector('.carousel-container');
-                        if (fullscreenBtn && carouselContainer) {
-                            const activeImg = carouselContainer.querySelector('.carousel-image.active');
-                            if (activeImg) {
-                                const productId = card.dataset.productId;
-                                const product = productos.find(p => p.id == productId);
-                                
-                                let selectedColor = null;
-                                const colorVariant = card.querySelector('.variant-selector[data-variant-name="Color"]');
-                                if (colorVariant) {
-                                    const selectedBtn = colorVariant.querySelector('.variant-btn.selected');
-                                    if (selectedBtn) {
-                                        selectedColor = selectedBtn.dataset.value;
-                                    }
-                                }
-                                
-                                if (selectedColor && product && product.galeriaPorVariante) {
-                                    const currentIndex = parseInt(carouselContainer.dataset.currentIndex || '0');
-                                    fullscreenBtn.setAttribute('onclick', `event.stopPropagation(); carrito.openImageModalWithGallery(${productId}, '${selectedColor}', ${currentIndex})`);
-                                } else {
-                                    fullscreenBtn.setAttribute('onclick', `event.stopPropagation(); carrito.openImageModal('${activeImg.src}', '${product ? product.nombre : ''}')`);
-                                }
-                            }
-                        }
-                        
-                        const indicators = card.querySelectorAll('.indicator-dot');
-                        indicators.forEach(dot => {
-                            dot.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                const productCard = e.currentTarget.closest('.product-card');
-                                const carouselContainer = productCard.querySelector('.carousel-container');
-                                const targetIndex = Array.from(indicators).indexOf(e.currentTarget);
-                                const currentIndex = parseInt(carouselContainer.dataset.currentIndex || '0');
-                                const direction = targetIndex - currentIndex;
-                                this.navigateCarousel(productCard, direction);
-                            });
-                        });
-                    });
-                }, 100);
+                this.allProducts = productos;
+                this.resetLazyLoading();
             }
             
             renderFilteredProducts(filteredProducts) {
+                // Para búsquedas, mostramos todos los resultados de una vez (sin lazy loading)
                 const productsGrid = document.getElementById('productsGrid');
                 
                 if (filteredProducts.length === 0) {
@@ -13184,7 +11188,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                             const activeImg = carouselContainer.querySelector('.carousel-image.active');
                             if (activeImg) {
                                 const productId = card.dataset.productId;
-                                const product = productos.find(p => p.id == productId);
+                                const product = this.allProducts.find(p => p.id == productId);
                                 
                                 let selectedColor = null;
                                 const colorVariant = card.querySelector('.variant-selector[data-variant-name="Color"]');
@@ -13280,7 +11284,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 const productCard = button.closest('.product-card');
                 const variantContainer = button.closest('.variant-selector');
                 const productId = parseInt(productCard.dataset.productId);
-                const product = productos.find(p => p.id === productId);
+                const product = this.allProducts.find(p => p.id === productId);
                 
                 this.resetAllProductCarousels(productCard);
                 
@@ -16177,6 +14181,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 
                 this.guardarProductosEnStorage();
                 if (window.carrito) {
+                    window.carrito.allProducts = productos;
                     window.carrito.renderProducts();
                     window.carrito.renderCategoryFilters();
                 }
@@ -16380,7 +14385,10 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 productos = productosOrdenados;
                 this.guardarProductosEnStorage();
                 
-                if (window.carrito) window.carrito.renderProducts();
+                if (window.carrito) {
+                    window.carrito.allProducts = productos;
+                    window.carrito.renderProducts();
+                }
                 
                 this.mostrarMensaje('Productos reordenados', 'success');
             }
@@ -16409,6 +14417,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                 
                 this.renderProductosAdmin();
                 if (window.carrito) {
+                    window.carrito.allProducts = productos;
                     window.carrito.renderProducts();
                 }
                 
@@ -16526,7 +14535,10 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                         productos.splice(index, 1);
                         this.guardarProductosEnStorage();
                         
-                        if (window.carrito) window.carrito.renderProducts();
+                        if (window.carrito) {
+                            window.carrito.allProducts = productos;
+                            window.carrito.renderProducts();
+                        }
                         
                         this.renderProductosAdmin();
                         this.mostrarMensaje('Producto eliminado', 'success');
@@ -17614,6 +15626,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
                                 localStorage.setItem('modastyle_general_config', JSON.stringify(generalConfig));
                                 
                                 if (window.carrito) {
+                                    window.carrito.allProducts = productos;
                                     window.carrito.renderProducts();
                                     window.carrito.renderCategoryFilters();
                                     window.carrito.renderCategories();
@@ -17762,6 +15775,7 @@ Dejar vacío si no hay imágenes por variante" style="height: 78px;"></textarea>
         console.log('✅ El carrusel se muestra antes de los productos con navegación automática');
         console.log('✅ El cliente puede agregar, editar y eliminar imágenes del carrusel');
         console.log('✅ La configuración se guarda en localStorage y se exporta en el backup');
+        console.log('✅ Carga Perezosa (Lazy Loading) implementada - solo se cargan 8 productos inicialmente, luego más al hacer scroll.');
     </script>
 
 
